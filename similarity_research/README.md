@@ -1,6 +1,6 @@
-# Script Diversity Research
+# Script Similarity Research
 
 ### Resources
 
-Google's Fonts: 
+Google's Fonts:
 https://github.com/google/fonts/tree/main
