@@ -42,7 +42,7 @@ def google_script_filtered():
     # Want the number of occurances of script subset
 
     # Han, Devangari, Arabic, Bengali, Cyrillic, Kana, Telugu, Tamil
-    subsets = ["chinese-simplified", "devanagari", "arabic", "bengali",
+    subsets = ["chinese-simplified", "chinese-traditional", "devanagari", "arabic", "bengali",
                "cyrillic", "japanese", "telugu", "tamil"]
 
     for subset in subsets:
