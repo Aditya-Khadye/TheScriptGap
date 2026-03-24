@@ -52,23 +52,58 @@ def google_script_filtered():
       support_dictionary[subset] = len(data['items'])
     return support_dictionary
 
+def google_script_relations():
+    response = requests.get(url)
+    data = response.json()
+
+    # print(data)
+
+    filter_scripts = ["chinese-simplified", "chinese-traditional", "devanagari", "arabic", "bengali",
+                      "cyrillic", "japanese", "telugu", "tamil"]
+
+    filter_scripts = None # Comment out to use filter
+    
+    combinations = {}
+    
+    for font in data['items']:
+        subsets = font['subsets']
+        
+        # Filter subsets if specified
+        if filter_scripts:
+            subsets = [s for s in subsets if s in filter_scripts]
+        
+        # Generate all unique pairs for this font
+        if len(subsets) >= 2:
+            for i in range(len(subsets)):
+                for j in range(i + 1, len(subsets)):
+                    pair = tuple(sorted([subsets[i], subsets[j]]))
+                    combinations[pair] = combinations.get(pair, 0) + 1
+    
+    return combinations
+
 # Temporary main function for google data
 def main():
     print("Hello from support-research!")
 
-    print("\nSupport Full List")
-    support_dict = google_top_list()
-    support_df = dict_to_pd(support_dict)
-    print(support_df.head())
-    support_df.to_csv('output/google_support_toplist.csv', index=False)
+    google_script_relations_dict = google_script_relations()
+    google_script_relations_df = pd.DataFrame(list(google_script_relations_dict.items()), columns=['script_pair', 'count'])
+    google_script_relations_df = google_script_relations_df.sort_values(by='count', ascending=False)
+    google_script_relations_df.to_csv('output/google_script_relations.csv', index=False)
+    print(google_script_relations_df)
 
-    print("\nSupport Filtered by top 8 Scripts (population)")
+    # print("\nSupport Full List")
+    # support_dict = google_top_list()
+    # support_df = dict_to_pd(support_dict)
+    # print(support_df.head())
+    # support_df.to_csv('output/google_support_toplist.csv', index=False)
 
-    support_dict = google_script_filtered()
-    support_df = dict_to_pd(support_dict)
-    print(support_df)
-    support_df.to_csv('output/google_support_filtered.csv', index=False)
-    print("Google Support Completed")
+    # print("\nSupport Filtered by top 8 Scripts (population)")
+
+    # support_dict = google_script_filtered()
+    # support_df = dict_to_pd(support_dict)
+    # print(support_df)
+    # support_df.to_csv('output/google_support_filtered.csv', index=False)
+    # print("Google Support Completed")
 
 
 

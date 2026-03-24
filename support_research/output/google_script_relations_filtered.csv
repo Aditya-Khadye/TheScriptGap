@@ -1,0 +1,16 @@
+script_pair,count
+"('cyrillic', 'japanese')",40
+"('chinese-traditional', 'cyrillic')",12
+"('arabic', 'cyrillic')",6
+"('chinese-simplified', 'cyrillic')",3
+"('cyrillic', 'devanagari')",3
+"('bengali', 'devanagari')",2
+"('cyrillic', 'tamil')",2
+"('bengali', 'telugu')",1
+"('bengali', 'tamil')",1
+"('bengali', 'cyrillic')",1
+"('cyrillic', 'telugu')",1
+"('devanagari', 'tamil')",1
+"('devanagari', 'telugu')",1
+"('tamil', 'telugu')",1
+"('arabic', 'tamil')",1
