@@ -1,0 +1,1593 @@
+font_file,font_family,script,codepoint_coverage,total_glyphs,expansion_ratio,vertical_footprint,friction_score,friction_contextual_joining,friction_indic_shaping,friction_ligature_heavy,friction_mark_positioning,friction_rtl_layout
+"Playfair[opsz,wdth,wght].ttf",Playfair 5pt SemiExpanded Light,Cyrillic,124,1307,1.8709677419354838,1.2,4,True,False,True,True,True
+"Wonky[wdth,wght].ttf",Wonky,Cyrillic,275,1150,1.8945454545454545,1.36181640625,3,False,False,True,True,True
+OpenSansCondensed-Italic[wght].ttf,Open Sans Condensed,Cyrillic,304,3431,1.888157894736842,1.36181640625,3,False,False,True,True,True
+OpenSansCondensed[wght].ttf,Open Sans Condensed,Cyrillic,304,3423,1.888157894736842,1.36181640625,3,False,False,True,True,True
+"RobotoFlex[GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght].ttf",Roboto Flex,Cyrillic,152,947,1.144736842105263,1.171875,3,False,False,True,True,True
+"OpenSans[wdth,wght].ttf",Open Sans,Cyrillic,275,1150,1.8945454545454545,1.36181640625,3,False,False,True,True,True
+"OpenSans-Italic[wdth,wght].ttf",Open Sans,Cyrillic,275,1162,1.8945454545454545,1.36181640625,3,False,False,True,True,True
+WDXLLubrifontJPN-Regular.ttf,WDXL 滑油字 JP N,Cyrillic,66,15985,11.636363636363637,1.18,2,False,False,True,True,False
+WDXLLubrifontJPN-Regular.ttf,WDXL 滑油字 JP N,Katakana,90,15985,12.266666666666667,1.18,2,False,False,True,True,False
+WDXLLubrifontJPN-Regular.ttf,WDXL 滑油字 JP N,Han,12148,15985,12.698715837998025,1.18,2,False,False,True,True,False
+Shizuru-Regular.ttf,Shizuru,Katakana,93,411,1.0,1.0,0,False,False,False,False,False
+ZenKakuGothicAntique-Light.ttf,Zen Kaku Gothic Antique Light,Cyrillic,66,7792,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenKakuGothicAntique-Light.ttf,Zen Kaku Gothic Antique Light,Katakana,94,7792,1.148936170212766,1.0,1,False,False,False,True,False
+ZenKakuGothicAntique-Light.ttf,Zen Kaku Gothic Antique Light,Han,6716,7792,1.1499404407385347,1.0,1,False,False,False,True,False
+ZenKakuGothicAntique-Bold.ttf,Zen Kaku Gothic Antique,Cyrillic,66,7792,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenKakuGothicAntique-Bold.ttf,Zen Kaku Gothic Antique,Katakana,94,7792,1.148936170212766,1.0,1,False,False,False,True,False
+ZenKakuGothicAntique-Bold.ttf,Zen Kaku Gothic Antique,Han,6716,7792,1.1499404407385347,1.0,1,False,False,False,True,False
+ZenKakuGothicAntique-Medium.ttf,Zen Kaku Gothic Antique Medium,Cyrillic,66,7792,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenKakuGothicAntique-Medium.ttf,Zen Kaku Gothic Antique Medium,Katakana,94,7792,1.148936170212766,1.0,1,False,False,False,True,False
+ZenKakuGothicAntique-Medium.ttf,Zen Kaku Gothic Antique Medium,Han,6716,7792,1.1499404407385347,1.0,1,False,False,False,True,False
+ZenKakuGothicAntique-Regular.ttf,Zen Kaku Gothic Antique,Cyrillic,66,7792,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenKakuGothicAntique-Regular.ttf,Zen Kaku Gothic Antique,Katakana,94,7792,1.148936170212766,1.0,1,False,False,False,True,False
+ZenKakuGothicAntique-Regular.ttf,Zen Kaku Gothic Antique,Han,6716,7792,1.1499404407385347,1.0,1,False,False,False,True,False
+ZenKakuGothicAntique-Black.ttf,Zen Kaku Gothic Antique Black,Cyrillic,66,7792,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenKakuGothicAntique-Black.ttf,Zen Kaku Gothic Antique Black,Katakana,94,7792,1.148936170212766,1.0,1,False,False,False,True,False
+ZenKakuGothicAntique-Black.ttf,Zen Kaku Gothic Antique Black,Han,6716,7792,1.1499404407385347,1.0,1,False,False,False,True,False
+YujiSyuku-Regular.ttf,Yuji Syuku,Cyrillic,66,9504,1.4090909090909092,1.0,1,False,False,True,False,False
+YujiSyuku-Regular.ttf,Yuji Syuku,Katakana,94,9504,1.446808510638298,1.0,1,False,False,True,False,False
+YujiSyuku-Regular.ttf,Yuji Syuku,Han,6841,9504,1.449934220143254,1.0,1,False,False,True,False,False
+Comforter-Regular.ttf,Comforter,Cyrillic,94,920,1.8936170212765957,1.41,3,True,False,True,True,False
+Yomogi-Regular.ttf,Yomogi,Cyrillic,66,8325,1.2727272727272727,1.0,1,False,False,True,False,False
+Yomogi-Regular.ttf,Yomogi,Katakana,96,8325,1.2916666666666667,1.0,1,False,False,True,False,False
+Yomogi-Regular.ttf,Yomogi,Han,6719,8325,1.2997469861586546,1.0,1,False,False,True,False,False
+VesperLibre-Regular.ttf,Vesper Libre,Devanagari,124,795,9.564516129032258,1.89453125,4,True,True,True,True,False
+VesperLibre-Medium.ttf,Vesper Libre Medium,Devanagari,124,795,9.564516129032258,1.89453125,4,True,True,True,True,False
+VesperLibre-Heavy.ttf,Vesper Libre Heavy,Devanagari,124,795,9.564516129032258,1.89453125,4,True,True,True,True,False
+VesperLibre-Bold.ttf,Vesper Libre,Devanagari,124,795,9.564516129032258,1.89453125,4,True,True,True,True,False
+Katibeh-Regular.ttf,Katibeh,Arabic,528,1480,13.568181818181818,1.2,4,True,False,True,True,True
+AlumniSans-Italic[wght].ttf,Alumni Sans Thin,Cyrillic,100,1002,1.6,1.2,2,False,False,True,True,False
+AlumniSans[wght].ttf,Alumni Sans Thin,Cyrillic,100,999,1.6,1.2,2,False,False,True,True,False
+Batang-Regular.ttf,Batang,Cyrillic,94,22772,1.0,1.0,0,False,False,False,False,False
+Batang-Regular.ttf,Batang,Katakana,86,22772,1.0,1.0,0,False,False,False,False,False
+Batang-Regular.ttf,Batang,Han,7744,22772,1.0,1.0,0,False,False,False,False,False
+Huninn-Regular.ttf,粉圓,Cyrillic,72,11609,1.4166666666666667,1.12,3,False,False,True,True,True
+Huninn-Regular.ttf,粉圓,Katakana,88,11609,1.4431818181818181,1.12,3,False,False,True,True,True
+Huninn-Regular.ttf,粉圓,Han,9803,11609,1.449862287054983,1.12,3,False,False,True,True,True
+Marhey[wght].ttf,Marhey Light,Arabic,122,1223,2.3278688524590163,1.74,4,True,False,True,True,True
+Biryani-Light.ttf,Biryani,Devanagari,123,878,8.902439024390244,1.765,3,False,True,True,True,False
+Biryani-ExtraBold.ttf,Biryani,Devanagari,123,878,8.902439024390244,1.765,3,False,True,True,True,False
+Biryani-Regular.ttf,Biryani,Devanagari,123,878,8.902439024390244,1.765,3,False,True,True,True,False
+Biryani-Black.ttf,Biryani,Devanagari,123,878,8.902439024390244,1.765,3,False,True,True,True,False
+Biryani-Bold.ttf,Biryani,Devanagari,123,878,8.902439024390244,1.765,3,False,True,True,True,False
+Biryani-ExtraLight.ttf,Biryani,Devanagari,123,868,8.902439024390244,1.765,3,False,True,True,True,False
+Biryani-SemiBold.ttf,Biryani,Devanagari,123,878,8.902439024390244,1.765,3,False,True,True,True,False
+ScheherazadeNew-Medium.ttf,Scheherazade New Medium,Arabic,335,1805,3.537313432835821,2.03955078125,4,True,False,True,True,True
+ScheherazadeNew-SemiBold.ttf,Scheherazade New SemiBold,Arabic,335,1805,3.537313432835821,2.03955078125,4,True,False,True,True,True
+ScheherazadeNew-Regular.ttf,Scheherazade New,Arabic,335,1822,3.537313432835821,2.03955078125,4,True,False,True,True,True
+ScheherazadeNew-Bold.ttf,Scheherazade New,Arabic,335,1805,3.537313432835821,2.03955078125,4,True,False,True,True,True
+MPLUS1p-ExtraBold.ttf,M PLUS 1p ExtraBold,Cyrillic,264,8676,2.1818181818181817,1.09,3,False,False,True,True,True
+MPLUS1p-ExtraBold.ttf,M PLUS 1p ExtraBold,Katakana,112,8676,2.142857142857143,1.09,3,False,False,True,True,True
+MPLUS1p-ExtraBold.ttf,M PLUS 1p ExtraBold,Han,5092,8676,2.1987431264728987,1.09,3,False,False,True,True,True
+MPLUS1p-Light.ttf,M PLUS 1p Light,Cyrillic,264,8676,2.1818181818181817,1.09,3,False,False,True,True,True
+MPLUS1p-Light.ttf,M PLUS 1p Light,Katakana,112,8676,2.142857142857143,1.09,3,False,False,True,True,True
+MPLUS1p-Light.ttf,M PLUS 1p Light,Han,5092,8676,2.1987431264728987,1.09,3,False,False,True,True,True
+MPLUS1p-Thin.ttf,M PLUS 1p Thin,Cyrillic,264,8676,2.1818181818181817,1.09,3,False,False,True,True,True
+MPLUS1p-Thin.ttf,M PLUS 1p Thin,Katakana,112,8676,2.142857142857143,1.09,3,False,False,True,True,True
+MPLUS1p-Thin.ttf,M PLUS 1p Thin,Han,5092,8676,2.1987431264728987,1.09,3,False,False,True,True,True
+MPLUS1p-Bold.ttf,M PLUS 1p,Cyrillic,264,8676,2.1818181818181817,1.09,3,False,False,True,True,True
+MPLUS1p-Bold.ttf,M PLUS 1p,Katakana,112,8676,2.142857142857143,1.09,3,False,False,True,True,True
+MPLUS1p-Bold.ttf,M PLUS 1p,Han,5092,8676,2.1987431264728987,1.09,3,False,False,True,True,True
+MPLUS1p-Black.ttf,M PLUS 1p Black,Cyrillic,264,8676,2.1818181818181817,1.09,3,False,False,True,True,True
+MPLUS1p-Black.ttf,M PLUS 1p Black,Katakana,112,8676,2.142857142857143,1.09,3,False,False,True,True,True
+MPLUS1p-Black.ttf,M PLUS 1p Black,Han,5092,8676,2.1987431264728987,1.09,3,False,False,True,True,True
+MPLUS1p-Medium.ttf,M PLUS 1p Medium,Cyrillic,264,8676,2.1818181818181817,1.09,3,False,False,True,True,True
+MPLUS1p-Medium.ttf,M PLUS 1p Medium,Katakana,112,8676,2.142857142857143,1.09,3,False,False,True,True,True
+MPLUS1p-Medium.ttf,M PLUS 1p Medium,Han,5092,8676,2.1987431264728987,1.09,3,False,False,True,True,True
+MPLUS1p-Regular.ttf,M PLUS 1p,Cyrillic,264,8676,2.1818181818181817,1.09,3,False,False,True,True,True
+MPLUS1p-Regular.ttf,M PLUS 1p,Katakana,112,8676,2.142857142857143,1.09,3,False,False,True,True,True
+MPLUS1p-Regular.ttf,M PLUS 1p,Han,5092,8676,2.1987431264728987,1.09,3,False,False,True,True,True
+LemonadaVFBeta.ttf,Lemonada,Arabic,239,823,11.543933054393305,1.998,4,True,False,True,True,True
+Dekko-Regular.ttf,Dekko,Devanagari,126,857,4.0,1.429,2,False,True,True,False,False
+Dotum-Regular.ttf,Dotum,Cyrillic,94,22643,1.0,1.0,0,False,False,False,False,False
+Dotum-Regular.ttf,Dotum,Katakana,86,22643,1.0,1.0,0,False,False,False,False,False
+Dotum-Regular.ttf,Dotum,Han,7744,22643,1.0,1.0,0,False,False,False,False,False
+"Geologica[CRSV,SHRP,slnt,wght].ttf",Geologica Thin,Cyrillic,182,973,1.5934065934065933,1.25,3,True,False,True,True,False
+Sitara-BoldItalic.ttf,Sitara,Devanagari,153,746,14.516339869281046,1.62060546875,3,False,True,False,True,True
+Sitara-Regular.ttf,Sitara,Devanagari,154,747,15.03896103896104,1.62060546875,3,False,True,False,True,True
+Sitara-Bold.ttf,Sitara,Devanagari,154,747,15.03896103896104,1.62060546875,3,False,True,False,True,True
+Sitara-Italic.ttf,Sitara,Devanagari,153,746,14.516339869281046,1.62060546875,3,False,True,False,True,True
+IBMPlexSansJP-Bold.ttf,IBM Plex Sans JP,Cyrillic,66,9505,3.4545454545454546,1.0,2,False,False,True,True,False
+IBMPlexSansJP-Bold.ttf,IBM Plex Sans JP,Katakana,94,9505,3.6808510638297873,1.0,2,False,False,True,True,False
+IBMPlexSansJP-Bold.ttf,IBM Plex Sans JP,Han,6844,9505,3.6979836353009934,1.0,2,False,False,True,True,False
+IBMPlexSansJP-Thin.ttf,IBM Plex Sans JP Thin,Cyrillic,66,9505,3.4545454545454546,1.0,1,False,False,True,False,False
+IBMPlexSansJP-Thin.ttf,IBM Plex Sans JP Thin,Katakana,94,9505,3.6808510638297873,1.0,1,False,False,True,False,False
+IBMPlexSansJP-Thin.ttf,IBM Plex Sans JP Thin,Han,6844,9505,3.6979836353009934,1.0,1,False,False,True,False,False
+IBMPlexSansJP-ExtraLight.ttf,IBM Plex Sans JP ExtraLight,Cyrillic,66,9505,3.4545454545454546,1.0,1,False,False,True,False,False
+IBMPlexSansJP-ExtraLight.ttf,IBM Plex Sans JP ExtraLight,Katakana,94,9505,3.6808510638297873,1.0,1,False,False,True,False,False
+IBMPlexSansJP-ExtraLight.ttf,IBM Plex Sans JP ExtraLight,Han,6844,9505,3.6979836353009934,1.0,1,False,False,True,False,False
+IBMPlexSansJP-Medium.ttf,IBM Plex Sans JP Medium,Cyrillic,66,9505,3.4545454545454546,1.0,1,False,False,True,False,False
+IBMPlexSansJP-Medium.ttf,IBM Plex Sans JP Medium,Katakana,94,9505,3.6808510638297873,1.0,1,False,False,True,False,False
+IBMPlexSansJP-Medium.ttf,IBM Plex Sans JP Medium,Han,6844,9505,3.6979836353009934,1.0,1,False,False,True,False,False
+IBMPlexSansJP-SemiBold.ttf,IBM Plex Sans JP SemiBold,Cyrillic,66,9505,3.4545454545454546,1.0,1,False,False,True,False,False
+IBMPlexSansJP-SemiBold.ttf,IBM Plex Sans JP SemiBold,Katakana,94,9505,3.6808510638297873,1.0,1,False,False,True,False,False
+IBMPlexSansJP-SemiBold.ttf,IBM Plex Sans JP SemiBold,Han,6844,9505,3.6979836353009934,1.0,1,False,False,True,False,False
+IBMPlexSansJP-Light.ttf,IBM Plex Sans JP Light,Cyrillic,66,9505,3.4545454545454546,1.0,1,False,False,True,False,False
+IBMPlexSansJP-Light.ttf,IBM Plex Sans JP Light,Katakana,94,9505,3.6808510638297873,1.0,1,False,False,True,False,False
+IBMPlexSansJP-Light.ttf,IBM Plex Sans JP Light,Han,6844,9505,3.6979836353009934,1.0,1,False,False,True,False,False
+IBMPlexSansJP-Regular.ttf,IBM Plex Sans JP,Cyrillic,66,9505,3.4545454545454546,1.0,1,False,False,True,False,False
+IBMPlexSansJP-Regular.ttf,IBM Plex Sans JP,Katakana,94,9505,3.6808510638297873,1.0,1,False,False,True,False,False
+IBMPlexSansJP-Regular.ttf,IBM Plex Sans JP,Han,6844,9505,3.6979836353009934,1.0,1,False,False,True,False,False
+SreeKrushnadevaraya-Regular.ttf,Sree Krushnadevaraya,Telugu,94,1221,1.8936170212765957,2.0597222222222222,1,False,True,False,False,False
+Mukta-ExtraBold.ttf,Mukta,Devanagari,128,1368,15.1015625,1.662,3,False,True,True,True,False
+Mukta-SemiBold.ttf,Mukta,Devanagari,128,1368,15.1015625,1.662,3,False,True,True,True,False
+Mukta-Bold.ttf,Mukta,Devanagari,128,1368,15.1015625,1.662,3,False,True,True,True,False
+Mukta-ExtraLight.ttf,Mukta,Devanagari,128,1368,15.1015625,1.662,3,False,True,True,True,False
+Mukta-Light.ttf,Mukta,Devanagari,128,1368,15.1015625,1.662,3,False,True,True,True,False
+Mukta-Medium.ttf,Mukta,Devanagari,128,1368,15.1015625,1.662,3,False,True,True,True,False
+Mukta-Regular.ttf,Mukta,Devanagari,128,1368,15.1015625,1.662,3,False,True,True,True,False
+Lohit-Bengali.ttf,Lohit Bengali,Bengali,92,487,2.5543478260869565,1.3315994798439532,3,True,True,False,True,False
+JejuHallasan-Regular.ttf,JejuHallasan,Cyrillic,66,18315,1.0,1.006,0,False,False,False,False,False
+JejuHallasan-Regular.ttf,JejuHallasan,Katakana,88,18315,1.0,1.006,0,False,False,False,False,False
+JejuHallasan-Regular.ttf,JejuHallasan,Han,4888,18315,0.9451718494271686,1.006,0,False,False,False,False,False
+NotoSerifSC[wght].ttf,Noto Serif SC ExtraLight,Cyrillic,66,31058,5.5,1.0,2,False,False,True,True,False
+NotoSerifSC[wght].ttf,Noto Serif SC ExtraLight,Katakana,112,31058,5.714285714285714,1.0,2,False,False,True,True,False
+NotoSerifSC[wght].ttf,Noto Serif SC ExtraLight,Han,27773,31058,5.922946746840457,1.0,2,False,False,True,True,False
+Tuffy-Bold.ttf,Tuffy,Cyrillic,92,890,1.0,1.48291015625,0,False,False,False,False,False
+Tuffy-BoldItalic.ttf,Tuffy,Cyrillic,92,890,1.0,1.48291015625,0,False,False,False,False,False
+Tuffy-Regular.ttf,Tuffy,Cyrillic,208,1502,2.3413461538461537,1.48291015625,1,False,False,True,False,False
+Tuffy-Italic.ttf,Tuffy,Cyrillic,208,1502,2.3413461538461537,1.48291015625,1,False,False,True,False,False
+Brygada1918-Italic[wght].ttf,Brygada 1918,Cyrillic,130,1488,1.5846153846153845,1.17,2,False,False,True,True,False
+Brygada1918[wght].ttf,Brygada 1918,Cyrillic,130,1499,1.2923076923076924,1.17,2,False,False,True,True,False
+Unbounded[wght].ttf,Unbounded,Cyrillic,98,1419,1.5714285714285714,1.24,2,False,False,True,True,False
+KaiseiOpti-Regular.ttf,Kaisei Opti,Cyrillic,66,9368,1.6818181818181819,1.0,1,False,False,True,False,False
+KaiseiOpti-Regular.ttf,Kaisei Opti,Katakana,94,9368,1.7446808510638299,1.0,1,False,False,True,False,False
+KaiseiOpti-Regular.ttf,Kaisei Opti,Han,6753,9368,1.7492966089145565,1.0,1,False,False,True,False,False
+KaiseiOpti-Bold.ttf,Kaisei Opti,Cyrillic,66,9368,1.6818181818181819,1.0,1,False,False,True,False,False
+KaiseiOpti-Bold.ttf,Kaisei Opti,Katakana,94,9368,1.7446808510638299,1.0,1,False,False,True,False,False
+KaiseiOpti-Bold.ttf,Kaisei Opti,Han,6753,9368,1.7492966089145565,1.0,1,False,False,True,False,False
+KaiseiOpti-Medium.ttf,Kaisei Opti Medium,Cyrillic,66,9368,1.6818181818181819,1.0,1,False,False,True,False,False
+KaiseiOpti-Medium.ttf,Kaisei Opti Medium,Katakana,94,9368,1.7446808510638299,1.0,1,False,False,True,False,False
+KaiseiOpti-Medium.ttf,Kaisei Opti Medium,Han,6753,9368,1.7492966089145565,1.0,1,False,False,True,False,False
+Lohit-Devanagari.ttf,Lohit Devanagari,Devanagari,155,423,2.632258064516129,1.33203125,2,False,True,False,True,False
+Teko[wght].ttf,Teko Light,Devanagari,93,1025,3.096774193548387,1.433,4,False,True,True,True,True
+PlayfairDisplay-Italic[wght].ttf,Playfair Display,Cyrillic,122,1101,1.7377049180327868,1.333,3,True,False,True,True,False
+PlayfairDisplay[wght].ttf,Playfair Display,Cyrillic,122,1103,1.7377049180327868,1.333,3,True,False,True,True,False
+"AnekDevanagari[wdth,wght].ttf",Anek Devanagari Medium,Devanagari,129,1282,3.798449612403101,1.7055,3,False,True,True,True,False
+Neucha.ttf,Neucha,Cyrillic,94,286,1.0,1.1015625,0,False,False,False,False,False
+RubikPuddles-Regular.ttf,Rubik Puddles,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+SeymourOne-Regular.ttf,Seymour One,Cyrillic,100,529,1.6,1.2568359375,2,False,False,True,True,False
+RubikIso-Regular.ttf,Rubik Iso,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+"Playfair[opsz,wdth,wght].ttf",Playfair 5pt SemiExpanded Light,Cyrillic,124,2316,1.7258064516129032,1.2,4,True,False,True,True,True
+"Playfair-Italic[opsz,wdth,wght].ttf",Playfair 5pt SemiExpanded Light,Cyrillic,124,2326,1.7258064516129032,1.2,4,True,False,True,True,True
+ShipporiAntiqueB1-Regular.ttf,Shippori Antique B1,Katakana,110,16210,1.1454545454545455,1.0,2,False,False,False,True,True
+ShipporiAntiqueB1-Regular.ttf,Shippori Antique B1,Han,14500,16210,1.1289655172413793,1.0,2,False,False,False,True,True
+"NotoSansDisplay-Italic[wdth,wght].ttf",Noto Sans Display,Cyrillic,304,3327,1.7401315789473684,1.362,3,False,False,True,True,True
+"NotoSansDisplay[wdth,wght].ttf",Noto Sans Display,Cyrillic,304,3316,1.7401315789473684,1.362,3,False,False,True,True,True
+Rock3D-Regular.ttf,Rock 3D,Katakana,93,411,1.0,1.0,0,False,False,False,False,False
+Pushster-Regular.ttf,Lobster,Cyrillic,182,1174,9.307692307692308,1.25,3,True,False,True,True,False
+BpmfHuninn-Regular.ttf,ㄅ注音粉圓,Katakana,88,21535,1.0,1.12,0,False,False,False,False,False
+BpmfHuninn-Regular.ttf,ㄅ注音粉圓,Han,8245,21535,1.0,1.12,0,False,False,False,False,False
+HiMelody-Regular.ttf,Hi Melody,Katakana,86,12103,1.0,1.25,0,False,False,False,False,False
+Akshar[wght].ttf,Akshar Light,Devanagari,120,813,3.1,1.38,3,False,True,True,True,False
+Palanquin-Regular.ttf,Palanquin,Devanagari,128,1246,11.984375,1.0,2,False,True,False,True,False
+Palanquin-Thin.ttf,Palanquin,Devanagari,128,1245,11.984375,1.0,2,False,True,False,True,False
+Palanquin-ExtraLight.ttf,Palanquin,Devanagari,128,1245,11.984375,1.0,2,False,True,False,True,False
+Palanquin-Bold.ttf,Palanquin,Devanagari,128,1246,11.984375,1.0,2,False,True,False,True,False
+Palanquin-Light.ttf,Palanquin,Devanagari,128,1246,11.984375,1.0,2,False,True,False,True,False
+Palanquin-SemiBold.ttf,Palanquin,Devanagari,128,1246,11.984375,1.0,2,False,True,False,True,False
+Palanquin-Medium.ttf,Palanquin,Devanagari,128,1246,11.984375,1.0,2,False,True,False,True,False
+CascadiaCode[wght].ttf,Cascadia Code,Cyrillic,126,4319,2.142857142857143,1.162109375,4,True,False,True,True,True
+CascadiaCode[wght].ttf,Cascadia Code,Arabic,277,4319,2.184115523465704,1.162109375,4,True,False,True,True,True
+CascadiaCode-Italic[wght].ttf,Cascadia Code,Cyrillic,126,3076,1.2857142857142858,1.162109375,2,True,False,False,True,False
+NotoSansTC[wght].ttf,Noto Sans TC Thin,Cyrillic,66,20950,5.5,1.0,2,False,False,True,True,False
+NotoSansTC[wght].ttf,Noto Sans TC Thin,Katakana,112,20950,5.714285714285714,1.0,2,False,False,True,True,False
+NotoSansTC[wght].ttf,Noto Sans TC Thin,Han,17739,20950,5.923840126275438,1.0,2,False,False,True,True,False
+NTR-Regular.ttf,NTR,Telugu,94,709,2.0425531914893615,2.1201171875,2,False,True,False,True,False
+YsabeauSC[wght].ttf,Ysabeau SC,Cyrillic,238,1247,1.7352941176470589,1.343,3,True,False,True,True,False
+NotoSansSyriac[wght].ttf,Noto Sans Syriac,Arabic,30,604,1.8,1.412,4,True,False,True,True,True
+SofiaSansSemiCondensed[wght].ttf,Sofia Sans Semi Condensed,Cyrillic,104,954,1.5769230769230769,1.2,3,True,False,True,True,False
+SofiaSansSemiCondensed-Italic[wght].ttf,Sofia Sans Semi Condensed,Cyrillic,104,934,1.5769230769230769,1.2,3,True,False,True,True,False
+CactusClassicalSerif-Regular.ttf,仙人掌明體,Cyrillic,150,58570,1.5866666666666667,1.0,2,False,False,True,True,False
+CactusClassicalSerif-Regular.ttf,仙人掌明體,Katakana,112,58570,1.5714285714285714,1.0,2,False,False,True,True,False
+CactusClassicalSerif-Regular.ttf,仙人掌明體,Han,54913,58570,1.5990749002968332,1.0,2,False,False,True,True,False
+"NotoSerifDisplay[wdth,wght].ttf",Noto Serif Display,Cyrillic,304,3256,1.7401315789473684,1.362,3,False,False,True,True,True
+"NotoSerifDisplay-Italic[wdth,wght].ttf",Noto Serif Display,Cyrillic,304,3268,1.7401315789473684,1.362,3,False,False,True,True,True
+Ledger-Regular.ttf,Ledger,Cyrillic,94,452,1.0,1.391,0,False,False,False,False,False
+Lemonada[wght].ttf,Lemonada,Arabic,239,827,2.1715481171548117,1.998,4,True,False,True,True,True
+Rajdhani-Medium.ttf,Rajdhani,Devanagari,102,1100,2.6176470588235294,1.276,2,False,True,False,True,False
+Rajdhani-SemiBold.ttf,Rajdhani,Devanagari,102,1100,2.6176470588235294,1.276,2,False,True,False,True,False
+Rajdhani-Light.ttf,Rajdhani,Devanagari,102,1100,2.6176470588235294,1.276,2,False,True,False,True,False
+Rajdhani-Bold.ttf,Rajdhani,Devanagari,102,1100,2.6176470588235294,1.276,2,False,True,False,True,False
+Rajdhani-Regular.ttf,Rajdhani,Devanagari,102,1100,2.6176470588235294,1.276,2,False,True,False,True,False
+Murecho[wght].ttf,Murecho Thin,Cyrillic,99,4656,1.2828282828282829,1.0,2,False,False,False,True,True
+Murecho[wght].ttf,Murecho Thin,Katakana,112,4656,1.2857142857142858,1.0,2,False,False,False,True,True
+Murecho[wght].ttf,Murecho Thin,Han,2346,4656,1.29923273657289,1.0,2,False,False,False,True,True
+Kurale-Regular.ttf,Kurale,Cyrillic,182,1006,2.1868131868131866,1.478,3,False,True,True,True,False
+Kurale-Regular.ttf,Kurale,Devanagari,154,1006,2.1948051948051948,1.478,3,False,True,True,True,False
+CormorantGaramond[wght].ttf,Cormorant Garamond Light,Cyrillic,236,3241,1.5932203389830508,1.211,4,True,False,True,True,True
+CormorantGaramond-Italic[wght].ttf,Cormorant Garamond Light,Cyrillic,236,1895,1.5932203389830508,1.211,4,True,False,True,True,True
+JejuMyeongjo-Regular.ttf,JejuMyeongjo,Cyrillic,66,18315,1.0,1.0,0,False,False,False,False,False
+JejuMyeongjo-Regular.ttf,JejuMyeongjo,Katakana,88,18315,1.0,1.0,0,False,False,False,False,False
+JejuMyeongjo-Regular.ttf,JejuMyeongjo,Han,4888,18315,0.9451718494271686,1.0,0,False,False,False,False,False
+AoboshiOne-Regular.ttf,Aoboshi One,Katakana,93,599,1.2795698924731183,1.0,1,False,False,True,False,False
+"AdventPro[wdth,wght].ttf",Advent Pro,Cyrillic,182,642,1.1483516483516483,1.194,2,False,False,True,True,False
+"AdventPro-Italic[wdth,wght].ttf",Advent Pro,Cyrillic,182,642,1.1483516483516483,1.194,2,False,False,True,True,False
+Pattaya-Regular.ttf,Pattaya,Cyrillic,94,1171,6.212765957446808,1.3876953125,3,True,False,True,True,False
+NewsCycle-Regular.ttf,News Cycle,Cyrillic,256,1566,1.1484375,1.64453125,1,False,False,True,False,False
+RoundedMplus1c-Medium.ttf,Rounded Mplus 1c,Cyrillic,264,8546,2.1818181818181817,1.09,3,False,False,True,True,True
+RoundedMplus1c-Medium.ttf,Rounded Mplus 1c,Katakana,112,8546,2.142857142857143,1.09,3,False,False,True,True,True
+RoundedMplus1c-Medium.ttf,Rounded Mplus 1c,Han,4964,8546,2.1990330378726832,1.09,3,False,False,True,True,True
+RoundedMplus1c-Light.ttf,Rounded Mplus 1c,Cyrillic,264,8546,2.1818181818181817,1.09,3,False,False,True,True,True
+RoundedMplus1c-Light.ttf,Rounded Mplus 1c,Katakana,112,8546,2.142857142857143,1.09,3,False,False,True,True,True
+RoundedMplus1c-Light.ttf,Rounded Mplus 1c,Han,4964,8546,2.1990330378726832,1.09,3,False,False,True,True,True
+RoundedMplus1c-Bold.ttf,Rounded Mplus 1c,Cyrillic,264,8546,2.1818181818181817,1.09,3,False,False,True,True,True
+RoundedMplus1c-Bold.ttf,Rounded Mplus 1c,Katakana,112,8546,2.142857142857143,1.09,3,False,False,True,True,True
+RoundedMplus1c-Bold.ttf,Rounded Mplus 1c,Han,4964,8546,2.1990330378726832,1.09,3,False,False,True,True,True
+RoundedMplus1c-Thin.ttf,Rounded Mplus 1c,Cyrillic,264,8546,2.1818181818181817,1.09,3,False,False,True,True,True
+RoundedMplus1c-Thin.ttf,Rounded Mplus 1c,Katakana,112,8546,2.142857142857143,1.09,3,False,False,True,True,True
+RoundedMplus1c-Thin.ttf,Rounded Mplus 1c,Han,4964,8546,2.1990330378726832,1.09,3,False,False,True,True,True
+RoundedMplus1c-Regular.ttf,Rounded Mplus 1c,Cyrillic,264,8546,2.1818181818181817,1.09,3,False,False,True,True,True
+RoundedMplus1c-Regular.ttf,Rounded Mplus 1c,Katakana,112,8546,2.142857142857143,1.09,3,False,False,True,True,True
+RoundedMplus1c-Regular.ttf,Rounded Mplus 1c,Han,4964,8546,2.1990330378726832,1.09,3,False,False,True,True,True
+RoundedMplus1c-Black.ttf,Rounded Mplus 1c,Cyrillic,264,8546,2.1818181818181817,1.09,3,False,False,True,True,True
+RoundedMplus1c-Black.ttf,Rounded Mplus 1c,Katakana,112,8546,2.142857142857143,1.09,3,False,False,True,True,True
+RoundedMplus1c-Black.ttf,Rounded Mplus 1c,Han,4964,8546,2.1990330378726832,1.09,3,False,False,True,True,True
+RoundedMplus1c-ExtraBold.ttf,Rounded Mplus 1c,Cyrillic,264,8546,2.1818181818181817,1.09,3,False,False,True,True,True
+RoundedMplus1c-ExtraBold.ttf,Rounded Mplus 1c,Katakana,112,8546,2.142857142857143,1.09,3,False,False,True,True,True
+RoundedMplus1c-ExtraBold.ttf,Rounded Mplus 1c,Han,4964,8546,2.1990330378726832,1.09,3,False,False,True,True,True
+WDXLLubrifontTC-Regular.ttf,WDXL 滑油字 TC,Cyrillic,66,15985,11.636363636363637,1.18,2,False,False,True,True,False
+WDXLLubrifontTC-Regular.ttf,WDXL 滑油字 TC,Katakana,90,15985,12.266666666666667,1.18,2,False,False,True,True,False
+WDXLLubrifontTC-Regular.ttf,WDXL 滑油字 TC,Han,12148,15985,12.692130391834047,1.18,2,False,False,True,True,False
+Nikukyu-Regular.ttf,Nikukyu,Katakana,81,182,1.0,1.0,0,False,False,False,False,False
+Alkatra[wght].ttf,Alkatra,Devanagari,84,1824,6.285714285714286,1.684,4,True,True,True,True,False
+Alkatra[wght].ttf,Alkatra,Bengali,84,1824,6.285714285714286,1.684,4,True,True,True,True,False
+Mallanna-Regular.ttf,Mallanna,Telugu,94,1234,1.8936170212765957,1.849425287356322,1,False,True,False,False,False
+Finlandica[wght].ttf,Finlandica,Cyrillic,242,707,1.4462809917355373,1.2,2,False,False,True,True,False
+Finlandica-Italic[wght].ttf,Finlandica,Cyrillic,242,706,1.4462809917355373,1.2,2,False,False,True,True,False
+AlumniSansCollegiateOne-Italic.ttf,Alumni Sans Collegiate One,Cyrillic,92,1025,1.565217391304348,1.2,2,False,False,True,True,False
+AlumniSansCollegiateOne-Regular.ttf,Alumni Sans Collegiate One,Cyrillic,92,1026,1.565217391304348,1.2,2,False,False,True,True,False
+LibertinusSans-Bold.ttf,Libertinus Sans,Cyrillic,134,2592,1.0,1.14,2,False,False,False,True,True
+LibertinusSans-Italic.ttf,Libertinus Sans,Cyrillic,230,2465,1.0,1.14,2,False,False,False,True,True
+LibertinusSans-Regular.ttf,Libertinus Sans,Cyrillic,142,2438,1.0,1.14,2,False,False,False,True,True
+NotoSansMath-Regular.ttf,Noto Sans Math,Cyrillic,64,5130,1.140625,1.492,2,False,False,False,True,True
+NotoSansMath-Regular.ttf,Noto Sans Math,Arabic,62,5130,1.064516129032258,1.492,2,False,False,False,True,True
+Mina-Regular.ttf,Mina,Bengali,92,927,3.119565217391304,1.59,3,True,True,False,True,False
+Mina-Bold.ttf,Mina,Bengali,92,931,3.119565217391304,1.59,3,True,True,False,True,False
+LXGWMarkerGothic-Regular.ttf,LXGW Marker Gothic,Cyrillic,155,15571,1.2967741935483872,1.18,3,True,False,False,True,True
+LXGWMarkerGothic-Regular.ttf,LXGW Marker Gothic,Katakana,95,15571,1.2947368421052632,1.18,3,True,False,False,True,True
+LXGWMarkerGothic-Regular.ttf,LXGW Marker Gothic,Han,13043,15571,1.2999309974699071,1.18,3,True,False,False,True,True
+ViaodaLibre-Regular.ttf,Viaoda Libre,Cyrillic,168,899,8.738095238095237,1.411,3,True,False,True,True,False
+Lateef-ExtraBold.ttf,Lateef ExtraBold,Arabic,335,1830,3.388059701492537,1.44580078125,4,True,False,True,True,True
+Lateef-Regular.ttf,Lateef,Arabic,335,1830,3.388059701492537,1.44580078125,4,True,False,True,True,True
+Lateef-Bold.ttf,Lateef,Arabic,335,1830,3.388059701492537,1.44580078125,4,True,False,True,True,True
+Lateef-Medium.ttf,Lateef Medium,Arabic,335,1830,3.388059701492537,1.44580078125,4,True,False,True,True,True
+Lateef-ExtraLight.ttf,Lateef ExtraLight,Arabic,335,1828,3.388059701492537,1.44580078125,4,True,False,True,True,True
+Lateef-Light.ttf,Lateef Light,Arabic,335,1830,3.388059701492537,1.44580078125,4,True,False,True,True,True
+Lateef-SemiBold.ttf,Lateef SemiBold,Arabic,335,1830,3.388059701492537,1.44580078125,4,True,False,True,True,True
+InterTight-Italic[wght].ttf,Inter Tight,Cyrillic,255,2547,1.4470588235294117,1.2099609375,4,True,False,True,True,True
+InterTight[wght].ttf,Inter Tight,Cyrillic,255,2547,1.4470588235294117,1.2099609375,4,True,False,True,True,True
+GentiumBookPlus-BoldItalic.ttf,Gentium Book Plus,Cyrillic,268,4307,1.4477611940298507,1.46484375,3,False,False,True,True,True
+GentiumBookPlus-Italic.ttf,Gentium Book Plus,Cyrillic,268,4307,1.4477611940298507,1.46484375,3,False,False,True,True,True
+GentiumBookPlus-Bold.ttf,Gentium Book Plus,Cyrillic,268,4307,1.4477611940298507,1.46484375,3,False,False,True,True,True
+GentiumBookPlus-Regular.ttf,Gentium Book Plus,Cyrillic,268,4307,1.4477611940298507,1.46484375,3,False,False,True,True,True
+GeistMono[wght].ttf,Geist Mono,Cyrillic,134,849,1.2985074626865671,1.3,2,False,False,True,True,False
+"CairoPlay[slnt,wght].ttf",Cairo Play,Arabic,297,1956,2.037037037037037,1.874,4,True,False,True,True,True
+Prata-Regular.ttf,Prata,Cyrillic,182,560,1.89010989010989,1.355,2,False,False,True,True,False
+AlegreyaSans-BlackItalic.ttf,Alegreya Sans,Cyrillic,184,2119,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSans-Medium.ttf,Alegreya Sans,Cyrillic,184,2109,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSans-ExtraBoldItalic.ttf,Alegreya Sans,Cyrillic,184,2119,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSans-ThinItalic.ttf,Alegreya Sans,Cyrillic,184,2119,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSans-BoldItalic.ttf,Alegreya Sans,Cyrillic,184,2119,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSans-Light.ttf,Alegreya Sans,Cyrillic,184,2109,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSans-LightItalic.ttf,Alegreya Sans,Cyrillic,184,2119,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSans-Regular.ttf,Alegreya Sans,Cyrillic,184,2109,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSans-Black.ttf,Alegreya Sans,Cyrillic,184,2109,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSans-Italic.ttf,Alegreya Sans,Cyrillic,184,2119,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSans-ExtraBold.ttf,Alegreya Sans,Cyrillic,184,2109,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSans-Bold.ttf,Alegreya Sans,Cyrillic,184,2109,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSans-Thin.ttf,Alegreya Sans,Cyrillic,184,2109,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSans-MediumItalic.ttf,Alegreya Sans,Cyrillic,184,2119,5.4021739130434785,1.2,2,False,False,True,True,False
+Amiko-Bold.ttf,Amiko,Devanagari,130,918,14.446153846153846,1.334,3,False,True,True,True,False
+Amiko-Regular.ttf,Amiko,Devanagari,130,918,14.446153846153846,1.334,3,False,True,True,True,False
+Amiko-SemiBold.ttf,Amiko,Devanagari,130,918,14.446153846153846,1.334,3,False,True,True,True,False
+Mandali-Regular.ttf,Mandali,Telugu,94,1235,1.8936170212765957,1.9772151898734178,1,False,True,False,False,False
+Carlito-Italic.ttf,Carlito,Cyrillic,274,2783,3.9927007299270074,1.220703125,3,True,False,True,False,True
+Carlito-Regular.ttf,Carlito,Cyrillic,274,2783,3.9927007299270074,1.220703125,3,True,False,True,False,True
+Carlito-BoldItalic.ttf,Carlito,Cyrillic,274,2782,3.9927007299270074,1.220703125,3,True,False,True,False,True
+Carlito-Bold.ttf,Carlito,Cyrillic,274,2783,3.9927007299270074,1.220703125,3,True,False,True,False,True
+FiraSans-Thin.ttf,Fira Sans,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSans-ExtraLightItalic.ttf,Fira Sans,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSans-LightItalic.ttf,Fira Sans,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSans-Medium.ttf,Fira Sans,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSans-BoldItalic.ttf,Fira Sans,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSans-Bold.ttf,Fira Sans,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSans-ExtraLight.ttf,Fira Sans,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSans-ThinItalic.ttf,Fira Sans,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSans-MediumItalic.ttf,Fira Sans,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSans-BlackItalic.ttf,Fira Sans,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSans-Light.ttf,Fira Sans,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSans-Black.ttf,Fira Sans,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSans-ExtraBold.ttf,Fira Sans,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSans-SemiBold.ttf,Fira Sans,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSans-SemiBoldItalic.ttf,Fira Sans,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSans-ExtraBoldItalic.ttf,Fira Sans,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSans-Regular.ttf,Fira Sans,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSans-Italic.ttf,Fira Sans,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+EkMukta-Light.ttf,Ek Mukta,Devanagari,128,1368,15.1015625,1.662,3,False,True,True,True,False
+EkMukta-ExtraBold.ttf,Ek Mukta,Devanagari,128,1368,15.1015625,1.662,3,False,True,True,True,False
+EkMukta-Bold.ttf,Ek Mukta,Devanagari,128,1368,15.1015625,1.662,3,False,True,True,True,False
+EkMukta-Medium.ttf,Ek Mukta,Devanagari,128,1368,15.1015625,1.662,3,False,True,True,True,False
+EkMukta-ExtraLight.ttf,Ek Mukta,Devanagari,128,1368,15.1015625,1.662,3,False,True,True,True,False
+EkMukta-Regular.ttf,Ek Mukta,Devanagari,128,1368,15.1015625,1.662,3,False,True,True,True,False
+EkMukta-SemiBold.ttf,Ek Mukta,Devanagari,128,1368,15.1015625,1.662,3,False,True,True,True,False
+"NotoSansBengali[wdth,wght].ttf",Noto Sans Bengali,Bengali,96,730,3.1875,1.325,4,True,True,True,True,False
+AkayaTelivigala-Regular.ttf,Akaya Telivigala,Telugu,84,1036,1.8571428571428572,1.196,3,False,True,True,True,False
+Alyamama[wght].ttf,Alyamama Light,Arabic,134,1234,2.044776119402985,1.43,4,True,False,True,True,True
+Kalam-Regular.ttf,Kalam,Devanagari,94,1027,3.234042553191489,1.594,3,False,True,True,True,False
+Kalam-Light.ttf,Kalam Light,Devanagari,94,1027,3.234042553191489,1.594,3,False,True,True,True,False
+Kalam-Bold.ttf,Kalam,Devanagari,94,1027,3.234042553191489,1.594,3,False,True,True,True,False
+DotumChe-Regular.ttf,DotumChe,Cyrillic,94,22643,1.0,1.0,0,False,False,False,False,False
+DotumChe-Regular.ttf,DotumChe,Katakana,86,22643,1.0,1.0,0,False,False,False,False,False
+DotumChe-Regular.ttf,DotumChe,Han,7744,22643,1.0,1.0,0,False,False,False,False,False
+Jaldi-Regular.ttf,Jaldi,Devanagari,156,1232,7.487179487179487,1.68994140625,3,False,True,True,True,False
+Jaldi-Bold.ttf,Jaldi,Devanagari,156,1232,7.487179487179487,1.68994140625,3,False,True,True,True,False
+BalooTammudu2[wght].ttf,Baloo Tammudu 2,Telugu,88,1508,2.1818181818181817,2.296,3,False,True,True,True,False
+IstokWeb-Italic.ttf,Istok Web,Cyrillic,186,991,1.435483870967742,1.439453125,2,False,False,True,True,False
+IstokWeb-BoldItalic.ttf,Istok Web,Cyrillic,186,991,1.435483870967742,1.439453125,2,False,False,True,True,False
+IstokWeb-Bold.ttf,Istok Web,Cyrillic,186,1034,1.435483870967742,1.439453125,2,False,False,True,True,False
+IstokWeb-Regular.ttf,Istok Web,Cyrillic,186,1379,1.435483870967742,1.439453125,2,False,False,True,True,False
+Lunasima-Regular.ttf,Lunasima,Cyrillic,260,1945,1.45,1.06982421875,2,False,False,True,False,True
+Lunasima-Bold.ttf,Lunasima,Cyrillic,260,1945,1.45,1.06982421875,2,False,False,True,False,True
+SourceCodePro[wght].ttf,Source Code Pro ExtraLight,Cyrillic,150,1568,1.1466666666666667,1.257,2,False,False,False,True,True
+Laila-Medium.ttf,Laila,Devanagari,100,931,2.8,1.55,3,False,True,True,True,False
+Laila-Light.ttf,Laila,Devanagari,100,931,2.8,1.55,3,False,True,True,True,False
+Laila-SemiBold.ttf,Laila,Devanagari,100,931,2.8,1.55,3,False,True,True,True,False
+Laila-Regular.ttf,Laila,Devanagari,100,931,2.8,1.55,3,False,True,True,True,False
+Laila-Bold.ttf,Laila,Devanagari,100,931,2.8,1.55,3,False,True,True,True,False
+RubikDoodleTriangles-Regular.ttf,Rubik Doodle Triangles,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+GulimChe-Regular.ttf,GulimChe,Cyrillic,94,22522,1.0,1.0,0,False,False,False,False,False
+GulimChe-Regular.ttf,GulimChe,Katakana,86,22522,1.0,1.0,0,False,False,False,False,False
+GulimChe-Regular.ttf,GulimChe,Han,7744,22522,1.0,1.0,0,False,False,False,False,False
+LibertinusMath-Regular.ttf,Libertinus Math,Cyrillic,230,4379,1.0,1.14,2,False,False,False,True,True
+MaShanZheng-Regular.ttf,Ma Shan Zheng,Han,6763,7017,1.0,1.0,0,False,False,False,False,False
+AlumniSansCollegiateOneSC-Italic.ttf,Alumni Sans Collegiate One SC,Cyrillic,92,1025,1.565217391304348,1.2,2,False,False,True,True,False
+AlumniSansCollegiateOneSC-Regular.ttf,Alumni Sans Collegiate One SC,Cyrillic,92,1026,1.565217391304348,1.2,2,False,False,True,True,False
+MartelSans-Black.ttf,Martel Sans,Devanagari,122,721,8.37704918032787,1.824,3,False,True,True,True,False
+MartelSans-ExtraBold.ttf,Martel Sans,Devanagari,122,721,8.37704918032787,1.824,3,False,True,True,True,False
+MartelSans-Bold.ttf,Martel Sans,Devanagari,122,721,8.37704918032787,1.824,3,False,True,True,True,False
+MartelSans-Regular.ttf,Martel Sans,Devanagari,122,721,8.37704918032787,1.824,3,False,True,True,True,False
+MartelSans-Light.ttf,Martel Sans,Devanagari,122,721,8.37704918032787,1.824,3,False,True,True,True,False
+MartelSans-SemiBold.ttf,Martel Sans,Devanagari,122,721,8.37704918032787,1.824,3,False,True,True,True,False
+MartelSans-ExtraLight.ttf,Martel Sans,Devanagari,122,721,8.37704918032787,1.824,3,False,True,True,True,False
+FiraCode[wght].ttf,Fira Code Light,Cyrillic,288,1857,1.1493055555555556,1.312,3,True,False,False,True,True
+Martel-Heavy.ttf,Martel Heavy,Devanagari,122,718,7.786885245901639,1.687,3,False,True,True,True,False
+Martel-Regular.ttf,Martel,Devanagari,122,718,7.786885245901639,1.687,3,False,True,True,True,False
+Martel-Light.ttf,Martel Light,Devanagari,122,718,7.786885245901639,1.687,3,False,True,True,True,False
+Martel-Bold.ttf,Martel,Devanagari,122,718,7.786885245901639,1.687,3,False,True,True,True,False
+Martel-ExtraBold.ttf,Martel ExtraBold,Devanagari,122,718,7.786885245901639,1.687,3,False,True,True,True,False
+Martel-DemiBold.ttf,Martel DemiBold,Devanagari,122,718,7.786885245901639,1.687,3,False,True,True,True,False
+Martel-UltraLight.ttf,Martel UltraLight,Devanagari,122,718,7.786885245901639,1.687,3,False,True,True,True,False
+NotoNaskhArabicUI[wght].ttf,Noto Naskh Arabic UI,Arabic,1053,1597,2.3124406457739792,1.362,4,True,False,True,True,True
+ChironSungHK[wght].ttf,Chiron Sung HK ExtraLight,Cyrillic,150,51055,26.226666666666667,1.18,3,True,False,True,True,False
+ChironSungHK[wght].ttf,Chiron Sung HK ExtraLight,Katakana,112,51055,25.571428571428573,1.18,3,True,False,True,True,False
+ChironSungHK[wght].ttf,Chiron Sung HK ExtraLight,Han,31471,51055,26.682914429157,1.18,3,True,False,True,True,False
+ChironSungHK-Italic[wght].ttf,Chiron Sung HK ExtraLight,Cyrillic,150,50660,26.226666666666667,1.18,3,True,False,True,True,False
+ChironSungHK-Italic[wght].ttf,Chiron Sung HK ExtraLight,Katakana,112,50660,25.571428571428573,1.18,3,True,False,True,True,False
+ChironSungHK-Italic[wght].ttf,Chiron Sung HK ExtraLight,Han,31471,50660,26.682914429157,1.18,3,True,False,True,True,False
+ChironHeiHK-Italic[wght].ttf,Chiron Hei HK ExtraLight,Cyrillic,156,51596,19.871794871794872,1.18,4,True,False,True,True,True
+ChironHeiHK-Italic[wght].ttf,Chiron Hei HK ExtraLight,Katakana,112,51596,19.285714285714285,1.18,4,True,False,True,True,True
+ChironHeiHK-Italic[wght].ttf,Chiron Hei HK ExtraLight,Han,31541,51596,20.126882470435305,1.18,4,True,False,True,True,True
+ChironHeiHK[wght].ttf,Chiron Hei HK ExtraLight,Cyrillic,156,52080,19.871794871794872,1.18,4,True,False,True,True,True
+ChironHeiHK[wght].ttf,Chiron Hei HK ExtraLight,Katakana,112,52080,19.285714285714285,1.18,4,True,False,True,True,True
+ChironHeiHK[wght].ttf,Chiron Hei HK ExtraLight,Han,31541,52080,20.126882470435305,1.18,4,True,False,True,True,True
+NotoSerifHK[wght].ttf,Noto Serif HK ExtraLight,Cyrillic,66,20933,5.5,1.0,2,False,False,True,True,False
+NotoSerifHK[wght].ttf,Noto Serif HK ExtraLight,Katakana,112,20933,5.714285714285714,1.0,2,False,False,True,True,False
+NotoSerifHK[wght].ttf,Noto Serif HK ExtraLight,Han,17755,20933,5.918389186144748,1.0,2,False,False,True,True,False
+Gotu-Regular.ttf,Gotu,Devanagari,129,1643,23.24031007751938,1.66,3,False,True,True,True,False
+MPLUSRounded1c-Thin.ttf,Rounded Mplus 1c,Cyrillic,264,8546,2.1818181818181817,1.09,3,False,False,True,True,True
+MPLUSRounded1c-Thin.ttf,Rounded Mplus 1c,Katakana,112,8546,2.142857142857143,1.09,3,False,False,True,True,True
+MPLUSRounded1c-Thin.ttf,Rounded Mplus 1c,Han,4964,8546,2.1990330378726832,1.09,3,False,False,True,True,True
+MPLUSRounded1c-Bold.ttf,Rounded Mplus 1c,Cyrillic,264,8546,2.1818181818181817,1.09,3,False,False,True,True,True
+MPLUSRounded1c-Bold.ttf,Rounded Mplus 1c,Katakana,112,8546,2.142857142857143,1.09,3,False,False,True,True,True
+MPLUSRounded1c-Bold.ttf,Rounded Mplus 1c,Han,4964,8546,2.1990330378726832,1.09,3,False,False,True,True,True
+MPLUSRounded1c-ExtraBold.ttf,Rounded Mplus 1c,Cyrillic,264,8546,2.1818181818181817,1.09,3,False,False,True,True,True
+MPLUSRounded1c-ExtraBold.ttf,Rounded Mplus 1c,Katakana,112,8546,2.142857142857143,1.09,3,False,False,True,True,True
+MPLUSRounded1c-ExtraBold.ttf,Rounded Mplus 1c,Han,4964,8546,2.1990330378726832,1.09,3,False,False,True,True,True
+MPLUSRounded1c-Light.ttf,Rounded Mplus 1c,Cyrillic,264,8546,2.1818181818181817,1.09,3,False,False,True,True,True
+MPLUSRounded1c-Light.ttf,Rounded Mplus 1c,Katakana,112,8546,2.142857142857143,1.09,3,False,False,True,True,True
+MPLUSRounded1c-Light.ttf,Rounded Mplus 1c,Han,4964,8546,2.1990330378726832,1.09,3,False,False,True,True,True
+MPLUSRounded1c-Black.ttf,Rounded Mplus 1c,Cyrillic,264,8546,2.1818181818181817,1.09,3,False,False,True,True,True
+MPLUSRounded1c-Black.ttf,Rounded Mplus 1c,Katakana,112,8546,2.142857142857143,1.09,3,False,False,True,True,True
+MPLUSRounded1c-Black.ttf,Rounded Mplus 1c,Han,4964,8546,2.1990330378726832,1.09,3,False,False,True,True,True
+MPLUSRounded1c-Medium.ttf,Rounded Mplus 1c,Cyrillic,264,8546,2.1818181818181817,1.09,3,False,False,True,True,True
+MPLUSRounded1c-Medium.ttf,Rounded Mplus 1c,Katakana,112,8546,2.142857142857143,1.09,3,False,False,True,True,True
+MPLUSRounded1c-Medium.ttf,Rounded Mplus 1c,Han,4964,8546,2.1990330378726832,1.09,3,False,False,True,True,True
+MPLUSRounded1c-Regular.ttf,Rounded Mplus 1c,Cyrillic,264,8546,2.1818181818181817,1.09,3,False,False,True,True,True
+MPLUSRounded1c-Regular.ttf,Rounded Mplus 1c,Katakana,112,8546,2.142857142857143,1.09,3,False,False,True,True,True
+MPLUSRounded1c-Regular.ttf,Rounded Mplus 1c,Han,4964,8546,2.1990330378726832,1.09,3,False,False,True,True,True
+"NotoSerifBengali[wdth,wght].ttf",Noto Serif Bengali,Bengali,96,986,3.7708333333333335,1.594,3,True,True,False,True,False
+TrainOne-Regular.ttf,Train One,Cyrillic,66,5313,1.4090909090909092,1.0,1,False,False,True,False,False
+TrainOne-Regular.ttf,Train One,Katakana,94,5313,1.446808510638298,1.0,1,False,False,True,False,False
+TrainOne-Regular.ttf,Train One,Han,2966,5313,1.4490896830748483,1.0,1,False,False,True,False,False
+YujiBoku-Regular.ttf,Yuji Boku,Cyrillic,66,9504,1.4090909090909092,1.0,1,False,False,True,False,False
+YujiBoku-Regular.ttf,Yuji Boku,Katakana,94,9504,1.446808510638298,1.0,1,False,False,True,False,False
+YujiBoku-Regular.ttf,Yuji Boku,Han,6841,9504,1.449934220143254,1.0,1,False,False,True,False,False
+ShipporiMincho-Bold.ttf,Shippori Mincho,Katakana,110,16359,1.4363636363636363,1.0,3,False,False,True,True,True
+ShipporiMincho-Bold.ttf,Shippori Mincho,Han,14506,16359,1.4250654901420101,1.0,3,False,False,True,True,True
+ShipporiMincho-SemiBold.ttf,Shippori Mincho,Katakana,110,16359,1.4363636363636363,1.0,3,False,False,True,True,True
+ShipporiMincho-SemiBold.ttf,Shippori Mincho,Han,14506,16359,1.4250654901420101,1.0,3,False,False,True,True,True
+ShipporiMincho-Regular.ttf,Shippori Mincho,Katakana,110,16359,1.4363636363636363,1.0,3,False,False,True,True,True
+ShipporiMincho-Regular.ttf,Shippori Mincho,Han,14506,16359,1.4250654901420101,1.0,3,False,False,True,True,True
+ShipporiMincho-Medium.ttf,Shippori Mincho,Katakana,110,16359,1.4363636363636363,1.0,3,False,False,True,True,True
+ShipporiMincho-Medium.ttf,Shippori Mincho,Han,14506,16359,1.4250654901420101,1.0,3,False,False,True,True,True
+ShipporiMincho-ExtraBold.ttf,Shippori Mincho,Katakana,110,16359,1.4363636363636363,1.0,3,False,False,True,True,True
+ShipporiMincho-ExtraBold.ttf,Shippori Mincho,Han,14506,16359,1.4250654901420101,1.0,3,False,False,True,True,True
+Arima[wght].ttf,Arima Thin,Tamil,72,1393,2.388888888888889,1.633,3,False,True,True,True,False
+Bitter[wght].ttf,Bitter Thin,Cyrillic,240,1542,1.6,1.2,3,True,False,True,True,False
+Bitter-Italic[wght].ttf,Bitter Thin,Cyrillic,240,1511,1.6,1.2,3,True,False,True,True,False
+Arsenal-Italic.ttf,Arsenal,Cyrillic,238,1031,3.6470588235294117,1.254,2,False,False,True,True,False
+Arsenal-Regular.ttf,Arsenal,Cyrillic,238,1041,3.2058823529411766,1.254,2,False,False,True,True,False
+Arsenal-Bold.ttf,Arsenal,Cyrillic,238,1041,3.2058823529411766,1.254,2,False,False,True,True,False
+Arsenal-BoldItalic.ttf,Arsenal,Cyrillic,238,1031,3.6470588235294117,1.254,2,False,False,True,True,False
+Pochaevsk-Regular.ttf,Pochaevsk,Cyrillic,128,522,1.296875,1.451,1,False,False,False,True,False
+RuslanDisplay-Regular.ttf,Ruslan Display,Cyrillic,94,454,1.0,1.085,0,False,False,False,False,False
+CharisSIL-Bold.ttf,Charis SIL,Cyrillic,268,3609,1.4477611940298507,1.6357421875,3,False,False,True,True,True
+CharisSIL-Italic.ttf,Charis SIL,Cyrillic,268,3609,1.4477611940298507,1.6357421875,3,False,False,True,True,True
+CharisSIL-BoldItalic.ttf,Charis SIL,Cyrillic,268,3609,1.4477611940298507,1.6357421875,3,False,False,True,True,True
+CharisSIL-Regular.ttf,Charis SIL,Cyrillic,268,3609,1.4477611940298507,1.6357421875,3,False,False,True,True,True
+LakkiReddy-Regular.ttf,Lakki Reddy,Telugu,93,882,1.978494623655914,1.6630859375,2,False,True,False,True,False
+Stick-Regular.ttf,Stick,Cyrillic,66,9362,1.2727272727272727,1.0,1,False,False,True,False,False
+Stick-Regular.ttf,Stick,Katakana,94,9362,1.297872340425532,1.0,1,False,False,True,False,False
+Stick-Regular.ttf,Stick,Han,6758,9362,1.299348919798757,1.0,1,False,False,True,False,False
+VollkornSC-SemiBold.ttf,Vollkorn SC,Cyrillic,236,1035,7.673728813559322,1.393,3,True,False,True,True,False
+VollkornSC-Black.ttf,Vollkorn SC,Cyrillic,236,1035,7.673728813559322,1.393,3,True,False,True,True,False
+VollkornSC-Bold.ttf,Vollkorn SC,Cyrillic,236,1035,7.673728813559322,1.393,3,True,False,True,True,False
+VollkornSC-Regular.ttf,Vollkorn SC,Cyrillic,236,1035,7.673728813559322,1.393,3,True,False,True,True,False
+Atma-Medium.ttf,Atma,Bengali,91,760,4.428571428571429,1.619,3,True,True,False,True,False
+Atma-SemiBold.ttf,Atma,Bengali,91,760,4.428571428571429,1.619,3,True,True,False,True,False
+Atma-Light.ttf,Atma,Bengali,91,760,4.428571428571429,1.619,3,True,True,False,True,False
+Atma-Bold.ttf,Atma,Bengali,91,760,4.428571428571429,1.619,3,True,True,False,True,False
+Atma-Regular.ttf,Atma,Bengali,91,760,4.428571428571429,1.619,3,True,True,False,True,False
+WDXLLubrifontSC-Regular.ttf,WDXL 滑油字 SC,Cyrillic,66,15985,11.636363636363637,1.18,2,False,False,True,True,False
+WDXLLubrifontSC-Regular.ttf,WDXL 滑油字 SC,Katakana,90,15985,12.266666666666667,1.18,2,False,False,True,True,False
+WDXLLubrifontSC-Regular.ttf,WDXL 滑油字 SC,Han,12148,15985,12.698715837998025,1.18,2,False,False,True,True,False
+"NotoSansTelugu[wdth,wght].ttf",Noto Sans Telugu,Telugu,100,1247,2.5,1.352,2,False,True,False,True,False
+Khand-Medium.ttf,Khand Medium,Devanagari,104,1035,2.730769230769231,1.529,3,False,True,True,True,False
+Khand-Bold.ttf,Khand,Devanagari,104,1034,2.730769230769231,1.529,3,False,True,True,True,False
+Khand-Light.ttf,Khand Light,Devanagari,104,1033,2.730769230769231,1.529,3,False,True,True,True,False
+Khand-Regular.ttf,Khand,Devanagari,104,1033,2.730769230769231,1.529,3,False,True,True,True,False
+Khand-SemiBold.ttf,Khand SemiBold,Devanagari,104,1034,2.730769230769231,1.529,3,False,True,True,True,False
+Underdog-Regular.ttf,Underdog,Cyrillic,94,412,1.0,1.156,0,False,False,False,False,False
+PTM55FT.ttf,PT Mono,Cyrillic,220,808,1.9,1.12,1,False,False,True,False,False
+ClimateCrisis[YEAR].ttf,Climate Crisis,Cyrillic,120,3499,1.6,1.33,3,True,False,True,True,False
+NotoSansHK[wght].ttf,Noto Sans HK Thin,Cyrillic,66,20940,5.5,1.0,2,False,False,True,True,False
+NotoSansHK[wght].ttf,Noto Sans HK Thin,Katakana,112,20940,5.714285714285714,1.0,2,False,False,True,True,False
+NotoSansHK[wght].ttf,Noto Sans HK Thin,Han,17749,20940,5.920446222322385,1.0,2,False,False,True,True,False
+Almarai-Bold.ttf,Almarai,Arabic,254,579,4.141732283464567,1.116,4,True,False,True,True,True
+Almarai-ExtraBold.ttf,Almarai,Arabic,254,579,4.141732283464567,1.116,4,True,False,True,True,True
+Almarai-Regular.ttf,Almarai,Arabic,254,579,4.141732283464567,1.116,4,True,False,True,True,True
+Almarai-Light.ttf,Almarai,Arabic,254,579,4.141732283464567,1.116,4,True,False,True,True,True
+AmstelvarAlpha-VF.ttf,AmstelvarAlpha Default,Han,19,115,1.0,1.2,0,False,False,False,False,False
+JetBrainsMono[wght].ttf,JetBrains Mono,Cyrillic,98,1179,1.4285714285714286,1.32,3,True,False,False,True,True
+JetBrainsMono-Italic[wght].ttf,JetBrains Mono,Cyrillic,98,1179,1.4285714285714286,1.32,3,True,False,False,True,True
+Scada-Regular.ttf,Scada,Cyrillic,182,524,2.4835164835164836,1.244,2,False,False,True,True,False
+Scada-Italic.ttf,Scada,Cyrillic,182,524,2.4835164835164836,1.244,2,False,False,True,True,False
+Scada-BoldItalic.ttf,Scada,Cyrillic,182,524,2.4835164835164836,1.244,2,False,False,True,True,False
+Scada-Bold.ttf,Scada,Cyrillic,182,524,2.4835164835164836,1.244,2,False,False,True,True,False
+Parastoo[wght].ttf,Parastoo,Arabic,102,879,2.176470588235294,1.4063072973964064,4,True,False,True,True,True
+Bhavuka-Regular.ttf,Bhavuka,Devanagari,156,1023,3.2115384615384617,1.26,4,False,True,True,True,True
+RubikMoonrocks-Regular.ttf,Rubik Moonrocks,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+IosevkaCharon-Italic.ttf,Iosevka Charon,Cyrillic,304,11315,1.1480263157894737,1.28,2,False,False,False,True,True
+IosevkaCharon-MediumItalic.ttf,Iosevka Charon Medium,Cyrillic,304,11315,1.1480263157894737,1.28,2,False,False,False,True,True
+IosevkaCharon-LightItalic.ttf,Iosevka Charon Light,Cyrillic,304,11315,1.1480263157894737,1.28,2,False,False,False,True,True
+IosevkaCharon-Bold.ttf,Iosevka Charon,Cyrillic,304,11300,1.1480263157894737,1.28,2,False,False,False,True,True
+IosevkaCharon-Light.ttf,Iosevka Charon Light,Cyrillic,304,11300,1.1480263157894737,1.28,2,False,False,False,True,True
+IosevkaCharon-Regular.ttf,Iosevka Charon,Cyrillic,304,11300,1.1480263157894737,1.28,2,False,False,False,True,True
+IosevkaCharon-Medium.ttf,Iosevka Charon Medium,Cyrillic,304,11300,1.1480263157894737,1.28,2,False,False,False,True,True
+IosevkaCharon-BoldItalic.ttf,Iosevka Charon,Cyrillic,304,11315,1.1480263157894737,1.28,2,False,False,False,True,True
+Lato-Italic.ttf,Lato,Cyrillic,275,3023,3.2363636363636363,1.2,4,True,False,True,True,True
+Lato-LightItalic.ttf,Lato,Cyrillic,275,3023,3.2363636363636363,1.2,4,True,False,True,True,True
+Lato-Thin.ttf,Lato,Cyrillic,275,3023,3.2363636363636363,1.2,4,True,False,True,True,True
+Lato-Bold.ttf,Lato,Cyrillic,275,3023,3.2363636363636363,1.2,4,True,False,True,True,True
+Lato-Black.ttf,Lato,Cyrillic,275,3023,3.2363636363636363,1.2,4,True,False,True,True,True
+Lato-ExtraBold.ttf,Lato,Cyrillic,275,3023,3.2363636363636363,1.2,4,True,False,True,True,True
+Lato-SemiBoldItalic.ttf,Lato,Cyrillic,275,3023,3.2363636363636363,1.2,4,True,False,True,True,True
+Lato-Regular.ttf,Lato,Cyrillic,275,3023,3.2363636363636363,1.2,4,True,False,True,True,True
+Lato-BlackItalic.ttf,Lato,Cyrillic,275,3023,3.2363636363636363,1.2,4,True,False,True,True,True
+Lato-ExtraLightItalic.ttf,Lato,Cyrillic,275,3023,3.2363636363636363,1.2,4,True,False,True,True,True
+Lato-SemiBold.ttf,Lato,Cyrillic,275,3023,3.2363636363636363,1.2,4,True,False,True,True,True
+Lato-MediumItalic.ttf,Lato,Cyrillic,275,3023,3.2363636363636363,1.2,4,True,False,True,True,True
+Lato-BoldItalic.ttf,Lato,Cyrillic,275,3023,3.2363636363636363,1.2,4,True,False,True,True,True
+Lato-ExtraBoldItalic.ttf,Lato,Cyrillic,275,3023,3.2363636363636363,1.2,4,True,False,True,True,True
+Lato-Light.ttf,Lato,Cyrillic,275,3023,3.2363636363636363,1.2,4,True,False,True,True,True
+Lato-Medium.ttf,Lato,Cyrillic,275,3023,3.2363636363636363,1.2,4,True,False,True,True,True
+Lato-ThinItalic.ttf,Lato,Cyrillic,275,3023,3.2363636363636363,1.2,4,True,False,True,True,True
+Lato-ExtraLight.ttf,Lato,Cyrillic,275,3023,3.2363636363636363,1.2,4,True,False,True,True,True
+ComforterBrush-Regular.ttf,Comforter Brush,Cyrillic,94,923,1.8936170212765957,1.41,3,True,False,True,True,False
+TiroDevanagariHindi-Regular.ttf,Tiro Devanagari Hindi,Devanagari,132,1416,2.727272727272727,1.33,4,True,True,True,True,False
+TiroDevanagariHindi-Italic.ttf,Tiro Devanagari Hindi,Devanagari,132,1416,2.727272727272727,1.33,4,True,True,True,True,False
+RubikMonoOne-Regular.ttf,Rubik Mono One,Cyrillic,182,683,2.9285714285714284,1.238,3,False,False,True,True,True
+MochiyPopPOne-Regular.ttf,Mochiy Pop P One,Katakana,110,16908,1.1454545454545455,1.0,2,False,False,False,True,True
+MochiyPopPOne-Regular.ttf,Mochiy Pop P One,Han,13546,16908,1.1293370736748856,1.0,2,False,False,False,True,True
+YuseiMagic-Regular.ttf,Yusei Magic,Katakana,90,8073,1.1444444444444444,1.0,2,False,False,False,True,True
+YuseiMagic-Regular.ttf,Yusei Magic,Han,6722,8073,1.1499553704254686,1.0,2,False,False,False,True,True
+Lalezar-Regular.ttf,Lalezar,Arabic,379,1221,5.137203166226913,1.567,4,True,False,True,True,True
+PragatiNarrow-Bold.ttf,Pragati Narrow,Devanagari,156,1180,6.602564102564102,1.692,3,False,True,True,True,False
+PragatiNarrow-Regular.ttf,Pragati Narrow,Devanagari,156,1180,6.602564102564102,1.692,3,False,True,True,True,False
+MPLUS2[wght].ttf,M PLUS 2 Thin,Katakana,93,6650,1.4193548387096775,1.0,2,False,False,True,True,False
+MPLUS2[wght].ttf,M PLUS 2 Thin,Han,5297,6650,1.4496885029261846,1.0,2,False,False,True,True,False
+Liter-Regular.ttf,Liter,Cyrillic,104,482,1.1442307692307692,1.426,1,False,False,False,True,False
+Triodion-Regular.ttf,Triodion,Cyrillic,136,528,1.1470588235294117,1.637,1,False,False,False,True,False
+Nobile-Italic.ttf,Nobile,Cyrillic,96,490,1.1458333333333333,1.1171875,1,False,False,True,False,False
+Nobile-Regular.ttf,Nobile,Cyrillic,96,400,1.1458333333333333,1.033203125,1,False,False,True,False,False
+Nobile-Bold.ttf,Nobile,Cyrillic,96,344,1.1458333333333333,1.033203125,1,False,False,True,False,False
+Nobile-BoldItalic.ttf,Nobile,Cyrillic,97,483,1.1443298969072164,1.1171875,1,False,False,True,False,False
+Nobile-MediumItalic.ttf,Nobile,Cyrillic,96,485,1.1458333333333333,1.1171875,1,False,False,True,False,False
+Nobile-Medium.ttf,Nobile,Cyrillic,96,458,1.1458333333333333,1.033203125,1,False,False,True,False,False
+GajrajOne-Regular.ttf,Gajraj One,Devanagari,126,782,3.2857142857142856,1.465,2,False,True,False,True,False
+NotoSansKaithi-Regular.ttf,Noto Sans Kaithi,Devanagari,10,646,1.6,1.502,2,False,True,False,True,False
+Strong-Regular.ttf,Strong,Cyrillic,94,320,1.0,1.194,0,False,False,False,False,False
+Harmattan-SemiBold.ttf,Harmattan SemiBold,Arabic,312,1789,3.358974358974359,1.70361328125,4,True,False,True,True,True
+Harmattan-Regular.ttf,Harmattan,Arabic,312,1789,3.358974358974359,1.70361328125,4,True,False,True,True,True
+Harmattan-Bold.ttf,Harmattan,Arabic,312,1789,3.358974358974359,1.70361328125,4,True,False,True,True,True
+Harmattan-Medium.ttf,Harmattan Medium,Arabic,312,1789,3.358974358974359,1.70361328125,4,True,False,True,True,True
+Ponomar-Regular.ttf,Ponomar,Cyrillic,154,782,1.7467532467532467,1.61,2,False,False,True,True,False
+RubikMicrobe-Regular.ttf,Rubik Microbe,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+LongCang-Regular.ttf,Long Cang,Han,6763,7017,1.0,1.0,0,False,False,False,False,False
+Lobster-Regular.ttf,Lobster,Cyrillic,182,1174,9.307692307692308,1.25,3,True,False,True,True,False
+STIXTwoText[wght].ttf,STIX Two Text,Cyrillic,106,2221,2.69811320754717,1.25,2,False,False,True,True,False
+STIXTwoText-Italic[wght].ttf,STIX Two Text,Cyrillic,106,2238,2.981132075471698,1.25,2,False,False,True,True,False
+ZenOldMincho-SemiBold.ttf,Zen Old Mincho SemiBold,Cyrillic,66,7866,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenOldMincho-SemiBold.ttf,Zen Old Mincho SemiBold,Katakana,94,7866,1.148936170212766,1.0,1,False,False,False,True,False
+ZenOldMincho-SemiBold.ttf,Zen Old Mincho SemiBold,Han,6716,7866,1.1499404407385347,1.0,1,False,False,False,True,False
+ZenOldMincho-Black.ttf,Zen Old Mincho Black,Cyrillic,66,7866,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenOldMincho-Black.ttf,Zen Old Mincho Black,Katakana,94,7866,1.148936170212766,1.0,1,False,False,False,True,False
+ZenOldMincho-Black.ttf,Zen Old Mincho Black,Han,6716,7866,1.1499404407385347,1.0,1,False,False,False,True,False
+ZenOldMincho-Bold.ttf,Zen Old Mincho,Cyrillic,66,7866,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenOldMincho-Bold.ttf,Zen Old Mincho,Katakana,94,7866,1.148936170212766,1.0,1,False,False,False,True,False
+ZenOldMincho-Bold.ttf,Zen Old Mincho,Han,6716,7866,1.1499404407385347,1.0,1,False,False,False,True,False
+ZenOldMincho-Regular.ttf,Zen Old Mincho,Cyrillic,66,7866,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenOldMincho-Regular.ttf,Zen Old Mincho,Katakana,94,7866,1.148936170212766,1.0,1,False,False,False,True,False
+ZenOldMincho-Regular.ttf,Zen Old Mincho,Han,6716,7866,1.1499404407385347,1.0,1,False,False,False,True,False
+ZenOldMincho-Medium.ttf,Zen Old Mincho Medium,Cyrillic,66,7866,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenOldMincho-Medium.ttf,Zen Old Mincho Medium,Katakana,94,7866,1.148936170212766,1.0,1,False,False,False,True,False
+ZenOldMincho-Medium.ttf,Zen Old Mincho Medium,Han,6716,7866,1.1499404407385347,1.0,1,False,False,False,True,False
+VictorMono-Italic[wght].ttf,Victor Mono Thin,Cyrillic,232,1476,1.4396551724137931,1.35,2,True,False,False,True,False
+VictorMono[wght].ttf,Victor Mono Thin,Cyrillic,232,1442,1.4396551724137931,1.35,2,True,False,False,True,False
+RubikMaps-Regular.ttf,Rubik Maps,Cyrillic,182,777,1.445054945054945,1.185,3,False,False,True,True,True
+Halant-Regular.ttf,Halant,Devanagari,102,931,2.764705882352941,1.575,3,False,True,True,True,False
+Halant-Bold.ttf,Halant,Devanagari,102,931,2.764705882352941,1.575,3,False,True,True,True,False
+Halant-SemiBold.ttf,Halant,Devanagari,102,931,2.764705882352941,1.575,3,False,True,True,True,False
+Halant-Light.ttf,Halant,Devanagari,102,931,2.764705882352941,1.575,3,False,True,True,True,False
+Halant-Medium.ttf,Halant,Devanagari,102,931,2.764705882352941,1.575,3,False,True,True,True,False
+Cambay-Regular.ttf,Cambay,Devanagari,125,928,18.28,1.62875,3,False,True,True,True,False
+Cambay-BoldItalic.ttf,Cambay,Devanagari,124,930,18.419354838709676,1.62875,3,False,True,True,True,False
+Cambay-Bold.ttf,Cambay,Devanagari,124,930,18.419354838709676,1.62875,3,False,True,True,True,False
+Cambay-Italic.ttf,Cambay,Devanagari,125,928,18.28,1.62875,3,False,True,True,True,False
+RubikLines-Regular.ttf,Rubik Lines,Cyrillic,182,776,1.445054945054945,1.185,3,False,False,True,True,True
+Overpass[wght].ttf,Overpass,Cyrillic,190,1351,1.5894736842105264,1.266,4,True,False,True,True,True
+Overpass-Italic[wght].ttf,Overpass,Cyrillic,190,1351,1.5894736842105264,1.266,4,True,False,True,True,True
+Sansation-BoldItalic.ttf,Sansation,Cyrillic,66,526,1.1363636363636365,1.119140625,1,False,False,True,False,False
+Sansation-Light.ttf,Sansation Light,Cyrillic,66,533,1.1363636363636365,1.119140625,1,False,False,True,False,False
+Sansation-LightItalic.ttf,Sansation Light,Cyrillic,66,526,1.1363636363636365,1.119140625,1,False,False,True,False,False
+Sansation-Regular.ttf,Sansation,Cyrillic,66,533,1.1363636363636365,1.119140625,1,False,False,True,False,False
+Sansation-Bold.ttf,Sansation,Cyrillic,66,533,1.1363636363636365,1.119140625,1,False,False,True,False,False
+Sansation-Italic.ttf,Sansation,Cyrillic,66,526,1.1363636363636365,1.119140625,1,False,False,True,False,False
+TiroTelugu-Regular.ttf,Tiro Telugu,Telugu,100,1581,2.35,1.794,3,False,True,True,True,False
+TiroTelugu-Italic.ttf,Tiro Telugu,Telugu,100,1581,2.35,1.794,3,False,True,True,True,False
+Vazirmatn[wght].ttf,Vazirmatn,Arabic,357,1333,2.7815126050420167,1.5625,4,True,False,True,True,True
+Cardo-Italic.ttf,Cardo,Arabic,10,2387,1.2,1.35400390625,2,False,False,True,False,True
+Cardo-Bold.ttf,Cardo,Arabic,10,2993,1.0,1.35400390625,1,False,False,False,False,True
+Cardo-Regular.ttf,Cardo,Arabic,10,3845,1.5,1.35400390625,3,False,False,True,True,True
+LXGWWenKaiTC-Bold.ttf,霞鶩文楷 TC,Cyrillic,156,22467,1.4423076923076923,1.0,2,True,False,True,False,False
+LXGWWenKaiTC-Bold.ttf,霞鶩文楷 TC,Katakana,112,22467,1.4285714285714286,1.0,2,True,False,True,False,False
+LXGWWenKaiTC-Bold.ttf,霞鶩文楷 TC,Han,17183,22467,1.432113135075365,1.0,2,True,False,True,False,False
+LXGWWenKaiTC-Light.ttf,霞鶩文楷 TC Light,Cyrillic,156,22475,1.4423076923076923,1.0,2,True,False,True,False,False
+LXGWWenKaiTC-Light.ttf,霞鶩文楷 TC Light,Katakana,112,22475,1.4285714285714286,1.0,2,True,False,True,False,False
+LXGWWenKaiTC-Light.ttf,霞鶩文楷 TC Light,Han,17183,22475,1.432113135075365,1.0,2,True,False,True,False,False
+LXGWWenKaiTC-Regular.ttf,霞鶩文楷 TC,Cyrillic,156,22467,1.4423076923076923,1.0,2,True,False,True,False,False
+LXGWWenKaiTC-Regular.ttf,霞鶩文楷 TC,Katakana,112,22467,1.4285714285714286,1.0,2,True,False,True,False,False
+LXGWWenKaiTC-Regular.ttf,霞鶩文楷 TC,Han,17183,22467,1.432113135075365,1.0,2,True,False,True,False,False
+RubikWetPaint-Regular.ttf,Rubik Wet Paint,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+KiwiMaru-Medium.ttf,Kiwi Maru Medium,Cyrillic,66,9505,1.4090909090909092,1.0,1,False,False,True,False,False
+KiwiMaru-Medium.ttf,Kiwi Maru Medium,Katakana,94,9505,1.446808510638298,1.0,1,False,False,True,False,False
+KiwiMaru-Medium.ttf,Kiwi Maru Medium,Han,6844,9505,1.4492986557568672,1.0,1,False,False,True,False,False
+KiwiMaru-Light.ttf,Kiwi Maru Light,Cyrillic,66,9505,1.4090909090909092,1.0,1,False,False,True,False,False
+KiwiMaru-Light.ttf,Kiwi Maru Light,Katakana,94,9505,1.446808510638298,1.0,1,False,False,True,False,False
+KiwiMaru-Light.ttf,Kiwi Maru Light,Han,6844,9505,1.4492986557568672,1.0,1,False,False,True,False,False
+KiwiMaru-Regular.ttf,Kiwi Maru,Cyrillic,66,9505,1.4090909090909092,1.0,1,False,False,True,False,False
+KiwiMaru-Regular.ttf,Kiwi Maru,Katakana,94,9505,1.446808510638298,1.0,1,False,False,True,False,False
+KiwiMaru-Regular.ttf,Kiwi Maru,Han,6844,9505,1.4492986557568672,1.0,1,False,False,True,False,False
+RubikStorm-Regular.ttf,Rubik Storm,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+PaletteMosaic-Regular.ttf,Palette Mosaic,Katakana,93,411,1.0,1.0,0,False,False,False,False,False
+JejuGothic-Regular.ttf,JejuGothic,Cyrillic,66,18315,1.0,1.085,0,False,False,False,False,False
+JejuGothic-Regular.ttf,JejuGothic,Katakana,88,18315,1.0,1.085,0,False,False,False,False,False
+JejuGothic-Regular.ttf,JejuGothic,Han,4888,18315,0.9451718494271686,1.085,0,False,False,False,False,False
+LibertinusSerifDisplay-Regular.ttf,Libertinus Serif Display,Cyrillic,229,2280,1.0,1.14,2,False,False,False,True,True
+Gidugu-Regular.ttf,Gidugu,Telugu,95,1005,2.031578947368421,1.8540925266903914,2,False,True,False,True,False
+AlumniSansPinstripe-Italic.ttf,Alumni Sans Pinstripe,Cyrillic,100,788,1.6,1.2,2,False,False,True,True,False
+AlumniSansPinstripe-Regular.ttf,Alumni Sans Pinstripe,Cyrillic,100,789,1.6,1.2,2,False,False,True,True,False
+ElMessiri[wght].ttf,El Messiri,Cyrillic,94,648,1.8936170212765957,1.563,4,True,False,True,True,True
+ElMessiri[wght].ttf,El Messiri,Arabic,258,648,1.8837209302325582,1.563,4,True,False,True,True,True
+ZenKakuGothicNew-Bold.ttf,Zen Kaku Gothic New,Cyrillic,66,7792,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenKakuGothicNew-Bold.ttf,Zen Kaku Gothic New,Katakana,94,7792,1.148936170212766,1.0,1,False,False,False,True,False
+ZenKakuGothicNew-Bold.ttf,Zen Kaku Gothic New,Han,6716,7792,1.1499404407385347,1.0,1,False,False,False,True,False
+ZenKakuGothicNew-Light.ttf,Zen Kaku Gothic New Light,Cyrillic,66,7792,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenKakuGothicNew-Light.ttf,Zen Kaku Gothic New Light,Katakana,94,7792,1.148936170212766,1.0,1,False,False,False,True,False
+ZenKakuGothicNew-Light.ttf,Zen Kaku Gothic New Light,Han,6716,7792,1.1499404407385347,1.0,1,False,False,False,True,False
+ZenKakuGothicNew-Medium.ttf,Zen Kaku Gothic New Medium,Cyrillic,66,7792,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenKakuGothicNew-Medium.ttf,Zen Kaku Gothic New Medium,Katakana,94,7792,1.148936170212766,1.0,1,False,False,False,True,False
+ZenKakuGothicNew-Medium.ttf,Zen Kaku Gothic New Medium,Han,6716,7792,1.1499404407385347,1.0,1,False,False,False,True,False
+ZenKakuGothicNew-Black.ttf,Zen Kaku Gothic New Black,Cyrillic,66,7792,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenKakuGothicNew-Black.ttf,Zen Kaku Gothic New Black,Katakana,94,7792,1.148936170212766,1.0,1,False,False,False,True,False
+ZenKakuGothicNew-Black.ttf,Zen Kaku Gothic New Black,Han,6716,7792,1.1499404407385347,1.0,1,False,False,False,True,False
+ZenKakuGothicNew-Regular.ttf,Zen Kaku Gothic New,Cyrillic,66,7792,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenKakuGothicNew-Regular.ttf,Zen Kaku Gothic New,Katakana,94,7792,1.148936170212766,1.0,1,False,False,False,True,False
+ZenKakuGothicNew-Regular.ttf,Zen Kaku Gothic New,Han,6716,7792,1.1499404407385347,1.0,1,False,False,False,True,False
+AmiriQuran-Regular.ttf,Amiri Quran,Arabic,117,1446,1.8717948717948718,2.449,4,True,False,True,True,True
+NanumGothicCoding-Regular.ttf,NanumGothicCoding,Cyrillic,66,20024,1.0,1.0,0,False,False,False,False,False
+NanumGothicCoding-Regular.ttf,NanumGothicCoding,Katakana,88,20024,1.0,1.0,0,False,False,False,False,False
+NanumGothicCoding-Bold.ttf,NanumGothicCoding,Cyrillic,66,20338,1.0,1.0,0,False,False,False,False,False
+NanumGothicCoding-Bold.ttf,NanumGothicCoding,Katakana,88,20338,1.0,1.0,0,False,False,False,False,False
+Gulzar-Regular.ttf,Gulzar,Arabic,124,1161,2.7419354838709675,2.7,4,True,False,True,True,True
+"ShantellSans[BNCE,INFM,SPAC,wght].ttf",Shantell Sans Light,Cyrillic,182,1728,1.5934065934065933,1.34,3,True,False,True,True,False
+"ShantellSans-Italic[BNCE,INFM,SPAC,wght].ttf",Shantell Sans Light,Cyrillic,182,1728,1.5934065934065933,1.34,3,True,False,True,True,False
+Ranga-Regular.ttf,Ranga,Devanagari,155,710,2.632258064516129,1.463029756537421,3,False,True,False,True,True
+Ranga-Bold.ttf,Ranga,Devanagari,155,710,2.632258064516129,1.463029756537421,3,False,True,False,True,True
+Suravaram-Regular.ttf,Suravaram,Telugu,94,726,1.8936170212765957,2.1316326530612244,2,False,True,False,True,False
+HindGuntur-SemiBold.ttf,Hind Guntur,Telugu,76,894,1.5789473684210527,1.888,2,False,True,False,True,False
+HindGuntur-Light.ttf,Hind Guntur,Telugu,76,894,1.5789473684210527,1.888,2,False,True,False,True,False
+HindGuntur-Bold.ttf,Hind Guntur,Telugu,76,894,1.5789473684210527,1.888,2,False,True,False,True,False
+HindGuntur-Regular.ttf,Hind Guntur,Telugu,76,894,1.5789473684210527,1.888,2,False,True,False,True,False
+HindGuntur-Medium.ttf,Hind Guntur,Telugu,76,894,1.5789473684210527,1.888,2,False,True,False,True,False
+Caveat[wght].ttf,Caveat,Cyrillic,236,1034,1.444915254237288,1.26,3,True,False,True,True,False
+Pangolin-Regular.ttf,Pangolin,Cyrillic,182,878,2.631868131868132,1.249,1,False,False,True,False,False
+DelaGothicOne-Regular.ttf,Dela Gothic One,Cyrillic,96,9194,6.25,1.0,2,False,False,True,True,False
+DelaGothicOne-Regular.ttf,Dela Gothic One,Katakana,95,9194,6.3052631578947365,1.0,2,False,False,True,True,False
+DelaGothicOne-Regular.ttf,Dela Gothic One,Han,7794,9194,6.399538106235566,1.0,2,False,False,True,True,False
+BakbakOne-Regular.ttf,Bakbak One,Devanagari,76,1081,3.460526315789474,1.4,2,False,True,False,True,False
+RubikMarkerHatch-Regular.ttf,Rubik Marker Hatch,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+RubikBubbles-Regular.ttf,Rubik Bubbles,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+Philosopher-Bold.ttf,Philosopher,Cyrillic,182,555,1.1483516483516483,1.12,1,False,False,False,True,False
+Philosopher-Regular.ttf,Philosopher,Cyrillic,182,555,1.1483516483516483,1.12,1,False,False,False,True,False
+Philosopher-BoldItalic.ttf,Philosopher,Cyrillic,182,553,1.1483516483516483,1.12,1,False,False,False,True,False
+Philosopher-Italic.ttf,Philosopher,Cyrillic,182,553,1.1483516483516483,1.12,1,False,False,False,True,False
+AnonymousPro-Italic.ttf,Anonymous Pro,Cyrillic,94,624,1.0,1.0,0,False,False,False,False,False
+AnonymousPro-Bold.ttf,Anonymous Pro,Cyrillic,94,624,1.0,1.0,0,False,False,False,False,False
+AnonymousPro-BoldItalic.ttf,Anonymous Pro,Cyrillic,94,624,1.0,1.0,0,False,False,False,False,False
+AnonymousPro-Regular.ttf,Anonymous Pro,Cyrillic,94,624,1.0,1.0,0,False,False,False,False,False
+MontserratUnderline-Italic[wght].ttf,Montserrat Underline Thin,Cyrillic,238,2791,1.4411764705882353,1.219,2,False,False,True,True,False
+MontserratUnderline[wght].ttf,Montserrat Underline Thin,Cyrillic,238,2799,1.4411764705882353,1.219,2,False,False,True,True,False
+Oranienbaum-Regular.ttf,Oranienbaum,Cyrillic,100,419,1.0,1.155,0,False,False,False,False,False
+KaiseiTokumin-ExtraBold.ttf,Kaisei Tokumin ExtraBold,Cyrillic,66,9368,1.6818181818181819,1.0,1,False,False,True,False,False
+KaiseiTokumin-ExtraBold.ttf,Kaisei Tokumin ExtraBold,Katakana,94,9368,1.7446808510638299,1.0,1,False,False,True,False,False
+KaiseiTokumin-ExtraBold.ttf,Kaisei Tokumin ExtraBold,Han,6753,9368,1.7492966089145565,1.0,1,False,False,True,False,False
+KaiseiTokumin-Bold.ttf,Kaisei Tokumin,Cyrillic,66,9368,1.6818181818181819,1.0,1,False,False,True,False,False
+KaiseiTokumin-Bold.ttf,Kaisei Tokumin,Katakana,94,9368,1.7446808510638299,1.0,1,False,False,True,False,False
+KaiseiTokumin-Bold.ttf,Kaisei Tokumin,Han,6753,9368,1.7492966089145565,1.0,1,False,False,True,False,False
+KaiseiTokumin-Medium.ttf,Kaisei Tokumin Medium,Cyrillic,66,9368,1.6818181818181819,1.0,1,False,False,True,False,False
+KaiseiTokumin-Medium.ttf,Kaisei Tokumin Medium,Katakana,94,9368,1.7446808510638299,1.0,1,False,False,True,False,False
+KaiseiTokumin-Medium.ttf,Kaisei Tokumin Medium,Han,6753,9368,1.7492966089145565,1.0,1,False,False,True,False,False
+KaiseiTokumin-Regular.ttf,Kaisei Tokumin,Cyrillic,66,9368,1.6818181818181819,1.0,1,False,False,True,False,False
+KaiseiTokumin-Regular.ttf,Kaisei Tokumin,Katakana,94,9368,1.7446808510638299,1.0,1,False,False,True,False,False
+KaiseiTokumin-Regular.ttf,Kaisei Tokumin,Han,6753,9368,1.7492966089145565,1.0,1,False,False,True,False,False
+SofiaSansExtraCondensed[wght].ttf,Sofia Sans Extra Condensed,Cyrillic,104,954,1.5769230769230769,1.2,3,True,False,True,True,False
+SofiaSansExtraCondensed-Italic[wght].ttf,Sofia Sans Extra Condensed,Cyrillic,104,934,1.5769230769230769,1.2,3,True,False,True,True,False
+NotoSansChakma-Regular.ttf,Noto Sans Chakma,Bengali,10,585,1.6,1.46,2,False,True,False,True,False
+RhodiumLibre-Regular.ttf,Rhodium Libre,Devanagari,124,815,11.016129032258064,2.415,4,True,True,True,True,False
+AlumniSansSC-Italic[wght].ttf,Alumni Sans SC Thin,Cyrillic,100,1003,1.6,1.2,2,False,False,True,True,False
+AlumniSansSC[wght].ttf,Alumni Sans SC Thin,Cyrillic,100,1000,1.6,1.2,2,False,False,True,True,False
+NotoSerifTC[wght].ttf,Noto Serif TC ExtraLight,Cyrillic,66,20939,5.5,1.0,2,False,False,True,True,False
+NotoSerifTC[wght].ttf,Noto Serif TC ExtraLight,Katakana,112,20939,5.714285714285714,1.0,2,False,False,True,True,False
+NotoSerifTC[wght].ttf,Noto Serif TC ExtraLight,Han,17744,20939,5.922114517583409,1.0,2,False,False,True,True,False
+"Tektur[wdth,wght].ttf",Tektur,Cyrillic,182,1129,1.7417582417582418,1.3,3,True,False,True,True,False
+"NotoSansBengaliUI[wdth,wght].ttf",Noto Sans Bengali UI,Bengali,96,695,3.1875,1.325,3,True,True,False,True,False
+"ScienceGothic[CTRS,slnt,wdth,wght].ttf",Science Gothic,Cyrillic,182,1321,1.1483516483516483,1.476,2,False,False,False,True,True
+RubikSprayPaint-Regular.ttf,Rubik Spray Paint,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+"MartianMono[wdth,wght].ttf",Martian Mono SemiExpanded,Cyrillic,84,567,1.4285714285714286,1.2,2,True,False,False,True,False
+RubikVinyl-Regular.ttf,Rubik Vinyl,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+Comfortaa[wght].ttf,Comfortaa,Cyrillic,180,874,1.45,1.115,2,False,False,True,True,False
+RobotoCondensed-Italic[wght].ttf,Roboto Condensed,Cyrillic,275,1321,1.7454545454545454,1.0498046875,2,False,False,True,False,True
+RobotoCondensed[wght].ttf,Roboto Condensed,Cyrillic,275,1321,1.7454545454545454,1.0498046875,2,False,False,True,False,True
+Kadwa-Bold.ttf,Kadwa,Devanagari,128,932,2.484375,2.0078125,3,False,True,True,True,False
+Kadwa-Regular.ttf,Kadwa,Devanagari,129,931,2.4728682170542635,2.0078125,3,False,True,True,True,False
+Chokokutai-Regular.ttf,Chokokutai,Katakana,94,980,1.446808510638298,1.0,1,False,False,True,False,False
+Rubik80sFade-Regular.ttf,Rubik 80s Fade,Cyrillic,182,776,1.445054945054945,1.185,3,False,False,True,True,True
+ArefRuqaaInk-Regular.ttf,Aref Ruqaa Ink,Arabic,114,1192,2.0701754385964914,1.563,4,True,False,True,True,True
+ArefRuqaaInk-Bold.ttf,Aref Ruqaa Ink,Arabic,114,1189,2.0701754385964914,1.563,4,True,False,True,True,True
+"Merriweather[opsz,wdth,wght].ttf",Merriweather Light,Cyrillic,271,2384,1.5904059040590406,1.257,3,True,False,True,True,False
+"Merriweather-Italic[opsz,wdth,wght].ttf",Merriweather Light,Cyrillic,271,2381,1.5904059040590406,1.257,3,True,False,True,True,False
+NotoTraditionalNushu[wght].ttf,Noto Traditional Nushu,Han,24,774,1.0833333333333333,1.067,1,False,False,False,True,False
+"Cairo[slnt,wght].ttf",Cairo,Arabic,297,1956,2.037037037037037,1.874,4,True,False,True,True,True
+PixelifySans[wght].ttf,Pixelify Sans,Cyrillic,91,576,1.5714285714285714,1.2,2,False,False,True,True,False
+Alkalami-Regular.ttf,Alkalami,Arabic,124,997,2.4516129032258065,1.892,4,True,False,True,True,True
+"IBMPlexSans-Italic[wdth,wght].ttf",IBM Plex Sans,Cyrillic,194,1017,1.2989690721649485,1.3,3,False,False,True,True,True
+"IBMPlexSans[wdth,wght].ttf",IBM Plex Sans,Cyrillic,194,1025,1.2989690721649485,1.3,3,False,False,True,True,True
+Baloo2[wght].ttf,Baloo 2,Devanagari,129,1601,3.503875968992248,1.602,3,False,True,True,True,False
+AdobeBlank-Regular.ttf,Adobe Blank,Cyrillic,304,2049,1.0,1.0,1,False,False,False,False,True
+AdobeBlank-Regular.ttf,Adobe Blank,Katakana,112,2049,1.0,1.0,1,False,False,False,False,True
+AdobeBlank-Regular.ttf,Adobe Blank,Devanagari,160,2049,1.0,1.0,1,False,False,False,False,True
+AdobeBlank-Regular.ttf,Adobe Blank,Arabic,1104,2049,0.8695652173913043,1.0,1,False,False,False,False,True
+AdobeBlank-Regular.ttf,Adobe Blank,Han,70816,2049,0.028920018075011298,1.0,1,False,False,False,False,True
+AdobeBlank-Regular.ttf,Adobe Blank,Bengali,128,2049,1.0,1.0,1,False,False,False,False,True
+AdobeBlank-Regular.ttf,Adobe Blank,Tamil,128,2049,1.0,1.0,1,False,False,False,False,True
+AdobeBlank-Regular.ttf,Adobe Blank,Telugu,128,2049,1.0,1.0,1,False,False,False,False,True
+RubikDoodleShadow-Regular.ttf,Rubik Doodle Shadow,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+FiraSansExtraCondensed-MediumItalic.ttf,Fira Sans Extra Condensed,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSansExtraCondensed-Italic.ttf,Fira Sans Extra Condensed,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSansExtraCondensed-BlackItalic.ttf,Fira Sans Extra Condensed,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSansExtraCondensed-Light.ttf,Fira Sans Extra Condensed,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSansExtraCondensed-LightItalic.ttf,Fira Sans Extra Condensed,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSansExtraCondensed-BoldItalic.ttf,Fira Sans Extra Condensed,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSansExtraCondensed-ThinItalic.ttf,Fira Sans Extra Condensed,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSansExtraCondensed-ExtraLight.ttf,Fira Sans Extra Condensed,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSansExtraCondensed-Medium.ttf,Fira Sans Extra Condensed,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSansExtraCondensed-Thin.ttf,Fira Sans Extra Condensed,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSansExtraCondensed-Black.ttf,Fira Sans Extra Condensed,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSansExtraCondensed-Regular.ttf,Fira Sans Extra Condensed,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSansExtraCondensed-ExtraLightItalic.ttf,Fira Sans Extra Condensed,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSansExtraCondensed-SemiBoldItalic.ttf,Fira Sans Extra Condensed,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSansExtraCondensed-ExtraBold.ttf,Fira Sans Extra Condensed,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSansExtraCondensed-Bold.ttf,Fira Sans Extra Condensed,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSansExtraCondensed-ExtraBoldItalic.ttf,Fira Sans Extra Condensed,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSansExtraCondensed-SemiBold.ttf,Fira Sans Extra Condensed,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+RubikBurned-Regular.ttf,Rubik Burned,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+Spectral-ExtraLight.ttf,Spectral ExtraLight,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+Spectral-ExtraBold.ttf,Spectral ExtraBold,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+Spectral-BoldItalic.ttf,Spectral,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+Spectral-MediumItalic.ttf,Spectral Medium,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+Spectral-Medium.ttf,Spectral Medium,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+Spectral-Regular.ttf,Spectral,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+Spectral-ExtraLightItalic.ttf,Spectral ExtraLight,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+Spectral-ExtraBoldItalic.ttf,Spectral ExtraBold,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+Spectral-SemiBold.ttf,Spectral SemiBold,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+Spectral-LightItalic.ttf,Spectral Light,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+Spectral-Italic.ttf,Spectral,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+Spectral-SemiBoldItalic.ttf,Spectral SemiBold,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+Spectral-Bold.ttf,Spectral,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+Spectral-Light.ttf,Spectral Light,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+YsabeauOffice[wght].ttf,Ysabeau Office,Cyrillic,238,1971,1.7352941176470589,1.343,3,True,False,True,True,False
+YsabeauOffice-Italic[wght].ttf,Ysabeau Office,Cyrillic,237,1393,1.738396624472574,1.343,3,True,False,True,True,False
+"AnekTelugu[wdth,wght].ttf",Anek Telugu Medium,Telugu,88,1016,2.625,1.5,3,False,True,True,True,False
+JainiPurva-Regular.ttf,Jaini Purva,Devanagari,133,1693,3.5714285714285716,1.314,4,True,True,True,True,False
+Amita-Regular.ttf,Amita,Devanagari,122,824,4.688524590163935,1.942,3,False,True,True,True,False
+Amita-Bold.ttf,Amita,Devanagari,122,824,4.688524590163935,1.942,3,False,True,True,True,False
+Arya-Regular.ttf,Arya,Devanagari,122,877,7.934426229508197,1.809,3,False,True,True,True,False
+Arya-Bold.ttf,Arya,Devanagari,122,877,7.934426229508197,1.809,3,False,True,True,True,False
+MochiyPopOne-Regular.ttf,Mochiy Pop One,Katakana,110,16908,1.1454545454545455,1.0,2,False,False,False,True,True
+MochiyPopOne-Regular.ttf,Mochiy Pop One,Han,13546,16908,1.1293370736748856,1.0,2,False,False,False,True,True
+"NunitoSans-Italic[YTLC,opsz,wdth,wght].ttf",Nunito Sans 12pt ExtraLight,Cyrillic,236,1104,1.7415254237288136,1.364,3,True,False,True,True,False
+"NunitoSans[YTLC,opsz,wdth,wght].ttf",Nunito Sans 12pt ExtraLight,Cyrillic,236,1104,1.7415254237288136,1.364,3,True,False,True,True,False
+OtomanopeeOne-Regular.ttf,Otomanopee One,Katakana,112,1598,1.2857142857142858,1.0,2,False,False,True,False,True
+OtomanopeeOne-Regular.ttf,Otomanopee One,Han,240,1598,1.3,1.0,2,False,False,True,False,True
+RubikGlitch-Regular.ttf,Rubik Glitch,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+"AnekTamil[wdth,wght].ttf",Anek Tamil Medium,Tamil,72,674,1.9722222222222223,1.408,3,False,True,True,True,False
+Yantramanav-Thin.ttf,Yantramanav,Devanagari,128,687,3.078125,1.296875,2,False,True,False,True,False
+Yantramanav-Black.ttf,Yantramanav,Devanagari,128,687,3.078125,1.296875,2,False,True,False,True,False
+Yantramanav-Bold.ttf,Yantramanav,Devanagari,128,687,3.078125,1.296875,2,False,True,False,True,False
+Yantramanav-Medium.ttf,Yantramanav,Devanagari,128,687,3.078125,1.296875,2,False,True,False,True,False
+Yantramanav-Light.ttf,Yantramanav,Devanagari,128,687,3.078125,1.296875,2,False,True,False,True,False
+Yantramanav-Regular.ttf,Yantramanav,Devanagari,128,687,3.078125,1.296875,2,False,True,False,True,False
+Cuprum-Italic[wght].ttf,Cuprum,Cyrillic,182,612,1.2967032967032968,1.155,2,False,False,True,True,False
+Cuprum[wght].ttf,Cuprum,Cyrillic,182,612,1.2967032967032968,1.155,2,False,False,True,True,False
+ZCOOLKuaiLe-Regular.ttf,ZCOOL KuaiLe,Han,6766,7055,1.0,1.0,0,False,False,False,False,False
+Alice-Regular.ttf,Alice,Cyrillic,180,453,1.45,1.143,2,False,False,True,True,False
+NotoSansSC[wght].ttf,Noto Sans SC Thin,Cyrillic,66,31036,5.5,1.0,2,False,False,True,True,False
+NotoSansSC[wght].ttf,Noto Sans SC Thin,Katakana,112,31036,5.714285714285714,1.0,2,False,False,True,True,False
+NotoSansSC[wght].ttf,Noto Sans SC Thin,Han,27734,31036,5.924244609504579,1.0,2,False,False,True,True,False
+TsukimiRounded-Medium.ttf,Tsukimi Rounded,Katakana,94,530,1.297872340425532,1.0,1,False,False,True,False,False
+TsukimiRounded-Light.ttf,Tsukimi Rounded,Katakana,94,530,1.297872340425532,1.0,1,False,False,True,False,False
+TsukimiRounded-Bold.ttf,Tsukimi Rounded,Katakana,94,530,1.297872340425532,1.0,1,False,False,True,False,False
+TsukimiRounded-Regular.ttf,Tsukimi Rounded,Katakana,94,530,1.297872340425532,1.0,1,False,False,True,False,False
+TsukimiRounded-SemiBold.ttf,Tsukimi Rounded,Katakana,94,530,1.297872340425532,1.0,1,False,False,True,False,False
+ShipporiMinchoB1-Bold.ttf,Shippori Mincho B1,Katakana,110,16359,1.4363636363636363,1.0,3,False,False,True,True,True
+ShipporiMinchoB1-Bold.ttf,Shippori Mincho B1,Han,14506,16359,1.4250654901420101,1.0,3,False,False,True,True,True
+ShipporiMinchoB1-Medium.ttf,Shippori Mincho B1,Katakana,110,16359,1.4363636363636363,1.0,3,False,False,True,True,True
+ShipporiMinchoB1-Medium.ttf,Shippori Mincho B1,Han,14506,16359,1.4250654901420101,1.0,3,False,False,True,True,True
+ShipporiMinchoB1-SemiBold.ttf,Shippori Mincho B1,Katakana,110,16359,1.4363636363636363,1.0,3,False,False,True,True,True
+ShipporiMinchoB1-SemiBold.ttf,Shippori Mincho B1,Han,14506,16359,1.4250654901420101,1.0,3,False,False,True,True,True
+ShipporiMinchoB1-Regular.ttf,Shippori Mincho B1,Katakana,110,16359,1.4363636363636363,1.0,3,False,False,True,True,True
+ShipporiMinchoB1-Regular.ttf,Shippori Mincho B1,Han,14506,16359,1.4250654901420101,1.0,3,False,False,True,True,True
+ShipporiMinchoB1-ExtraBold.ttf,Shippori Mincho B1,Katakana,110,16359,1.4363636363636363,1.0,3,False,False,True,True,True
+ShipporiMinchoB1-ExtraBold.ttf,Shippori Mincho B1,Han,14506,16359,1.4250654901420101,1.0,3,False,False,True,True,True
+Ponnala-Regular.ttf,Ponnala,Telugu,93,710,1.978494623655914,1.7568359375,2,False,True,False,True,False
+"Handjet[ELGR,ELSH,wght].ttf",Handjet,Cyrillic,182,1605,2.1868131868131866,1.1176470588235294,4,True,False,True,True,True
+"Handjet[ELGR,ELSH,wght].ttf",Handjet,Arabic,239,1605,2.1715481171548117,1.1176470588235294,4,True,False,True,True,True
+RubikDistressed-Regular.ttf,Rubik Distressed,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+YatraOne-Regular.ttf,Yatra One,Devanagari,96,1034,3.1875,1.478,3,False,True,True,True,False
+MonomaniacOne-Regular.ttf,Monomaniac One,Katakana,92,526,1.2826086956521738,1.0,1,False,False,True,False,False
+Blaka-Regular.ttf,Blaka,Arabic,219,610,2.0228310502283104,1.167,4,True,False,True,True,True
+FiraSansCondensed-Black.ttf,Fira Sans Condensed,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSansCondensed-Regular.ttf,Fira Sans Condensed,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSansCondensed-ExtraBold.ttf,Fira Sans Condensed,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSansCondensed-Medium.ttf,Fira Sans Condensed,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSansCondensed-Bold.ttf,Fira Sans Condensed,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSansCondensed-Thin.ttf,Fira Sans Condensed,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSansCondensed-SemiBoldItalic.ttf,Fira Sans Condensed,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSansCondensed-ExtraLightItalic.ttf,Fira Sans Condensed,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSansCondensed-MediumItalic.ttf,Fira Sans Condensed,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSansCondensed-LightItalic.ttf,Fira Sans Condensed,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSansCondensed-SemiBold.ttf,Fira Sans Condensed,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSansCondensed-ExtraBoldItalic.ttf,Fira Sans Condensed,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSansCondensed-Light.ttf,Fira Sans Condensed,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSansCondensed-BoldItalic.ttf,Fira Sans Condensed,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSansCondensed-Italic.ttf,Fira Sans Condensed,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSansCondensed-ExtraLight.ttf,Fira Sans Condensed,Cyrillic,288,2708,9.36111111111111,1.2,4,True,False,True,True,True
+FiraSansCondensed-ThinItalic.ttf,Fira Sans Condensed,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+FiraSansCondensed-BlackItalic.ttf,Fira Sans Condensed,Cyrillic,288,2707,7.569444444444445,1.2,4,True,False,True,True,True
+PalanquinDark-Medium.ttf,Palanquin Dark,Devanagari,128,1245,11.984375,1.0,2,False,True,False,True,False
+PalanquinDark-Regular.ttf,Palanquin Dark,Devanagari,128,1245,11.984375,1.0,2,False,True,False,True,False
+PalanquinDark-Bold.ttf,Palanquin Dark,Devanagari,128,1245,11.984375,1.0,2,False,True,False,True,False
+PalanquinDark-SemiBold.ttf,Palanquin Dark,Devanagari,128,1245,11.984375,1.0,2,False,True,False,True,False
+RozhaOne-Regular.ttf,Rozha One,Devanagari,104,1098,2.730769230769231,1.42,3,False,True,True,True,False
+LXGWWenKaiMonoTC-Regular.ttf,霞鶩文楷等寬 TC,Cyrillic,156,22487,1.4423076923076923,1.0,2,True,False,True,False,False
+LXGWWenKaiMonoTC-Regular.ttf,霞鶩文楷等寬 TC,Katakana,112,22487,1.4285714285714286,1.0,2,True,False,True,False,False
+LXGWWenKaiMonoTC-Regular.ttf,霞鶩文楷等寬 TC,Han,17183,22487,1.432113135075365,1.0,2,True,False,True,False,False
+LXGWWenKaiMonoTC-Bold.ttf,霞鶩文楷等寬 TC,Cyrillic,156,22487,1.4423076923076923,1.0,2,True,False,True,False,False
+LXGWWenKaiMonoTC-Bold.ttf,霞鶩文楷等寬 TC,Katakana,112,22487,1.4285714285714286,1.0,2,True,False,True,False,False
+LXGWWenKaiMonoTC-Bold.ttf,霞鶩文楷等寬 TC,Han,17183,22487,1.432113135075365,1.0,2,True,False,True,False,False
+LXGWWenKaiMonoTC-Light.ttf,霞鶩文楷等寬 TC Light,Cyrillic,156,22495,1.4423076923076923,1.0,2,True,False,True,False,False
+LXGWWenKaiMonoTC-Light.ttf,霞鶩文楷等寬 TC Light,Katakana,112,22495,1.4285714285714286,1.0,2,True,False,True,False,False
+LXGWWenKaiMonoTC-Light.ttf,霞鶩文楷等寬 TC Light,Han,17183,22495,1.432113135075365,1.0,2,True,False,True,False,False
+NotoSerifTelugu[wght].ttf,Noto Serif Telugu,Telugu,100,1027,2.5,1.352,2,False,True,False,True,False
+Mirza-Regular.ttf,Mirza,Arabic,528,1432,14.765151515151516,1.2,4,True,False,True,True,True
+Mirza-Medium.ttf,Mirza,Arabic,528,1432,14.765151515151516,1.2,4,True,False,True,True,True
+Mirza-Bold.ttf,Mirza,Arabic,528,1432,14.765151515151516,1.2,4,True,False,True,True,True
+Mirza-SemiBold.ttf,Mirza,Arabic,528,1432,14.765151515151516,1.2,4,True,False,True,True,True
+TiroBangla-Regular.ttf,Tiro Bangla,Bengali,96,1193,3.0416666666666665,1.33,4,True,True,True,True,False
+TiroBangla-Italic.ttf,Tiro Bangla,Bengali,96,1193,3.0416666666666665,1.33,4,True,True,True,True,False
+Glegoo-Bold.ttf,Glegoo,Devanagari,155,860,2.632258064516129,1.793,3,False,True,False,True,True
+Glegoo-Regular.ttf,Glegoo,Devanagari,155,862,2.632258064516129,1.793,3,False,True,False,True,True
+Onest[wght].ttf,Onest,Cyrillic,82,534,1.7317073170731707,1.275,2,True,False,False,True,False
+KaiseiHarunoUmi-Regular.ttf,Kaisei HarunoUmi,Cyrillic,66,9368,1.6818181818181819,1.0,1,False,False,True,False,False
+KaiseiHarunoUmi-Regular.ttf,Kaisei HarunoUmi,Katakana,94,9368,1.7446808510638299,1.0,1,False,False,True,False,False
+KaiseiHarunoUmi-Regular.ttf,Kaisei HarunoUmi,Han,6753,9368,1.7492966089145565,1.0,1,False,False,True,False,False
+KaiseiHarunoUmi-Medium.ttf,Kaisei HarunoUmi Medium,Cyrillic,66,9368,1.6818181818181819,1.0,1,False,False,True,False,False
+KaiseiHarunoUmi-Medium.ttf,Kaisei HarunoUmi Medium,Katakana,94,9368,1.7446808510638299,1.0,1,False,False,True,False,False
+KaiseiHarunoUmi-Medium.ttf,Kaisei HarunoUmi Medium,Han,6753,9368,1.7492966089145565,1.0,1,False,False,True,False,False
+KaiseiHarunoUmi-Bold.ttf,Kaisei HarunoUmi,Cyrillic,66,9368,1.6818181818181819,1.0,1,False,False,True,False,False
+KaiseiHarunoUmi-Bold.ttf,Kaisei HarunoUmi,Katakana,94,9368,1.7446808510638299,1.0,1,False,False,True,False,False
+KaiseiHarunoUmi-Bold.ttf,Kaisei HarunoUmi,Han,6753,9368,1.7492966089145565,1.0,1,False,False,True,False,False
+RocknRollOne-Regular.ttf,RocknRoll One,Cyrillic,66,9362,1.4090909090909092,1.0,1,False,False,True,False,False
+RocknRollOne-Regular.ttf,RocknRoll One,Katakana,94,9362,1.446808510638298,1.0,1,False,False,True,False,False
+RocknRollOne-Regular.ttf,RocknRoll One,Han,6758,9362,1.4492453388576503,1.0,1,False,False,True,False,False
+PlaypenSans[wght].ttf,Playpen Sans,Cyrillic,160,3082,2.2,1.51,3,True,False,True,True,False
+CherryBombOne-Regular.ttf,Cherry Bomb One,Katakana,96,1140,1.4375,1.0,1,False,False,True,False,False
+MarckScript-Regular.ttf,Marck Script,Cyrillic,94,445,1.0,1.249,0,False,False,False,False,False
+CormorantUnicase-Medium.ttf,Cormorant Unicase Medium,Cyrillic,236,3203,6.635593220338983,1.211,3,True,False,False,True,True
+CormorantUnicase-Bold.ttf,Cormorant Unicase,Cyrillic,236,3203,6.635593220338983,1.211,3,True,False,False,True,True
+CormorantUnicase-SemiBold.ttf,Cormorant Unicase SemiBold,Cyrillic,236,3203,6.635593220338983,1.211,3,True,False,False,True,True
+CormorantUnicase-Regular.ttf,Cormorant Unicase,Cyrillic,236,3203,6.635593220338983,1.211,3,True,False,False,True,True
+CormorantUnicase-Light.ttf,Cormorant Unicase Light,Cyrillic,236,3203,6.635593220338983,1.211,3,True,False,False,True,True
+BIZUDGothic-Bold.ttf,BIZ UDGothic,Cyrillic,94,13932,3.6808510638297873,1.0,1,False,False,True,False,False
+BIZUDGothic-Bold.ttf,BIZ UDGothic,Katakana,112,13932,3.5714285714285716,1.0,1,False,False,True,False,False
+BIZUDGothic-Bold.ttf,BIZ UDGothic,Han,10149,13932,3.6992807173120505,1.0,1,False,False,True,False,False
+BIZUDGothic-Regular.ttf,BIZ UDGothic,Cyrillic,94,13932,3.6808510638297873,1.0,1,False,False,True,False,False
+BIZUDGothic-Regular.ttf,BIZ UDGothic,Katakana,112,13932,3.5714285714285716,1.0,1,False,False,True,False,False
+BIZUDGothic-Regular.ttf,BIZ UDGothic,Han,10149,13932,3.6992807173120505,1.0,1,False,False,True,False,False
+ZhiMangXing-Regular.ttf,Zhi Mang Xing,Han,6763,7017,1.0,1.0,0,False,False,False,False,False
+Forum-Regular.ttf,Forum,Cyrillic,182,584,1.0,1.104,0,False,False,False,False,False
+"ReadexPro[HEXP,wght].ttf",Readex Pro,Arabic,75,1061,2.1733333333333333,1.25,4,True,False,True,True,True
+"NotoSerifTamil[wdth,wght].ttf",Noto Serif Tamil,Tamil,72,506,1.5555555555555556,1.561,2,False,True,False,True,False
+"NotoSerifTamil-Italic[wdth,wght].ttf",Noto Serif Tamil,Tamil,72,506,1.5555555555555556,1.561,2,False,True,False,True,False
+BalooThambi2[wght].ttf,Baloo Thambi 2,Tamil,72,983,1.6944444444444444,1.564,2,False,True,True,False,False
+YsabeauInfant[wght].ttf,Ysabeau Infant,Cyrillic,238,1878,1.7352941176470589,1.343,3,True,False,True,True,False
+YsabeauInfant-Italic[wght].ttf,Ysabeau Infant,Cyrillic,237,1364,1.738396624472574,1.343,3,True,False,True,True,False
+Qahiri-Regular.ttf,Qahiri,Arabic,88,548,1.8863636363636365,1.1333333333333333,3,True,False,False,True,True
+BIZUDPGothic-Regular.ttf,BIZ UDPGothic,Cyrillic,94,13932,3.6808510638297873,1.0,1,False,False,True,False,False
+BIZUDPGothic-Regular.ttf,BIZ UDPGothic,Katakana,112,13932,3.5714285714285716,1.0,1,False,False,True,False,False
+BIZUDPGothic-Regular.ttf,BIZ UDPGothic,Han,10149,13932,3.6992807173120505,1.0,1,False,False,True,False,False
+BIZUDPGothic-Bold.ttf,BIZ UDPGothic,Cyrillic,94,13932,3.6808510638297873,1.0,1,False,False,True,False,False
+BIZUDPGothic-Bold.ttf,BIZ UDPGothic,Katakana,112,13932,3.5714285714285716,1.0,1,False,False,True,False,False
+BIZUDPGothic-Bold.ttf,BIZ UDPGothic,Han,10149,13932,3.6992807173120505,1.0,1,False,False,True,False,False
+FlowBlock-Regular.ttf,Flow Block,Cyrillic,128,800,1.0,1.2,0,False,False,False,False,False
+MuktaMalar-SemiBold.ttf,Mukta Malar,Tamil,72,805,6.0,1.662,2,False,True,True,False,False
+MuktaMalar-Bold.ttf,Mukta Malar,Tamil,72,805,6.0,1.662,2,False,True,True,False,False
+MuktaMalar-Medium.ttf,Mukta Malar,Tamil,72,805,6.0,1.662,2,False,True,True,False,False
+MuktaMalar-ExtraBold.ttf,Mukta Malar,Tamil,72,805,6.0,1.662,2,False,True,True,False,False
+MuktaMalar-Regular.ttf,Mukta Malar,Tamil,72,805,6.0,1.662,2,False,True,True,False,False
+MuktaMalar-Light.ttf,Mukta Malar,Tamil,72,805,6.0,1.662,2,False,True,True,False,False
+MuktaMalar-ExtraLight.ttf,Mukta Malar,Tamil,72,805,6.0,1.662,2,False,True,True,False,False
+Karma-Light.ttf,Karma,Devanagari,102,1167,2.6176470588235294,1.419,2,False,True,False,True,False
+Karma-Medium.ttf,Karma,Devanagari,102,1167,2.6176470588235294,1.493,2,False,True,False,True,False
+Karma-SemiBold.ttf,Karma,Devanagari,102,1167,2.6176470588235294,1.544,2,False,True,False,True,False
+Karma-Bold.ttf,Karma,Devanagari,102,1167,2.6176470588235294,1.628,2,False,True,False,True,False
+Karma-Regular.ttf,Karma,Devanagari,102,1167,2.6176470588235294,1.453,2,False,True,False,True,False
+Vibes-Regular.ttf,Vibes,Arabic,201,518,3.2388059701492535,1.785,4,True,False,True,True,True
+Khula-SemiBold.ttf,Khula,Devanagari,128,571,3.078125,1.6056622851365014,2,False,True,False,True,False
+Khula-Bold.ttf,Khula,Devanagari,128,571,3.078125,1.6056622851365014,2,False,True,False,True,False
+Khula-Light.ttf,Khula,Devanagari,128,571,3.078125,1.6056622851365014,2,False,True,False,True,False
+Khula-ExtraBold.ttf,Khula,Devanagari,128,571,3.078125,1.6056622851365014,2,False,True,False,True,False
+Khula-Regular.ttf,Khula,Devanagari,128,571,3.078125,1.6056622851365014,2,False,True,False,True,False
+IosevkaCharonMono-Medium.ttf,Iosevka Charon Mono Medium,Cyrillic,304,11828,1.1480263157894737,1.28,2,False,False,False,True,True
+IosevkaCharonMono-Bold.ttf,Iosevka Charon Mono,Cyrillic,304,11828,1.1480263157894737,1.28,2,False,False,False,True,True
+IosevkaCharonMono-MediumItalic.ttf,Iosevka Charon Mono Medium,Cyrillic,304,11861,1.1480263157894737,1.28,2,False,False,False,True,True
+IosevkaCharonMono-Italic.ttf,Iosevka Charon Mono,Cyrillic,304,11861,1.1480263157894737,1.28,2,False,False,False,True,True
+IosevkaCharonMono-BoldItalic.ttf,Iosevka Charon Mono,Cyrillic,304,11861,1.1480263157894737,1.28,2,False,False,False,True,True
+IosevkaCharonMono-Regular.ttf,Iosevka Charon Mono,Cyrillic,304,11828,1.1480263157894737,1.28,2,False,False,False,True,True
+IosevkaCharonMono-LightItalic.ttf,Iosevka Charon Mono Light,Cyrillic,304,11861,1.1480263157894737,1.28,2,False,False,False,True,True
+IosevkaCharonMono-Light.ttf,Iosevka Charon Mono Light,Cyrillic,304,11828,1.1480263157894737,1.28,2,False,False,False,True,True
+Changa[wght].ttf,Changa,Arabic,277,797,2.184115523465704,1.84,4,True,False,True,True,True
+IBMPlexSerif-ExtraLight.ttf,IBM Plex Serif ExtraLight,Cyrillic,168,836,1.8928571428571428,1.3,2,False,False,True,True,False
+IBMPlexSerif-Regular.ttf,IBM Plex Serif,Cyrillic,168,836,1.8928571428571428,1.3,2,False,False,True,True,False
+IBMPlexSerif-ExtraLightItalic.ttf,IBM Plex Serif ExtraLight,Cyrillic,168,836,1.8928571428571428,1.3,2,False,False,True,True,False
+IBMPlexSerif-ThinItalic.ttf,IBM Plex Serif Thin,Cyrillic,168,836,1.8928571428571428,1.3,2,False,False,True,True,False
+IBMPlexSerif-BoldItalic.ttf,IBM Plex Serif,Cyrillic,168,836,1.8928571428571428,1.3,2,False,False,True,True,False
+IBMPlexSerif-SemiBold.ttf,IBM Plex Serif SemiBold,Cyrillic,168,836,1.8928571428571428,1.3,2,False,False,True,True,False
+IBMPlexSerif-Italic.ttf,IBM Plex Serif,Cyrillic,168,836,1.8928571428571428,1.3,2,False,False,True,True,False
+IBMPlexSerif-Medium.ttf,IBM Plex Serif Medium,Cyrillic,168,836,1.8928571428571428,1.3,2,False,False,True,True,False
+IBMPlexSerif-Light.ttf,IBM Plex Serif Light,Cyrillic,168,836,1.8928571428571428,1.3,2,False,False,True,True,False
+IBMPlexSerif-Thin.ttf,IBM Plex Serif Thin,Cyrillic,168,836,1.8928571428571428,1.3,2,False,False,True,True,False
+IBMPlexSerif-SemiBoldItalic.ttf,IBM Plex Serif SemiBold,Cyrillic,168,836,1.8928571428571428,1.3,2,False,False,True,True,False
+IBMPlexSerif-MediumItalic.ttf,IBM Plex Serif Medium,Cyrillic,168,836,1.8928571428571428,1.3,2,False,False,True,True,False
+IBMPlexSerif-LightItalic.ttf,IBM Plex Serif Light,Cyrillic,168,836,1.8928571428571428,1.3,2,False,False,True,True,False
+IBMPlexSerif-Bold.ttf,IBM Plex Serif,Cyrillic,168,836,1.8928571428571428,1.3,2,False,False,True,True,False
+ZCOOLQingKeHuangYou-Regular.ttf,ZCOOL QingKe HuangYou,Han,9176,9433,1.0,1.0,0,False,False,False,False,False
+ArsenalSC-BoldItalic.ttf,Arsenal SC,Cyrillic,238,1031,1.588235294117647,1.254,2,False,False,True,True,False
+ArsenalSC-Italic.ttf,Arsenal SC,Cyrillic,238,1031,1.588235294117647,1.254,2,False,False,True,True,False
+ArsenalSC-Regular.ttf,Arsenal SC,Cyrillic,238,1041,1.588235294117647,1.254,2,False,False,True,True,False
+ArsenalSC-Bold.ttf,Arsenal SC,Cyrillic,238,1041,1.588235294117647,1.254,2,False,False,True,True,False
+"Inter[opsz,wght].ttf",Inter,Cyrillic,249,2933,1.4457831325301205,1.2099609375,4,True,False,True,True,True
+"Inter-Italic[opsz,wght].ttf",Inter,Cyrillic,249,2897,1.4457831325301205,1.2099609375,4,True,False,True,True,True
+Fustat[wght].ttf,Fustat,Arabic,223,1006,2.1300448430493275,1.42,4,True,False,True,True,True
+Nunito[wght].ttf,Nunito ExtraLight,Cyrillic,236,1103,1.5932203389830508,1.364,3,True,False,True,True,False
+Nunito-Italic[wght].ttf,Nunito ExtraLight,Cyrillic,236,1103,1.5932203389830508,1.364,3,True,False,True,True,False
+Gidole-Regular.ttf,Gidole,Cyrillic,100,921,1.45,1.23046875,3,False,False,True,True,True
+Andika-Bold.ttf,Andika,Cyrillic,268,3775,1.4477611940298507,1.611328125,3,False,False,True,True,True
+Andika-BoldItalic.ttf,Andika,Cyrillic,268,3775,1.4477611940298507,1.611328125,3,False,False,True,True,True
+Andika-Italic.ttf,Andika,Cyrillic,268,3775,1.4477611940298507,1.611328125,3,False,False,True,True,True
+Andika-Regular.ttf,Andika,Cyrillic,268,3775,1.4477611940298507,1.611328125,3,False,False,True,True,True
+Asar-Regular.ttf,Asar,Devanagari,127,1358,12.070866141732283,1.753,2,False,True,False,True,False
+BlakaHollow-Regular.ttf,Blaka Hollow,Arabic,219,610,2.0228310502283104,1.167,4,True,False,True,True,True
+InknutAntiqua-Bold.ttf,Inknut Antiqua,Devanagari,136,1456,15.705882352941176,2.579,4,True,True,True,True,False
+InknutAntiqua-Regular.ttf,Inknut Antiqua,Devanagari,136,1456,15.705882352941176,2.579,4,True,True,True,True,False
+InknutAntiqua-SemiBold.ttf,Inknut Antiqua,Devanagari,136,1456,15.705882352941176,2.579,4,True,True,True,True,False
+InknutAntiqua-Light.ttf,Inknut Antiqua,Devanagari,136,1456,15.705882352941176,2.579,4,True,True,True,True,False
+InknutAntiqua-Black.ttf,Inknut Antiqua,Devanagari,136,1456,15.705882352941176,2.579,4,True,True,True,True,False
+InknutAntiqua-Medium.ttf,Inknut Antiqua,Devanagari,136,1456,15.705882352941176,2.579,4,True,True,True,True,False
+InknutAntiqua-ExtraBold.ttf,Inknut Antiqua,Devanagari,136,1456,15.705882352941176,2.579,4,True,True,True,True,False
+NATS-Regular.ttf,NATS,Telugu,93,869,1.978494623655914,2.11340206185567,2,False,True,False,True,False
+Oswald[wght].ttf,Oswald,Cyrillic,236,883,1.5889830508474576,1.482,2,False,False,True,True,False
+PT_Sans-Web-Italic.ttf,PT Sans,Cyrillic,220,721,2.8,1.294,1,False,False,True,False,False
+PT_Sans-Web-Regular.ttf,PT Sans,Cyrillic,220,720,2.8,1.294,1,False,False,True,False,False
+PT_Sans-Web-Bold.ttf,PT Sans,Cyrillic,220,720,2.8,1.294,1,False,False,True,False,False
+PT_Sans-Web-BoldItalic.ttf,PT Sans,Cyrillic,220,721,2.8,1.294,1,False,False,True,False,False
+AlegreyaSC-Black.ttf,Alegreya SC,Cyrillic,184,1569,5.4021739130434785,1.361,2,False,False,True,True,False
+AlegreyaSC-ExtraBoldItalic.ttf,Alegreya SC,Cyrillic,184,1575,5.4021739130434785,1.361,2,False,False,True,True,False
+AlegreyaSC-Italic.ttf,Alegreya SC,Cyrillic,184,1575,5.4021739130434785,1.361,2,False,False,True,True,False
+AlegreyaSC-Regular.ttf,Alegreya SC,Cyrillic,184,1569,5.4021739130434785,1.361,2,False,False,True,True,False
+AlegreyaSC-ExtraBold.ttf,Alegreya SC,Cyrillic,184,1569,5.4021739130434785,1.361,2,False,False,True,True,False
+AlegreyaSC-MediumItalic.ttf,Alegreya SC,Cyrillic,184,1575,5.4021739130434785,1.361,2,False,False,True,True,False
+AlegreyaSC-Medium.ttf,Alegreya SC,Cyrillic,184,1569,5.4021739130434785,1.361,2,False,False,True,True,False
+AlegreyaSC-BlackItalic.ttf,Alegreya SC,Cyrillic,184,1575,5.4021739130434785,1.361,2,False,False,True,True,False
+AlegreyaSC-Bold.ttf,Alegreya SC,Cyrillic,184,1569,5.4021739130434785,1.361,2,False,False,True,True,False
+AlegreyaSC-BoldItalic.ttf,Alegreya SC,Cyrillic,184,1575,5.4021739130434785,1.361,2,False,False,True,True,False
+ProstoOne-Regular.ttf,Prosto One,Cyrillic,94,405,1.0,1.235,0,False,False,False,False,False
+"NotoSansArabicUI[wdth,wght].ttf",Noto Sans Arabic UI,Arabic,1054,1563,2.1992409867172675,1.362,4,True,False,True,True,True
+PlaypenSansArabic[wght].ttf,Playpen Sans Arabic,Arabic,253,1620,2.7549407114624507,1.65,4,True,False,True,True,True
+NicoMoji-Regular.ttf,Nico Moji,Katakana,90,744,1.0,1.0,0,False,False,False,False,False
+KellySlab-Regular.ttf,Kelly Slab,Cyrillic,94,453,1.0,1.212,0,False,False,False,False,False
+TiroDevanagariSanskrit-Regular.ttf,Tiro Devanagari Sanskrit,Devanagari,138,1835,2.739130434782609,1.33,4,True,True,True,True,False
+TiroDevanagariSanskrit-Italic.ttf,Tiro Devanagari Sanskrit,Devanagari,138,1835,2.739130434782609,1.33,4,True,True,True,True,False
+BonaNovaSC-Regular.ttf,Bona Nova SC,Cyrillic,102,2136,2.4705882352941178,1.2,4,True,False,True,True,True
+BonaNovaSC-Regular.ttf,Bona Nova SC,Arabic,176,2136,2.477272727272727,1.2,4,True,False,True,True,True
+BonaNovaSC-Bold.ttf,Bona Nova SC,Cyrillic,102,2136,2.4705882352941178,1.2,4,True,False,True,True,True
+BonaNovaSC-Bold.ttf,Bona Nova SC,Arabic,176,2136,2.477272727272727,1.2,4,True,False,True,True,True
+BonaNovaSC-Italic.ttf,Bona Nova SC,Cyrillic,102,2242,2.4705882352941178,1.2,4,True,False,True,True,True
+BonaNovaSC-Italic.ttf,Bona Nova SC,Arabic,176,2242,2.477272727272727,1.2,4,True,False,True,True,True
+Hind-Light.ttf,Hind,Devanagari,94,1006,3.234042553191489,1.601,3,False,True,True,True,False
+Hind-Bold.ttf,Hind,Devanagari,94,1006,3.234042553191489,1.601,3,False,True,True,True,False
+Hind-SemiBold.ttf,Hind,Devanagari,94,1006,3.234042553191489,1.601,3,False,True,True,True,False
+Hind-Regular.ttf,Hind,Devanagari,94,1006,3.234042553191489,1.601,3,False,True,True,True,False
+Hind-Medium.ttf,Hind,Devanagari,94,1006,3.234042553191489,1.601,3,False,True,True,True,False
+NewTegomin-Regular.ttf,New Tegomin,Katakana,90,7372,1.1444444444444444,1.0,0,False,False,False,False,False
+NewTegomin-Regular.ttf,New Tegomin,Han,6356,7372,1.1499370673379483,1.0,0,False,False,False,False,False
+RubikDirt-Regular.ttf,Rubik Dirt,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+BIZUDPMincho-Bold.ttf,BIZ UDPMincho,Cyrillic,94,13932,3.6808510638297873,1.0,1,False,False,True,False,False
+BIZUDPMincho-Bold.ttf,BIZ UDPMincho,Katakana,112,13932,3.5714285714285716,1.0,1,False,False,True,False,False
+BIZUDPMincho-Bold.ttf,BIZ UDPMincho,Han,10149,13932,3.6992807173120505,1.0,1,False,False,True,False,False
+BIZUDPMincho-Regular.ttf,BIZ UDPMincho,Cyrillic,94,13932,3.6808510638297873,1.0,1,False,False,True,False,False
+BIZUDPMincho-Regular.ttf,BIZ UDPMincho,Katakana,112,13932,3.5714285714285716,1.0,1,False,False,True,False,False
+BIZUDPMincho-Regular.ttf,BIZ UDPMincho,Han,10149,13932,3.6992807173120505,1.0,1,False,False,True,False,False
+Sura-Bold.ttf,Sura,Devanagari,155,664,1.8903225806451613,1.57763671875,2,False,True,False,True,False
+Sura-Regular.ttf,Sura,Devanagari,155,664,1.8903225806451613,1.57763671875,2,False,True,False,True,False
+PodkovaVFBeta.ttf,Podkova VF Beta,Cyrillic,236,955,1.444915254237288,1.108,2,False,False,True,True,False
+BadeenDisplay-Regular.ttf,Badeen Display,Arabic,107,733,1.7476635514018692,1.4,4,True,False,True,True,True
+PT_Serif-Web-Regular.ttf,PT Serif,Cyrillic,220,719,2.8,1.325,1,False,False,True,False,False
+PT_Serif-Web-BoldItalic.ttf,PT Serif,Cyrillic,220,719,2.8,1.325,1,False,False,True,False,False
+PT_Serif-Web-Italic.ttf,PT Serif,Cyrillic,220,719,2.8,1.325,1,False,False,True,False,False
+PT_Serif-Web-Bold.ttf,PT Serif,Cyrillic,220,719,2.8,1.325,1,False,False,True,False,False
+TiroDevanagariMarathi-Regular.ttf,Tiro Devanagari Marathi,Devanagari,107,1395,2.794392523364486,1.33,4,True,True,True,True,False
+TiroDevanagariMarathi-Italic.ttf,Tiro Devanagari Marathi,Devanagari,107,1395,2.794392523364486,1.33,4,True,True,True,True,False
+BIZUDMincho-Bold.ttf,BIZ UDMincho,Cyrillic,94,13932,3.6808510638297873,1.0,1,False,False,True,False,False
+BIZUDMincho-Bold.ttf,BIZ UDMincho,Katakana,112,13932,3.5714285714285716,1.0,1,False,False,True,False,False
+BIZUDMincho-Bold.ttf,BIZ UDMincho,Han,10149,13932,3.6992807173120505,1.0,1,False,False,True,False,False
+BIZUDMincho-Regular.ttf,BIZ UDMincho,Cyrillic,94,13932,3.6808510638297873,1.0,1,False,False,True,False,False
+BIZUDMincho-Regular.ttf,BIZ UDMincho,Katakana,112,13932,3.5714285714285716,1.0,1,False,False,True,False,False
+BIZUDMincho-Regular.ttf,BIZ UDMincho,Han,10149,13932,3.6992807173120505,1.0,1,False,False,True,False,False
+TenaliRamakrishna-Regular.ttf,Tenali Ramakrishna,Telugu,93,1644,1.978494623655914,1.564,2,False,True,False,True,False
+OldStandard-Italic.ttf,Old Standard TT,Cyrillic,218,938,3.2018348623853212,1.236,2,False,False,True,True,False
+OldStandard-Bold.ttf,Old Standard TT,Cyrillic,218,940,4.08256880733945,1.236,2,False,False,True,True,False
+OldStandard-Regular.ttf,Old Standard TT,Cyrillic,218,940,4.08256880733945,1.236,2,False,False,True,True,False
+NotoSansJP[wght].ttf,Noto Sans JP Thin,Cyrillic,66,17936,5.5,1.0,2,False,False,True,True,False
+NotoSansJP[wght].ttf,Noto Sans JP Thin,Katakana,112,17936,5.714285714285714,1.0,2,False,False,True,True,False
+NotoSansJP[wght].ttf,Noto Sans JP Thin,Han,13665,17936,5.837614343212587,1.0,2,False,False,True,True,False
+Ramabhadra-Regular.ttf,Ramabhadra,Telugu,94,1235,1.8936170212765957,1.8975903614457832,1,False,True,False,False,False
+ChocolateClassicalSans-Regular.ttf,朱古力黑體,Cyrillic,156,36547,1.4423076923076923,1.0,3,False,False,True,True,True
+ChocolateClassicalSans-Regular.ttf,朱古力黑體,Katakana,111,36547,1.4324324324324325,1.0,3,False,False,True,True,True
+ChocolateClassicalSans-Regular.ttf,朱古力黑體,Han,31553,36547,1.4241435045795963,1.0,3,False,False,True,True,True
+IBMPlexSansArabic-SemiBold.ttf,IBM Plex Sans Arabic SemiBold,Arabic,636,1706,5.779874213836478,1.5,4,True,False,True,True,True
+IBMPlexSansArabic-Regular.ttf,IBM Plex Sans Arabic,Arabic,636,1706,5.779874213836478,1.5,4,True,False,True,True,True
+IBMPlexSansArabic-Light.ttf,IBM Plex Sans Arabic Light,Arabic,636,1706,5.779874213836478,1.5,4,True,False,True,True,True
+IBMPlexSansArabic-ExtraLight.ttf,IBM Plex Sans Arabic ExtraLight,Arabic,636,1706,5.779874213836478,1.5,4,True,False,True,True,True
+IBMPlexSansArabic-Bold.ttf,IBM Plex Sans Arabic,Arabic,636,1706,5.779874213836478,1.5,4,True,False,True,True,True
+IBMPlexSansArabic-Thin.ttf,IBM Plex Sans Arabic Thin,Arabic,636,1706,5.779874213836478,1.5,4,True,False,True,True,True
+IBMPlexSansArabic-Medium.ttf,IBM Plex Sans Arabic Medium,Arabic,636,1706,5.779874213836478,1.5,4,True,False,True,True,True
+DidactGothic-Regular.ttf,Didact Gothic,Cyrillic,182,1272,5.450549450549451,1.311,2,False,False,True,True,False
+ZenMaruGothic-Bold.ttf,Zen Maru Gothic,Cyrillic,66,7864,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenMaruGothic-Bold.ttf,Zen Maru Gothic,Katakana,94,7864,1.148936170212766,1.0,1,False,False,False,True,False
+ZenMaruGothic-Bold.ttf,Zen Maru Gothic,Han,6716,7864,1.1499404407385347,1.0,1,False,False,False,True,False
+ZenMaruGothic-Light.ttf,Zen Maru Gothic Light,Cyrillic,66,7864,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenMaruGothic-Light.ttf,Zen Maru Gothic Light,Katakana,94,7864,1.148936170212766,1.0,1,False,False,False,True,False
+ZenMaruGothic-Light.ttf,Zen Maru Gothic Light,Han,6716,7864,1.1499404407385347,1.0,1,False,False,False,True,False
+ZenMaruGothic-Medium.ttf,Zen Maru Gothic Medium,Cyrillic,66,7864,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenMaruGothic-Medium.ttf,Zen Maru Gothic Medium,Katakana,94,7864,1.148936170212766,1.0,1,False,False,False,True,False
+ZenMaruGothic-Medium.ttf,Zen Maru Gothic Medium,Han,6716,7864,1.1499404407385347,1.0,1,False,False,False,True,False
+ZenMaruGothic-Black.ttf,Zen Maru Gothic Black,Cyrillic,66,7864,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenMaruGothic-Black.ttf,Zen Maru Gothic Black,Katakana,94,7864,1.148936170212766,1.0,1,False,False,False,True,False
+ZenMaruGothic-Black.ttf,Zen Maru Gothic Black,Han,6716,7864,1.1499404407385347,1.0,1,False,False,False,True,False
+ZenMaruGothic-Regular.ttf,Zen Maru Gothic,Cyrillic,66,7864,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenMaruGothic-Regular.ttf,Zen Maru Gothic,Katakana,94,7864,1.148936170212766,1.0,1,False,False,False,True,False
+ZenMaruGothic-Regular.ttf,Zen Maru Gothic,Han,6716,7864,1.1499404407385347,1.0,1,False,False,False,True,False
+Exo2[wght].ttf,Exo 2,Cyrillic,238,1033,1.4411764705882353,1.2,2,False,False,True,True,False
+Exo2-Italic[wght].ttf,Exo 2,Cyrillic,238,1032,1.4411764705882353,1.2,2,False,False,True,True,False
+Sirivennela-Regular.ttf,Sirivennela,Telugu,98,1313,1.8571428571428572,1.2,2,False,True,False,True,False
+Mada[wght].ttf,Mada,Arabic,251,986,1.8286852589641434,1.3,4,True,False,True,True,True
+Suranna-Regular.ttf,Suranna,Telugu,94,1217,1.8936170212765957,2.18974358974359,1,False,True,False,False,False
+NotoKufiArabic[wght].ttf,Noto Kufi Arabic,Arabic,1076,1706,2.158921933085502,1.897,4,True,False,True,True,True
+Gulim-Regular.ttf,Gulim,Cyrillic,94,22522,1.0,1.0,0,False,False,False,False,False
+Gulim-Regular.ttf,Gulim,Katakana,86,22522,1.0,1.0,0,False,False,False,False,False
+Gulim-Regular.ttf,Gulim,Han,7744,22522,1.0,1.0,0,False,False,False,False,False
+LiuJianMaoCao-Regular.ttf,Liu Jian Mao Cao,Han,6763,7018,1.0,1.0,0,False,False,False,False,False
+Sarala-Regular.ttf,Sarala,Devanagari,155,870,2.4838709677419355,1.63037109375,3,False,True,True,True,False
+Sarala-Bold.ttf,Sarala,Devanagari,155,870,2.4838709677419355,1.63037109375,3,False,True,True,True,False
+Geist[wght].ttf,Geist,Cyrillic,134,825,1.4477611940298507,1.3,2,False,False,True,True,False
+Alexandria[wght].ttf,Alexandria,Arabic,263,1935,2.334600760456274,1.219,4,True,False,True,True,True
+DarumadropOne-Regular.ttf,Darumadrop One,Katakana,92,526,1.2826086956521738,1.0,1,False,False,True,False,False
+Ysabeau[wght].ttf,Ysabeau,Cyrillic,238,2048,1.7352941176470589,1.343,3,True,False,True,True,False
+Ysabeau-Italic[wght].ttf,Ysabeau,Cyrillic,237,1484,1.738396624472574,1.343,3,True,False,True,True,False
+Jura[wght].ttf,Jura Light,Cyrillic,100,1115,1.75,1.183,3,True,False,True,True,False
+Kapakana[wght].ttf,Kapakana,Katakana,93,423,1.0,1.0,0,False,False,False,False,False
+Hannari-Regular.ttf,Hannari,Katakana,90,230,1.0,1.5,0,False,False,False,False,False
+WixMadeforText-Bold.ttf,Wix Madefor Text,Cyrillic,104,726,1.1442307692307692,1.26,2,False,False,False,True,True
+WixMadeforText-SemiBold.ttf,Wix Madefor Text SemiBold,Cyrillic,104,726,1.1442307692307692,1.26,2,False,False,False,True,True
+WixMadeforText-ExtraBold.ttf,Wix Madefor Text ExtraBold,Cyrillic,104,726,1.1442307692307692,1.26,2,False,False,False,True,True
+WixMadeforText-Medium.ttf,Wix Madefor Text Medium,Cyrillic,104,726,1.1442307692307692,1.26,2,False,False,False,True,True
+WixMadeforText-Regular.ttf,Wix Madefor Text,Cyrillic,104,726,1.1442307692307692,1.26,2,False,False,False,True,True
+WixMadeforText[wght].ttf,Wix Madefor Text,Cyrillic,104,726,1.1442307692307692,1.26,2,False,False,False,True,True
+"AnekBangla[wdth,wght].ttf",Anek Bangla Medium,Bengali,90,838,3.4555555555555557,1.866,4,True,True,True,True,False
+Sumana-Regular.ttf,Sumana,Devanagari,123,788,4.073170731707317,2.927,4,True,True,True,True,False
+Sumana-Bold.ttf,Sumana,Devanagari,123,788,4.073170731707317,2.927,4,True,True,True,True,False
+DotGothic16-Regular.ttf,DotGothic16,Cyrillic,66,9362,1.2727272727272727,1.0,1,False,False,True,False,False
+DotGothic16-Regular.ttf,DotGothic16,Katakana,94,9362,1.297872340425532,1.0,1,False,False,True,False,False
+DotGothic16-Regular.ttf,DotGothic16,Han,6758,9362,1.299348919798757,1.0,1,False,False,True,False,False
+SawarabiMincho-Regular.ttf,Sawarabi Mincho,Katakana,95,4792,1.0,1.089,0,False,False,False,False,False
+SawarabiMincho-Regular.ttf,Sawarabi Mincho,Han,3292,4792,1.0,1.089,0,False,False,False,False,False
+ZCOOLXiaoWei-Regular.ttf,ZCOOL XiaoWei,Han,6763,7019,1.0,1.0,0,False,False,False,False,False
+Iansui-Regular.ttf,芫荽,Cyrillic,66,15188,1.4090909090909092,1.12,2,False,False,True,True,False
+Iansui-Regular.ttf,芫荽,Katakana,94,15188,1.446808510638298,1.12,2,False,False,True,True,False
+Iansui-Regular.ttf,芫荽,Han,10383,15188,1.4498699797746315,1.12,2,False,False,True,True,False
+PlayfairDisplaySC-BoldItalic.ttf,Playfair Display SC,Cyrillic,122,1074,6.311475409836065,1.333,3,True,False,True,True,False
+PlayfairDisplaySC-Black.ttf,Playfair Display SC,Cyrillic,122,1076,6.311475409836065,1.333,3,True,False,True,True,False
+PlayfairDisplaySC-Italic.ttf,Playfair Display SC,Cyrillic,122,1074,6.311475409836065,1.333,3,True,False,True,True,False
+PlayfairDisplaySC-Regular.ttf,Playfair Display SC,Cyrillic,122,1076,6.311475409836065,1.333,3,True,False,True,True,False
+PlayfairDisplaySC-Bold.ttf,Playfair Display SC,Cyrillic,122,1076,6.311475409836065,1.333,3,True,False,True,True,False
+PlayfairDisplaySC-BlackItalic.ttf,Playfair Display SC,Cyrillic,122,1074,6.311475409836065,1.333,3,True,False,True,True,False
+RubikGlitchPop-Regular.ttf,Rubik Glitch Pop,Cyrillic,182,776,1.445054945054945,1.185,3,False,False,True,True,True
+"Piazzolla-Italic[opsz,wght].ttf",Piazzolla Thin Italic,Cyrillic,254,2330,1.5984251968503937,1.42,3,True,False,True,True,False
+"Piazzolla[opsz,wght].ttf",Piazzolla Thin,Cyrillic,254,2328,1.5984251968503937,1.42,3,True,False,True,True,False
+ZenAntique-Regular.ttf,Zen Antique,Cyrillic,66,7867,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenAntique-Regular.ttf,Zen Antique,Katakana,94,7867,1.148936170212766,1.0,1,False,False,False,True,False
+ZenAntique-Regular.ttf,Zen Antique,Han,6716,7867,1.1499404407385347,1.0,1,False,False,False,True,False
+KleeOne-Regular.ttf,Klee One,Cyrillic,66,15450,1.4090909090909092,1.0,1,False,False,True,False,False
+KleeOne-Regular.ttf,Klee One,Katakana,94,15450,1.446808510638298,1.0,1,False,False,True,False,False
+KleeOne-Regular.ttf,Klee One,Han,8094,15450,1.4492216456634543,1.0,1,False,False,True,False,False
+KleeOne-SemiBold.ttf,Klee One SemiBold,Cyrillic,66,15450,1.4090909090909092,1.0,1,False,False,True,False,False
+KleeOne-SemiBold.ttf,Klee One SemiBold,Katakana,94,15450,1.446808510638298,1.0,1,False,False,True,False,False
+KleeOne-SemiBold.ttf,Klee One SemiBold,Han,8094,15450,1.4492216456634543,1.0,1,False,False,True,False,False
+GamjaFlower-Regular.ttf,Gamja Flower,Katakana,86,12021,1.0,1.25,0,False,False,False,False,False
+SourceSans3-Italic[wght].ttf,Source Sans 3 ExtraLight,Cyrillic,156,1998,1.4423076923076923,1.424,3,False,False,True,True,True
+SourceSans3[wght].ttf,Source Sans 3 ExtraLight,Cyrillic,156,2478,1.4423076923076923,1.424,3,False,False,True,True,True
+"RobotoSerif-Italic[GRAD,opsz,wdth,wght].ttf",Roboto Serif 20pt,Cyrillic,156,1243,1.1474358974358974,1.171,2,False,False,True,True,False
+"RobotoSerif[GRAD,opsz,wdth,wght].ttf",Roboto Serif 20pt,Cyrillic,156,1264,1.1474358974358974,1.171,2,False,False,True,True,False
+"NotoSerifDevanagari[wdth,wght].ttf",Noto Serif Devanagari,Devanagari,160,1269,4.9,1.555,2,False,True,False,True,False
+IBMPlexMono-Thin.ttf,IBM Plex Mono Thin,Cyrillic,168,1033,1.4464285714285714,1.3,1,False,False,False,True,False
+IBMPlexMono-Bold.ttf,IBM Plex Mono,Cyrillic,168,1033,1.4464285714285714,1.3,1,False,False,False,True,False
+IBMPlexMono-MediumItalic.ttf,IBM Plex Mono Medium,Cyrillic,168,1033,1.4464285714285714,1.3,1,False,False,False,True,False
+IBMPlexMono-BoldItalic.ttf,IBM Plex Mono,Cyrillic,168,1033,1.4464285714285714,1.3,1,False,False,False,True,False
+IBMPlexMono-Medium.ttf,IBM Plex Mono Medium,Cyrillic,168,1033,1.4464285714285714,1.3,1,False,False,False,True,False
+IBMPlexMono-ExtraLight.ttf,IBM Plex Mono ExtraLight,Cyrillic,168,1033,1.4464285714285714,1.3,1,False,False,False,True,False
+IBMPlexMono-ExtraLightItalic.ttf,IBM Plex Mono ExtraLight,Cyrillic,168,1033,1.4464285714285714,1.3,1,False,False,False,True,False
+IBMPlexMono-ThinItalic.ttf,IBM Plex Mono Thin,Cyrillic,168,1033,1.4464285714285714,1.3,1,False,False,False,True,False
+IBMPlexMono-Regular.ttf,IBM Plex Mono,Cyrillic,168,1033,1.4464285714285714,1.3,1,False,False,False,True,False
+IBMPlexMono-Light.ttf,IBM Plex Mono Light,Cyrillic,168,1033,1.4464285714285714,1.3,1,False,False,False,True,False
+IBMPlexMono-Italic.ttf,IBM Plex Mono,Cyrillic,168,1033,1.4464285714285714,1.3,1,False,False,False,True,False
+IBMPlexMono-SemiBold.ttf,IBM Plex Mono SemiBold,Cyrillic,168,1033,1.4464285714285714,1.3,1,False,False,False,True,False
+IBMPlexMono-SemiBoldItalic.ttf,IBM Plex Mono SemiBold,Cyrillic,168,1033,1.4464285714285714,1.3,1,False,False,False,True,False
+IBMPlexMono-LightItalic.ttf,IBM Plex Mono Light,Cyrillic,168,1033,1.4464285714285714,1.3,1,False,False,False,True,False
+ChironGoRoundTC[wght].ttf,Chiron GoRound TC ExtraLight,Cyrillic,236,50706,17.610169491525422,1.18,3,True,False,True,True,False
+ChironGoRoundTC[wght].ttf,Chiron GoRound TC ExtraLight,Katakana,112,50706,17.0,1.18,3,True,False,True,True,False
+ChironGoRoundTC[wght].ttf,Chiron GoRound TC ExtraLight,Han,30815,50706,17.73370111958462,1.18,3,True,False,True,True,False
+ShipporiAntique-Regular.ttf,Shippori Antique,Katakana,110,16210,1.1454545454545455,1.0,2,False,False,False,True,True
+ShipporiAntique-Regular.ttf,Shippori Antique,Han,14500,16210,1.1289655172413793,1.0,2,False,False,False,True,True
+Zain-LightItalic.ttf,Zain Light,Arabic,252,700,4.083333333333333,1.66,4,True,False,True,True,True
+Zain-ExtraLight.ttf,Zain ExtraLight,Arabic,252,610,4.083333333333333,1.66,4,True,False,True,True,True
+Zain-Black.ttf,Zain Black,Arabic,252,610,4.083333333333333,1.66,4,True,False,True,True,True
+Zain-Italic.ttf,Zain,Arabic,252,700,4.083333333333333,1.66,4,True,False,True,True,True
+Zain-Regular.ttf,Zain,Arabic,252,610,4.083333333333333,1.66,4,True,False,True,True,True
+Zain-ExtraBold.ttf,Zain ExtraBold,Arabic,252,610,4.083333333333333,1.66,4,True,False,True,True,True
+Zain-Bold.ttf,Zain,Arabic,252,610,4.083333333333333,1.66,4,True,False,True,True,True
+Zain-Light.ttf,Zain Light,Arabic,252,610,4.083333333333333,1.66,4,True,False,True,True,True
+Thabit.ttf,Thabit,Arabic,265,788,1.8830188679245283,1.6787109375,4,True,False,True,True,True
+Thabit-Oblique.ttf,Thabit-Oblique,Arabic,265,788,1.8830188679245283,1.6787109375,4,True,False,True,True,True
+Thabit-Bold.ttf,Thabit-Bold,Arabic,265,789,1.8830188679245283,1.6787109375,4,True,False,True,True,True
+Thabit-BoldOblique.ttf,Thabit-Bold-Oblique,Arabic,265,789,1.8830188679245283,1.6787109375,4,True,False,True,True,True
+TenorSans-Regular.ttf,Tenor Sans,Cyrillic,94,477,1.0,1.17,0,False,False,False,False,False
+Bellota-Regular.ttf,Bellota,Cyrillic,70,1308,5.7,1.258,2,False,False,True,True,False
+Bellota-LightItalic.ttf,Bellota,Cyrillic,70,1308,5.7,1.258,2,False,False,True,True,False
+Bellota-Light.ttf,Bellota,Cyrillic,70,1308,5.7,1.258,2,False,False,True,True,False
+Bellota-Italic.ttf,Bellota,Cyrillic,70,1308,5.7,1.258,2,False,False,True,True,False
+Bellota-Bold.ttf,Bellota,Cyrillic,70,1308,5.7,1.258,2,False,False,True,True,False
+Bellota-BoldItalic.ttf,Bellota,Cyrillic,70,1308,5.7,1.258,2,False,False,True,True,False
+ReemKufi[wght].ttf,Reem Kufi,Arabic,119,815,1.6134453781512605,1.5,4,True,False,True,True,True
+WixMadeforDisplay[wght].ttf,Wix Madefor Display,Cyrillic,104,726,1.1442307692307692,1.26,2,False,False,False,True,True
+RobotoMono[wght].ttf,Roboto Mono,Cyrillic,275,1006,1.0,1.31884765625,1,False,False,False,False,True
+RobotoMono-Italic[wght].ttf,Roboto Mono,Cyrillic,275,1006,1.0,1.31884765625,1,False,False,False,False,True
+CormorantInfant-Italic[wght].ttf,Cormorant Infant Light,Cyrillic,236,1895,1.5932203389830508,1.211,4,True,False,True,True,True
+CormorantInfant[wght].ttf,Cormorant Infant Light,Cyrillic,236,3183,1.5932203389830508,1.211,4,True,False,True,True,True
+SofiaSansCondensed-Italic[wght].ttf,Sofia Sans Condensed,Cyrillic,104,934,1.5769230769230769,1.2,3,True,False,True,True,False
+SofiaSansCondensed[wght].ttf,Sofia Sans Condensed,Cyrillic,104,954,1.5769230769230769,1.2,3,True,False,True,True,False
+PottaOne-Regular.ttf,Potta One,Katakana,94,7365,1.446808510638298,1.0,1,False,False,True,False,False
+PottaOne-Regular.ttf,Potta One,Han,6356,7365,1.4498112020138452,1.0,1,False,False,True,False,False
+NotoSansThaana[wght].ttf,Noto Sans Thaana,Arabic,22,414,1.4090909090909092,1.493,2,False,False,False,True,True
+Sarpanch-SemiBold.ttf,Sarpanch,Devanagari,104,1037,2.730769230769231,1.4,3,False,True,True,True,False
+Sarpanch-Black.ttf,Sarpanch,Devanagari,104,1037,2.730769230769231,1.4,3,False,True,True,True,False
+Sarpanch-Bold.ttf,Sarpanch,Devanagari,104,1037,2.730769230769231,1.4,3,False,True,True,True,False
+Sarpanch-ExtraBold.ttf,Sarpanch,Devanagari,104,1037,2.730769230769231,1.4,3,False,True,True,True,False
+Sarpanch-Regular.ttf,Sarpanch,Devanagari,104,1037,2.730769230769231,1.4,3,False,True,True,True,False
+Sarpanch-Medium.ttf,Sarpanch,Devanagari,104,1037,2.730769230769231,1.4,3,False,True,True,True,False
+Kavivanar-Regular.ttf,Kavivanar,Tamil,72,472,1.5555555555555556,1.482,3,True,True,False,True,False
+NotoSansSylotiNagri-Regular.ttf,Noto Sans Syloti Nagri,Bengali,10,419,1.3,1.362,1,False,False,False,True,False
+Galada-Regular.ttf,Galada,Bengali,91,655,4.428571428571429,1.627,3,True,True,False,True,False
+"NotoSansTeluguUI[wdth,wght].ttf",Noto Sans Telugu UI,Telugu,98,958,2.4285714285714284,1.352,2,False,True,False,True,False
+ReemKufiFun[wght].ttf,Reem Kufi Fun,Arabic,119,1457,1.6134453781512605,1.5,4,True,False,True,True,True
+Peddana-Regular.ttf,Peddana,Telugu,93,1498,1.978494623655914,1.628,2,False,True,False,True,False
+Vollkorn[wght].ttf,Vollkorn,Cyrillic,238,2303,1.7352941176470589,1.393,3,True,False,True,True,False
+Vollkorn-Italic[wght].ttf,Vollkorn,Cyrillic,238,1835,1.7352941176470589,1.393,3,True,False,True,True,False
+Manrope[wght].ttf,Manrope ExtraLight,Cyrillic,104,742,1.2884615384615385,1.366,2,True,False,True,False,False
+DaysOne-Regular.ttf,Days One,Cyrillic,94,354,1.0,1.2734375,0,False,False,False,False,False
+Rubik-Italic[wght].ttf,Rubik Light,Cyrillic,182,1174,2.3351648351648353,1.185,4,True,False,True,True,True
+Rubik-Italic[wght].ttf,Rubik Light,Arabic,195,1174,2.3384615384615386,1.185,4,True,False,True,True,True
+Rubik[wght].ttf,Rubik Light,Cyrillic,182,1174,2.3351648351648353,1.185,4,True,False,True,True,True
+Rubik[wght].ttf,Rubik Light,Arabic,195,1174,2.3384615384615386,1.185,4,True,False,True,True,True
+RubikOne-Regular.ttf,Rubik One,Cyrillic,98,571,1.0,1.238,1,False,False,False,False,True
+PoiretOne-Regular.ttf,Poiret One,Cyrillic,200,850,3.25,1.17,2,False,False,True,True,False
+Eczar[wght].ttf,Eczar,Devanagari,127,1292,3.6929133858267718,1.777,4,True,True,True,True,False
+Montserrat-Italic[wght].ttf,Montserrat Thin,Cyrillic,238,2791,1.4411764705882353,1.219,2,False,False,True,True,False
+Montserrat[wght].ttf,Montserrat Thin,Cyrillic,238,2747,1.4411764705882353,1.219,2,False,False,True,True,False
+"NotoSansDevanagari[wdth,wght].ttf",Noto Sans Devanagari,Devanagari,160,1117,4.9,1.304,2,False,True,False,True,False
+Podkova[wght].ttf,Podkova,Cyrillic,236,962,1.444915254237288,1.108,2,False,False,True,True,False
+BpmfIansui-Regular.ttf,ㄅ注音芫荽,Katakana,90,21830,1.0,1.12,0,False,False,False,False,False
+BpmfIansui-Regular.ttf,ㄅ注音芫荽,Han,8370,21830,1.0,1.12,0,False,False,False,False,False
+"TikTokSans[opsz,slnt,wdth,wght].ttf",TikTok Sans Light,Cyrillic,150,1181,1.2933333333333332,1.3,3,True,False,False,True,True
+NotoSerifKR[wght].ttf,Noto Serif KR ExtraLight,Cyrillic,66,24910,8.090909090909092,1.0,3,True,False,True,True,False
+NotoSerifKR[wght].ttf,Noto Serif KR ExtraLight,Katakana,112,24910,8.428571428571429,1.0,3,True,False,True,True,False
+NotoSerifKR[wght].ttf,Noto Serif KR ExtraLight,Han,8585,24910,8.46045428072219,1.0,3,True,False,True,True,False
+KarlaTamilInclined-Bold.ttf,Karla Tamil Inclined,Tamil,63,273,1.5714285714285714,1.175,1,False,True,False,False,False
+KarlaTamilInclined-Regular.ttf,Karla Tamil Inclined,Tamil,63,273,1.5714285714285714,1.175,1,False,True,False,False,False
+NotoSansMahajani-Regular.ttf,Noto Sans Mahajani,Devanagari,12,404,1.0833333333333333,1.0,1,False,False,False,True,False
+KarlaTamilUpright-Regular.ttf,Karla Tamil Upright,Tamil,63,273,1.5714285714285714,1.0,1,False,True,False,False,False
+KarlaTamilUpright-Bold.ttf,Karla Tamil Upright,Tamil,63,273,1.5714285714285714,1.0,1,False,True,False,False,False
+Kufam-Italic[wght].ttf,Kufam,Arabic,320,2332,2.5,1.3,4,True,False,True,True,True
+Kufam[wght].ttf,Kufam,Arabic,320,2332,2.5,1.3,4,True,False,True,True,True
+GentiumPlus-Italic.ttf,Gentium Plus,Cyrillic,268,4307,1.4477611940298507,1.46484375,3,False,False,True,True,True
+GentiumPlus-BoldItalic.ttf,Gentium Plus,Cyrillic,268,4307,1.4477611940298507,1.46484375,3,False,False,True,True,True
+GentiumPlus-Regular.ttf,Gentium Plus,Cyrillic,268,4307,1.4477611940298507,1.46484375,3,False,False,True,True,True
+GentiumPlus-Bold.ttf,Gentium Plus,Cyrillic,268,4307,1.4477611940298507,1.46484375,3,False,False,True,True,True
+SawarabiGothic-Regular.ttf,Sawarabi Gothic,Cyrillic,88,6945,1.0,1.09,0,False,False,False,False,False
+SawarabiGothic-Regular.ttf,Sawarabi Gothic,Katakana,96,6945,1.0,1.09,0,False,False,False,False,False
+SawarabiGothic-Regular.ttf,Sawarabi Gothic,Han,4474,6945,1.0,1.09,0,False,False,False,False,False
+AnnapurnaSIL-Bold.ttf,Annapurna SIL,Devanagari,160,1085,4.9,1.42724609375,5,True,True,True,True,True
+AnnapurnaSIL-Regular.ttf,Annapurna SIL,Devanagari,160,1085,4.9,1.42724609375,5,True,True,True,True,True
+LibertinusSerif-BoldItalic.ttf,Libertinus Serif,Cyrillic,86,2004,1.0,1.14,2,False,False,False,True,True
+LibertinusSerif-SemiBoldItalic.ttf,Libertinus Serif SemiBold,Cyrillic,207,2425,1.0,1.14,2,False,False,False,True,True
+LibertinusSerif-Regular.ttf,Libertinus Serif,Cyrillic,230,2731,1.0,1.14,2,False,False,False,True,True
+LibertinusSerif-Italic.ttf,Libertinus Serif,Cyrillic,230,2447,1.0,1.14,2,False,False,False,True,True
+LibertinusSerif-SemiBold.ttf,Libertinus Serif SemiBold,Cyrillic,207,2411,1.0,1.14,2,False,False,False,True,True
+LibertinusSerif-Bold.ttf,Libertinus Serif,Cyrillic,207,2495,1.0,1.14,2,False,False,False,True,True
+RubikPixels-Regular.ttf,Rubik Pixels,Cyrillic,182,779,1.445054945054945,1.185,3,False,False,True,True,True
+NotoSansGrantha-Regular.ttf,Noto Sans Grantha,Tamil,15,799,2.466666666666667,1.824,4,True,True,True,True,False
+HachiMaruPop-Regular.ttf,Hachi Maru Pop,Cyrillic,66,7575,1.0,1.0,0,False,False,False,False,False
+HachiMaruPop-Regular.ttf,Hachi Maru Pop,Katakana,94,7575,1.0,1.0,0,False,False,False,False,False
+HachiMaruPop-Regular.ttf,Hachi Maru Pop,Han,6716,7575,1.0,1.0,0,False,False,False,False,False
+EBGaramond-Italic[wght].ttf,EB Garamond,Cyrillic,241,3057,1.5975103734439835,1.305,4,True,False,True,True,True
+EBGaramond[wght].ttf,EB Garamond,Cyrillic,241,3219,1.2987551867219918,1.305,3,False,False,True,True,True
+FlowRounded-Regular.ttf,Flow Rounded,Cyrillic,128,802,1.0,1.2,0,False,False,False,False,False
+"NotoSans-Italic[wdth,wght].ttf",Noto Sans,Cyrillic,304,4526,4.404605263157895,1.362,4,False,True,True,True,True
+"NotoSans-Italic[wdth,wght].ttf",Noto Sans,Devanagari,129,4526,4.387596899224806,1.362,4,False,True,True,True,True
+"NotoSans[wdth,wght].ttf",Noto Sans,Cyrillic,304,4515,4.552631578947368,1.362,4,False,True,True,True,True
+"NotoSans[wdth,wght].ttf",Noto Sans,Devanagari,129,4515,4.534883720930233,1.362,4,False,True,True,True,True
+GothicA1-ExtraLight.ttf,Gothic A1,Cyrillic,275,22709,1.0,1.25,0,False,False,False,False,False
+GothicA1-ExtraLight.ttf,Gothic A1,Katakana,96,22709,1.0,1.25,0,False,False,False,False,False
+GothicA1-Regular.ttf,Gothic A1,Cyrillic,275,22709,1.0,1.25,0,False,False,False,False,False
+GothicA1-Regular.ttf,Gothic A1,Katakana,96,22709,1.0,1.25,0,False,False,False,False,False
+GothicA1-Light.ttf,Gothic A1,Cyrillic,275,22709,1.0,1.25,0,False,False,False,False,False
+GothicA1-Light.ttf,Gothic A1,Katakana,96,22709,1.0,1.25,0,False,False,False,False,False
+GothicA1-Thin.ttf,Gothic A1,Cyrillic,275,22708,1.0,1.25,0,False,False,False,False,False
+GothicA1-Thin.ttf,Gothic A1,Katakana,96,22708,1.0,1.25,0,False,False,False,False,False
+GothicA1-Bold.ttf,Gothic A1,Cyrillic,275,22711,1.0,1.25,0,False,False,False,False,False
+GothicA1-Bold.ttf,Gothic A1,Katakana,96,22711,1.0,1.25,0,False,False,False,False,False
+GothicA1-ExtraBold.ttf,Gothic A1,Cyrillic,275,22711,1.0,1.25,0,False,False,False,False,False
+GothicA1-ExtraBold.ttf,Gothic A1,Katakana,96,22711,1.0,1.25,0,False,False,False,False,False
+GothicA1-Medium.ttf,Gothic A1,Cyrillic,275,22711,1.0,1.25,0,False,False,False,False,False
+GothicA1-Medium.ttf,Gothic A1,Katakana,96,22711,1.0,1.25,0,False,False,False,False,False
+GothicA1-Black.ttf,Gothic A1,Cyrillic,275,22711,1.0,1.25,0,False,False,False,False,False
+GothicA1-Black.ttf,Gothic A1,Katakana,96,22711,1.0,1.25,0,False,False,False,False,False
+GothicA1-SemiBold.ttf,Gothic A1,Cyrillic,275,22710,1.0,1.25,0,False,False,False,False,False
+GothicA1-SemiBold.ttf,Gothic A1,Katakana,96,22710,1.0,1.25,0,False,False,False,False,False
+Monomakh-Regular.ttf,Monomakh,Cyrillic,148,859,1.5945945945945945,1.273,3,True,False,True,True,False
+HindSiliguri-Medium.ttf,Hind Siliguri,Bengali,92,821,2.130434782608696,1.617,3,True,True,False,True,False
+HindSiliguri-Regular.ttf,Hind Siliguri,Bengali,92,821,2.130434782608696,1.617,3,True,True,False,True,False
+HindSiliguri-SemiBold.ttf,Hind Siliguri,Bengali,92,821,2.130434782608696,1.617,3,True,True,False,True,False
+HindSiliguri-Light.ttf,Hind Siliguri,Bengali,92,821,2.130434782608696,1.617,3,True,True,False,True,False
+HindSiliguri-Bold.ttf,Hind Siliguri,Bengali,92,821,2.130434782608696,1.617,3,True,True,False,True,False
+BalooDa2[wght].ttf,Baloo Da 2,Bengali,88,1264,3.215909090909091,1.684,4,True,True,True,True,False
+RampartOne-Regular.ttf,Rampart One,Cyrillic,66,9360,1.4090909090909092,1.0,1,False,False,True,False,False
+RampartOne-Regular.ttf,Rampart One,Katakana,94,9360,1.446808510638298,1.0,1,False,False,True,False,False
+RampartOne-Regular.ttf,Rampart One,Han,6758,9360,1.4492453388576503,1.0,1,False,False,True,False,False
+OrelegaOne-Regular.ttf,Orelega One,Cyrillic,166,590,1.2891566265060241,1.09033203125,4,True,False,True,True,True
+Shafarik-Regular.ttf,Shafarik,Cyrillic,142,1816,1.295774647887324,1.542,1,False,False,False,True,False
+"Roboto-Italic[wdth,wght].ttf",Roboto,Cyrillic,275,1326,1.5963636363636364,1.0498046875,3,False,False,True,True,True
+"Roboto[wdth,wght].ttf",Roboto,Cyrillic,275,1326,1.5963636363636364,1.0498046875,3,False,False,True,True,True
+AlegreyaSansSC-BlackItalic.ttf,Alegreya Sans SC,Cyrillic,184,1577,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSansSC-ThinItalic.ttf,Alegreya Sans SC,Cyrillic,184,1577,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSansSC-BoldItalic.ttf,Alegreya Sans SC,Cyrillic,184,1577,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSansSC-Thin.ttf,Alegreya Sans SC,Cyrillic,184,1568,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSansSC-Regular.ttf,Alegreya Sans SC,Cyrillic,184,1568,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSansSC-Light.ttf,Alegreya Sans SC,Cyrillic,184,1568,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSansSC-Bold.ttf,Alegreya Sans SC,Cyrillic,184,1568,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSansSC-Italic.ttf,Alegreya Sans SC,Cyrillic,184,1577,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSansSC-LightItalic.ttf,Alegreya Sans SC,Cyrillic,184,1577,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSansSC-ExtraBoldItalic.ttf,Alegreya Sans SC,Cyrillic,184,1577,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSansSC-MediumItalic.ttf,Alegreya Sans SC,Cyrillic,184,1577,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSansSC-Medium.ttf,Alegreya Sans SC,Cyrillic,184,1568,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSansSC-Black.ttf,Alegreya Sans SC,Cyrillic,184,1568,5.4021739130434785,1.2,2,False,False,True,True,False
+AlegreyaSansSC-ExtraBold.ttf,Alegreya Sans SC,Cyrillic,184,1568,5.4021739130434785,1.2,2,False,False,True,True,False
+Lora-Italic[wght].ttf,Lora,Cyrillic,240,889,1.6,1.28,3,True,False,True,True,False
+Lora[wght].ttf,Lora,Cyrillic,240,892,1.6,1.28,3,True,False,True,True,False
+Rakkas-Regular.ttf,Rakkas,Arabic,278,926,6.60431654676259,1.491,4,True,False,True,True,True
+BriemHand[wght].ttf,Briem Hand Thin,Cyrillic,41,1386,1.4878048780487805,1.5,3,True,False,True,True,False
+Pacifico-Regular.ttf,Pacifico,Cyrillic,236,1533,9.15677966101695,1.756,3,True,False,True,True,False
+RussoOne-Regular.ttf,Russo One,Cyrillic,94,413,1.0,1.205,0,False,False,False,False,False
+Tillana-ExtraBold.ttf,Tillana,Devanagari,94,1012,3.234042553191489,1.642,3,False,True,True,True,False
+Tillana-Bold.ttf,Tillana,Devanagari,94,1012,3.234042553191489,1.642,3,False,True,True,True,False
+Tillana-Regular.ttf,Tillana,Devanagari,94,1012,3.234042553191489,1.642,3,False,True,True,True,False
+Tillana-SemiBold.ttf,Tillana,Devanagari,94,1012,3.234042553191489,1.642,3,False,True,True,True,False
+Tillana-Medium.ttf,Tillana,Devanagari,94,1012,3.234042553191489,1.642,3,False,True,True,True,False
+GreatVibes-Regular.ttf,Great Vibes,Cyrillic,100,2025,2.05,1.252,3,True,False,True,True,False
+RubikGemstones-Regular.ttf,Rubik Gemstones,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+Chathura-ExtraBold.ttf,Chathura,Telugu,94,1252,1.8936170212765957,1.622,1,False,True,False,False,False
+Chathura-Regular.ttf,Chathura,Telugu,94,1252,1.8936170212765957,1.622,1,False,True,False,False,False
+Chathura-Bold.ttf,Chathura,Telugu,94,1252,1.8936170212765957,1.622,1,False,True,False,False,False
+Chathura-Thin.ttf,Chathura,Telugu,94,1252,1.8936170212765957,1.622,1,False,True,False,False,False
+Chathura-Light.ttf,Chathura,Telugu,94,1252,1.8936170212765957,1.622,1,False,True,False,False,False
+Tiny5-Regular.ttf,Tiny5,Cyrillic,178,1155,1.146067415730337,1.125,1,False,False,False,True,False
+RubikBeastly-Regular.ttf,Rubik Beastly,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+BonaNova-Italic.ttf,Bona Nova,Cyrillic,102,2242,2.4705882352941178,1.2,4,True,False,True,True,True
+BonaNova-Italic.ttf,Bona Nova,Arabic,176,2242,2.477272727272727,1.2,4,True,False,True,True,True
+BonaNova-Bold.ttf,Bona Nova,Cyrillic,102,2136,2.4705882352941178,1.2,4,True,False,True,True,True
+BonaNova-Bold.ttf,Bona Nova,Arabic,176,2136,2.477272727272727,1.2,4,True,False,True,True,True
+BonaNova-Regular.ttf,Bona Nova,Cyrillic,102,2136,2.4705882352941178,1.2,4,True,False,True,True,True
+BonaNova-Regular.ttf,Bona Nova,Arabic,176,2136,2.477272727272727,1.2,4,True,False,True,True,True
+Catamaran[wght].ttf,Catamaran Thin,Tamil,72,462,1.4166666666666667,1.64,2,False,True,False,True,False
+MeeraInimai-Regular.ttf,Meera Inimai,Tamil,72,414,1.5555555555555556,1.08984375,1,False,True,False,False,False
+NataSans[wght].ttf,Nata Sans,Cyrillic,184,1048,1.440217391304348,1.3,3,True,False,True,True,False
+ComicRelief-Regular.ttf,Comic Relief,Cyrillic,94,607,1.0,1.39501953125,0,False,False,False,False,False
+ComicRelief-Bold.ttf,Comic Relief,Cyrillic,94,607,1.0,1.39501953125,0,False,False,False,False,False
+ArefRuqaa-Regular.ttf,Aref Ruqaa,Arabic,114,739,1.9298245614035088,1.563,3,True,False,False,True,True
+ArefRuqaa-Bold.ttf,Aref Ruqaa,Arabic,114,739,1.9298245614035088,1.563,3,True,False,False,True,True
+BatangChe-Regular.ttf,BatangChe,Cyrillic,94,22772,1.0,1.0,0,False,False,False,False,False
+BatangChe-Regular.ttf,BatangChe,Katakana,86,22772,1.0,1.0,0,False,False,False,False,False
+BatangChe-Regular.ttf,BatangChe,Han,7744,22772,1.0,1.0,0,False,False,False,False,False
+CascadiaMono-Italic[wght].ttf,Cascadia Mono,Cyrillic,126,3076,1.2857142857142858,1.162109375,2,True,False,False,True,False
+CascadiaMono[wght].ttf,Cascadia Mono,Cyrillic,126,4319,2.0,1.162109375,4,True,False,True,True,True
+CascadiaMono[wght].ttf,Cascadia Mono,Arabic,277,4319,2.036101083032491,1.162109375,4,True,False,True,True,True
+NotoSansKR[wght].ttf,Noto Sans KR Thin,Cyrillic,66,24964,8.090909090909092,1.0,3,True,False,True,True,False
+NotoSansKR[wght].ttf,Noto Sans KR Thin,Katakana,112,24964,8.428571428571429,1.0,3,True,False,True,True,False
+NotoSansKR[wght].ttf,Noto Sans KR Thin,Han,8631,24964,8.456262310276909,1.0,3,True,False,True,True,False
+HinaMincho-Regular.ttf,Hina Mincho,Cyrillic,66,8302,3.727272727272727,1.0,2,False,False,True,True,False
+HinaMincho-Regular.ttf,Hina Mincho,Katakana,94,8302,3.978723404255319,1.0,2,False,False,True,True,False
+HinaMincho-Regular.ttf,Hina Mincho,Han,6720,8302,4.0,1.0,2,False,False,True,True,False
+BalsamiqSans-Bold.ttf,Balsamiq Sans,Cyrillic,210,1003,1.2952380952380953,1.2,2,False,False,True,True,False
+BalsamiqSans-Italic.ttf,Balsamiq Sans,Cyrillic,210,1003,1.2952380952380953,1.2,2,False,False,True,True,False
+BalsamiqSans-BoldItalic.ttf,Balsamiq Sans,Cyrillic,210,1003,1.2952380952380953,1.2,2,False,False,True,True,False
+BalsamiqSans-Regular.ttf,Balsamiq Sans,Cyrillic,210,1003,1.2952380952380953,1.2,2,False,False,True,True,False
+NotoSerifGrantha-Regular.ttf,Noto Serif Grantha,Tamil,15,799,2.466666666666667,1.824,4,True,True,True,True,False
+BadScript-Regular.ttf,Bad Script,Cyrillic,198,801,1.5858585858585859,1.972,3,True,False,True,True,False
+CormorantSC-Medium.ttf,Cormorant SC Medium,Cyrillic,236,3203,6.635593220338983,1.211,3,True,False,False,True,True
+CormorantSC-Bold.ttf,Cormorant SC,Cyrillic,236,3203,6.635593220338983,1.211,3,True,False,False,True,True
+CormorantSC-Light.ttf,Cormorant SC Light,Cyrillic,236,3203,6.635593220338983,1.211,3,True,False,False,True,True
+CormorantSC-Regular.ttf,Cormorant SC,Cyrillic,236,3203,6.635593220338983,1.211,3,True,False,False,True,True
+CormorantSC-SemiBold.ttf,Cormorant SC SemiBold,Cyrillic,236,3203,6.635593220338983,1.211,3,True,False,False,True,True
+NotoSerifJP[wght].ttf,Noto Serif JP ExtraLight,Cyrillic,66,17923,5.5,1.0,2,False,False,True,True,False
+NotoSerifJP[wght].ttf,Noto Serif JP ExtraLight,Katakana,112,17923,5.714285714285714,1.0,2,False,False,True,True,False
+NotoSerifJP[wght].ttf,Noto Serif JP ExtraLight,Han,13661,17923,5.839323621989606,1.0,2,False,False,True,True,False
+HindMadurai-Regular.ttf,Hind Madurai,Tamil,72,520,1.4166666666666667,1.38,3,False,True,True,True,False
+HindMadurai-SemiBold.ttf,Hind Madurai,Tamil,72,520,1.4166666666666667,1.38,3,False,True,True,True,False
+HindMadurai-Light.ttf,Hind Madurai,Tamil,72,520,1.4166666666666667,1.38,3,False,True,True,True,False
+HindMadurai-Bold.ttf,Hind Madurai,Tamil,72,520,1.4166666666666667,1.38,3,False,True,True,True,False
+HindMadurai-Medium.ttf,Hind Madurai,Tamil,72,520,1.4166666666666667,1.38,3,False,True,True,True,False
+RubikBrokenFax-Regular.ttf,Rubik Broken Fax,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+Matangi[wght].ttf,Matangi Light,Devanagari,128,1723,3.2265625,1.56,3,False,True,True,True,False
+ReemKufiInk-Regular.ttf,Reem Kufi Ink,Arabic,119,1004,1.6134453781512605,1.5,4,True,False,True,True,True
+Gabriela-Regular.ttf,Gabriela,Cyrillic,182,604,1.5934065934065933,1.281,2,False,False,True,True,False
+UoqMunThenKhung-Regular.ttf,宇文天穹,Cyrillic,66,10465,1.6818181818181819,1.128,1,False,False,True,False,False
+UoqMunThenKhung-Regular.ttf,宇文天穹,Katakana,94,10465,1.7446808510638299,1.128,1,False,False,True,False,False
+UoqMunThenKhung-Regular.ttf,宇文天穹,Han,7962,10465,1.7498116051243406,1.128,1,False,False,True,False,False
+SNPro-Italic[wght].ttf,SN Pro ExtraLight,Cyrillic,236,1206,1.444915254237288,1.3,3,True,False,True,True,False
+SNPro[wght].ttf,SN Pro ExtraLight,Cyrillic,236,1206,1.444915254237288,1.3,3,True,False,True,True,False
+Marmelad-Regular.ttf,Marmelad,Cyrillic,182,812,1.445054945054945,1.193,2,False,False,True,True,False
+KoPubBatang-Bold.ttf,KoPub Batang,Cyrillic,66,21123,1.0,1.094,0,False,False,False,False,False
+KoPubBatang-Bold.ttf,KoPub Batang,Katakana,86,21123,1.0,1.094,0,False,False,False,False,False
+KoPubBatang-Bold.ttf,KoPub Batang,Han,4887,21123,1.0,1.094,0,False,False,False,False,False
+KoPubBatang-Regular.ttf,KoPub Batang,Cyrillic,66,21118,1.0,1.094,0,False,False,False,False,False
+KoPubBatang-Regular.ttf,KoPub Batang,Katakana,86,21118,1.0,1.094,0,False,False,False,False,False
+KoPubBatang-Regular.ttf,KoPub Batang,Han,4887,21118,1.0,1.094,0,False,False,False,False,False
+KoPubBatang-Light.ttf,KoPub Batang,Cyrillic,66,21123,1.0,1.094,0,False,False,False,False,False
+KoPubBatang-Light.ttf,KoPub Batang,Katakana,86,21123,1.0,1.094,0,False,False,False,False,False
+KoPubBatang-Light.ttf,KoPub Batang,Han,4887,21123,1.0,1.094,0,False,False,False,False,False
+Cormorant[wght].ttf,Cormorant Light,Cyrillic,236,3237,1.7415254237288136,1.211,4,True,False,True,True,True
+Cormorant-Italic[wght].ttf,Cormorant Light,Cyrillic,236,1890,1.7415254237288136,1.211,4,True,False,True,True,True
+"NotoSansTamilUI[wdth,wght].ttf",Noto Sans Tamil UI,Tamil,72,244,1.6944444444444444,1.24,2,False,True,False,True,False
+Mulish[wght].ttf,Mulish ExtraLight,Cyrillic,236,1063,1.5932203389830508,1.255,3,True,False,True,True,False
+Mulish-Italic[wght].ttf,Mulish ExtraLight,Cyrillic,236,1063,1.5932203389830508,1.255,3,True,False,True,True,False
+"NotoSerif[wdth,wght].ttf",Noto Serif,Cyrillic,304,3830,1.2960526315789473,1.362,3,False,False,True,True,True
+"NotoSerif-Italic[wdth,wght].ttf",Noto Serif,Cyrillic,304,3836,1.5921052631578947,1.362,3,False,False,True,True,True
+KaiseiDecol-Regular.ttf,Kaisei Decol,Cyrillic,66,9368,1.6818181818181819,1.0,1,False,False,True,False,False
+KaiseiDecol-Regular.ttf,Kaisei Decol,Katakana,94,9368,1.7446808510638299,1.0,1,False,False,True,False,False
+KaiseiDecol-Regular.ttf,Kaisei Decol,Han,6753,9368,1.7492966089145565,1.0,1,False,False,True,False,False
+KaiseiDecol-Medium.ttf,Kaisei Decol Medium,Cyrillic,66,9368,1.6818181818181819,1.0,1,False,False,True,False,False
+KaiseiDecol-Medium.ttf,Kaisei Decol Medium,Katakana,94,9368,1.7446808510638299,1.0,1,False,False,True,False,False
+KaiseiDecol-Medium.ttf,Kaisei Decol Medium,Han,6753,9368,1.7492966089145565,1.0,1,False,False,True,False,False
+KaiseiDecol-Bold.ttf,Kaisei Decol,Cyrillic,66,9368,1.6818181818181819,1.0,1,False,False,True,False,False
+KaiseiDecol-Bold.ttf,Kaisei Decol,Katakana,94,9368,1.7446808510638299,1.0,1,False,False,True,False,False
+KaiseiDecol-Bold.ttf,Kaisei Decol,Han,6753,9368,1.7492966089145565,1.0,1,False,False,True,False,False
+FlowCircular-Regular.ttf,Flow Circular,Cyrillic,128,801,1.0,1.2,0,False,False,False,False,False
+MontserratAlternates-Thin.ttf,Montserrat Alternates,Cyrillic,237,1482,7.6455696202531644,1.219,2,False,False,True,True,False
+MontserratAlternates-BlackItalic.ttf,Montserrat Alternates,Cyrillic,235,1480,7.702127659574468,1.219,2,False,False,True,True,False
+MontserratAlternates-Bold.ttf,Montserrat Alternates,Cyrillic,237,1482,7.6455696202531644,1.219,2,False,False,True,True,False
+MontserratAlternates-ExtraLightItalic.ttf,Montserrat Alternates,Cyrillic,235,1480,7.702127659574468,1.219,2,False,False,True,True,False
+MontserratAlternates-Black.ttf,Montserrat Alternates,Cyrillic,237,1482,7.6455696202531644,1.219,2,False,False,True,True,False
+MontserratAlternates-LightItalic.ttf,Montserrat Alternates,Cyrillic,235,1480,7.702127659574468,1.219,2,False,False,True,True,False
+MontserratAlternates-Medium.ttf,Montserrat Alternates,Cyrillic,237,1482,7.6455696202531644,1.219,2,False,False,True,True,False
+MontserratAlternates-MediumItalic.ttf,Montserrat Alternates,Cyrillic,235,1480,7.702127659574468,1.219,2,False,False,True,True,False
+MontserratAlternates-Italic.ttf,Montserrat Alternates,Cyrillic,235,1480,7.702127659574468,1.219,2,False,False,True,True,False
+MontserratAlternates-ExtraBoldItalic.ttf,Montserrat Alternates,Cyrillic,235,1480,7.702127659574468,1.219,2,False,False,True,True,False
+MontserratAlternates-BoldItalic.ttf,Montserrat Alternates,Cyrillic,235,1480,7.702127659574468,1.219,2,False,False,True,True,False
+MontserratAlternates-Light.ttf,Montserrat Alternates,Cyrillic,237,1482,7.6455696202531644,1.219,2,False,False,True,True,False
+MontserratAlternates-ExtraLight.ttf,Montserrat Alternates,Cyrillic,237,1482,7.6455696202531644,1.219,2,False,False,True,True,False
+MontserratAlternates-Regular.ttf,Montserrat Alternates,Cyrillic,237,1482,7.6455696202531644,1.219,2,False,False,True,True,False
+MontserratAlternates-ThinItalic.ttf,Montserrat Alternates,Cyrillic,235,1480,7.702127659574468,1.219,2,False,False,True,True,False
+MontserratAlternates-SemiBold.ttf,Montserrat Alternates,Cyrillic,237,1482,7.6455696202531644,1.219,2,False,False,True,True,False
+MontserratAlternates-ExtraBold.ttf,Montserrat Alternates,Cyrillic,237,1482,7.6455696202531644,1.219,2,False,False,True,True,False
+MontserratAlternates-SemiBoldItalic.ttf,Montserrat Alternates,Cyrillic,235,1480,7.702127659574468,1.219,2,False,False,True,True,False
+"NotoSansTamil[wdth,wght].ttf",Noto Sans Tamil,Tamil,72,576,1.6944444444444444,1.24,2,False,True,False,True,False
+Play-Regular.ttf,Play,Cyrillic,222,1150,2.7837837837837838,1.157,2,False,False,True,True,False
+Play-Bold.ttf,Play,Cyrillic,222,1150,2.7837837837837838,1.157,2,False,False,True,True,False
+MPLUS1[wght].ttf,M PLUS 1 Thin,Katakana,93,6650,1.4193548387096775,1.0,2,False,False,True,True,False
+MPLUS1[wght].ttf,M PLUS 1 Thin,Han,5297,6650,1.4496885029261846,1.0,2,False,False,True,True,False
+SofiaSans-Italic[wght].ttf,Sofia Sans,Cyrillic,104,934,1.5769230769230769,1.2,3,True,False,True,True,False
+SofiaSans[wght].ttf,Sofia Sans,Cyrillic,104,954,1.5769230769230769,1.2,3,True,False,True,True,False
+Modak-Regular.ttf,Modak,Devanagari,127,1228,3.6929133858267718,1.505859375,4,True,True,True,True,False
+Jomhuria-Regular.ttf,Jomhuria,Arabic,320,2069,2.05,1.0,4,True,False,True,True,True
+BpmfZihiKaiStd-Regular.ttf,ㄅ字嗨注音標楷,Katakana,90,32996,1.0,1.12,0,False,False,False,False,False
+BpmfZihiKaiStd-Regular.ttf,ㄅ字嗨注音標楷,Han,13435,32996,1.0,1.12,0,False,False,False,False,False
+RubikMaze-Regular.ttf,Rubik Maze,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+Gungsuh-Regular.ttf,Gungsuh,Cyrillic,94,21896,1.0,1.0,0,False,False,False,False,False
+Gungsuh-Regular.ttf,Gungsuh,Katakana,86,21896,1.0,1.0,0,False,False,False,False,False
+Gungsuh-Regular.ttf,Gungsuh,Han,7744,21896,1.0,1.0,0,False,False,False,False,False
+BalooBhaijaan2[wght].ttf,Baloo Bhaijaan 2,Arabic,164,1278,1.8780487804878048,1.712,4,True,False,True,True,True
+PT_Sans-Caption-Web-Regular.ttf,PT Sans Caption,Cyrillic,220,720,2.8,1.294,1,False,False,True,False,False
+PT_Sans-Caption-Web-Bold.ttf,PT Sans Caption,Cyrillic,220,720,2.8,1.294,1,False,False,True,False,False
+Oi-Regular.ttf,Oi,Cyrillic,182,1901,2.78021978021978,1.58,5,True,True,True,True,True
+Oi-Regular.ttf,Oi,Arabic,239,1901,2.7573221757322175,1.58,5,True,True,True,True,True
+Oi-Regular.ttf,Oi,Tamil,72,1901,2.6666666666666665,1.58,5,True,True,True,True,True
+YujiMai-Regular.ttf,Yuji Mai,Cyrillic,66,9504,1.4090909090909092,1.0,1,False,False,True,False,False
+YujiMai-Regular.ttf,Yuji Mai,Katakana,94,9504,1.446808510638298,1.0,1,False,False,True,False,False
+YujiMai-Regular.ttf,Yuji Mai,Han,6841,9504,1.449934220143254,1.0,1,False,False,True,False,False
+MPLUS1Code[wght].ttf,M PLUS 1 Code,Katakana,93,6582,1.4193548387096775,1.235,2,False,False,True,True,False
+MPLUS1Code[wght].ttf,M PLUS 1 Code,Han,5297,6582,1.4496885029261846,1.235,2,False,False,True,True,False
+YanoneKaffeesatz[wght].ttf,Yanone Kaffeesatz ExtraLight,Cyrillic,116,675,1.4396551724137931,0.992,2,False,False,True,True,False
+GungsuhChe-Regular.ttf,GungsuhChe,Cyrillic,94,21896,1.0,1.0,0,False,False,False,False,False
+GungsuhChe-Regular.ttf,GungsuhChe,Katakana,86,21896,1.0,1.0,0,False,False,False,False,False
+GungsuhChe-Regular.ttf,GungsuhChe,Han,7744,21896,1.0,1.0,0,False,False,False,False,False
+TiroTamil-Regular.ttf,Tiro Tamil,Tamil,72,898,2.111111111111111,1.436,3,False,True,True,True,False
+TiroTamil-Italic.ttf,Tiro Tamil,Tamil,72,898,2.111111111111111,1.436,3,False,True,True,True,False
+NotoNastaliqUrdu[wght].ttf,Noto Nastaliq Urdu,Arabic,284,1723,3.3661971830985915,2.5,4,True,False,True,True,True
+OverpassMono[wght].ttf,Overpass Mono Light,Cyrillic,190,1801,1.5894736842105264,1.266,4,True,False,True,True,True
+"RobotoFlex[GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC,opsz,slnt,wdth,wght].ttf",Roboto Flex,Cyrillic,152,948,1.144736842105263,1.171875,3,False,False,True,True,True
+MarkaziText[wght].ttf,Markazi Text,Arabic,301,1239,2.046511627906977,1.2001953125,4,True,False,True,True,True
+Alegreya-Italic[wght].ttf,Alegreya,Cyrillic,186,2179,1.5806451612903225,1.361,2,False,False,True,True,False
+Alegreya[wght].ttf,Alegreya,Cyrillic,186,2172,1.5806451612903225,1.361,2,False,False,True,True,False
+Coiny-Regular.ttf,Coiny,Tamil,72,805,1.1388888888888888,1.6,2,False,True,False,True,False
+YesevaOne-Regular.ttf,Yeseva One,Cyrillic,182,666,2.4835164835164836,1.155,2,False,False,True,True,False
+PressStart2P-Regular.ttf,Press Start 2P,Cyrillic,184,658,1.8804347826086956,1.0,1,False,False,True,False,False
+"Commissioner[FLAR,VOLM,slnt,wght].ttf",Commissioner Thin,Cyrillic,238,1123,1.588235294117647,1.223,3,True,False,True,True,False
+LibreFranklin-Italic[wght].ttf,Libre Franklin Thin,Cyrillic,236,1012,1.2966101694915255,1.212,2,False,False,True,True,False
+LibreFranklin[wght].ttf,Libre Franklin Thin,Cyrillic,236,1007,1.2966101694915255,1.212,2,False,False,True,True,False
+Sahitya-Regular.ttf,Sahitya,Devanagari,124,977,9.85483870967742,1.553,3,False,True,True,True,False
+Sahitya-Bold.ttf,Sahitya,Devanagari,124,977,9.85483870967742,1.553,3,False,True,True,True,False
+Ruwudu-SemiBold.ttf,Ruwudu SemiBold,Arabic,124,912,2.4516129032258065,1.608,4,True,False,True,True,True
+Ruwudu-Bold.ttf,Ruwudu,Arabic,124,912,2.4516129032258065,1.608,4,True,False,True,True,True
+Ruwudu-Regular.ttf,Ruwudu,Arabic,124,912,2.4516129032258065,1.608,4,True,False,True,True,True
+Ruwudu-Medium.ttf,Ruwudu Medium,Arabic,124,912,2.4516129032258065,1.608,4,True,False,True,True,True
+STIXTwoMath-Regular.ttf,STIX Two Math,Cyrillic,106,6760,1.849056603773585,1.25,0,False,False,False,False,False
+Gurajada-Regular.ttf,Gurajada,Telugu,94,963,1.8936170212765957,1.966355140186916,2,False,True,False,True,False
+Ruda[wght].ttf,Ruda,Cyrillic,128,644,1.0,1.217,1,False,False,False,True,False
+Lohit-Tamil.ttf,Lohit Tamil,Tamil,72,247,1.6944444444444444,2.01953125,2,False,True,False,True,False
+Jaini-Regular.ttf,Jaini,Devanagari,133,1684,3.5714285714285716,1.314,4,True,True,True,True,False
+RaviPrakash-Regular.ttf,Ravi Prakash,Telugu,93,834,1.978494623655914,1.583984375,2,False,True,False,True,False
+LINESeedJP-Bold.ttf,LINE Seed JP,Cyrillic,88,9225,1.4431818181818181,1.1,1,False,False,True,False,False
+LINESeedJP-Bold.ttf,LINE Seed JP,Katakana,94,9225,1.446808510638298,1.1,1,False,False,True,False,False
+LINESeedJP-Bold.ttf,LINE Seed JP,Han,6758,9225,1.4496892571766795,1.1,1,False,False,True,False,False
+LINESeedJP-Thin.ttf,LINE Seed JP Thin,Cyrillic,88,9225,1.4431818181818181,1.1,1,False,False,True,False,False
+LINESeedJP-Thin.ttf,LINE Seed JP Thin,Katakana,94,9225,1.446808510638298,1.1,1,False,False,True,False,False
+LINESeedJP-Thin.ttf,LINE Seed JP Thin,Han,6758,9225,1.4496892571766795,1.1,1,False,False,True,False,False
+LINESeedJP-Regular.ttf,LINE Seed JP,Cyrillic,88,9225,1.4431818181818181,1.1,1,False,False,True,False,False
+LINESeedJP-Regular.ttf,LINE Seed JP,Katakana,94,9225,1.446808510638298,1.1,1,False,False,True,False,False
+LINESeedJP-Regular.ttf,LINE Seed JP,Han,6758,9225,1.4496892571766795,1.1,1,False,False,True,False,False
+LINESeedJP-ExtraBold.ttf,LINE Seed JP ExtraBold,Cyrillic,88,9225,1.4431818181818181,1.1,1,False,False,True,False,False
+LINESeedJP-ExtraBold.ttf,LINE Seed JP ExtraBold,Katakana,94,9225,1.446808510638298,1.1,1,False,False,True,False,False
+LINESeedJP-ExtraBold.ttf,LINE Seed JP ExtraBold,Han,6758,9225,1.4496892571766795,1.1,1,False,False,True,False,False
+IBMPlexSansDevanagari-Medium.ttf,IBM Plex Sans Devanagari Medium,Devanagari,102,1121,6.882352941176471,1.53,3,False,True,True,True,False
+IBMPlexSansDevanagari-ExtraLight.ttf,IBM Plex Sans Devanagari ExtraLight,Devanagari,102,1121,6.882352941176471,1.53,3,False,True,True,True,False
+IBMPlexSansDevanagari-Regular.ttf,IBM Plex Sans Devanagari,Devanagari,102,1121,6.882352941176471,1.53,3,False,True,True,True,False
+IBMPlexSansDevanagari-Bold.ttf,IBM Plex Sans Devanagari,Devanagari,102,1121,6.882352941176471,1.53,3,False,True,True,True,False
+IBMPlexSansDevanagari-Thin.ttf,IBM Plex Sans Devanagari Thin,Devanagari,102,1121,6.882352941176471,1.53,3,False,True,True,True,False
+IBMPlexSansDevanagari-SemiBold.ttf,IBM Plex Sans Devanagari SemiBold,Devanagari,102,1121,6.882352941176471,1.53,3,False,True,True,True,False
+IBMPlexSansDevanagari-Light.ttf,IBM Plex Sans Devanagari Light,Devanagari,102,1121,6.882352941176471,1.53,3,False,True,True,True,False
+Poppins-ExtraLight.ttf,Poppins ExtraLight,Devanagari,94,1060,5.617021276595745,1.5,2,False,True,False,True,False
+Poppins-ThinItalic.ttf,Poppins Thin,Devanagari,94,1060,5.617021276595745,1.5,2,False,True,False,True,False
+Poppins-ExtraLightItalic.ttf,Poppins ExtraLight,Devanagari,94,1060,5.617021276595745,1.5,2,False,True,False,True,False
+Poppins-BoldItalic.ttf,Poppins,Devanagari,94,1060,5.617021276595745,1.5,2,False,True,False,True,False
+Poppins-Light.ttf,Poppins Light,Devanagari,94,1060,5.617021276595745,1.5,2,False,True,False,True,False
+Poppins-Medium.ttf,Poppins Medium,Devanagari,94,1060,5.617021276595745,1.5,2,False,True,False,True,False
+Poppins-SemiBoldItalic.ttf,Poppins SemiBold,Devanagari,94,1060,5.617021276595745,1.5,2,False,True,False,True,False
+Poppins-ExtraBoldItalic.ttf,Poppins ExtraBold,Devanagari,94,1060,5.617021276595745,1.5,2,False,True,False,True,False
+Poppins-ExtraBold.ttf,Poppins ExtraBold,Devanagari,94,1060,5.617021276595745,1.5,2,False,True,False,True,False
+Poppins-BlackItalic.ttf,Poppins Black,Devanagari,94,1060,5.617021276595745,1.5,2,False,True,False,True,False
+Poppins-Regular.ttf,Poppins,Devanagari,94,1060,5.617021276595745,1.5,2,False,True,False,True,False
+Poppins-LightItalic.ttf,Poppins Light,Devanagari,94,1060,5.617021276595745,1.5,2,False,True,False,True,False
+Poppins-Bold.ttf,Poppins,Devanagari,94,1060,5.617021276595745,1.5,2,False,True,False,True,False
+Poppins-Black.ttf,Poppins Black,Devanagari,94,1060,5.617021276595745,1.5,2,False,True,False,True,False
+Poppins-Thin.ttf,Poppins Thin,Devanagari,94,1060,5.617021276595745,1.5,2,False,True,False,True,False
+Poppins-SemiBold.ttf,Poppins SemiBold,Devanagari,94,1060,5.617021276595745,1.5,2,False,True,False,True,False
+Poppins-Italic.ttf,Poppins,Devanagari,94,1060,5.617021276595745,1.5,2,False,True,False,True,False
+Poppins-MediumItalic.ttf,Poppins Medium,Devanagari,94,1060,5.617021276595745,1.5,2,False,True,False,True,False
+"SourceSerif4-Italic[opsz,wght].ttf",Source Serif 4,Cyrillic,150,1093,1.44,1.371,2,False,False,True,True,False
+"SourceSerif4[opsz,wght].ttf",Source Serif 4,Cyrillic,150,1463,1.44,1.371,2,False,False,True,True,False
+Kokoro-Regular.ttf,Kokoro,Katakana,90,231,1.0,1.5,0,False,False,False,False,False
+RubikScribble-Regular.ttf,Rubik Scribble,Cyrillic,182,774,1.445054945054945,1.185,3,False,False,True,True,True
+NotoSansDevanagariUI-Bold.ttf,Noto Sans Devanagari UI,Devanagari,160,922,3.4,1.362,2,False,True,False,True,False
+NotoSansDevanagariUI-Thin.ttf,Noto Sans Devanagari UI Thin,Devanagari,160,922,3.4,1.362,2,False,True,False,True,False
+NotoSansDevanagariUI-Light.ttf,Noto Sans Devanagari UI Light,Devanagari,160,922,3.4,1.362,2,False,True,False,True,False
+NotoSansDevanagariUI-ExtraLight.ttf,Noto Sans Devanagari UI ExtraLight,Devanagari,160,922,3.4,1.362,2,False,True,False,True,False
+NotoSansDevanagariUI-Medium.ttf,Noto Sans Devanagari UI Medium,Devanagari,160,922,3.4,1.362,2,False,True,False,True,False
+NotoSansDevanagariUI-Regular.ttf,Noto Sans Devanagari UI,Devanagari,160,922,3.4,1.362,2,False,True,False,True,False
+NotoSansDevanagariUI-Black.ttf,Noto Sans Devanagari UI Black,Devanagari,160,922,3.4,1.362,2,False,True,False,True,False
+NotoSansDevanagariUI-SemiBold.ttf,Noto Sans Devanagari UI SemiBold,Devanagari,160,922,3.4,1.362,2,False,True,False,True,False
+NotoSansDevanagariUI-ExtraBold.ttf,Noto Sans Devanagari UI ExtraBold,Devanagari,160,922,3.4,1.362,2,False,True,False,True,False
+"NotoSansMono[wdth,wght].ttf",Noto Sans Mono,Cyrillic,304,3920,1.5921052631578947,1.362,2,False,False,False,True,True
+"Literata-Italic[opsz,wght].ttf",Literata,Cyrillic,118,1769,1.576271186440678,1.485,2,False,False,True,True,False
+"Literata[opsz,wght].ttf",Literata,Cyrillic,118,1789,1.576271186440678,1.485,2,False,False,True,True,False
+FiraMono-Medium.ttf,Fira Mono,Cyrillic,288,1485,4.583333333333333,1.2,4,True,False,True,True,True
+FiraMono-Regular.ttf,Fira Mono,Cyrillic,288,1485,4.583333333333333,1.2,4,True,False,True,True,True
+FiraMono-Bold.ttf,Fira Mono,Cyrillic,288,1485,4.583333333333333,1.2,4,True,False,True,True,True
+Tajawal-ExtraBold.ttf,Tajawal,Arabic,183,465,5.131147540983607,1.2,4,True,False,True,True,True
+Tajawal-Light.ttf,Tajawal,Arabic,183,473,5.721311475409836,1.2,4,True,False,True,True,True
+Tajawal-Bold.ttf,Tajawal,Arabic,183,474,5.721311475409836,1.2,4,True,False,True,True,True
+Tajawal-ExtraLight.ttf,Tajawal,Arabic,183,464,5.131147540983607,1.2,4,True,False,True,True,True
+Tajawal-Regular.ttf,Tajawal,Arabic,183,465,5.131147540983607,1.2,4,True,False,True,True,True
+Tajawal-Medium.ttf,Tajawal,Arabic,183,474,5.721311475409836,1.2,4,True,False,True,True,True
+Tajawal-Black.ttf,Tajawal,Arabic,183,465,5.131147540983607,1.2,4,True,False,True,True,True
+SlacksideOne-Regular.ttf,Slackside One,Katakana,92,526,1.2826086956521738,1.0,1,False,False,True,False,False
+BellotaText-LightItalic.ttf,Bellota Text,Cyrillic,70,1308,5.7,1.258,2,False,False,True,True,False
+BellotaText-Italic.ttf,Bellota Text,Cyrillic,70,1308,5.7,1.258,2,False,False,True,True,False
+BellotaText-Regular.ttf,Bellota Text,Cyrillic,70,1308,5.7,1.258,2,False,False,True,True,False
+BellotaText-Bold.ttf,Bellota Text,Cyrillic,70,1308,5.7,1.258,2,False,False,True,True,False
+BellotaText-BoldItalic.ttf,Bellota Text,Cyrillic,70,1308,5.7,1.258,2,False,False,True,True,False
+BellotaText-Light.ttf,Bellota Text,Cyrillic,70,1308,5.7,1.258,2,False,False,True,True,False
+"NotoSansArabic[wdth,wght].ttf",Noto Sans Arabic,Arabic,1076,1711,2.434014869888476,2.112,4,True,False,True,True,True
+Moderustic[wght].ttf,Moderustic,Cyrillic,172,1551,1.436046511627907,1.25,2,False,False,True,True,False
+Lilex-Italic[wght].ttf,Lilex,Cyrillic,194,1411,1.2989690721649485,1.3,2,True,False,False,True,False
+Lilex[wght].ttf,Lilex,Cyrillic,194,1410,1.2989690721649485,1.3,2,True,False,False,True,False
+Dhurjati-Regular.ttf,Dhurjati,Telugu,94,1235,1.8936170212765957,1.8505747126436782,1,False,True,False,False,False
+PT_Serif-Caption-Web-Italic.ttf,PT Serif Caption,Cyrillic,220,720,2.8,1.325,1,False,False,True,False,False
+PT_Serif-Caption-Web-Regular.ttf,PT Serif Caption,Cyrillic,220,719,2.8,1.325,1,False,False,True,False,False
+Raleway-Italic[wght].ttf,Raleway Thin,Cyrillic,238,1063,1.588235294117647,1.174,2,False,False,True,True,False
+Raleway[wght].ttf,Raleway Thin,Cyrillic,238,1071,1.588235294117647,1.174,2,False,False,True,True,False
+GolosText[wght].ttf,Golos Text,Cyrillic,172,643,1.2906976744186047,1.2,3,True,False,False,True,True
+NotoSansSyriacWestern[wght].ttf,Noto Sans Syriac Western,Arabic,30,618,1.8,1.412,4,True,False,True,True,True
+Pavanam-Regular.ttf,Pavanam,Tamil,72,472,1.5555555555555556,0.914,3,True,True,False,True,False
+MarkaziText-VF.ttf,Markazi Text,Arabic,300,1240,2.05,1.2001953125,4,True,False,True,True,True
+NotoSansIndicSiyaqNumbers-Regular.ttf,Noto Sans Indic Siyaq Numbers,Arabic,21,430,1.1428571428571428,1.562,2,False,False,False,True,True
+StalinistOne-Regular.ttf,Stalinist One,Cyrillic,94,337,1.0,1.476,0,False,False,False,False,False
+Timmana-Regular.ttf,Timmana,Telugu,93,1598,1.978494623655914,1.6293333333333333,2,False,True,False,True,False
+NotoNaskhArabic[wght].ttf,Noto Naskh Arabic,Arabic,1076,1719,2.158921933085502,1.703,4,True,False,True,True,True
+Jost[wght].ttf,Jost,Cyrillic,76,535,1.0,1.445,0,False,False,False,False,False
+Jost-Italic[wght].ttf,Jost,Cyrillic,76,535,1.0,1.445,0,False,False,False,False,False
+ZenKurenaido-Regular.ttf,Zen Kurenaido,Cyrillic,66,7867,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenKurenaido-Regular.ttf,Zen Kurenaido,Katakana,94,7867,1.148936170212766,1.0,1,False,False,False,True,False
+ZenKurenaido-Regular.ttf,Zen Kurenaido,Han,6716,7867,1.1499404407385347,1.0,1,False,False,False,True,False
+NotoSansSyriacEastern[wght].ttf,Noto Sans Syriac Eastern,Arabic,30,600,1.9333333333333333,1.412,4,True,False,True,True,True
+PT_Sans-Narrow-Web-Regular.ttf,PT Sans Narrow,Cyrillic,220,720,2.8,1.294,1,False,False,True,False,False
+PT_Sans-Narrow-Web-Bold.ttf,PT Sans Narrow,Cyrillic,220,720,2.8,1.294,1,False,False,True,False,False
+Ramaraja-Regular.ttf,Ramaraja,Telugu,93,1650,1.978494623655914,1.7133333333333334,2,False,True,False,True,False
+PlaypenSansDeva[wght].ttf,Playpen Sans Deva,Devanagari,127,2418,3.393700787401575,2.03,4,True,True,True,True,False
+AmaticSC-Regular.ttf,Amatic SC,Cyrillic,98,850,5.714285714285714,1.261,3,False,False,True,True,True
+AmaticSC-Bold.ttf,Amatic SC,Cyrillic,98,850,5.714285714285714,1.261,3,False,False,True,True,True
+ZenAntiqueSoft-Regular.ttf,Zen Antique Soft,Cyrillic,66,7867,1.1363636363636365,1.0,1,False,False,False,True,False
+ZenAntiqueSoft-Regular.ttf,Zen Antique Soft,Katakana,94,7867,1.148936170212766,1.0,1,False,False,False,True,False
+ZenAntiqueSoft-Regular.ttf,Zen Antique Soft,Han,6716,7867,1.1499404407385347,1.0,1,False,False,False,True,False
+ReggaeOne-Regular.ttf,Reggae One,Cyrillic,66,9362,1.4090909090909092,1.0,1,False,False,True,False,False
+ReggaeOne-Regular.ttf,Reggae One,Katakana,94,9362,1.446808510638298,1.0,1,False,False,True,False,False
+ReggaeOne-Regular.ttf,Reggae One,Han,6758,9362,1.4492453388576503,1.0,1,False,False,True,False,False
+Amiri-Bold.ttf,Amiri,Arabic,1054,6551,1.8975332068311195,1.758,4,True,False,True,True,True
+Amiri-BoldItalic.ttf,Amiri,Arabic,1054,6555,1.8975332068311195,1.758,4,True,False,True,True,True
+Amiri-Italic.ttf,Amiri,Arabic,1054,6705,1.8975332068311195,1.758,4,True,False,True,True,True
+Amiri-Regular.ttf,Amiri,Arabic,1054,6710,1.8975332068311195,1.758,4,True,False,True,True,True
+Beiruti[wght].ttf,Beiruti,Arabic,342,1459,1.894736842105263,1.2,4,True,False,True,True,True
+BlakaInk-Regular.ttf,Blaka Ink,Arabic,219,1159,2.1689497716894977,1.167,4,True,False,True,True,True
+SpectralSC-LightItalic.ttf,Spectral SC Light,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+SpectralSC-Light.ttf,Spectral SC Light,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+SpectralSC-ExtraBold.ttf,Spectral SC ExtraBold,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+SpectralSC-Bold.ttf,Spectral SC,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+SpectralSC-Medium.ttf,Spectral SC Medium,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+SpectralSC-SemiBoldItalic.ttf,Spectral SC SemiBold,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+SpectralSC-MediumItalic.ttf,Spectral SC Medium,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+SpectralSC-Regular.ttf,Spectral SC,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+SpectralSC-SemiBold.ttf,Spectral SC SemiBold,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+SpectralSC-BoldItalic.ttf,Spectral SC,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+SpectralSC-ExtraLightItalic.ttf,Spectral SC ExtraLight,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+SpectralSC-ExtraLight.ttf,Spectral SC ExtraLight,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+SpectralSC-ExtraBoldItalic.ttf,Spectral SC ExtraBold,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+SpectralSC-Italic.ttf,Spectral SC,Cyrillic,128,1480,1.4453125,1.522,2,False,False,True,True,False
+"OpenSans[wdth,wght].ttf",Open Sans,Cyrillic,275,1150,1.8945454545454545,1.36181640625,3,False,False,True,True,True
+"OpenSans-Italic[wdth,wght].ttf",Open Sans,Cyrillic,275,1162,1.8945454545454545,1.36181640625,3,False,False,True,True,True
+Kablammo[MORF].ttf,Kablammo,Cyrillic,235,1106,0.7191489361702128,1.292,2,True,False,False,True,False
+UbuntuMono-BoldItalic.ttf,Ubuntu Mono,Cyrillic,214,1301,1.0,0.907,0,False,False,False,False,False
+UbuntuMono-Bold.ttf,Ubuntu Mono,Cyrillic,214,1296,1.0,0.907,0,False,False,False,False,False
+UbuntuMono-Italic.ttf,Ubuntu Mono,Cyrillic,214,1301,1.0,0.907,0,False,False,False,False,False
+UbuntuMono-Regular.ttf,Ubuntu Mono,Cyrillic,214,1296,1.0,0.907,0,False,False,False,False,False
+UbuntuSansMono[wght].ttf,Ubuntu Sans Mono,Cyrillic,214,1342,1.2990654205607477,1.2,1,False,False,False,True,False
+UbuntuSansMono-Italic[wght].ttf,Ubuntu Sans Mono,Cyrillic,214,1343,1.2990654205607477,1.2,1,False,False,False,True,False
+UbuntuCondensed-Regular.ttf,Ubuntu Condensed,Cyrillic,214,1263,2.196261682242991,1.017,1,False,False,True,False,False
+"UbuntuSans-Italic[wdth,wght].ttf",Ubuntu Sans,Cyrillic,214,1328,1.4485981308411215,1.2,2,False,False,True,True,False
+"UbuntuSans[wdth,wght].ttf",Ubuntu Sans,Cyrillic,214,1856,1.4485981308411215,1.2,2,False,False,True,True,False
+Ubuntu-Medium.ttf,Ubuntu,Cyrillic,214,1264,2.196261682242991,1.017,1,False,False,True,False,False
+Ubuntu-LightItalic.ttf,Ubuntu,Cyrillic,214,1269,2.4953271028037385,1.017,1,False,False,True,False,False
+Ubuntu-Regular.ttf,Ubuntu,Cyrillic,214,1264,2.196261682242991,1.017,1,False,False,True,False,False
+Ubuntu-Bold.ttf,Ubuntu,Cyrillic,214,1264,2.196261682242991,1.017,1,False,False,True,False,False
+Ubuntu-MediumItalic.ttf,Ubuntu,Cyrillic,214,1269,2.196261682242991,1.017,1,False,False,True,False,False
+Ubuntu-BoldItalic.ttf,Ubuntu,Cyrillic,214,1269,2.196261682242991,1.017,1,False,False,True,False,False
+Ubuntu-Italic.ttf,Ubuntu,Cyrillic,214,1269,2.196261682242991,1.017,1,False,False,True,False,False
+Ubuntu-Light.ttf,Ubuntu,Cyrillic,214,1264,1.897196261682243,1.017,1,False,False,True,False,False
+Tinos-Regular.ttf,Tinos,Cyrillic,280,2573,1.6,1.05908203125,3,False,False,True,True,True
+Tinos-Italic.ttf,Tinos,Cyrillic,280,2573,1.6,1.06005859375,3,False,False,True,True,True
+Tinos-Bold.ttf,Tinos,Cyrillic,280,2573,1.6,1.04296875,3,False,False,True,True,True
+Tinos-BoldItalic.ttf,Tinos,Cyrillic,280,2573,1.6,1.04296875,3,False,False,True,True,True
+Kosugi-Regular.ttf,Kosugi,Cyrillic,66,7576,1.0,1.0,0,False,False,False,False,False
+Kosugi-Regular.ttf,Kosugi,Katakana,90,7576,1.0,1.0,0,False,False,False,False,False
+Kosugi-Regular.ttf,Kosugi,Han,6716,7576,1.0,1.0,0,False,False,False,False,False
+RobotoSlab[wght].ttf,Roboto Slab,Cyrillic,275,1164,1.5963636363636364,1.31884765625,3,False,False,True,True,True
+Arimo[wght].ttf,Arimo,Cyrillic,304,3299,1.7401315789473684,1.14990234375,3,False,False,True,True,True
+Arimo-Italic[wght].ttf,Arimo,Cyrillic,304,3304,1.7401315789473684,1.14990234375,3,False,False,True,True,True
+KosugiMaru-Regular.ttf,Kosugi Maru,Cyrillic,66,7575,1.0,1.0,0,False,False,False,False,False
+KosugiMaru-Regular.ttf,Kosugi Maru,Katakana,90,7575,1.0,1.0,0,False,False,False,False,False
+KosugiMaru-Regular.ttf,Kosugi Maru,Han,6716,7575,1.0,1.0,0,False,False,False,False,False
+Cousine-BoldItalic.ttf,Cousine,Cyrillic,280,2385,1.3,0.84228515625,3,False,False,True,True,True
+Cousine-Bold.ttf,Cousine,Cyrillic,280,2385,1.3,0.84228515625,3,False,False,True,True,True
+Cousine-Italic.ttf,Cousine,Cyrillic,280,2385,1.3,0.80126953125,3,False,False,True,True,True
+Cousine-Regular.ttf,Cousine,Cyrillic,280,2385,1.3,0.80126953125,3,False,False,True,True,True
