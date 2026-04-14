@@ -202,6 +202,7 @@ MIN_CODEPOINT_COVERAGE = 10
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s"
+    # filename=OUTPUT_DIR / "vit_pipeline.log"
 )
 logger = logging.getLogger(__name__)
 
