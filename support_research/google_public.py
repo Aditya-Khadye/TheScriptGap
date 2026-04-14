@@ -81,15 +81,53 @@ def google_script_relations():
     
     return combinations
 
+
+def google_font_script_matches(filter_scripts=None):
+    """Return fonts and the filtered scripts they support."""
+    if filter_scripts is None:
+        filter_scripts = [
+            "chinese-simplified",
+            "chinese-traditional",
+            "devanagari",
+            "arabic",
+            "bengali",
+            "cyrillic",
+            "japanese",
+            "telugu",
+            "tamil",
+        ]
+
+    filter_scripts = set(filter_scripts)
+
+    response = requests.get(url)
+    data = response.json()
+
+    matching_fonts = {}
+    for font in data["items"]:
+        matching_subsets = [subset for subset in font["subsets"] if subset in filter_scripts]
+        if matching_subsets:
+            matching_fonts[font.get("family", font.get("id"))] = matching_subsets
+
+    return matching_fonts
+
+
 # Temporary main function for google data
 def main():
     print("Hello from support-research!")
 
-    google_script_relations_dict = google_script_relations()
-    google_script_relations_df = pd.DataFrame(list(google_script_relations_dict.items()), columns=['script_pair', 'count'])
-    google_script_relations_df = google_script_relations_df.sort_values(by='count', ascending=False)
-    google_script_relations_df.to_csv('output/google_script_relations.csv', index=False)
-    print(google_script_relations_df)
+    # google_script_relations_dict = google_script_relations()
+    # google_script_relations_df = pd.DataFrame(list(google_script_relations_dict.items()), columns=['script_pair', 'count'])
+    # google_script_relations_df = google_script_relations_df.sort_values(by='count', ascending=False)
+    # google_script_relations_df.to_csv('output/google_script_relations.csv', index=False)
+
+
+
+    filter_scripts = ["chinese-simplified", "chinese-traditional", "devanagari", "arabic", "bengali",
+                      "cyrillic", "japanese", "telugu", "tamil"]
+    matching_fonts = google_font_script_matches(filter_scripts=filter_scripts)
+    print(matching_fonts)
+    matching_fonts_df = pd.DataFrame(list(matching_fonts.items()), columns=['font', 'subsets'])
+    matching_fonts_df.to_csv('output/google_font_scripts.csv', index=False)
 
     # print("\nSupport Full List")
     # support_dict = google_top_list()
