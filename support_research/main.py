@@ -1,19 +1,12 @@
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+import utils.utils_formatting as utils
+
 import pandas as pd
 import google_public as gp_data
 import plotly.express as px
-
-import ast
-
-def standardize_font_names(fonts_df):
-    """Standardize font names by converting to lowercase and replacing spaces with hyphens."""
-    fonts_df['font_name'] = fonts_df['font_name'].str.lower().str.replace(' ', '-')
-    return fonts_df
-
-def standardize_script_names(fonts_df):
-    """Standardize script names by converting to lowercase and replacing spaces with hyphens."""
-    fonts_df['supported_scripts'] = fonts_df['supported_scripts'].str.lower()
-    return fonts_df
-
 
 # def fuzzy_match_fonts(df1, df2, threshold=80):
 #     """Fuzzy match font names between two dataframes and combine them based on the best matches."""
@@ -60,27 +53,15 @@ def standardize_script_names(fonts_df):
 # Tree map visualization function
 def create_treemap(df):
     """Create a treemap visualization of font usage by supported scripts."""
-    fig = px.treemap(df, path=['supported_scripts', 'font_name'], values='font_count',
-                     title='Font Usage by Supported Scripts')
+    fig = px.treemap(
+        df,
+        path=['script', 'font_name'],
+        values='font_count',
+        color='script',
+        title='Font Usage by Supported Scripts'
+    )
     fig.show()
 
-# filter out null scripts
-def filter_null_scripts(df):
-    """Filter out rows with null or empty supported scripts."""
-    return df[df['supported_scripts'].notnull() & (df['supported_scripts'] != '') & (df['supported_scripts'] != '[]')]
-
-# filter out scripts that are not in the set list
-def filter_scripts(df, scripts_kept):
-    """Filter the dataframe to keep only rows with supported scripts in the specified list."""
-    return df[df['supported_scripts'].isin(scripts_kept)]
-
-def safe_literal_eval(val):
-    if pd.isna(val) or val == '':
-        return []  # or return None, depending on what you want
-    try:
-        return ast.literal_eval(val)
-    except (ValueError, SyntaxError):
-        return val  # or [] if you want to force a list
 
 
 def main():
@@ -92,14 +73,14 @@ def main():
     # make into df
     # google_fonts_df = pd.DataFrame(list(google_fonts.items()), columns=['font', 'subsets']) # UNCOMMENT THIS WHEN DONE TESTING
 
-    google_fonts_df = pd.read_csv('output/google_font_scripts.csv')
+    # google_fonts_df = pd.read_csv('output/google_font_scripts.csv')
 
 
     # renaming columns to match
-    google_fonts_df = google_fonts_df.rename(columns={'font': 'font_name', 'subsets': 'supported_scripts'})
+    # google_fonts_df = google_fonts_df.rename(columns={'font': 'font_name', 'subsets': 'supported_scripts'})
 
     # standardize formatting
-    google_fonts_df = standardize_font_names(google_fonts_df)
+    # google_fonts_df = utils.standardize_font_names(google_fonts_df)
 
     # Importing big query data (from our condenced http archive database)
     # Just using csv for now to save on costs
@@ -107,48 +88,18 @@ def main():
 
     big_query_df = big_query_df.rename(columns={'scripts': 'supported_scripts'})
 
-    big_query_df = standardize_font_names(big_query_df) # already standardized but still needs to remove - and _ for " "
+    big_query_df = utils.standardize_font_names(big_query_df) # already standardized but still needs to remove - and _ for " "
 
-    # Combining the data into a single dataframe for analysis using fuzzy matching
-    result = pd.concat([google_fonts_df, big_query_df], join='outer', ignore_index=True)
+    big_query_df['supported_scripts'] = big_query_df['supported_scripts'].apply(utils.safe_literal_eval)
+
+
     
-    result = result.sort_values(by='font_count', ascending=False).reset_index(drop=True)
+    # Combining the data into a single dataframe for analysis using fuzzy matching
+    # result = pd.concat([google_fonts_df, big_query_df], join='outer', ignore_index=True)
+    
+    # result = result.sort_values(by='font_count', ascending=False).reset_index(drop=True)
     # print(result.head())
     # print(result.describe())
-
-    result['supported_scripts'] = result['supported_scripts'].apply(safe_literal_eval)
-
-    print(result.info())
-
-    exploded_result = result.explode('supported_scripts')
-
-    print(exploded_result.head())
-    print(exploded_result.info())
-
-    print(exploded_result['supported_scripts'].value_counts())
-
-
-
-    # filter_scripts(exploded_result, ['latin', 'latin-ext', 
-    #                                  'cyrillic', 'cyrillic-ext', 
-    #                                  'greek', 'greek-ext', 
-    #                                  'japanese', 'katakana',
-    #                                  'devangari', 'bengali', 'tamil', 'telugu',
-    #                                  'arabic', 'Han'
-                                     
-    #                                  ]) # filter to only keep rows with these scripts
-
-    # # combine script extensions with their base scripts (e.g. latin-ext with latin) and remove the extension rows
-    # exploded_result['supported_scripts'] = exploded_result['supported_scripts'].replace({
-    #     'latin-ext': 'latin',
-    #     'cyrillic-ext': 'cyrillic',
-    #     'greek-ext': 'greek'
-    # })
-
-    # create_treemap(filter_null_scripts(exploded_result))
-
-
-
 
 
 
