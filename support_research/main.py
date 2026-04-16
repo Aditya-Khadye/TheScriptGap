@@ -8,79 +8,54 @@ import pandas as pd
 import google_public as gp_data
 import plotly.express as px
 
-# def fuzzy_match_fonts(df1, df2, threshold=80):
-#     """Fuzzy match font names between two dataframes and combine them based on the best matches."""
-#     # from fuzzywuzzy import process
+import time
 
-#     # Create a new dataframe to store the results
-#     matched_df = pd.DataFrame(columns=['font_name', 'supported_scripts', 'font_count'])
+from rapidfuzz import fuzz, process
 
-#     for index, row in df1.iterrows():
-#         font_name = row['font_name']
-#         supported_scripts = row['supported_scripts']
-#         font_count = row.get('font_count', 0)
+def fuzzy_match_fonts(df, column, threshold=95):
+    font_names = [f for f in df[column].unique().tolist() if pd.notna(f)]
+    mapping = {}
 
-#         # Find the best match in df2
-#         best_match = process.extractOne(font_name, df2['font_name'], score_cutoff=threshold)
+    for name in font_names:
+        if name in mapping:
+            continue
 
-#         if best_match:
-#             matched_font_name = best_match[0]
-#             matched_row = df2[df2['font_name'] == matched_font_name].iloc[0]
-#             matched_supported_scripts = matched_row['supported_scripts']
-#             matched_font_count = matched_row.get('font_count', 0)
+        for other in font_names:
+            if other in mapping:
+                continue
+            # Gate 1: first character must match
+            if name[0].lower() != other[0].lower():
+                continue
+            # Gate 2: length cant be too different
+            if abs(len(name) - len(other)) > 3:
+                continue
+            # Gate 3: fuzzy score
+            score = fuzz.token_sort_ratio(name, other)
+            if score >= threshold:
+                print(f"Mapping '{other}' to '{name}' with score {score}")
+                mapping[other] = name
 
-#             # Combine the data
-#             combined_supported_scripts = list(set(supported_scripts.split(',') + matched_supported_scripts.split(',')))
-#             combined_font_count = font_count + matched_font_count
-
-#             # Append to the matched dataframe
-#             matched_df = matched_df.append({
-#                 'font_name': font_name,
-#                 'supported_scripts': ','.join(combined_supported_scripts),
-#                 'font_count': combined_font_count
-#             }, ignore_index=True)
-#         else:
-#             # If no match is found, keep the original data
-#             matched_df = matched_df.append({
-#                 'font_name': font_name,
-#                 'supported_scripts': supported_scripts,
-#                 'font_count': font_count
-#             }, ignore_index=True)
-
-#     return matched_df
-
-
-# Tree map visualization function
-def create_treemap(df):
-    """Create a treemap visualization of font usage by supported scripts."""
-    fig = px.treemap(
-        df,
-        path=['script', 'font_name'],
-        values='font_count',
-        color='script',
-        title='Font Usage by Supported Scripts'
-    )
-    fig.show()
-
+    df["font_clean"] = df[column].map(mapping)
+    return df
 
 
 def main():
     print("Hello from support-research!")
 
     # Importing google font data
-    # google_fonts = gp_data.google_font_script_matches() # UNCOMMENT THIS WHEN DONE TESTING
+    google_fonts = gp_data.google_font_script_matches() # UNCOMMENT THIS WHEN DONE TESTING
 
     # make into df
-    # google_fonts_df = pd.DataFrame(list(google_fonts.items()), columns=['font', 'subsets']) # UNCOMMENT THIS WHEN DONE TESTING
+    google_fonts_df = pd.DataFrame(list(google_fonts.items()), columns=['font', 'subsets']) # UNCOMMENT THIS WHEN DONE TESTING
 
-    # google_fonts_df = pd.read_csv('output/google_font_scripts.csv')
+    google_fonts_df = pd.read_csv('output/google_font_scripts.csv')
 
 
     # renaming columns to match
-    # google_fonts_df = google_fonts_df.rename(columns={'font': 'font_name', 'subsets': 'supported_scripts'})
+    google_fonts_df = google_fonts_df.rename(columns={'font': 'font_name', 'subsets': 'supported_scripts'})
 
     # standardize formatting
-    # google_fonts_df = utils.standardize_font_names(google_fonts_df)
+    google_fonts_df = utils.standardize_font_names(google_fonts_df)
 
     # Importing big query data (from our condenced http archive database)
     # Just using csv for now to save on costs
@@ -91,12 +66,27 @@ def main():
     big_query_df = utils.standardize_font_names(big_query_df) # already standardized but still needs to remove - and _ for " "
 
     big_query_df['supported_scripts'] = big_query_df['supported_scripts'].apply(utils.safe_literal_eval)
+    google_fonts_df['supported_scripts'] = google_fonts_df['supported_scripts'].apply(utils.safe_literal_eval)
 
 
     
     # Combining the data into a single dataframe for analysis using fuzzy matching
-    # result = pd.concat([google_fonts_df, big_query_df], join='outer', ignore_index=True)
-    
+    result = pd.concat([google_fonts_df, big_query_df], join='outer', ignore_index=True)
+
+    print(f'before: {result["font_name"].nunique()}')
+
+    start_time = time.time()
+
+    result = fuzzy_match_fonts(result, "font_name", threshold=95)
+
+    end_time = time.time()
+    print(f"Fuzzy matching took {end_time - start_time:.2f} seconds")
+    print(f'after: {result["font_clean"].nunique()}')
+
+    print(result.describe())
+
+    result.to_csv('output/combined_google_bigquery.csv', index=False)
+
     # result = result.sort_values(by='font_count', ascending=False).reset_index(drop=True)
     # print(result.head())
     # print(result.describe())

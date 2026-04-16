@@ -35,7 +35,7 @@ def main():
     big_query_df = utils.standardize_font_names(big_query_df) # already standardized but still needs to remove - and _ for " "
 
 
-    big_query_df['supported_scripts'] = big_query_df['supported_scripts'].apply(utils.safe_literal_eval)
+    # big_query_df['supported_scripts'] = big_query_df['supported_scripts'].apply(utils.safe_literal_eval)
 
 
     exploded_result = big_query_df.explode('supported_scripts')
