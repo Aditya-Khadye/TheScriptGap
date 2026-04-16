@@ -2,6 +2,8 @@ import pandas as pd
 import google_public as gp_data
 import plotly.express as px
 
+import ast
+
 def standardize_font_names(fonts_df):
     """Standardize font names by converting to lowercase and replacing spaces with hyphens."""
     fonts_df['font_name'] = fonts_df['font_name'].str.lower().str.replace(' ', '-')
@@ -72,8 +74,13 @@ def filter_scripts(df, scripts_kept):
     """Filter the dataframe to keep only rows with supported scripts in the specified list."""
     return df[df['supported_scripts'].isin(scripts_kept)]
 
-
-
+def safe_literal_eval(val):
+    if pd.isna(val) or val == '':
+        return []  # or return None, depending on what you want
+    try:
+        return ast.literal_eval(val)
+    except (ValueError, SyntaxError):
+        return val  # or [] if you want to force a list
 
 
 def main():
@@ -106,13 +113,19 @@ def main():
     result = pd.concat([google_fonts_df, big_query_df], join='outer', ignore_index=True)
     
     result = result.sort_values(by='font_count', ascending=False).reset_index(drop=True)
-    print(result.head())
-    print(result.describe())
+    # print(result.head())
+    # print(result.describe())
 
+    result['supported_scripts'] = result['supported_scripts'].apply(safe_literal_eval)
+
+    print(result.info())
 
     exploded_result = result.explode('supported_scripts')
 
     print(exploded_result.head())
+    print(exploded_result.info())
+
+    print(exploded_result['supported_scripts'].value_counts())
 
 
 
