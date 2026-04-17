@@ -40,8 +40,8 @@ def main():
     # Since this is using google data we need to rename some things to match the other data we have
     # It's not perfect yet though could improve upon this further
     
-    support['script'] = support['script'].str.replace(["chinese-simplified", "chinese-traditional"], "han")
-    support['script'] = support['script'].str.replace("japanese", "katakana")
+    support['script'] = support['script'].str.replace(r'chinese-simplified|chinese-traditional', 'han', regex=True)
+    support['script'] = support['script'].str.replace(r'japanese', 'katakana', regex=True)
 
 
     # TODO: Currently this is backwards deal with it later abs(1 - diversity_index) or something like that 
@@ -59,8 +59,7 @@ def main():
 
     print(final_df.head())
 
-
-
+    
 
 if __name__ == "__main__":
     main()

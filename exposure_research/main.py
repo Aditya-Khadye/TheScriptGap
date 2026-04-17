@@ -57,7 +57,11 @@ def main():
     print(font_script_df.head())
 
     print(font_script_df['script'].value_counts().to_string())
-
+    
+    # TODO: STUFF
+    # Add filtering buttons
+    # Scale by population
+    # title the slide better
     create_treemap(utils.filter_scripts(utils.filter_null_scripts(font_script_df), scripts_kept=[
         "devanagari",
         "arabic",
