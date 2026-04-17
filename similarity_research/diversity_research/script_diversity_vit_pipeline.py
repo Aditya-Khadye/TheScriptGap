@@ -68,6 +68,7 @@ from itertools import combinations
 GOOGLE_FONTS_DIR = Path("./fonts")
 OUTPUT_DIR = Path("./vit_outputs")
 EMBEDDINGS_DIR = OUTPUT_DIR / "embeddings"
+FONT_SIMILARITY_DIR = OUTPUT_DIR / "font_similarity_pairs"
 
 # Image rendering parameters — standardized so the ONLY variation
 # the model sees is the actual glyph shape
@@ -205,6 +206,19 @@ logging.basicConfig(
     # filename=OUTPUT_DIR / "vit_pipeline.log"
 )
 logger = logging.getLogger(__name__)
+
+
+def save_pairwise_similarity(script_name: str, font_names: List[str], embeddings: np.ndarray, out_dir: Path):
+    rows = []
+    sim = embeddings @ embeddings.T
+    for i in range(len(font_names)):
+        for j in range(i + 1, len(font_names)):
+            rows.append({
+                "font_name1": font_names[i],
+                "font_name2": font_names[j],
+                "similarity": float(sim[i, j]),
+            })
+    pd.DataFrame(rows).to_csv(out_dir / f"font_similarity_pairs_{script_name}.csv", index=False)
 
 
 # ===========================================================================
@@ -636,6 +650,8 @@ def run_diversity_pipeline(
         if len(font_avg_embeddings) < 2:
             logger.warning(f"  Only {len(font_avg_embeddings)} fonts produced embeddings, skipping")
             continue
+
+        save_pairwise_similarity(script_name, font_names_used, font_avg_matrix, FONT_SIMILARITY_DIR)
 
         font_avg_matrix = np.vstack(font_avg_embeddings)
 

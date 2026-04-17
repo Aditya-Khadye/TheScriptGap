@@ -55,6 +55,8 @@ from fontTools.ttLib import TTFont
 
 GOOGLE_FONTS_DIR = Path("./fonts")
 OUTPUT_DIR = Path("./vit_outputs_100")
+
+FONT_SIMILARITY_DIR = Path("./vit_outputs_100/font_similarity_pairs")
 EMBEDDINGS_DIR = OUTPUT_DIR / "embeddings"
 
 CANVAS_SIZE = 224
@@ -948,6 +950,19 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(me
 logger = logging.getLogger(__name__)
 
 
+def save_pairwise_similarity(script_name: str, font_names: List[str], embeddings: np.ndarray, out_dir: Path):
+    rows = []
+    sim = embeddings @ embeddings.T
+    for i in range(len(font_names)):
+        for j in range(i + 1, len(font_names)):
+            rows.append({
+                "font_name1": font_names[i],
+                "font_name2": font_names[j],
+                "similarity": float(sim[i, j]),
+            })
+    pd.DataFrame(rows).to_csv(out_dir / f"font_similarity_pairs_{script_name}.csv", index=False)
+
+
 # ===========================================================================
 # Flatten reference chars (merge all tiers into one list per script)
 # ===========================================================================
@@ -1189,6 +1204,7 @@ def run_pipeline(fonts_dir: Path) -> pd.DataFrame:
             continue
 
         matrix = np.vstack(font_avg_embeddings)
+        save_pairwise_similarity(script_name, font_names, matrix, FONT_SIMILARITY_DIR)
         logger.info(f"  {len(font_avg_embeddings)} fonts, {total_glyphs} glyphs rendered")
 
         metrics = compute_diversity_metrics(matrix)
