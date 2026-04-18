@@ -34,13 +34,15 @@ def main():
     support = support[["script", "support"]]
     support['script'] = support['script'].str.lower()
 
-    print(support.head())
-
     # Since this is using google data we need to rename some things to match the other data we have
     # It's not perfect yet though could improve upon this further
     
     support['script'] = support['script'].str.replace(r'chinese-simplified|chinese-traditional', 'han', regex=True)
     support['script'] = support['script'].str.replace(r'japanese', 'katakana', regex=True)
+
+    support = support.groupby('script', as_index=False)['support'].sum()
+
+    print(support)
 
 
     # TODO: Currently this is backwards deal with it later abs(1 - diversity_index) or something like that 
