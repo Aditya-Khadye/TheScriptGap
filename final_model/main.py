@@ -5,9 +5,6 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 import pandas as pd
 
 
-
-
-
 def main():
     print("Hello from final-model!")
 
@@ -28,10 +25,12 @@ def main():
 
     # Number of distinct fonts supporting each script
     # TODO: CHANGE THIS OUT LATER FOR UPDATED METRICS THAT USE GLOBAL WEB DATA TO SUPPORT DISTINCT FONT COUNT
-    support = pd.read_csv("../support_research/output/google_support_filtered.csv")
+    support = pd.read_csv("../support_research/output/script_font_counts.csv")
 
+    # Reformat to group by script and count the number of distinct fonts supporting each script
 
-    support = support.rename(columns={"count": "support"})
+    support = support.rename(columns={"distinct_font_count": "support"})
+    support = support.rename(columns={"supported_scripts": "script"})
     support = support[["script", "support"]]
     support['script'] = support['script'].str.lower()
 

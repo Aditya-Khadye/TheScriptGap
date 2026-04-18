@@ -42,55 +42,84 @@ def fuzzy_match_fonts(df, column, threshold=95):
 def main():
     print("Hello from support-research!")
 
-    # Importing google font data
-    google_fonts = gp_data.google_font_script_matches() # UNCOMMENT THIS WHEN DONE TESTING
+    # # Importing google font data
+    # google_fonts = gp_data.google_font_script_matches() # UNCOMMENT THIS WHEN DONE TESTING
 
-    # make into df
-    google_fonts_df = pd.DataFrame(list(google_fonts.items()), columns=['font', 'subsets']) # UNCOMMENT THIS WHEN DONE TESTING
+    # # make into df
+    # google_fonts_df = pd.DataFrame(list(google_fonts.items()), columns=['font', 'subsets']) # UNCOMMENT THIS WHEN DONE TESTING
 
-    google_fonts_df = pd.read_csv('output/google_font_scripts.csv')
+    # google_fonts_df = pd.read_csv('output/google_font_scripts.csv')
 
 
-    # renaming columns to match
-    google_fonts_df = google_fonts_df.rename(columns={'font': 'font_name', 'subsets': 'supported_scripts'})
+    # # renaming columns to match
+    # google_fonts_df = google_fonts_df.rename(columns={'font': 'font_name', 'subsets': 'supported_scripts'})
 
-    # standardize formatting
-    google_fonts_df = utils.standardize_font_names(google_fonts_df)
+    # # standardize formatting
+    # google_fonts_df = utils.standardize_font_names(google_fonts_df)
 
-    # Importing big query data (from our condenced http archive database)
-    # Just using csv for now to save on costs
-    big_query_df = pd.read_csv('output/big_query_data.csv')
+    # # Importing big query data (from our condenced http archive database)
+    # # Just using csv for now to save on costs
+    # big_query_df = pd.read_csv('output/big_query_data.csv')
 
-    big_query_df = big_query_df.rename(columns={'scripts': 'supported_scripts'})
+    # big_query_df = big_query_df.rename(columns={'scripts': 'supported_scripts'})
 
-    big_query_df = utils.standardize_font_names(big_query_df) # already standardized but still needs to remove - and _ for " "
+    # big_query_df = utils.standardize_font_names(big_query_df) # already standardized but still needs to remove - and _ for " "
 
-    big_query_df['supported_scripts'] = big_query_df['supported_scripts'].apply(utils.safe_literal_eval)
-    google_fonts_df['supported_scripts'] = google_fonts_df['supported_scripts'].apply(utils.safe_literal_eval)
+    # big_query_df['supported_scripts'] = big_query_df['supported_scripts'].apply(utils.safe_literal_eval)
+    # google_fonts_df['supported_scripts'] = google_fonts_df['supported_scripts'].apply(utils.safe_literal_eval)
 
 
     
-    # Combining the data into a single dataframe for analysis using fuzzy matching
-    result = pd.concat([google_fonts_df, big_query_df], join='outer', ignore_index=True)
+    # # Combining the data into a single dataframe for analysis using fuzzy matching
+    # result = pd.concat([google_fonts_df, big_query_df], join='outer', ignore_index=True)
 
-    print(f'before: {result["font_name"].nunique()}')
+    # print(f'before: {result["font_name"].nunique()}')
 
-    start_time = time.time()
+    # start_time = time.time()
 
-    result = fuzzy_match_fonts(result, "font_name", threshold=95)
+    # result = fuzzy_match_fonts(result, "font_name", threshold=95)
 
-    end_time = time.time()
-    print(f"Fuzzy matching took {end_time - start_time:.2f} seconds")
-    print(f'after: {result["font_clean"].nunique()}')
+    # end_time = time.time()
+    # print(f"Fuzzy matching took {end_time - start_time:.2f} seconds")
+    # print(f'after: {result["font_clean"].nunique()}')
 
-    print(result.describe())
+    # print(result.describe())
 
-    result.to_csv('output/combined_google_bigquery.csv', index=False)
+    # result.to_csv('output/combined_google_bigquery.csv', index=False)
 
     # result = result.sort_values(by='font_count', ascending=False).reset_index(drop=True)
     # print(result.head())
     # print(result.describe())
 
+    # font_name,supported_scripts,font_count,font_clean
+    # advent-pro,['cyrillic'],,advent-pro
+    # akaya-telivigala,['telugu'],,akaya-telivigala
+
+    # Load the DataFrame (adjust path if needed)
+    result = pd.read_csv('output/combined_google_bigquery.csv')
+
+    # Convert supported_scripts back to lists (since CSV stores it as strings)
+    result['supported_scripts'] = result['supported_scripts'].apply(utils.safe_literal_eval)
+
+    # Explode the DataFrame on supported_scripts to create one row per script per font
+    exploded_result = result.explode('supported_scripts')
+
+    # Group by script and count unique fonts (using font_clean for deduplication)
+    script_font_counts = exploded_result.groupby('supported_scripts')['font_clean'].nunique()
+
+    # Optional: Convert to a DataFrame for easier viewing/export
+    script_font_counts_df = script_font_counts.reset_index(name='distinct_font_count')
+
+    filter_scripts = ["chinese-simplified", "chinese-traditional", "devanagari", "arabic", "bengali",
+                      "cyrillic", "japanese", "telugu", "tamil", 'han', 'katakana']
+    
+    script_font_counts_df = script_font_counts_df[script_font_counts_df['supported_scripts'].isin(filter_scripts)]
+
+    # Print or inspect the results
+    print(script_font_counts_df)
+
+    # Optional: Save to CSV for further analysis
+    script_font_counts_df.to_csv('output/script_font_counts.csv', index=False)
 
 
 if __name__ == "__main__":
