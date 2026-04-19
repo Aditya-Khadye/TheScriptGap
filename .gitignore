@@ -7,3 +7,5 @@ support_research/scripts/
 
 **/*.log
 **/__pycache__/
+
+**/font_similarity_outputs/full_font_similarity_pairs/*.csv

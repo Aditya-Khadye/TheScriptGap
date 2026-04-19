@@ -21,11 +21,14 @@ from typing import Dict, List, Optional, Tuple
 
 import numpy as np
 import pandas as pd
+import re
 import torch
 import torch.nn as nn
 from torchvision import models, transforms
 from PIL import Image, ImageDraw, ImageFont
 from fontTools.ttLib import TTFont
+
+from script_diversity_vit_100 import REFERENCE_CHARS, get_flat_reference_chars
 
 # ---------------------------------------------------------------------------
 # Configuration
@@ -39,42 +42,6 @@ CANVAS_SIZE = 224
 FONT_RENDER_SIZE = 160
 MIN_CODEPOINT_COVERAGE = 10
 MAX_FONTS_PER_SCRIPT = 99999
-
-# Might swap this out later for the 100 characters but this is a good start and itll run quicker
-REFERENCE_CHARS = {
-    "Cyrillic": [
-        "\u0410", "\u0411", "\u0412", "\u0414", "\u0416",
-        "\u041A", "\u041C", "\u0424", "\u0429", "\u042F",
-    ],
-    "Katakana": [
-        "\u30A2", "\u30AB", "\u30B5", "\u30BF", "\u30CA",
-        "\u30CF", "\u30DE", "\u30E4", "\u30E9", "\u30EF",
-    ],
-    "Devanagari": [
-        "\u0915", "\u0916", "\u0917", "\u0920", "\u0924",
-        "\u0928", "\u092A", "\u092E", "\u0930", "\u0938",
-    ],
-    "Arabic": [
-        "\u0627", "\u0628", "\u062A", "\u062C", "\u062F",
-        "\u0631", "\u0633", "\u0639", "\u0641", "\u0645",
-    ],
-    "Han": [
-        "\u4E00", "\u4EBA", "\u5927", "\u5B57", "\u6587",
-        "\u7528", "\u8AAD", "\u66F8", "\u9053", "\u98A8",
-    ],
-    "Bengali": [
-        "\u0995", "\u0996", "\u0997", "\u09A4", "\u09A8",
-        "\u09AA", "\u09AE", "\u09B0", "\u09B2", "\u09B8",
-    ],
-    "Tamil": [
-        "\u0B85", "\u0B86", "\u0B87", "\u0B95", "\u0B9A",
-        "\u0BA4", "\u0BA8", "\u0BAA", "\u0BAE", "\u0BB5",
-    ],
-    "Telugu": [
-        "\u0C05", "\u0C06", "\u0C15", "\u0C17", "\u0C1A",
-        "\u0C24", "\u0C28", "\u0C2A", "\u0C2E", "\u0C35",
-    ],
-}
 
 TARGET_SCRIPTS = {
     "Cyrillic":    [(0x0400, 0x04FF), (0x0500, 0x052F)],
@@ -173,7 +140,17 @@ def check_font_has_chars(font_path: str, characters: List[str]) -> List[str]:
         font.close()
         if not cmap:
             return []
-        return [char for char in characters if ord(char) in cmap]
+        supported = []
+        for char in characters:
+            # Handle both single chars and multi-char sequences
+            if len(char) == 1:
+                if ord(char) in cmap:
+                    supported.append(char)
+            else:
+                # For multi-char sequences, check if all chars are in the font
+                if all(ord(c) in cmap for c in char):
+                    supported.append(char)
+        return supported
     except Exception:
         return []
 
@@ -210,32 +187,58 @@ def compute_font_average_embeddings(
     max_fonts: int = MAX_FONTS_PER_SCRIPT,
     min_glyphs: int = 3,
 ) -> Tuple[List[str], np.ndarray]:
-    ref_chars = REFERENCE_CHARS.get(script_name, [])
+    ref_chars = get_flat_reference_chars(script_name)
     if not ref_chars:
         raise ValueError(f"No reference characters defined for {script_name}")
     if len(font_paths) > max_fonts:
         np.random.seed(42)
         font_paths = list(np.random.choice(font_paths, max_fonts, replace=False))
         logger.info(f"Sampled {max_fonts} fonts for {script_name}")
+    
+    logger.info(f"Processing {len(font_paths)} fonts for {script_name}...")
+    logger.info(f"Reference characters available: {len(ref_chars)}")
+    
     font_names = []
     avg_embeddings = []
     glyph_counts = []
-    for font_path in font_paths:
+    skipped_chars_support = 0
+    skipped_render = 0
+    
+    for idx, font_path in enumerate(font_paths):
+        font_stem = Path(font_path).stem
         supported = check_font_has_chars(font_path, ref_chars)
+        
         if len(supported) < min_glyphs:
+            logger.info(f"[{idx+1}/{len(font_paths)}] {font_stem}: SKIP (only {len(supported)}/{len(ref_chars)} chars supported)")
+            skipped_chars_support += 1
             continue
+        
         glyph_images = [render_glyph(font_path, char) for char in supported]
         glyph_images = [img for img in glyph_images if img is not None]
+        
         if len(glyph_images) < min_glyphs:
+            logger.info(f"[{idx+1}/{len(font_paths)}] {font_stem}: SKIP (rendered {len(glyph_images)}/{len(supported)} glyphs)")
+            skipped_render += 1
             continue
+        
         embeddings = extractor.extract_batch(glyph_images)
         avg_embedding = np.mean(embeddings, axis=0)
         avg_embedding /= np.linalg.norm(avg_embedding) if np.linalg.norm(avg_embedding) > 0 else 1.0
         avg_embeddings.append(avg_embedding)
-        font_names.append(Path(font_path).stem.split("[", 1)[0]) # Remove any style suffixes in brackets
+        font_names.append(font_stem.split("[", 1)[0])
         glyph_counts.append(len(glyph_images))
+        logger.info(f"[{idx+1}/{len(font_paths)}] {font_stem}: ✓ ({len(glyph_images)} glyphs)")
+    
+    logger.info(f"\n=== SUMMARY ===")
+    logger.info(f"Total fonts: {len(font_paths)}")
+    logger.info(f"Skipped (insufficient char support): {skipped_chars_support}")
+    logger.info(f"Skipped (render failures): {skipped_render}")
+    logger.info(f"Successfully embedded: {len(font_names)}")
+    
     if not avg_embeddings:
+        logger.error(f"No fonts produced embeddings for {script_name}")
         return [], np.empty((0, 768), dtype=np.float32)
+    
     return font_names, np.vstack(avg_embeddings)
 
 
@@ -244,15 +247,15 @@ def compute_pairwise_similarity(
     embeddings: np.ndarray,
 ) -> pd.DataFrame:
     if embeddings.shape[0] < 2:
-        return pd.DataFrame(columns=["font_name1", "font_name2", "similarity"])
+        return pd.DataFrame(columns=["source", "target", "similarity"])
     similarity_matrix = embeddings @ embeddings.T
     rows = []
     n = len(font_names)
     for i in range(n):
         for j in range(i + 1, n):
             rows.append({
-                "font_name1": font_names[i],
-                "font_name2": font_names[j],
+                "source": font_names[i],
+                "target": font_names[j],
                 "similarity": float(similarity_matrix[i, j]),
             })
     return pd.DataFrame(rows)
@@ -279,6 +282,24 @@ def run_font_similarity_pipeline(
     result_df = compute_pairwise_similarity(font_names, embeddings)
     return result_df
 
+def cleanup_font_name(font_name: str) -> str:
+    """Remove font variation tags like [wdth,wght] or [wght] from font names."""
+    return re.sub(r'\[[\w,]+\]$', '', font_name).strip()
+
+def standardize_similarity(df: pd.DataFrame) -> pd.DataFrame:
+    """Normalize similarity index to 0-1 range."""
+    col_name = None
+    for col in df.columns:
+        if 'similarity' in col.lower():
+            col_name = col
+            break
+    
+    if col_name:
+        df['similarity_normalized'] = (df[col_name] - df[col_name].min()) / (df[col_name].max() - df[col_name].min())
+    else:
+        raise ValueError("No similarity column found")
+    
+    return df
 
 def main() -> pd.DataFrame:
     import argparse
@@ -301,6 +322,13 @@ def main() -> pd.DataFrame:
 
     logger.info(f"Running font similarity pipeline for script: {args.script}")
     results = run_font_similarity_pipeline(GOOGLE_FONTS_DIR, args.script, args.max_fonts, args.device)
+
+    results['source'] = results['source'].apply(cleanup_font_name)
+    results['target'] = results['target'].apply(cleanup_font_name)
+
+    results = standardize_similarity(results)
+
+    print(results.head())
 
     output_file = OUTPUT_DIR / f"font_similarity_pairs_{args.script}.csv"
     results.to_csv(output_file, index=False)
