@@ -6,6 +6,7 @@ import networkx as nx
 import plotly.graph_objects as go
 from dash import Dash, dcc, html, Input, Output
 from plotly.subplots import make_subplots
+from sklearn.preprocessing import QuantileTransformer
 
 def cleanup_font_name(font_name: str) -> str:
     """Remove font variation tags like [wdth,wght] or [wght] from font names."""
@@ -18,22 +19,6 @@ def load_and_prepare_data(csv_path: str) -> pd.DataFrame:
     df['target'] = df['target'].apply(cleanup_font_name)
     return df
 
-def standardize_similarity(df: pd.DataFrame) -> pd.DataFrame:
-    """Normalize similarity index to 0-1 range."""
-    col_name = None
-    for col in df.columns:
-        if 'similarity' in col.lower():
-            col_name = col
-            break
-    
-    if col_name:
-        df['similarity_normalized'] = (df[col_name] - df[col_name].min()) / (df[col_name].max() - df[col_name].min())
-    else:
-        raise ValueError("No similarity column found")
-    
-    print(df.head())
-    
-    return df
 
 def create_network_figure(df: pd.DataFrame, threshold_val: float) -> go.Figure:
     """Create a network figure for a given threshold."""
@@ -78,39 +63,6 @@ def create_network_figure(df: pd.DataFrame, threshold_val: float) -> go.Figure:
     )
     return fig
 
-def create_distribution_chart(df: pd.DataFrame) -> go.Figure:
-    """Create a histogram of similarity distribution."""
-    similarity_vals = df['similarity_normalized'].values
-    
-    fig = go.Figure()
-    fig.add_trace(go.Histogram(
-        x=similarity_vals,
-        nbinsx=50,
-        name='Similarity Score',
-        marker=dict(color='rgba(0, 102, 204, 0.7)', line=dict(color='#0066cc'))
-    ))
-    
-    # Add percentile lines
-    percentiles = [25, 50, 75, 90]
-    for p in percentiles:
-        val = np.percentile(similarity_vals, p)
-        fig.add_vline(
-            x=val,
-            line_dash="dash",
-            line_color="red",
-            annotation_text=f"{p}th: {val:.3f}",
-            annotation_position="top"
-        )
-    
-    fig.update_layout(
-        title='Distribution of Similarity Scores',
-        xaxis_title='Similarity Score (normalized)',
-        yaxis_title='Frequency',
-        height=400,
-        hovermode='x unified'
-    )
-    
-    return fig
 
 app = Dash(__name__)
 
@@ -118,12 +70,11 @@ df = None  # Will be loaded on app start
 
 app.layout = html.Div([
     html.Div([
-        html.H2('Font Similarity Analysis'),
-        dcc.Graph(id='distribution-chart'),
+        html.H2('Script Network Analysis'),
         html.Hr(),
+        dcc.Graph(id='network-graph'),
         dcc.Slider(0, 1, 0.05, value=0.75, id='threshold-slider',
-            marks={i/20: f'{i/20:.2f}' for i in range(21)}),
-        dcc.Graph(id='network-graph')
+            marks={i/20: f'{i/20:.2f}' for i in range(21)})
     ])
 ])
 
@@ -134,13 +85,6 @@ app.layout = html.Div([
 def update_graph(threshold_val):
     return create_network_figure(df, threshold_val)
 
-# Add this callback to display distribution on startup
-@app.callback(
-    Output('distribution-chart', 'figure'),
-    Input('distribution-chart', 'id')  # Dummy input to run once on load
-)
-def display_distribution(_):
-    return create_distribution_chart(df)
 
 if __name__ == "__main__":
     FONT_SIMILARITY_DIR = Path("./font_similarity_outputs/full_font_similarity_pairs")
@@ -148,6 +92,5 @@ if __name__ == "__main__":
     csv_path = FONT_SIMILARITY_DIR / f"font_similarity_pairs_{language}.csv"
     
     df = load_and_prepare_data(csv_path)
-    df = standardize_similarity(df)
     
     app.run(debug=True)

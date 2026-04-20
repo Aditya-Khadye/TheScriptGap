@@ -30,6 +30,8 @@ from fontTools.ttLib import TTFont
 
 from script_diversity_vit_100 import REFERENCE_CHARS, get_flat_reference_chars
 
+from sklearn.preprocessing import QuantileTransformer
+
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
@@ -287,17 +289,26 @@ def cleanup_font_name(font_name: str) -> str:
     return re.sub(r'\[[\w,]+\]$', '', font_name).strip()
 
 def standardize_similarity(df: pd.DataFrame) -> pd.DataFrame:
-    """Normalize similarity index to 0-1 range."""
+    """Apply normal distribution transformation, then normalize to 0-1 range."""
     col_name = None
     for col in df.columns:
         if 'similarity' in col.lower():
             col_name = col
             break
     
-    if col_name:
-        df['similarity_normalized'] = (df[col_name] - df[col_name].min()) / (df[col_name].max() - df[col_name].min())
-    else:
+    if not col_name:
         raise ValueError("No similarity column found")
+    
+    # Step 1: Apply QuantileTransformer to map to normal distribution
+    qt = QuantileTransformer(output_distribution='normal', random_state=42)
+    df['similarity_normal'] = qt.fit_transform(df[[col_name]])
+    
+    # Step 2: Normalize the normal-distributed values to 0-1 range
+    df['similarity_normalized'] = (df['similarity_normal'] - df['similarity_normal'].min()) / \
+                                   (df['similarity_normal'].max() - df['similarity_normal'].min())
+    
+    # Optional: drop the intermediate normal column
+    df = df.drop(columns=['similarity_normal'])
     
     return df
 

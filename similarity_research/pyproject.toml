@@ -10,6 +10,7 @@ dependencies = [
     "numpy>=2.4.4",
     "pandas>=3.0.2",
     "plotly>=6.7.0",
+    "scikit-learn>=1.8.0",
     "torch>=2.11.0",
     "torchvision>=0.26.0",
 ]
