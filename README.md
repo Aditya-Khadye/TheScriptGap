@@ -53,4 +53,4 @@ The diversity rankings hold across methodologies. A ViT-B/16 vs. ResNet-50 ablat
 
 ## Partners
 
-Commissioned by The Readability Consortium, collaborated with Monotype, Google Fonts, and Adobe.
+Commissioned by The Readability Consortium, addressed to Monotype, Google Fonts, and Adobe.
