@@ -17,3 +17,4 @@ Run `uv sync` to setup your venv or just use `uv run script_diversity_vit_pipeli
 
 Google's Fonts:
 https://github.com/google/fonts/tree/main
+
