@@ -81,7 +81,7 @@ def main():
     app = Dash(__name__)
     
     app.layout = html.Div([
-        html.H1("Font Usage by Scripts"),
+        html.H1("Script Exposure based on font requests"),
         
         html.Div([
             html.Label("Toggle Scripts:"),
