@@ -13,7 +13,7 @@ import logging
 
 """
 Adapted from an existing ViT diversity and script similarity pipeline
-Added ResNet50 feature extraction and script-to-Latin similarity 
+Added ResNet50 feature extraction and script-to-script similarity, with an additional script-to-Latin summary
 
 We tested ResNet50, ResNet18(value range: 0.83-0.91) and ConvNeXt-Tiny(value range: 0.81-0.93)
 ResNet50 gave the most stable similarity scores, so we used it as the final backbone
@@ -300,7 +300,7 @@ def compute_similarity(script_a: np.ndarray, script_b: np.ndarray) -> float:
     return float(np.mean(sims))
 
 
-#compare font embedddings between two scripts
+#build the script-to-script cosine similarity matrix
 def compute_matrix(script_font_embeddings: Dict[str, np.ndarray]) -> pd.DataFrame:
     scripts = list(script_font_embeddings.keys())
     matrix = np.zeros((len(scripts), len(scripts)))
