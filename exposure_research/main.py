@@ -38,7 +38,9 @@ def create_treemap(df):
         title='Font Usage by Supported Scripts'
     )
     fig.update_layout(
-        transition=dict(duration=0),  # 500ms smooth transition
+        transition=dict(duration=0),
+        margin=dict(t=50, l=10, r=10, b=10),
+        autosize=True,
     )
     return fig
 
@@ -81,33 +83,37 @@ def main():
     app = Dash(__name__)
     
     app.layout = html.Div([
-        html.H1("Script Exposure based on font requests"),
-        
+    html.H1("Script Exposure based on font requests"),
+    
+    html.Div([
+        html.Label("Toggle Scripts:"),
         html.Div([
-            html.Label("Toggle Scripts:"),
-            html.Div([
-                html.Button(
-                    script.capitalize(),
-                    id={'type': 'script-button', 'index': script},
-                    n_clicks=0,
-                    style={
-                        'margin': '5px',
-                        'padding': '10px 15px',
-                        'backgroundColor': '#1f77b4',
-                        'color': 'black',
-                        'border': 'none',
-                        'borderRadius': '5px',
-                        'cursor': 'pointer',
-                        'fontWeight': 'bold'
-                    }
-                )
-                for script in scripts_list
-            ], style={'display': 'flex', 'flexWrap': 'wrap', 'marginBottom': '20px'})
-        ], style={'padding': '20px'}),
-        
-        dcc.Store(id='selected-scripts-store', data=scripts_list),
-        dcc.Graph(id='treemap-graph')
-    ])
+            html.Button(
+                script.capitalize(),
+                id={'type': 'script-button', 'index': script},
+                n_clicks=0,
+                style={
+                    'margin': '5px',
+                    'padding': '10px 15px',
+                    'backgroundColor': '#1f77b4',
+                    'color': 'black',
+                    'border': 'none',
+                    'borderRadius': '5px',
+                    'cursor': 'pointer',
+                    'fontWeight': 'bold'
+                }
+            )
+            for script in scripts_list
+        ], style={'display': 'flex', 'flexWrap': 'wrap', 'marginBottom': '20px'})
+    ], style={'padding': '20px'}),
+    
+    dcc.Store(id='selected-scripts-store', data=scripts_list),
+    dcc.Graph(
+        id='treemap-graph',
+        style={'height': '85vh', 'width': '100%'},
+        config={'responsive': True},
+    )
+], style={'width': '100%', 'margin': '0', 'padding': '0'})
     
     @app.callback(
         Output('selected-scripts-store', 'data'),
