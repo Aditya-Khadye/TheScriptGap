@@ -315,7 +315,7 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
 
 <h1>Script Underservedness — Index Comparison</h1>
 <p class="subtitle">
-  TRC & SawyerLab · All values normalized 0–1 · Sorted by Gap Score (most underserved first)
+  TRC / Monotype / UCF MIT2 Lab · All values normalized 0–1 · Sorted by Gap Score (most underserved first)
 </p>
 
 <div class="heatmap-wrap">

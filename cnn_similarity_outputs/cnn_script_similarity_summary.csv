@@ -1,0 +1,10 @@
+script,fonts_analyzed,glyphs_rendered,reference_chars_used,reference_script,similarity_to_reference
+Latin,20,200,10,Latin,0.9032514691352844
+Cyrillic,20,200,10,Latin,0.7555274963378906
+Katakana,20,200,10,Latin,0.6872233748435974
+Han,19,185,10,Latin,0.7190336585044861
+Devanagari,20,200,10,Latin,0.7984125018119812
+Arabic,19,189,10,Latin,0.7929450869560242
+Telugu,19,190,10,Latin,0.7816271185874939
+Bengali,17,170,10,Latin,0.8309932947158813
+Tamil,19,190,10,Latin,0.8556743264198303
