@@ -1,9 +1,9 @@
 """
 ===============================================================================
-Exposure vs Support vs Similarity vs Diversity — Heatmap Visualization
+Script Servedness Score (SSS) — Heatmap Visualization
 ===============================================================================
 Project:  TRC / Monotype — Identifying Underserved Scripts
-Author:   Aditya (UCF MIT2 Lab)
+Author:   Aditya (Sawyer Lab)
 Issue:    #27 — heatmap comparing all values across scripts
 
 Generates two outputs:
@@ -122,18 +122,18 @@ def load_all_data(repo: Path) -> pd.DataFrame:
         master[f"{col}_norm"] = (master[col] - cmin) / (cmax - cmin) if cmax > cmin else 0.5
 
     # Gap score: high exposure, low support, high complexity, low diversity
-    master["gap_score"] = (
+    master["sss"] = (
         master["log_exposure_norm"]
         - master["log_support_norm"] * 1.5
         + master["complexity_norm"] * 2.0
         - master["diversity_index_norm"]
     )
     # Normalize gap score to 0-1
-    gs_min, gs_max = master["gap_score"].min(), master["gap_score"].max()
-    master["gap_score_norm"] = (master["gap_score"] - gs_min) / (gs_max - gs_min)
+    gs_min, gs_max = master["sss"].min(), master["sss"].max()
+    master["sss_norm"] = (master["sss"] - gs_min) / (gs_max - gs_min)
 
     # Sort by gap score (most underserved first)
-    master = master.sort_values("gap_score_norm", ascending=False).reset_index(drop=True)
+    master = master.sort_values("sss_norm", ascending=False).reset_index(drop=True)
 
     logger.info(f"Loaded {len(master)} scripts")
     return master
@@ -154,7 +154,7 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
         ("log_support_norm",     "Font Support",   "Higher = more fonts",        "#1D9E75"),
         ("complexity_norm",      "Complexity",     "Higher = harder to engineer","#E24B4A"),
         ("diversity_index_norm", "Diversity",      "Higher = more visual choice","#EF9F27"),
-        ("gap_score_norm",       "Gap Score",      "Higher = more underserved",  "#7F77DD"),
+        ("sss_norm",       "SSS",      "Higher = more underserved",  "#7F77DD"),
     ]
 
     raw_cols = {
@@ -162,7 +162,7 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
         "log_support_norm":     ("support",        lambda v: f"{int(v)}"),
         "complexity_norm":      ("complexity",     lambda v: f"{v:.3f}"),
         "diversity_index_norm": ("diversity_index",lambda v: f"{v:.3f}"),
-        "gap_score_norm":       ("gap_score",      lambda v: f"{v:.3f}"),
+        "sss_norm":       ("sss",      lambda v: f"{v:.3f}"),
     }
 
     # Build cell data as JSON
@@ -313,9 +313,9 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
 </head>
 <body>
 
-<h1>Script Underservedness — Index Comparison</h1>
+<h1>Script Servedness Score (SSS)</h1>
 <p class="subtitle">
-  TRC / Monotype / UCF MIT2 Lab · All values normalized 0–1 · Sorted by Gap Score (most underserved first)
+  TRC / Monotype / Sawyer Lab · All values normalized 0–1 · Sorted by SSS (most underserved first)
 </p>
 
 <div class="heatmap-wrap">
@@ -330,7 +330,7 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
 </div>
 
 <div class="legend" id="legend"></div>
-<p class="note">Hover over any cell for the raw value. Gap Score = composite underservedness signal.</p>
+<p class="note">Hover over any cell for the raw value. SSS = Script Servedness Score — combines all four indices.</p>
 
 <div class="tooltip" id="tooltip"></div>
 
@@ -447,7 +447,7 @@ def generate_png_heatmap(master: pd.DataFrame, output_path: Path):
         ("log_support_norm",     "Font\nSupport",  "#1D9E75"),
         ("complexity_norm",      "Complexity",     "#E24B4A"),
         ("diversity_index_norm", "Diversity",      "#EF9F27"),
-        ("gap_score_norm",       "Gap\nScore",     "#7F77DD"),
+        ("sss_norm",       "Gap\nScore",     "#7F77DD"),
     ]
 
     matrix = np.array([
@@ -501,9 +501,9 @@ def generate_png_heatmap(master: pd.DataFrame, output_path: Path):
     ax.set_ylim(-0.1, n_scripts + 0.6)
     ax.axis("off")
 
-    fig.suptitle("Script Underservedness — Index Comparison",
+    fig.suptitle("Script Servedness Score (SSS)",
                  fontsize=14, color="#f0ede6", y=0.98, fontweight="500")
-    ax.set_title("All values normalized 0–100% · Sorted by Gap Score",
+    ax.set_title("All values normalized 0–100% · Sorted by SSS",
                  fontsize=9, color="#666", pad=4)
 
     plt.tight_layout()
@@ -527,7 +527,7 @@ def main():
 
     print("\n📊 Data loaded:\n")
     print(master[["script", "exposure", "support", "complexity",
-                   "diversity_index", "gap_score_norm"]].to_string(index=False))
+                   "diversity_index", "sss_norm"]].to_string(index=False))
 
     # HTML heatmap
     html = generate_html_heatmap(master)
