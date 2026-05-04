@@ -67,10 +67,13 @@ def main() -> None:
     if "all" in requested:
         requested = AVAILABLE_STAGES
 
+    # TODO: ADD A BIG QUERY SECTION
+
     if "support" in requested:
         run_support_stage(force=args.force)
     if "exposure" in requested:
         run_exposure_stage(force=args.force)
+    # TODO: Add similarity and complexity, and CNN clustering stages
     if "viz" in requested:
         run_viz_stage(force=args.force)
 
