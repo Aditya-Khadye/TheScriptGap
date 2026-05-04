@@ -24,7 +24,11 @@ import logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
 
-OUTPUT_DIR = Path("./viz_outputs")
+OUTPUT_DIR = Path(__file__).resolve().parent.parent / "viz_outputs"
+
+# NOTE: This visualization module is currently scoped to support and exposure
+# outputs. The similarity/diversity and clustering stages are intentionally
+# not refactored in this iteration.
 
 SUPPORT_NAME_MAP = {
     "cyrillic": "Cyrillic", "japanese": "Katakana",
