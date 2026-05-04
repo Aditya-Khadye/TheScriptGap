@@ -19,21 +19,16 @@ Scope:
     - Dashboard UI code is separated into `exposure_research/dashboard.py`.
 """
 
-import os
-import sys
 from pathlib import Path
-
-REPO_ROOT = Path(__file__).resolve().parent.parent
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
+from paths import EXPOSURE_DATA_DIR, BIGQUERY_DATA_DIR
 
 import pandas as pd
 from plotly.express.colors import qualitative
-import utils.utils_formatting as utils
+from utils import filter_null_scripts, safe_literal_eval, standardize_font_names
+import exposure_research.dashboard as dashboard
 
-SCRIPT_DIR = Path(__file__).resolve().parent
-OUTPUT_DIR = SCRIPT_DIR / "output"
-SUPPORT_BIGQUERY_PATH = REPO_ROOT / "support_research" / "output" / "big_query_data.csv"
+OUTPUT_DIR = EXPOSURE_DATA_DIR
+BIGQUERY_PATH = BIGQUERY_DATA_DIR / "big_query_data.csv"
 EXPOSURE_DATA_PATH = OUTPUT_DIR / "exposure_treemap_data.csv"
 
 scripts_list = [
@@ -58,13 +53,13 @@ def ensure_output_dir() -> Path:
 
 
 def load_big_query_data() -> pd.DataFrame:
-    if not SUPPORT_BIGQUERY_PATH.exists():
+    if not BIGQUERY_PATH.exists():
         raise FileNotFoundError(
-            f"Expected support output at {SUPPORT_BIGQUERY_PATH}."
+            f"Expected support output at {BIGQUERY_PATH}."
             " Run the support stage before loading exposure data."
         )
 
-    big_query_df = pd.read_csv(SUPPORT_BIGQUERY_PATH)
+    big_query_df = pd.read_csv(BIGQUERY_PATH)
     big_query_df = big_query_df.rename(columns={"scripts": "supported_scripts"})
     return big_query_df
 
@@ -72,8 +67,8 @@ def load_big_query_data() -> pd.DataFrame:
 def prepare_exposure_data(save_path: Path | None = None) -> pd.DataFrame:
     """Prepare the exposure dataset for visualization and optional export."""
     big_query_df = load_big_query_data()
-    big_query_df = utils.standardize_font_names(big_query_df)
-    big_query_df["supported_scripts"] = big_query_df["supported_scripts"].apply(utils.safe_literal_eval)
+    big_query_df = standardize_font_names(big_query_df)
+    big_query_df["supported_scripts"] = big_query_df["supported_scripts"].apply(safe_literal_eval)
 
     exploded_result = big_query_df.explode("supported_scripts")
     exploded_result = exploded_result.rename(columns={"supported_scripts": "script"})
@@ -86,7 +81,7 @@ def prepare_exposure_data(save_path: Path | None = None) -> pd.DataFrame:
     )
 
     font_script_df["font_name"] = font_script_df["font_name"].where(font_script_df["font_count"] >= 5000, "other")
-    font_script_df = utils.filter_null_scripts(font_script_df)
+    font_script_df = filter_null_scripts(font_script_df)
     font_script_df = font_script_df[font_script_df["script"].isin(scripts_list)]
 
     script_totals = font_script_df.groupby("script")["font_count"].sum().sort_values(ascending=False)

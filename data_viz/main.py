@@ -15,17 +15,11 @@ Scope:
     - focuses on visualization orchestration only
 """
 
-import os
-import sys
 from pathlib import Path
-
-REPO_ROOT = Path(__file__).resolve().parent.parent
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
-
+from paths import VIZ_DATA_DIR
 from data_viz.generate_heatmap import main as generate_heatmap_main
 
-OUTPUT_DIR = REPO_ROOT / "viz_outputs"
+OUTPUT_DIR = VIZ_DATA_DIR
 OUTPUT_HTML = OUTPUT_DIR / "heatmap.html"
 
 

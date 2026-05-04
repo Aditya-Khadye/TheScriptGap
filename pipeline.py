@@ -20,25 +20,25 @@ AVAILABLE_STAGES = ["support", "exposure", "viz"]
 
 
 def run_support_stage(force: bool = False) -> None:
-    from support_research import main as support_main
+    from support_research import run_support_pipeline
 
     print("\n=== Support stage ===")
-    support_main.run_support_pipeline(force=force)
+    run_support_pipeline(force=force)
 
 
 def run_exposure_stage(force: bool = False) -> None:
-    from exposure_research import main as exposure_main
+    from exposure_research import run_exposure_pipeline
 
     print("\n=== Exposure stage ===")
-    exposure_main.run_exposure_pipeline(force=force)
+    run_exposure_pipeline(force=force)
     print("Exposure data is ready. You can now run the dashboard with `exposure_research/dashboard.py`.")
 
 
 def run_viz_stage(force: bool = False) -> None:
-    from data_viz import main as viz_main
+    from data_viz import run_viz_pipeline
 
     print("\n=== Data Viz stage ===")
-    viz_main.run_viz_pipeline(force=force)
+    run_viz_pipeline(force=force)
 
 
 def parse_args() -> argparse.Namespace:

@@ -21,18 +21,12 @@ Scope:
     - This file focuses on support data preparation only
 """
 
-import os
-import sys
 from pathlib import Path
-
-REPO_ROOT = Path(__file__).resolve().parent.parent
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
-
+from paths import SUPPORT_DATA_DIR
 import pandas as pd
-import utils.utils_formatting as utils
+from utils import safe_literal_eval
 
-OUTPUT_DIR = Path(__file__).resolve().parent / "output"
+OUTPUT_DIR = SUPPORT_DATA_DIR
 COMBINED_SUPPORT_PATH = OUTPUT_DIR / "combined_google_bigquery.csv"
 SCRIPT_FONT_COUNTS_PATH = OUTPUT_DIR / "script_font_counts.csv"
 
@@ -47,11 +41,11 @@ def load_support_data() -> pd.DataFrame:
     if not COMBINED_SUPPORT_PATH.exists():
         raise FileNotFoundError(
             f"Missing combined support file: {COMBINED_SUPPORT_PATH}."
-            " Generate it from raw Google/BigQuery outputs before running this stage."
+            " Download BigQuery outputs before running this stage."
         )
 
     df = pd.read_csv(COMBINED_SUPPORT_PATH)
-    df["supported_scripts"] = df["supported_scripts"].apply(utils.safe_literal_eval)
+    df["supported_scripts"] = df["supported_scripts"].apply(safe_literal_eval)
     return df
 
 
@@ -83,6 +77,10 @@ def run_support_pipeline(force: bool = False) -> Path:
         print(f"Support output already exists: {SCRIPT_FONT_COUNTS_PATH} (use --force to rerun)")
         return SCRIPT_FONT_COUNTS_PATH
 
+    # Generate combined dataset if needed
+    print("Ensuring combined support data exists...")
+    generate_combined_support_data(force=force)
+    
     print(f"Loading support data from: {COMBINED_SUPPORT_PATH}")
     df = load_support_data()
     script_font_counts_df = build_script_font_counts(df)
@@ -122,6 +120,61 @@ def fuzzy_match_fonts(df, column, threshold=95):
 
     df["font_clean"] = df[column].map(mapping)
     return df
+
+
+def generate_combined_support_data(force: bool = False) -> pd.DataFrame:
+    """
+    Generate combined Google Fonts + BigQuery support data.
+    
+    By default uses Google Fonts data.
+    If BigQuery data is available, combines it for richer dataset.
+    
+    Combines (if available):
+      1. Google Fonts script support (from google_public.py) — always
+      2. BigQuery HTTP Archive data (condensed) — optional
+    """
+    if COMBINED_SUPPORT_PATH.exists() and not force:
+        return pd.read_csv(COMBINED_SUPPORT_PATH)
+    
+    print("Generating combined support dataset...")
+    
+    # Get Google Fonts data (required)
+    try:
+        from support_research import google_public
+        google_fonts_dict = google_public.google_font_script_matches()
+        google_fonts_df = pd.DataFrame(
+            list(google_fonts_dict.items()), 
+            columns=['font_name', 'supported_scripts']
+        )
+        google_fonts_df['font_name'] = google_fonts_df['font_name'].str.lower().str.replace(' ', '-')
+        print(f"Loaded {len(google_fonts_df)} Google Fonts")
+    except Exception as e:
+        raise ValueError(f"Failed to fetch Google Fonts data (required): {e}")
+    
+    # Try to load BigQuery data (optional)
+    big_query_df = None
+    try:
+        legacy_bq_path = Path(__file__).parent / "output" / "big_query_data.csv"
+        if legacy_bq_path.exists():
+            big_query_df = pd.read_csv(legacy_bq_path)
+            print(f"Loaded BigQuery data from: {legacy_bq_path}")
+    except Exception as e:
+        print(f"X BigQuery data not available (optional): {e}")
+    
+    # Combine or use Google data alone
+    if big_query_df is not None and not big_query_df.empty:
+        combined_df = pd.concat([google_fonts_df, big_query_df], ignore_index=True)
+        print(f"→ Combined {len(google_fonts_df)} Google + {len(big_query_df)} BigQuery records")
+    else:
+        combined_df = google_fonts_df
+        print("Using Google Fonts data only (BigQuery not available)")
+    
+    # Save combined
+    ensure_output_dir()
+    combined_df.to_csv(COMBINED_SUPPORT_PATH, index=False)
+    print(f"Saved combined support data to: {COMBINED_SUPPORT_PATH}")
+    
+    return combined_df
 
 
 def main() -> None:

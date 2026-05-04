@@ -21,10 +21,12 @@ import pandas as pd
 from pathlib import Path
 import logging
 
+from paths import VIZ_DATA_DIR, REPO_ROOT
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
 
-OUTPUT_DIR = Path(__file__).resolve().parent.parent / "viz_outputs"
+OUTPUT_DIR = VIZ_DATA_DIR
 
 # NOTE: This visualization module is currently scoped to support and exposure
 # outputs. The similarity/diversity and clustering stages are intentionally
@@ -46,27 +48,15 @@ TARGET_SCRIPTS = ["Devanagari", "Arabic", "Bengali", "Tamil",
 # Data Loading
 # ===========================================================================
 
-def find_repo_root() -> Path:
-    here = Path(__file__).parent.resolve()
-    for _ in range(6):
-        if (here / "exposure_research").exists():
-            return here
-        here = here.parent
-    return Path.home() / "TheScriptGap_clean"
-
-
-def load_all_data(repo: Path) -> pd.DataFrame:
+def load_all_data(repo: Path = REPO_ROOT) -> pd.DataFrame:
     """Load and merge all four indices."""
 
-    # Helper to find a file in repo OR same directory as script
     script_dir = Path(__file__).parent.resolve()
 
     def find_csv(repo_rel: str, filename: str) -> Path:
-        # Try repo path first
         p = repo / repo_rel
         if p.exists():
             return p
-        # Fall back to script directory
         p2 = script_dir / filename
         if p2.exists():
             return p2
@@ -524,10 +514,9 @@ def generate_png_heatmap(master: pd.DataFrame, output_path: Path):
 def main():
     OUTPUT_DIR.mkdir(exist_ok=True)
 
-    repo = find_repo_root()
-    logger.info(f"Repo root: {repo}")
+    logger.info(f"Repo root: {REPO_ROOT}")
 
-    master = load_all_data(repo)
+    master = load_all_data()
 
     print("\n📊 Data loaded:\n")
     print(master[["script", "exposure", "support", "complexity",

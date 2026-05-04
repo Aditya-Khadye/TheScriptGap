@@ -7,13 +7,8 @@ The dashboard is intentionally separated from data preparation logic so the
 pipeline entrypoint can remain focused on stage orchestration.
 """
 
-import os
-import sys
 from pathlib import Path
-
-REPO_ROOT = Path(__file__).resolve().parent
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
+from paths import EXPOSURE_DATA_DIR
 
 import pandas as pd
 import plotly.express as px
@@ -22,7 +17,7 @@ from plotly.graph_objs import Figure
 from dash import Dash, dcc, html, Input, Output, ALL
 from dash import callback_context, State
 
-DATA_DIR = REPO_ROOT / "output"
+DATA_DIR = EXPOSURE_DATA_DIR
 EXPOSURE_DATA_PATH = DATA_DIR / "exposure_treemap_data.csv"
 DEFAULT_COLOR_PALETTE = qualitative.Pastel
 

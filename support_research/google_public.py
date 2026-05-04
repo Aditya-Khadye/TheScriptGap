@@ -3,6 +3,8 @@ from dotenv import load_dotenv
 import requests
 import json
 import pandas as pd
+from pathlib import Path
+from paths import SUPPORT_DATA_DIR
 
 ### SETUP ###
 load_dotenv()
@@ -113,37 +115,19 @@ def google_font_script_matches(filter_scripts=None):
 
 # Temporary main function for google data
 def main():
-    print("Hello from support-research!")
-
-    # google_script_relations_dict = google_script_relations()
-    # google_script_relations_df = pd.DataFrame(list(google_script_relations_dict.items()), columns=['script_pair', 'count'])
-    # google_script_relations_df = google_script_relations_df.sort_values(by='count', ascending=False)
-    # google_script_relations_df.to_csv('output/google_script_relations.csv', index=False)
-
-
-
+    print("Fetching Google Fonts data...")
+    
     filter_scripts = ["chinese-simplified", "chinese-traditional", "devanagari", "arabic", "bengali",
                       "cyrillic", "japanese", "telugu", "tamil"]
     matching_fonts = google_font_script_matches(filter_scripts=filter_scripts)
-    print(matching_fonts)
     matching_fonts_df = pd.DataFrame(list(matching_fonts.items()), columns=['font', 'subsets'])
-    matching_fonts_df.to_csv('output/google_font_scripts.csv', index=False)
+    matching_fonts_df.to_csv(SUPPORT_DATA_DIR / 'google_font_scripts.csv', index=False)
+    print(f"Saved google font scripts to {SUPPORT_DATA_DIR / 'google_font_scripts.csv'}")
 
-    # print("\nSupport Full List")
-    # support_dict = google_top_list()
-    # support_df = dict_to_pd(support_dict)
-    # print(support_df.head())
-    # support_df.to_csv('output/google_support_toplist.csv', index=False)
-
-    # print("\nSupport Filtered by top 8 Scripts (population)")
-
-    # support_dict = google_script_filtered()
-    # support_df = dict_to_pd(support_dict)
-    # print(support_df)
-    # support_df.to_csv('output/google_support_filtered.csv', index=False)
-    # print("Google Support Completed")
-
-
+    support_dict = google_script_filtered()
+    support_df = dict_to_pd(support_dict)
+    support_df.to_csv(SUPPORT_DATA_DIR / 'google_support_toplist.csv', index=False)
+    print(f"Saved google support list to {SUPPORT_DATA_DIR / 'google_support_toplist.csv'}")
 
 if __name__ == "__main__":
     main()
