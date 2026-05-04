@@ -1,6 +1,6 @@
 """
 ===============================================================================
-Script Diversity Index — Vision Transformer (ViT) Embedding Pipeline
+Script Diversity Index — ViT-B/16 Embedding Pipeline (10-Glyph Edition)
 ===============================================================================
 Project:  TRC / Monotype — Identifying Underserved Scripts
 Author:   Aditya (UCF MIT2 Lab)
@@ -40,8 +40,12 @@ Data Source:
 
 Usage:
     1. Ensure Google Fonts is cloned in ./fonts/
-    2. Run: python script_diversity_vit_pipeline.py
-    3. Output: diversity_index_results.csv, embeddings/ directory
+    2. Run: python script_diversity_vit_10.py
+    3. Output: vit_outputs_10/diversity_index_results.csv, embeddings/ directory
+
+Companion script: script_similarity_cnn.py runs the same 10-glyph protocol
+with ResNet50 (20 fonts/script). Use these two together to compare
+ViT vs CNN variance on the same protocol.
 ===============================================================================
 """
 
@@ -66,7 +70,7 @@ from itertools import combinations
 # ---------------------------------------------------------------------------
 
 GOOGLE_FONTS_DIR = Path("./fonts")
-OUTPUT_DIR = Path("./vit_outputs")
+OUTPUT_DIR = Path("./vit_outputs_10")
 EMBEDDINGS_DIR = OUTPUT_DIR / "embeddings"
 FONT_SIMILARITY_DIR = OUTPUT_DIR / "font_similarity_pairs"
 
@@ -568,7 +572,7 @@ def compute_diversity_metrics(
 
 def run_diversity_pipeline(
     fonts_dir: Path,
-    max_fonts_per_script: int = 100,  # cap for compute efficiency
+    max_fonts_per_script: int = 20,  # match script_similarity_cnn.py for apples-to-apples ViT vs CNN comparison at the 10-glyph scale
 ) -> pd.DataFrame:
     """
     Full pipeline:
@@ -651,9 +655,8 @@ def run_diversity_pipeline(
             logger.warning(f"  Only {len(font_avg_embeddings)} fonts produced embeddings, skipping")
             continue
 
-        save_pairwise_similarity(script_name, font_names_used, font_avg_matrix, FONT_SIMILARITY_DIR)
-
         font_avg_matrix = np.vstack(font_avg_embeddings)
+        save_pairwise_similarity(script_name, font_names_used, font_avg_matrix, FONT_SIMILARITY_DIR)
 
         logger.info(
             f"  Extracted embeddings from {len(font_avg_embeddings)} fonts "

@@ -90,7 +90,7 @@ def load_all_data(repo: Path = REPO_ROOT) -> pd.DataFrame:
     div_paths = [
         repo / "similarity_research/diversity_research/vit_outputs_100/diversity_index_summary.csv",
         repo / "similarity_research/diversity_research/vit100_outputs/diversity_index_summary.csv",
-        repo / "similarity_research/diversity_research/vit_outputs/diversity_index_summary.csv",
+        repo / "similarity_research/diversity_research/vit_outputs_10/diversity_index_summary.csv",
         script_dir / "diversity_index_summary.csv",
     ]
     div = None

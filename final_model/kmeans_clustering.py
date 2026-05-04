@@ -152,7 +152,7 @@ def build_master(base_dir: Path = Path(".")) -> pd.DataFrame:
     diversity = load_diversity([
         base_dir / "vit_outputs_100" / "diversity_index_summary.csv",
         base_dir / "diversity_index_summary.csv",          # 100-glyph uploaded
-        base_dir / "vit_outputs" / "diversity_index_summary.csv",
+        base_dir / "vit_outputs_10" / "diversity_index_summary.csv",
     ])
     complexity = load_complexity(base_dir / "similarity_index_summary.csv")
 
@@ -392,7 +392,7 @@ def main():
     diversity = load_diversity([
         repo_root / "similarity_research/diversity_research/vit_outputs_100/diversity_index_summary.csv",
         repo_root / "similarity_research/diversity_research/vit100_outputs/diversity_index_summary.csv",
-        repo_root / "similarity_research/diversity_research/vit_outputs/diversity_index_summary.csv",
+        repo_root / "similarity_research/diversity_research/vit_outputs_10/diversity_index_summary.csv",
     ])
     complexity = load_complexity(repo_root / "similarity_research/similarity_index_summary.csv")
     master = exposure.merge(support, on="script", how="inner").merge(diversity, on="script", how="inner").merge(complexity[["script","complexity","similarity_S"]], on="script", how="left")

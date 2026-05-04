@@ -25,11 +25,13 @@ TheScriptGap/
 │   ├── script_similarity_pipeline.py    # fontTools Complexity Index
 │   ├── similarity_index_*.csv
 │   └── diversity_research/     # ViT, CNN, and classical CV pipelines
-│       ├── script_diversity_vit_pipeline.py
-│       ├── script_diversity_cnn_pipeline.py
+│       ├── script_diversity_vit_10.py
+│       ├── script_diversity_vit_100.py
+│       ├── script_diversity_cnn_100.py
 │       ├── script_diversity_classical_cv.py
+│       ├── vit_outputs_10/     # 10-glyph ViT results
 │       ├── vit_outputs_100/    # 100-glyph ViT results
-│       ├── vit_outputs/        # 10-glyph ViT results
+│       ├── cnn_outputs_100/    # 100-glyph CNN results
 │       └── classical_cv_outputs/
 ├── final_model/                # K-Means clustering and tier assignment
 │   └── kmeans_clustering.py
