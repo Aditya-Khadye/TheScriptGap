@@ -48,6 +48,9 @@ Usage:
 import os
 import sys
 import logging
+import datetime
+import json
+import subprocess
 from pathlib import Path
 from collections import defaultdict
 from typing import Dict, List, Tuple, Optional
@@ -60,6 +63,30 @@ from torchvision import models, transforms
 from PIL import Image, ImageDraw, ImageFont
 from fontTools.ttLib import TTFont
 from itertools import combinations
+
+
+def write_metadata(
+    output_dir: Path,
+    model: dict,
+    rendering: dict,
+    embeddings: List[dict],
+) -> None:
+    try:
+        commit = subprocess.check_output(
+            ["git", "rev-parse", "--short", "HEAD"],
+            stderr=subprocess.DEVNULL,
+            text=True,
+        ).strip()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        commit = None
+    payload = {
+        "generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+        "git_commit": commit,
+        "model": model,
+        "rendering": rendering,
+        "embeddings": embeddings,
+    }
+    (output_dir / "metadata.json").write_text(json.dumps(payload, indent=2) + "\n")
 
 # ---------------------------------------------------------------------------
 # Configuration
@@ -666,6 +693,11 @@ def run_diversity_pipeline(
         # Also save embeddings for later visualization
         embedding_path = EMBEDDINGS_DIR / f"{script_name}_embeddings.npy"
         np.save(embedding_path, font_avg_matrix)
+        pd.DataFrame({
+            "font_name": font_names_used,
+            "script": script_name,
+            "row_index": range(len(font_names_used)),
+        }).to_csv(EMBEDDINGS_DIR / f"{script_name}_font_names.csv", index=False)
 
         results.append({
             "script": script_name,
@@ -806,6 +838,29 @@ def main():
                           "fonts_analyzed"]].copy()
     summary.to_csv(OUTPUT_DIR / "diversity_index_summary.csv", index=False)
     logger.info(f"Saved summary → {OUTPUT_DIR / 'diversity_index_summary.csv'}")
+
+    write_metadata(
+        OUTPUT_DIR,
+        model={
+            "name": "ViT-B/16",
+            "weights": "IMAGENET1K_V1",
+            "feature_dim": 768,
+        },
+        rendering={
+            "canvas_size": CANVAS_SIZE,
+            "font_render_size": FONT_RENDER_SIZE,
+            "padding": PADDING,
+        },
+        embeddings=[
+            {
+                "file": f"embeddings/{row['script']}_embeddings.npy",
+                "names_file": f"embeddings/{row['script']}_font_names.csv",
+                "script": row["script"],
+                "rows": int(row["fonts_analyzed"]),
+            }
+            for _, row in result_df.iterrows()
+        ],
+    )
 
     return result_df
 
