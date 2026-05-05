@@ -122,19 +122,20 @@ def load_all_data(repo: Path = REPO_ROOT) -> pd.DataFrame:
 
     # Servedness score: high exposure, high support, low complexity, high similarity = well served
     master["sss"] = (
-        # higher means more readers
-        master["log_exposure_norm"]
-        # higher means the script has more fonts
-        + master["log_support_norm"] * 1.5
+        # higher means more readers i.e. more demand for fonts so this should actually be negative
+        - master["log_exposure_norm"]
+        # higher means the script has more fonts this should attempt to cancel out the font support metric
+        # supply vs demand
+        + master["log_support_norm"]
         # higher means more difficult to produce
-        - master["complexity_norm"] * 2.0
+        - master["complexity_norm"]
         # higher means less visual choice
         - master["similarity_index_norm"]
     )
-    # Normalize gap score to 0-1
     gs_min, gs_max = master["sss"].min(), master["sss"].max()
+    
     master["sss_norm"] = (master["sss"] - gs_min) / (gs_max - gs_min)
-
+    
     # Sort by score (best served first)
     master = master.sort_values("sss_norm", ascending=False).reset_index(drop=True)
 
@@ -320,7 +321,7 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
 
 <h1>Script Servedness Score (SSS)</h1>
 <p class="subtitle">
-  TRC / Monotype / Sawyer Lab | All values normalized 0–1 | Sorted by SSS (best served first)
+  TRC / Monotype / Sawyer Lab | All values normalized 0-1 | Sorted by SSS (best served first)
 </p>
 
 <div class="heatmap-wrap">
