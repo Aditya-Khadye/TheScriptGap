@@ -1,18 +1,100 @@
-import sys
-import os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+"""Support research data pipeline entrypoint.
 
-import utils.utils_formatting as utils
+This module prepares the Google Fonts support dataset for analysis and
+visualization.
 
+Inputs:
+    - support_research/output/combined_google_bigquery.csv
+      (merged Google Fonts + BigQuery script support data)
+
+Outputs:
+    - support_research/output/script_font_counts.csv
+      (distinct font count for each supported script)
+
+Responsibilities:
+    - load the combined support dataset
+    - normalize script names and font labels
+    - explode script support rows for per-script counts
+    - write a cleaned script font count summary CSV
+
+Scope:
+    - This file focuses on support data preparation only
+"""
+
+from pathlib import Path
+from paths import SUPPORT_DATA_DIR
 import pandas as pd
-import google_public as gp_data
-import plotly.express as px
+from utils import safe_literal_eval
 
-import time
+OUTPUT_DIR = SUPPORT_DATA_DIR
+COMBINED_SUPPORT_PATH = OUTPUT_DIR / "combined_google_bigquery.csv"
+SCRIPT_FONT_COUNTS_PATH = OUTPUT_DIR / "script_font_counts.csv"
 
-from rapidfuzz import fuzz, process
+
+def ensure_output_dir() -> Path:
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    return OUTPUT_DIR
+
+
+def load_support_data() -> pd.DataFrame:
+    """Load the combined Google support dataset created in an earlier stage."""
+    if not COMBINED_SUPPORT_PATH.exists():
+        raise FileNotFoundError(
+            f"Missing combined support file: {COMBINED_SUPPORT_PATH}."
+            " Download BigQuery outputs before running this stage."
+        )
+
+    df = pd.read_csv(COMBINED_SUPPORT_PATH)
+    df["supported_scripts"] = df["supported_scripts"].apply(safe_literal_eval)
+    return df
+
+
+def build_script_font_counts(df: pd.DataFrame) -> pd.DataFrame:
+    """Count distinct fonts per script after standardizing combined support data."""
+    if "font_clean" not in df.columns:
+        df["font_clean"] = df["font_name"]
+
+    exploded_result = df.explode("supported_scripts")
+    exploded_result = exploded_result.rename(columns={"supported_scripts": "script"})
+    exploded_result = exploded_result[exploded_result["script"].notna()]
+
+    dedupe_col = "font_clean" if "font_clean" in exploded_result.columns else "font_name"
+    script_font_counts_df = (
+        exploded_result.groupby("script", as_index=False)[dedupe_col]
+        .nunique()
+        .rename(columns={dedupe_col: "distinct_font_count"})
+        .sort_values("distinct_font_count", ascending=False)
+        .reset_index(drop=True)
+    )
+    return script_font_counts_df
+
+
+def run_support_pipeline(force: bool = False) -> Path:
+    """Prepare a support summary file that can be used by exposure and visualization stages."""
+    ensure_output_dir()
+
+    if SCRIPT_FONT_COUNTS_PATH.exists() and not force:
+        print(f"Support output already exists: {SCRIPT_FONT_COUNTS_PATH} (use --force to rerun)")
+        return SCRIPT_FONT_COUNTS_PATH
+
+    # Generate combined dataset if needed
+    print("Ensuring combined support data exists...")
+    generate_combined_support_data(force=force)
+    
+    print(f"Loading support data from: {COMBINED_SUPPORT_PATH}")
+    df = load_support_data()
+    script_font_counts_df = build_script_font_counts(df)
+    script_font_counts_df.to_csv(SCRIPT_FONT_COUNTS_PATH, index=False)
+
+    print(f"Wrote support summary to: {SCRIPT_FONT_COUNTS_PATH}")
+    return SCRIPT_FONT_COUNTS_PATH
+
+
+# NOTE: The helper below is retained for future cleanup and deduplication
+# work, but it is not required by the current pipeline stage.
 
 def fuzzy_match_fonts(df, column, threshold=95):
+    """Map noisy font names to a canonical font name using fuzzy matching."""
     font_names = [f for f in df[column].unique().tolist() if pd.notna(f)]
     mapping = {}
 
@@ -23,13 +105,14 @@ def fuzzy_match_fonts(df, column, threshold=95):
         for other in font_names:
             if other in mapping:
                 continue
-            # Gate 1: first character must match
+
             if name[0].lower() != other[0].lower():
                 continue
-            # Gate 2: length cant be too different
             if abs(len(name) - len(other)) > 3:
                 continue
-            # Gate 3: fuzzy score
+
+            from rapidfuzz import fuzz
+
             score = fuzz.token_sort_ratio(name, other)
             if score >= threshold:
                 print(f"Mapping '{other}' to '{name}' with score {score}")
@@ -39,87 +122,64 @@ def fuzzy_match_fonts(df, column, threshold=95):
     return df
 
 
-def main():
-    print("Hello from support-research!")
-
-    # # Importing google font data
-    # google_fonts = gp_data.google_font_script_matches() # UNCOMMENT THIS WHEN DONE TESTING
-
-    # # make into df
-    # google_fonts_df = pd.DataFrame(list(google_fonts.items()), columns=['font', 'subsets']) # UNCOMMENT THIS WHEN DONE TESTING
-
-    # google_fonts_df = pd.read_csv('output/google_font_scripts.csv')
-
-
-    # # renaming columns to match
-    # google_fonts_df = google_fonts_df.rename(columns={'font': 'font_name', 'subsets': 'supported_scripts'})
-
-    # # standardize formatting
-    # google_fonts_df = utils.standardize_font_names(google_fonts_df)
-
-    # # Importing big query data (from our condenced http archive database)
-    # # Just using csv for now to save on costs
-    # big_query_df = pd.read_csv('output/big_query_data.csv')
-
-    # big_query_df = big_query_df.rename(columns={'scripts': 'supported_scripts'})
-
-    # big_query_df = utils.standardize_font_names(big_query_df) # already standardized but still needs to remove - and _ for " "
-
-    # big_query_df['supported_scripts'] = big_query_df['supported_scripts'].apply(utils.safe_literal_eval)
-    # google_fonts_df['supported_scripts'] = google_fonts_df['supported_scripts'].apply(utils.safe_literal_eval)
-
-
+def generate_combined_support_data(force: bool = False) -> pd.DataFrame:
+    """
+    Generate combined Google Fonts + BigQuery support data.
     
-    # # Combining the data into a single dataframe for analysis using fuzzy matching
-    # result = pd.concat([google_fonts_df, big_query_df], join='outer', ignore_index=True)
-
-    # print(f'before: {result["font_name"].nunique()}')
-
-    # start_time = time.time()
-
-    # result = fuzzy_match_fonts(result, "font_name", threshold=95)
-
-    # end_time = time.time()
-    # print(f"Fuzzy matching took {end_time - start_time:.2f} seconds")
-    # print(f'after: {result["font_clean"].nunique()}')
-
-    # print(result.describe())
-
-    # result.to_csv('output/combined_google_bigquery.csv', index=False)
-
-    # result = result.sort_values(by='font_count', ascending=False).reset_index(drop=True)
-    # print(result.head())
-    # print(result.describe())
-
-    # font_name,supported_scripts,font_count,font_clean
-    # advent-pro,['cyrillic'],,advent-pro
-    # akaya-telivigala,['telugu'],,akaya-telivigala
-
-    # Load the DataFrame (adjust path if needed)
-    result = pd.read_csv('output/combined_google_bigquery.csv')
-
-    # Convert supported_scripts back to lists (since CSV stores it as strings)
-    result['supported_scripts'] = result['supported_scripts'].apply(utils.safe_literal_eval)
-
-    # Explode the DataFrame on supported_scripts to create one row per script per font
-    exploded_result = result.explode('supported_scripts')
-
-    # Group by script and count unique fonts (using font_clean for deduplication)
-    script_font_counts = exploded_result.groupby('supported_scripts')['font_clean'].nunique()
-
-    # Optional: Convert to a DataFrame for easier viewing/export
-    script_font_counts_df = script_font_counts.reset_index(name='distinct_font_count')
-
-    filter_scripts = ["chinese-simplified", "chinese-traditional", "devanagari", "arabic", "bengali",
-                      "cyrillic", "japanese", "telugu", "tamil", 'han', 'katakana']
+    By default uses Google Fonts data.
+    If BigQuery data is available, combines it for richer dataset.
     
-    script_font_counts_df = script_font_counts_df[script_font_counts_df['supported_scripts'].isin(filter_scripts)]
+    Combines (if available):
+      1. Google Fonts script support (from google_public.py) — always
+      2. BigQuery HTTP Archive data (condensed) — optional
+    """
+    if COMBINED_SUPPORT_PATH.exists() and not force:
+        return pd.read_csv(COMBINED_SUPPORT_PATH)
+    
+    print("Generating combined support dataset...")
+    
+    # Get Google Fonts data (required)
+    try:
+        from support_research import google_public
+        google_fonts_dict = google_public.google_font_script_matches()
+        google_fonts_df = pd.DataFrame(
+            list(google_fonts_dict.items()), 
+            columns=['font_name', 'supported_scripts']
+        )
+        google_fonts_df['font_name'] = google_fonts_df['font_name'].str.lower().str.replace(' ', '-')
+        print(f"Loaded {len(google_fonts_df)} Google Fonts")
+    except Exception as e:
+        raise ValueError(f"Failed to fetch Google Fonts data (required): {e}")
+    
+    # Try to load BigQuery data (optional)
+    big_query_df = None
+    try:
+        legacy_bq_path = Path(__file__).parent / "output" / "big_query_data.csv"
+        if legacy_bq_path.exists():
+            big_query_df = pd.read_csv(legacy_bq_path)
+            print(f"Loaded BigQuery data from: {legacy_bq_path}")
+    except Exception as e:
+        print(f"X BigQuery data not available (optional): {e}")
+    
+    # Combine or use Google data alone
+    if big_query_df is not None and not big_query_df.empty:
+        combined_df = pd.concat([google_fonts_df, big_query_df], ignore_index=True)
+        print(f"→ Combined {len(google_fonts_df)} Google + {len(big_query_df)} BigQuery records")
+    else:
+        combined_df = google_fonts_df
+        print("Using Google Fonts data only (BigQuery not available)")
+    
+    # Save combined
+    ensure_output_dir()
+    combined_df.to_csv(COMBINED_SUPPORT_PATH, index=False)
+    print(f"Saved combined support data to: {COMBINED_SUPPORT_PATH}")
+    
+    return combined_df
 
-    # Print or inspect the results
-    print(script_font_counts_df)
 
-    # Optional: Save to CSV for further analysis
-    script_font_counts_df.to_csv('output/script_font_counts.csv', index=False)
+def main() -> None:
+    print("Running support_research pipeline stage.")
+    run_support_pipeline(force=False)
 
 
 if __name__ == "__main__":
