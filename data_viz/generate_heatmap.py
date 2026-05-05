@@ -122,10 +122,14 @@ def load_all_data(repo: Path = REPO_ROOT) -> pd.DataFrame:
 
     # Servedness score: high exposure, high support, low complexity, high similarity = well served
     master["sss"] = (
+        # higher means more readers
         master["log_exposure_norm"]
+        # higher means the script has more fonts
         + master["log_support_norm"] * 1.5
+        # higher means more difficult to produce
         - master["complexity_norm"] * 2.0
-        + master["similarity_index_norm"]
+        # higher means less visual choice
+        - master["similarity_index_norm"]
     )
     # Normalize gap score to 0-1
     gs_min, gs_max = master["sss"].min(), master["sss"].max()
