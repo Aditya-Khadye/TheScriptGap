@@ -102,8 +102,13 @@ def load_all_data(repo: Path = REPO_ROOT) -> pd.DataFrame:
     if div is None:
         raise FileNotFoundError("Cannot find diversity_index_summary.csv")
 
-    # Merge
-    master = exp.merge(sup, on="script").merge(sim, on="script").merge(div, on="script")
+    # Flip diversity to similarity
+    # NOTE: This is a bit of a hack to rename diversity to similarity for the final table
+    # since we were going back and forth on what to name things in the early stages some code needs to be refactored.
+    div["similarity_index"] = 1.0 - div["diversity_index"]
+
+    # Merge (use similarity_index instead)
+    master = exp.merge(sup, on="script").merge(sim, on="script").merge(div[["script", "similarity_index"]], on="script")
     master = master[master["script"].isin(TARGET_SCRIPTS)].reset_index(drop=True)
 
     # Log-scale exposure and support for visualization
@@ -111,22 +116,22 @@ def load_all_data(repo: Path = REPO_ROOT) -> pd.DataFrame:
     master["log_support"] = np.log10(master["support"])
 
     # Normalize all to 0-1 for heatmap
-    for col in ["log_exposure", "log_support", "complexity", "diversity_index"]:
+    for col in ["log_exposure", "log_support", "complexity", "similarity_index"]:
         cmin, cmax = master[col].min(), master[col].max()
         master[f"{col}_norm"] = (master[col] - cmin) / (cmax - cmin) if cmax > cmin else 0.5
 
-    # Gap score: high exposure, low support, high complexity, low diversity
+    # Servedness score: high exposure, high support, low complexity, high similarity = well served
     master["sss"] = (
         master["log_exposure_norm"]
-        - master["log_support_norm"] * 1.5
-        + master["complexity_norm"] * 2.0
-        - master["diversity_index_norm"]
+        + master["log_support_norm"] * 1.5
+        - master["complexity_norm"] * 2.0
+        + master["similarity_index_norm"]
     )
     # Normalize gap score to 0-1
     gs_min, gs_max = master["sss"].min(), master["sss"].max()
     master["sss_norm"] = (master["sss"] - gs_min) / (gs_max - gs_min)
 
-    # Sort by gap score (most underserved first)
+    # Sort by score (best served first)
     master = master.sort_values("sss_norm", ascending=False).reset_index(drop=True)
 
     logger.info(f"Loaded {len(master)} scripts")
@@ -147,15 +152,15 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
         ("log_exposure_norm",    "Web Exposure",   "Higher = more readers",      "#3B8BD4"),
         ("log_support_norm",     "Font Support",   "Higher = more fonts",        "#1D9E75"),
         ("complexity_norm",      "Complexity",     "Higher = harder to engineer","#E24B4A"),
-        ("diversity_index_norm", "Diversity",      "Higher = more visual choice","#EF9F27"),
-        ("sss_norm",       "SSS",      "Higher = more underserved",  "#7F77DD"),
+        ("similarity_index_norm", "Similarity",     "Higher = less visual choice","#EF9F27"),
+        ("sss_norm",       "SSS",      "Higher = well served",  "#7F77DD"),
     ]
 
     raw_cols = {
         "log_exposure_norm":    ("exposure",       lambda v: f"{int(v):,}"),
         "log_support_norm":     ("support",        lambda v: f"{int(v)}"),
         "complexity_norm":      ("complexity",     lambda v: f"{v:.3f}"),
-        "diversity_index_norm": ("diversity_index",lambda v: f"{v:.3f}"),
+        "similarity_index_norm": ("similarity_index",lambda v: f"{v:.3f}"),
         "sss_norm":       ("sss",      lambda v: f"{v:.3f}"),
     }
 
@@ -205,10 +210,12 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
   .subtitle {{
     font-size: 13px;
     color: #888;
-    margin-bottom: 32px;
+    margin-bottom: 52px;
+    padding-bottom: 20px;
   }}
   .heatmap-wrap {{
     overflow-x: auto;
+    margin-top: 32px;
   }}
   table {{
     border-collapse: collapse;
@@ -309,7 +316,7 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
 
 <h1>Script Servedness Score (SSS)</h1>
 <p class="subtitle">
-  TRC / Monotype / Sawyer Lab · All values normalized 0–1 · Sorted by SSS (most underserved first)
+  TRC / Monotype / Sawyer Lab | All values normalized 0–1 | Sorted by SSS (best served first)
 </p>
 
 <div class="heatmap-wrap">
@@ -324,7 +331,7 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
 </div>
 
 <div class="legend" id="legend"></div>
-<p class="note">Hover over any cell for the raw value. SSS = Script Servedness Score — combines all four indices.</p>
+<p class="note">Hover over any cell for the raw value. SSS = Script Servedness Score: combines all four indices.</p>
 
 <div class="tooltip" id="tooltip"></div>
 
@@ -366,10 +373,10 @@ data.forEach((row, ri) => {{
   // Script name cell with tier badge
   const tdName = document.createElement('td');
   tdName.className = 'script-name';
-  const gapNorm = row.cells[4].norm;
-  const tier = gapNorm > 0.6 ? ['Underserved','#E24B4A','#FCEBEB'] :
-               gapNorm > 0.3 ? ['Moderate','#EF9F27','#FAEEDA'] :
-                               ['Well served','#1D9E75','#E1F5EE'];
+  const sssNorm = row.cells[4].norm;
+  const tier = sssNorm > 0.6 ? ['Well served','#1D9E75','#E1F5EE'] :
+               sssNorm > 0.3 ? ['Moderate','#EF9F27','#FAEEDA'] :
+                               ['Underserved','#E24B4A','#FCEBEB'];
   tdName.innerHTML = `${{row.script}}<span class="tier-badge" style="background:${{tier[2]}};color:${{tier[1]}}">${{tier[0]}}</span>`;
   tr.appendChild(tdName);
 
@@ -440,8 +447,8 @@ def generate_png_heatmap(master: pd.DataFrame, output_path: Path):
         ("log_exposure_norm",    "Web\nExposure",  "#3B8BD4"),
         ("log_support_norm",     "Font\nSupport",  "#1D9E75"),
         ("complexity_norm",      "Complexity",     "#E24B4A"),
-        ("diversity_index_norm", "Diversity",      "#EF9F27"),
-        ("sss_norm",       "Gap\nScore",     "#7F77DD"),
+        ("similarity_index_norm", "Similarity",     "#EF9F27"),
+        ("sss_norm",       "Script\nServedness\nScore",     "#7F77DD"),
     ]
 
     matrix = np.array([
@@ -498,7 +505,7 @@ def generate_png_heatmap(master: pd.DataFrame, output_path: Path):
     fig.suptitle("Script Servedness Score (SSS)",
                  fontsize=14, color="#f0ede6", y=0.98, fontweight="500")
     ax.set_title("All values normalized 0–100% · Sorted by SSS",
-                 fontsize=9, color="#666", pad=4)
+                 fontsize=9, color="#666", pad=30)
 
     plt.tight_layout()
     plt.savefig(output_path, dpi=150, bbox_inches="tight",
@@ -520,7 +527,7 @@ def main():
 
     print("\n📊 Data loaded:\n")
     print(master[["script", "exposure", "support", "complexity",
-                   "diversity_index", "sss_norm"]].to_string(index=False))
+                   "similarity_index", "sss_norm"]].to_string(index=False))
 
     # HTML heatmap
     html = generate_html_heatmap(master)
