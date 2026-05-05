@@ -37,6 +37,9 @@ Usage:
 import os
 import sys
 import logging
+import datetime
+import json
+import subprocess
 from pathlib import Path
 from collections import defaultdict
 from typing import Dict, List, Optional
@@ -48,6 +51,31 @@ import torch.nn as nn
 from torchvision import models, transforms
 from PIL import Image, ImageDraw, ImageFont
 from fontTools.ttLib import TTFont
+
+
+def write_metadata(
+    output_dir: Path,
+    model: dict,
+    rendering: dict,
+    embeddings: List[dict],
+) -> None:
+    try:
+        commit = subprocess.check_output(
+            ["git", "rev-parse", "--short", "HEAD"],
+            stderr=subprocess.DEVNULL,
+            text=True,
+        ).strip()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        commit = None
+    payload = {
+        "generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+        "git_commit": commit,
+        "model": model,
+        "rendering": rendering,
+        "embeddings": embeddings,
+    }
+    (output_dir / "metadata.json").write_text(json.dumps(payload, indent=2) + "\n")
+
 
 # ---------------------------------------------------------------------------
 # Configuration
@@ -1211,6 +1239,11 @@ def run_pipeline(fonts_dir: Path) -> pd.DataFrame:
 
         # Save embeddings
         np.save(EMBEDDINGS_DIR / f"{script_name}_embeddings.npy", matrix)
+        pd.DataFrame({
+            "font_name": font_names,
+            "script": script_name,
+            "row_index": range(len(font_names)),
+        }).to_csv(EMBEDDINGS_DIR / f"{script_name}_font_names.csv", index=False)
 
         results.append({
             "script": script_name,
@@ -1288,6 +1321,29 @@ def main():
                        "fonts_analyzed", "reference_chars", "glyphs_rendered"]].copy()
     summary.to_csv(OUTPUT_DIR / "diversity_index_summary.csv", index=False)
     logger.info(f"Saved → {OUTPUT_DIR / 'diversity_index_summary.csv'}")
+
+    write_metadata(
+        OUTPUT_DIR,
+        model={
+            "name": "ResNet50",
+            "weights": "IMAGENET1K_V1",
+            "feature_dim": 2048,
+        },
+        rendering={
+            "canvas_size": CANVAS_SIZE,
+            "font_render_size": FONT_RENDER_SIZE,
+            "max_fonts_per_script": MAX_FONTS_PER_SCRIPT,
+        },
+        embeddings=[
+            {
+                "file": f"embeddings/{row['script']}_embeddings.npy",
+                "names_file": f"embeddings/{row['script']}_font_names.csv",
+                "script": row["script"],
+                "rows": int(row["fonts_analyzed"]),
+            }
+            for _, row in result.iterrows()
+        ],
+    )
 
 
 if __name__ == "__main__":
