@@ -8,7 +8,6 @@ pipeline entrypoint can remain focused on stage orchestration.
 """
 
 from pathlib import Path
-from paths import EXPOSURE_DATA_DIR
 
 import pandas as pd
 import plotly.express as px
@@ -17,23 +16,39 @@ from plotly.graph_objs import Figure
 from dash import Dash, dcc, html, Input, Output, ALL
 from dash import callback_context, State
 
-DATA_DIR = EXPOSURE_DATA_DIR
-EXPOSURE_DATA_PATH = DATA_DIR / "exposure_treemap_data.csv"
+try:
+    from paths import EXPOSURE_DATA_DIR
+except ImportError:
+    # Fallback for direct execution
+    REPO_ROOT = Path(__file__).resolve().parent.parent
+    DATA_ROOT = REPO_ROOT / "data"
+    EXPOSURE_DATA_DIR = DATA_ROOT / "exposure"
+EXPOSURE_DATA_PATH = EXPOSURE_DATA_DIR / "exposure_treemap_data.csv"
 DEFAULT_COLOR_PALETTE = qualitative.Pastel
 
 
-def load_exposure_data(path: Path = EXPOSURE_DATA_PATH) -> pd.DataFrame:
-    """Load the exposure dashboard dataset from disk."""
-    if not path.exists():
-        raise FileNotFoundError(
-            f"Missing exposure dashboard data: {path}."
-            " Run the exposure pipeline in `exposure_research/main.py` first."
-        )
+def load_exposure_data(path: str | Path = None) -> pd.DataFrame:
+    """Load the exposure dashboard dataset from disk or URL."""
+    if path is None:
+        # Try local path first
+        path = EXPOSURE_DATA_PATH
 
-    df = pd.read_csv(path)
+    if isinstance(path, str) and (path.startswith('http://') or path.startswith('https://')):
+        # Load from URL
+        df = pd.read_csv(path)
+    else:
+        # Load from local path
+        path = Path(path)
+        if not path.exists():
+            raise FileNotFoundError(
+                f"Missing exposure dashboard data: {path}."
+                " Run the exposure pipeline in `exposure_research/main.py` first."
+            )
+        df = pd.read_csv(path)
+
     if "script" not in df.columns or "font_name" not in df.columns or "font_count" not in df.columns:
         raise ValueError(
-            f"Exposure data at {path} must contain script, font_name, and font_count columns."
+            f"Exposure data must contain script, font_name, and font_count columns."
         )
     return df
 
@@ -52,7 +67,7 @@ def build_script_colors(scripts_list: list[str]) -> dict[str, str]:
 
 
 def create_treemap(df: pd.DataFrame, script_colors: dict[str, str]) -> Figure:
-    """Create a treemap visualization of font usage by supported scripts."""
+    """Create a treemap visualization of font usage by supported scripts. (size of box = number of web requests)"""
     fig = px.treemap(
         df,
         path=["script", "font_name"],
@@ -73,8 +88,8 @@ def run_exposure_dashboard(
     font_script_df: pd.DataFrame,
     scripts_list: list[str],
     script_colors: dict[str, str],
-) -> None:
-    """Serve the exposure dashboard using prepared script data."""
+) -> Dash:
+    """Create and return the exposure dashboard app."""
     app = Dash(__name__)
 
     app.layout = html.Div([
@@ -156,15 +171,38 @@ def run_exposure_dashboard(
             for script in scripts_list
         ]
 
-    print("Starting Dash app on http://localhost:8050")
-    app.run(debug=True)
+    return app
 
 
 def main() -> None:
     font_script_df = load_exposure_data()
     scripts_list = build_scripts_list(font_script_df)
     script_colors = build_script_colors(scripts_list)
-    run_exposure_dashboard(font_script_df, scripts_list, script_colors)
+    app = run_exposure_dashboard(font_script_df, scripts_list, script_colors)
+    print("Starting Dash app on http://localhost:8050")
+    app.run(debug=True)
+
+
+# Module-level app for Plotly Cloud
+try:
+    # Try local first, fallback to remote URL for cloud deployment
+    try:
+        _font_script_df = load_exposure_data()
+    except FileNotFoundError:
+        # Load from remote URL (update this with your hosted CSV URL)
+        remote_url = "https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/data/exposure/exposure_treemap_data.csv"
+        _font_script_df = load_exposure_data(remote_url)
+    
+    _scripts_list = build_scripts_list(_font_script_df)
+    _script_colors = build_script_colors(_scripts_list)
+    app = run_exposure_dashboard(_font_script_df, _scripts_list, _script_colors)
+except Exception as e:
+    # Fallback: create empty app if data isn't available
+    app = Dash(__name__)
+    app.layout = html.Div([
+        html.H1("Exposure Dashboard"),
+        html.P(f"Error loading data: {str(e)}")
+    ])
 
 
 if __name__ == "__main__":

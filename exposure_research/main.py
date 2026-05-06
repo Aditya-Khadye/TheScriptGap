@@ -84,6 +84,12 @@ def prepare_exposure_data(save_path: Path | None = None) -> pd.DataFrame:
     font_script_df = filter_null_scripts(font_script_df)
     font_script_df = font_script_df[font_script_df["script"].isin(scripts_list)]
 
+    # Combine counts for "other" fonts
+    font_script_df = (font_script_df.groupby(["script", "font_name"], as_index=False)["font_count"].sum()
+        .sort_values("font_count", ascending=False)
+        .reset_index(drop=True)
+    )
+
     script_totals = font_script_df.groupby("script")["font_count"].sum().sort_values(ascending=False)
 
     global script_colors
