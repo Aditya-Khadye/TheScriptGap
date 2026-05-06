@@ -50,12 +50,15 @@ def parse_args() -> argparse.Namespace:
         nargs="+",
         choices=AVAILABLE_STAGES + ["all"],
         default=["all"],
-        help="Pipeline stages to execute.",
+        help="Pipeline stages to execute. Options: support (Google Fonts data prep), "
+            "exposure (web exposure metrics), viz (heatmap generation), "
+            "or all (run all stages). "
+            "Example: uv run pipeline.py --stages support exposure",
     )
     parser.add_argument(
         "--force",
         action="store_true",
-        help="Rerun stages even when output files already exist.",
+        help="Force rerun all selected stages even if output files already exist.",
     )
     return parser.parse_args()
 
