@@ -49,6 +49,9 @@ Usage:
 
 import sys
 import logging
+import datetime
+import json
+import subprocess
 from pathlib import Path
 from collections import defaultdict
 from typing import Dict, List, Optional, Tuple
@@ -57,6 +60,30 @@ import numpy as np
 import pandas as pd
 from PIL import Image, ImageDraw, ImageFont
 from fontTools.ttLib import TTFont
+
+
+def write_metadata(
+    output_dir: Path,
+    model: dict,
+    rendering: dict,
+    embeddings: List[dict],
+) -> None:
+    try:
+        commit = subprocess.check_output(
+            ["git", "rev-parse", "--short", "HEAD"],
+            stderr=subprocess.DEVNULL,
+            text=True,
+        ).strip()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        commit = None
+    payload = {
+        "generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+        "git_commit": commit,
+        "model": model,
+        "rendering": rendering,
+        "embeddings": embeddings,
+    }
+    (output_dir / "metadata.json").write_text(json.dumps(payload, indent=2) + "\n")
 
 # Classical CV imports
 try:
@@ -571,6 +598,29 @@ def main():
         all_pairs.append(pd.read_csv(f))
     if all_pairs:
         pd.concat(all_pairs).to_csv(OUTPUT_DIR / "all_font_pairwise.csv", index=False)
+
+    write_metadata(
+        OUTPUT_DIR,
+        model={
+            "name": "Classical CV",
+            "weights": "hand-engineered features",
+            "feature_dim": int(result["feature_dim"].iloc[0]) if not result.empty else None,
+        },
+        rendering={
+            "canvas_size": CANVAS_SIZE,
+            "font_render_size": FONT_RENDER_SIZE,
+            "max_fonts_per_script": MAX_FONTS_PER_SCRIPT,
+        },
+        embeddings=[
+            {
+                "file": f"embeddings/{row['script']}_classical_features.npy",
+                "names_file": f"embeddings/{row['script']}_font_names.csv",
+                "script": row["script"],
+                "rows": int(row["fonts_analyzed"]),
+            }
+            for _, row in result.iterrows()
+        ],
+    )
 
     logger.info(f"Saved → {OUTPUT_DIR}/")
 

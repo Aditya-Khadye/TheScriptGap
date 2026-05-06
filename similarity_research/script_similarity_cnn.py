@@ -2,6 +2,10 @@ from pathlib import Path
 from collections import defaultdict
 from typing import Dict, List, Optional
 
+import datetime
+import json
+import subprocess
+
 import numpy as np
 import pandas as pd
 import torch
@@ -38,6 +42,30 @@ MIN_CODEPOINT_COVERAGE = 10
 MIN_SUPPORTED_REFERENCE_CHARS = 3
 
 REFERENCE_SCRIPT = "Latin"
+
+
+def write_metadata(
+    output_dir: Path,
+    model: dict,
+    rendering: dict,
+    embeddings: List[dict],
+) -> None:
+    try:
+        commit = subprocess.check_output(
+            ["git", "rev-parse", "--short", "HEAD"],
+            stderr=subprocess.DEVNULL,
+            text=True,
+        ).strip()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        commit = None
+    payload = {
+        "generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+        "git_commit": commit,
+        "model": model,
+        "rendering": rendering,
+        "embeddings": embeddings,
+    }
+    (output_dir / "metadata.json").write_text(json.dumps(payload, indent=2) + "\n")
 
 TARGET_SCRIPTS = {
     "Latin":       [(0x0041, 0x005A), (0x0061, 0x007A)],
@@ -337,6 +365,7 @@ def run_similarity(fonts_dir: Path):
             font_paths = list(np.random.choice(font_paths, MAX_FONTS_PER_SCRIPT, replace=False))
 
         font_avg_embeddings = []
+        accepted_fonts: List[str] = []
         glyph_count_total = 0
 
         for idx, font_path in enumerate(font_paths):
@@ -362,6 +391,7 @@ def run_similarity(fonts_dir: Path):
             font_avg = np.mean(glyph_embeddings, axis=0)
             font_avg = normalize(font_avg)
             font_avg_embeddings.append(font_avg)
+            accepted_fonts.append(Path(font_path).stem)
 
         if len(font_avg_embeddings) < 2:
             logger.warning(f"Skipping {script_name}")
@@ -370,6 +400,11 @@ def run_similarity(fonts_dir: Path):
         font_matrix = np.vstack(font_avg_embeddings)
         script_font_embeddings[script_name] = font_matrix
         np.save(EMBEDDINGS_DIR / f"{script_name}_font_embeddings.npy", font_matrix)
+        pd.DataFrame({
+            "font_name": accepted_fonts,
+            "script": script_name,
+            "row_index": range(len(accepted_fonts)),
+        }).to_csv(EMBEDDINGS_DIR / f"{script_name}_font_names.csv", index=False)
 
         summary_rows.append({
             "script": script_name,
@@ -414,6 +449,32 @@ def main():
 
     similarity.to_csv(OUTPUT_DIR / "cnn_script_similarity_matrix.csv")
     summary.to_csv(OUTPUT_DIR / "cnn_script_similarity_summary.csv", index=False)
+
+    write_metadata(
+        OUTPUT_DIR,
+        model={
+            "name": "ResNet50",
+            "weights": "IMAGENET1K_V1",
+            "feature_dim": 2048,
+        },
+        rendering={
+            "canvas_size": CANVAS_SIZE,
+            "font_render_size": FONT_RENDER_SIZE,
+            "max_fonts_per_script": MAX_FONTS_PER_SCRIPT,
+            "min_supported_reference_chars": MIN_SUPPORTED_REFERENCE_CHARS,
+            "min_codepoint_coverage": MIN_CODEPOINT_COVERAGE,
+            "reference_script": REFERENCE_SCRIPT,
+        },
+        embeddings=[
+            {
+                "file": f"embeddings/{row['script']}_font_embeddings.npy",
+                "names_file": f"embeddings/{row['script']}_font_names.csv",
+                "script": row["script"],
+                "rows": int(row["fonts_analyzed"]),
+            }
+            for _, row in summary.iterrows()
+        ],
+    )
 
     print("Done.")
     print(summary)
