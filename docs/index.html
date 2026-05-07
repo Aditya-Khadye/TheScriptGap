@@ -135,11 +135,23 @@
         <p>Related projects and comparative analysis.</p>
 
         <p>Similarity feature calculation details and explanations on methodology.</p>
+        
+        <p>
+            The similarity score is calculated by analyzing the visual similarity between fonts within each script.
+            Each glyph is rendered as a png and then a vision model is used to extract an embedding that captures the visual style of the glyph.
+            This is used in the creation of a finger print for each font by computing the average visual style of it's glyphs across a set of common unicode points for the script.
+            Finally comparing the font fingerprints of fonts within the same script using cosine similarity gives us a measure of how visually similar the fonts within a script are to each other.
+            A higher similarity score indicates that the fonts are more visually similar to each other, while a lower score suggests greater visual diversity.
+        </p>
 
+        
         <!-- It looks like gephi lite can have node images https://docs.gephi.org/lite/user-manual/differences-with-gephi#node-images -->
         <!-- We definetly should replace the current plotly visualization entirely with gephi. 
          It's just better. Also it has html support so we can include it here just as easily as plotly. -->
-         <p>INSERT NETWORKS RESEARCH EXAMPLE HERE</p>
+         <p>INSERT NETWORKS RESEARCH EXAMPLE HERE. (I'm hoping to make a better one in gephi lite before this report goes public but if i cant just throw one of the previously made ones in here)</p>
+         <p>The network diagrams can be used to visualize the relationships between different fonts within a script.
+            The network makes it easy to tell what fonts are visually distinctive and can be utilized as a tool for finding unique typographic styles to grow upon.
+         </p>
 
         <h2>Final Findings Summary</h2>
         <iframe src="./viz/heatmap.html" title="Script Servedness Score Heatmap"></iframe>
