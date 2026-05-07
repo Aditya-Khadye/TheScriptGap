@@ -36,6 +36,13 @@
         p {
             color: #666;
         }
+        iframe {
+            width: 100%;
+            height: 800px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
@@ -43,7 +50,22 @@
         <h1>Script Gap</h1>
 
         <h2>Overview</h2>
-        <p>Add project overview and description here.</p>
+        <p>The Script Gap is a research framework that identifies writing systems widely used in the 
+            real world but under-supported in digital typography. By combining web exposure data, font availability, 
+            engineering complexity, and visual diversity into a single Script Servedness Score, it surfaces 
+            the highest-impact gaps and provides a data-driven roadmap for prioritizing script support.
+        </p>
+
+        <p>
+            Script Servedness can be broken down into a few key components:
+            <ul>
+                <li><strong>Exposure:</strong> Analyzing web data to measure the real-world usage of different scripts.</li>
+                <li><strong>Font Support/Count:</strong> Evaluating the availability and quality of fonts for each script.</li>
+                <li><strong>Engineering Complexity Assessment:</strong> Assessing the technical challenges dificulty in development of fonts for a script.</li>
+                <li><strong>Similarity Analysis:</strong> Comparing fonts within each script to identify how visualy similar a scripts typography is. <br />
+                    i.e. how much visual choice does a user have when selecting fonts within their script</li>
+            </ul>
+        </p>
 
         <h2>Getting Started</h2>
         <p>Instructions on how to get started with the project.</p>
@@ -54,7 +76,7 @@
         <h2>Usage</h2>
         <p>How to use the project and its features.</p>
 
-        <h2>Features</h2>
+        <h2>Feature Research</h2>
         <h3>Exposure</h3>
         <p>Details about the project's exposure and visibility metrics.</p>
 
@@ -67,17 +89,10 @@
         <h3>Complexity</h3>
         <p>Technical complexity overview and architectural details.</p>
 
-        <h2>Configuration</h2>
-        <p>Configuration options and settings.</p>
-
-        <h2>API Reference</h2>
-        <p>API documentation and endpoints.</p>
-
-        <h2>Examples</h2>
-        <p>Code examples and use cases.</p>
-
-        <h2>Troubleshooting</h2>
-        <p>Common issues and solutions.</p>
+        <h2>Final Research Results</h2>
+        <iframe src="../data/viz/heatmap.html" title="Script Servedness Score Heatmap"></iframe>
+        
+        <iframe src="../data/viz/bar_chart.html" title="Scripts by Requests vs Font Count"></iframe>
 
         <h2>Contributing</h2>
         <p>Guidelines for contributing to the project.</p>

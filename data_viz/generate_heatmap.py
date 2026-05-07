@@ -2,7 +2,7 @@
 ===============================================================================
 Script Servedness Score (SSS) — Heatmap Visualization
 ===============================================================================
-Project:  TRC / Monotype — Identifying Underserved Scripts
+Project:  TRC  — Identifying Underserved Scripts
 Author:   Aditya (Sawyer Lab)
 Issue:    #27 — heatmap comparing all values across scripts
 
@@ -321,7 +321,7 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
 
 <h1>Script Servedness Score (SSS)</h1>
 <p class="subtitle">
-  TRC / Monotype / Sawyer Lab | All values normalized 0-1 | Sorted by SSS (best served first)
+  TRC / Sawyer Lab | All values normalized 0-1 | Sorted by SSS (best served first)
 </p>
 
 <div class="heatmap-wrap">
