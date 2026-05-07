@@ -48,7 +48,7 @@
 <body>
     <div class="container">
         <h1>Script Gap</h1>
-
+        
         <h2>Overview</h2>
         <p>The Script Gap is a research framework that identifies writing systems widely used in the 
             real world but under-supported in digital typography. By combining web exposure data, font availability, 
@@ -56,43 +56,60 @@
             the highest-impact gaps and provides a data-driven roadmap for prioritizing script support.
         </p>
 
+        <h2>Getting Started</h2>
+        <p>Many of the visualizations are interactive and can be explored on this Github Page.</p>
+        <p>For visualizations that cannot be found on this page they can be accessed through XXXXXXXX</p>
+        <p>This GitHub Page is routinely built monthly and only hosts the most recent research findings.</p>
+
+        <h2>Feature Research</h2>
         <p>
             Script Servedness can be broken down into a few key components:
             <ul>
-                <li><strong>Exposure:</strong> Analyzing web data to measure the real-world usage of different scripts.</li>
-                <li><strong>Font Support/Count:</strong> Evaluating the availability and quality of fonts for each script.</li>
+                <li><strong>Exposure:</strong> Analyzing web data to measure the real-world usage of different scripts. <br />
+                    This component is a measurement of the demand of fonts for a script.</li>
+                <li><strong>Font Support/Count:</strong> Evaluating the availability and quality of fonts for each script. <br />
+                    This component is a measurement of the supply of fonts for a script.</li>
                 <li><strong>Engineering Complexity Assessment:</strong> Assessing the technical challenges dificulty in development of fonts for a script.</li>
-                <li><strong>Similarity Analysis:</strong> Comparing fonts within each script to identify how visualy similar a scripts typography is. <br />
-                    i.e. how much visual choice does a user have when selecting fonts within their script</li>
+                <li><strong>Similarity Analysis:</strong> Comparing fonts within each script to identify how visualy similar a scripts typography is.<br />
+                    i.e. how much visual choice does a user have when selecting fonts within their script. <br />
+                    Even if a script has many fonts available, there may be limited visual diversity.</li>
             </ul>
         </p>
-
-        <h2>Getting Started</h2>
-        <p>Instructions on how to get started with the project.</p>
-
-        <h2>Installation</h2>
-        <p>Installation instructions and requirements.</p>
-
-        <h2>Usage</h2>
-        <p>How to use the project and its features.</p>
-
-        <h2>Feature Research</h2>
         <h3>Exposure</h3>
         <p>Details about the project's exposure and visibility metrics.</p>
+        <p>Include details about the methodology and how the data was gathered</p>
 
         <h3>Support</h3>
         <p>Support options, community resources, and documentation links.</p>
+        <p>Include details about the methodology and how the data was gathered</p>
+
+        <h3>Exposure v.s. Support</h3>
+        <!-- TODO: THIS NEEDS TO BE ADDED TO THE PIPELINE -->
+        <iframe src="../data/viz/bar_chart.html" title="Scripts by Requests vs Font Count"></iframe>
+
+        
+        <h3>Complexity</h3>
+        <p>Technical complexity overview and architectural details.</p>
+        <p>Include details about the methodology and how the data was gathered</p>
+
 
         <h3>Similarity</h3>
         <p>Related projects and comparative analysis.</p>
 
-        <h3>Complexity</h3>
-        <p>Technical complexity overview and architectural details.</p>
+        <p>Similarity feature calculation details and explanations on methodology.</p>
 
-        <h2>Final Research Results</h2>
+        <!-- It looks like gephi lite can have node images https://docs.gephi.org/lite/user-manual/differences-with-gephi#node-images -->
+        <!-- We definetly should replace the current plotly visualization entirely with gephi. 
+         It's just better. Also it has html support so we can include it here just as easily as plotly. -->
+         <p>INSERT NETWORKS RESEARCH EXAMPLE HERE</p>
+
+        <h2>Final Findings Summary</h2>
         <iframe src="../data/viz/heatmap.html" title="Script Servedness Score Heatmap"></iframe>
-        
-        <iframe src="../data/viz/bar_chart.html" title="Scripts by Requests vs Font Count"></iframe>
+        <p>Final research results and conclusions.</p>
+        <p>Talk about how final results were calclulated and what they reveal / mean.</p>
+
+        <h2>Future Work</h2>
+        <p>Planned enhancements and directions for future research.</p>
 
         <h2>Contributing</h2>
         <p>Guidelines for contributing to the project.</p>
@@ -101,7 +118,17 @@
         <p>License information.</p>
 
         <h2>Contact</h2>
-        <p>Contact information and support channels.</p>
+        <p>Ben Sawyer Lab: EMAIL GO HERE</p>
+        <p>The Readability Consortium: EMAIL GO HERE</p>
+        <h3>Authored By:</h3>
+        <!-- Might wanna eventually have another page for authors/collaborators/researchers on the project -->
+        <!-- Right now since theres only four i feel like this could be good at the end -->
+        <p>Might want to put like little boxes in here with our faces and socials</p>
+        <!-- like this place: https://almanac.httparchive.org/en/2025/contributors -->
+        <p>Lou Vaughn: loujvaughn@gmail.com | https://github.com/loujvaughn | https://www.linkedin.com/in/lou-vaughn/</p>
+        <p>Aditya Khadye: EMAIL GO HERE | https://github.com/Aditya-Khadye</p>
+        <p>Beamlak</p>
+        <p>Yihan</p>
     </div>
 </body>
 </html>
