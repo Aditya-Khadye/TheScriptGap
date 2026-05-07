@@ -55,11 +55,22 @@
             engineering complexity, and visual diversity into a single Script Servedness Score, it surfaces 
             the highest-impact gaps and provides a data-driven roadmap for prioritizing script support.
         </p>
-
+        
         <h2>Getting Started</h2>
         <p>Many of the visualizations are interactive and can be explored on this Github Page.</p>
         <p>For visualizations that cannot be found on this page they can be accessed through XXXXXXXX</p>
         <p>This GitHub Page is routinely built monthly and only hosts the most recent research findings.</p>
+
+        <h2>Methodology? </h2>
+        <p>If encorporating this into each section idk if this will be necessary</p>
+
+        <h2>Data Sources</h2>
+        <p>The Script Gap relies on several data sources to provide a comprehensive analysis of script support in digital typography:</p>
+        <ul>
+            <li><strong>HTTP Archive:</strong> Provides web crawl request data to measure real-world usage of different scripts.</li>
+            <li><strong>CRUX:</strong>Provides website rankings that help to estimate font viewership. The HTTP Archive scans the top 10 million websites using these rankings.</li>
+            <li><strong>Font Repositories:</strong> Data from platforms like Google Fonts to evaluate font availability and the similarity between fonts for each script.</li>
+        </ul>
 
         <h2>Feature Research</h2>
         <p>
@@ -78,10 +89,36 @@
         <h3>Exposure</h3>
         <p>Details about the project's exposure and visibility metrics.</p>
         <p>Include details about the methodology and how the data was gathered</p>
+        <p>
+            Exposure is calculated by analyzing the HTTP Archive's web crawl request data to measure the real-world usage of different scripts on the web.
+            The HTTP Archive collects a variety of data on each font request, including a list of unicodepoints that  can be mapped to their corresponding scripts. 
+            By aggregating this data across the top 10 million websites, we can estimate the demand for fonts supporting each script.
+            <br /><br />
+            Some important things to note about this data:
+            <ul>
+                <li>The data is collected from the top 10 million websites but only on the origin/homepage domain.</li>
+                <li>Since the data comes from the top global websites, it may not fully represent the usage of scripts in all regions.</li>
+            </ul>
+
+            <br />
+            The following treemap visualization breaks down the exposure of different scripts on the web, 
+            with each color representing a script and the box size corresponding to the number of requests made: 
+            <a href="https://bf2d8941-ca90-4ea0-a054-76de36ce5eff.plotly.app" target="_blank">View Interactive TreeMap</a>
+        </p>
 
         <h3>Support</h3>
         <p>Support options, community resources, and documentation links.</p>
         <p>Include details about the methodology and how the data was gathered</p>
+
+        <p>
+            Support is measured by evaluating the number of fonts available for each script.
+            Ideally we would only want to use reliable data sources for this, such as Font Foundaries like Google Fonts, Adobe Fonts, and independent foundries that have a strong web presence.
+            However, since there is no comprehensive database of fonts and their supported scripts currently and we only had Google Fonts data we had to make do.
+            For some parts of the research we only use the reliable google data, but for other parts we had to use a combination of google fonts data and estimations based on the HTTP Archive data.
+            The HTTP Archive's font name metadata is very messy and unreliable as the font names are not consistently labeled the same way, 
+            but after a decent bit of cleaning we can estimate the number of fonts for each script by looking at the number of unique font names that are associated with requests for each script.
+            This is not a perfect method but it gives us a rough estimate of the number of fonts that exist for each script that are actually being used on the web.
+        </p>
 
         <h3>Exposure v.s. Support</h3>
         <!-- TODO: THIS NEEDS TO BE ADDED TO THE PIPELINE -->
