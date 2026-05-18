@@ -43,6 +43,103 @@
             border-radius: 4px;
             margin: 20px 0;
         }
+
+        /* Methodology pipeline diagram */
+        .pipeline {
+            margin: 24px 0 32px;
+            padding: 24px;
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        .pipeline-row {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .pipeline-row-four {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+        .pipeline-card {
+            padding: 14px 18px;
+            border: 1px solid #c0c0c0;
+            border-radius: 6px;
+            background: white;
+            text-align: center;
+            max-width: 720px;
+        }
+        .pipeline-label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+            font-size: 13px;
+            letter-spacing: 0.02em;
+        }
+        .pipeline-content {
+            font-size: 12px;
+            color: #666;
+        }
+        .signal-card {
+            padding: 12px 14px;
+            border: 2px solid #c0c0c0;
+            border-radius: 6px;
+            background: white;
+            text-align: center;
+        }
+        .signal-name {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        .signal-desc {
+            font-size: 11px;
+            color: #555;
+            line-height: 1.4;
+        }
+        .pipeline-arrow-down {
+            text-align: center;
+            color: #888;
+            font-size: 22px;
+            margin: 10px 0 6px;
+            line-height: 1;
+        }
+        .arrow-label {
+            font-size: 11px;
+            color: #888;
+            margin-left: 8px;
+            vertical-align: middle;
+            font-style: italic;
+            letter-spacing: 0.02em;
+        }
+        .sss-formula {
+            padding: 16px 20px;
+            border: 2px solid #007bff;
+            border-radius: 6px;
+            background: #e7f1ff;
+            text-align: center;
+            min-width: 70%;
+        }
+        .sss-label {
+            font-weight: 700;
+            color: #0056b3;
+            margin-bottom: 6px;
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .sss-code {
+            font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+            font-size: 13px;
+            color: #003d80;
+            background: none;
+            display: block;
+        }
+        @media (max-width: 700px) {
+            .pipeline-row-four { grid-template-columns: 1fr 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -61,8 +158,75 @@
         <p>For visualizations that cannot be found on this page they can be accessed through XXXXXXXX</p>
         <p>This GitHub Page is routinely built monthly and only hosts the most recent research findings.</p>
 
-        <h2>Methodology? </h2>
-        <p>If incorporating this into each section idk if this will be necessary</p>
+        <h2>Methodology</h2>
+        <p>
+            The Script Servedness Score (SSS) is a weighted composite of four
+            independent signals — each computed from its own data source,
+            min-max normalized to <code>[0, 1]</code>, and combined into a single
+            rank that reflects the gap between a script's demand and its supply.
+        </p>
+
+        <div class="pipeline">
+            <div class="pipeline-row">
+                <div class="pipeline-card">
+                    <div class="pipeline-label">Data Sources</div>
+                    <div class="pipeline-content">HTTP Archive · CRUX · Google Fonts · fontTools · ViT-B/16</div>
+                </div>
+            </div>
+
+            <div class="pipeline-arrow-down">↓</div>
+
+            <div class="pipeline-row pipeline-row-four">
+                <div class="signal-card" style="border-color:#3B8BD4; background:#f1f7fc;">
+                    <div class="signal-name" style="color:#2A6BAB;">Exposure</div>
+                    <div class="signal-desc">font requests per script across the top 10M sites</div>
+                </div>
+                <div class="signal-card" style="border-color:#1D9E75; background:#f0faf5;">
+                    <div class="signal-name" style="color:#157955;">Support</div>
+                    <div class="signal-desc">distinct font families per script (Google Fonts)</div>
+                </div>
+                <div class="signal-card" style="border-color:#E24B4A; background:#fdf2f2;">
+                    <div class="signal-name" style="color:#B0383A;">Complexity</div>
+                    <div class="signal-desc">0.50·E + 0.30·V + 0.20·F<br><span style="color:#888;">glyph count · vertical footprint · OpenType shaping</span></div>
+                </div>
+                <div class="signal-card" style="border-color:#EF9F27; background:#fdf7eb;">
+                    <div class="signal-name" style="color:#B8741A;">Diversity</div>
+                    <div class="signal-desc">mean pairwise cosine distance of ViT-B/16 font fingerprints</div>
+                </div>
+            </div>
+
+            <div class="pipeline-arrow-down">↓<span class="arrow-label">min-max normalize to [0, 1]</span></div>
+
+            <div class="pipeline-row">
+                <div class="sss-formula">
+                    <div class="sss-label">Script Servedness Score</div>
+                    <code class="sss-code">SSS = −log(exposure) + log(support) − complexity − (1 − diversity)</code>
+                </div>
+            </div>
+
+            <div class="pipeline-arrow-down">↓</div>
+
+            <div class="pipeline-row">
+                <div class="pipeline-card">
+                    <div class="pipeline-label">K-Means Tier Clustering</div>
+                    <div class="pipeline-content">k = 2..5 chosen automatically by silhouette score · features standardized via <code>StandardScaler</code></div>
+                </div>
+            </div>
+        </div>
+
+        <p>
+            <strong>Component details:</strong>
+        </p>
+        <ul>
+            <li><strong>Exposure</strong> — aggregated from HTTP Archive web-crawl request data, ranked by CRUX. Counts font requests per script across the top 10M websites, then log-scaled.</li>
+            <li><strong>Support</strong> — distinct font families per script from Google Fonts (Chinese variants merged into Han), supplemented by cleaned HTTP Archive font-name metadata. Log-scaled.</li>
+            <li><strong>Complexity</strong> — a fontTools-based composite combining (1) <em>Expansion</em> — required glyph count; (2) <em>Vertical footprint</em> — layout/sizing requirements; (3) <em>Friction</em> — OpenType feature load across contextual joining, Indic conjuncts, ligatures, mark positioning, and RTL. Weighted 50/30/20.</li>
+            <li><strong>Diversity</strong> — render 10 standardized reference glyphs per script in each font, embed via a frozen pretrained ViT-B/16, average per font for a "font fingerprint", then take the mean pairwise cosine distance across fingerprints within a script.</li>
+        </ul>
+
+        <p>
+            A <strong>high SSS</strong> means the script is well served — readership demand is matched by ample, visually varied fonts that are technically feasible to produce. A <strong>low SSS</strong> means the opposite: demand outpaces supply, the engineering bar is high, and what fonts do exist tend to look alike.
+        </p>
 
         <h2>Data Sources</h2>
         <p>The Script Gap relies on several data sources to provide a comprehensive analysis of script support in digital typography:</p>
