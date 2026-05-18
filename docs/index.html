@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -140,6 +141,81 @@
         @media (max-width: 700px) {
             .pipeline-row-four { grid-template-columns: 1fr 1fr; }
         }
+
+        
+
+        /* Base Card Styling */
+        .team-card {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        padding: 30px;
+        width: 224px;
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover Effect for the whole card */
+        .team-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Avatar Image */
+        .team-card .avatar-container {
+        margin-bottom: 20px;
+        }
+
+        .team-card .avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #f0f2f5;
+        }
+
+        /* Name and Role */
+        .team-card .name {
+        font-size: 1.4rem;
+        color: #333333;
+        margin: 0 0 5px 0;
+        }
+
+        .team-card .role {
+        font-size: 0.95rem;
+        color: #777777;
+        margin: 0 0 20px 0;
+        }
+
+        /* Social Box and Icons */
+        .team-card .social-box {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        }
+
+        .team-card .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #f0f2f5;
+        color: #555555;
+        font-size: 1.1rem;
+        text-decoration: none;
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+
+        /* Hover effects for individual icons */
+        .team-card .social-icon:hover {
+        background-color: #007bff;
+        color: #ffffff;
+        transform: scale(1.1);
+        }
+
     </style>
 </head>
 <body>
@@ -341,14 +417,80 @@
         <p>Ben Sawyer Lab: EMAIL GO HERE</p>
         <p>The Readability Consortium: EMAIL GO HERE</p>
         <h3>Authored By:</h3>
-        <!-- Might wanna eventually have another page for authors/collaborators/researchers on the project -->
-        <!-- Right now since theres only four i feel like this could be good at the end -->
-        <p>Might want to put like little boxes in here with our faces and socials</p>
-        <!-- like this place: https://almanac.httparchive.org/en/2025/contributors -->
-        <p>Lou Vaughn: loujvaughn@gmail.com | https://github.com/loujvaughn | https://www.linkedin.com/in/lou-vaughn/</p>
-        <p>Aditya Khadye: EMAIL GO HERE | https://github.com/Aditya-Khadye</p>
-        <p>Beamlak</p>
-        <p>Yihan</p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 20px; justify-content: center;">
+            <!-- LOU -->
+            <div class="team-card">
+                <div class="avatar-container">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQG1B5msP1gKGg/profile-displayphoto-crop_800_800/B4EZhCAWTVGwAI-/0/1753454045122?e=1780531200&v=beta&t=hn3G_KUAo2wNvSI55airQzNdV8helQGiLqbPPb0xmHs" alt="Collaborator Name" class="avatar">
+                </div>
+                <h2 class="name">Lou Vaughn</h2>
+                <p class="role">Cloud Architect / Developer</p>
+                
+                <div class="social-box">
+                    <!-- Portfolio website is still a WIP  -->
+                    <!-- <a href="#" class="social-icon" aria-label="Website" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-globe"></i>
+                    </a> -->
+                    <a href="https://www.linkedin.com/in/lou-vaughn/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/ljvaughn0841" class="social-icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- ADITYA -->
+             <div class="team-card">
+                <div class="avatar-container">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQEQHY0SjNu3Aw/profile-displayphoto-shrink_800_800/B4EZazLwp0HIAc-/0/1746762927117?e=1780531200&v=beta&t=ampsXbIsFXvzYwUL-i2zOp-3rKX_d4AwCixQE2sjmwk" alt="Collaborator Name" class="avatar">
+                </div>
+                <h2 class="name">Aditya Khadye</h2>
+                <p class="role">Lead ML Engineer/Researcher</p>
+                
+                <div class="social-box">
+                    <a href="https://aditya-khadye.github.io/" class="social-icon" aria-label="Website" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-globe"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/akhadye/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/Aditya-Khadye" class="social-icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- BEAMLAK -->
+             <div class="team-card">
+                <div class="avatar-container">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQEEFULz1Q4w5Q/profile-displayphoto-crop_800_800/B4EZtSoMbbGkAI-/0/1766617828236?e=1780531200&v=beta&t=Rv1e4_wYDlrEczmmvMsw_h987LhP8PKUqgNZXjDwoTk" alt="Collaborator Name" class="avatar">
+                </div>
+                <h2 class="name">Beamlak Ayele</h2>
+                <p class="role">Analyst</p>
+                
+                <div class="social-box">
+                    <a href="https://www.linkedin.com/in/beamlak-ayele/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- YIHAN -->
+             <div class="team-card">
+                <div class="avatar-container">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQG-hl-EhAt95g/profile-displayphoto-crop_800_800/B4EZmiZVzmK0AM-/0/1759366176814?e=1780531200&v=beta&t=a25gxdbWE87z8M66Y9p5rCLqpTUJH-7AiItXuEy3neY" alt="Collaborator Name" class="avatar">
+                </div>
+                <h2 class="name">Yihan Wang</h2>
+                <p class="role">AI Model Developer</p>
+                
+                <div class="social-box">
+                    <a href="https://www.linkedin.com/in/yihanwangucf/" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
