@@ -291,7 +291,7 @@
         </div>
 
         <p>
-            <strong>Component details: <span style="color: red;">DO WE NEED THIS HERE ANYMORE??? BC OF METHODOLOGY ABOVE</span></strong>
+            <strong>Component details:</strong>
         </p>
         <ul>
             <li><strong>Exposure</strong> — aggregated from HTTP Archive web-crawl request data, ranked by CRUX. Counts font requests per script across the top 10M websites, then log-scaled.</li>
@@ -313,6 +313,7 @@
         </ul>
 
         <h2>Feature Research</h2>
+        <strong><span style="color: red;">DO WE NEED THIS HERE ANYMORE??? BC OF METHODOLOGY ABOVE</span></strong>
         <p>
             Script Servedness can be broken down into a few key components:
             <ul>
@@ -354,27 +355,32 @@
             Support is measured by evaluating the number of fonts available for each script.
             Ideally we would only want to use reliable data sources for this, such as font foundries like Google Fonts, Adobe Fonts, and independent foundries that have a strong web presence.
             However, since there is no comprehensive database of fonts and their supported scripts currently and we only had Google Fonts data we had to make do.
-            For some parts of the research we only use the reliable google data, but for other parts we had to use a combination of google fonts data and estimations based on the HTTP Archive data.
+            <br /><br />
+            For the main parts of the research we only use the reliable google data, but for other parts (for example the state of the web) we had to use a combination of google fonts data and estimations based on the HTTP Archive data.
             The HTTP Archive's font name metadata is very messy and unreliable as the font names are not consistently labeled the same way, 
             but after a decent bit of cleaning we can estimate the number of fonts for each script by looking at the number of unique font names that are associated with requests for each script.
+
             This is not a perfect method but it gives us a rough estimate of the number of fonts that exist for each script that are actually being used on the web.
         </p>
 
-        <h3>Exposure v.s. Support</h3>
+        <h3>State of Fonts on the Web</h3>
         <!-- TODO: THIS NEEDS TO BE ADDED TO THE PIPELINE -->
         <!-- TODO: HAVE THE VISUALIZATIONS NEEDED FOR THE REPORT AUTOMATICALLY SAVE IN ./docs/viz/ -->
+        <p>
+            This visualization is generated from the number of requests found on the HTTP Archive 
+            as well as an estimation of the number of fonts for each script.
+
+            The distinct font count estimation is based off of the unique font names from the HTTP Archive after organizing and cleaning them and merging this information with the reliable font support data we have on Google Fonts.
+        </p>
         <iframe src="./viz/bar_chart.html" title="Scripts by Requests vs Font Count"></iframe>
 
         
         <h3>Complexity</h3>
-        <p>Technical complexity overview and architectural details.</p>
-        <p>Include details about the methodology and how the data was gathered</p>
+        <p><span style="color: red;">Technical complexity overview and architectural details.</span></p>
+        <p><span style="color: red;">Include details about the methodology and how the data was gathered.</span></p>
 
 
         <h3>Similarity</h3>
-        <p>Related projects and comparative analysis.</p>
-
-        <p>Similarity feature calculation details and explanations on methodology.</p>
         
         <p>
             The similarity score is calculated by analyzing the visual similarity between fonts within each script.
@@ -430,21 +436,43 @@
 
         
         <h2>Final Findings Summary</h2>
-        <iframe src="./viz/heatmap.html" title="Script Servedness Score Heatmap"></iframe>
-        <p>Final research results and conclusions s.</p>
-        <p>Talk about how final results were calculated and what they reveal / mean.</p>
-        <h2>Future Work</h2>
-        <p>Planned enhancements and directions for future research.</p>
+        <p>To review the script servedness score is calculated as:</p>
+        <p><code>SSS = −log(exposure) + log(support) − complexity − (1 − diversity)</code></p>
 
+
+        <iframe src="./viz/heatmap.html" title="Script Servedness Score Heatmap"></iframe>
+        <p><span style="color: red;">Final research results and conclusions.</span></p>
+        <p><span style="color: red;">Talk about how final results were calculated and what they reveal / mean.</span></p>
+        
+        <p>We found the Devanagari script to be the least well served due the high development complexity and limited choices due to the similarity of desgins in it's fonts.</p>
+        <p>Web Exposure representing demand and Font Support representing supply of fonts for each script is correlated in most cases.</p>
+        <p>The font supply here is limited to the reliable Google Data and 
+            the results of our final font support metrics varies between 
+            the state of the web's Distinct Font Count and the Font Support 
+            based on available data from Google Fonts.
+        </p>
+
+        <p>On the other hand Katakana is the best served script due to its wide availability and diverse font options.</p>
+        
+        <h2>Future Work</h2>
+        <p>
+            Future research directions include:
+            <ul>
+                <li>Expanding the font database to include more foundries and independent type designers to get a more comprehensive view of font availability for each script and script similarity.</li>
+                <li>Conducting user studies to validate the Script Servedness Score against real-world user experiences as well as the accuracy of the similarity metrics.</li>
+                <li>Further organization of the pipeline and deployment of automated workflows.</li>
+                <li>Growing the scope of the research to include more scripts and languages.</li>
+            </ul>
+        </p>
         <h2>Contributing</h2>
-        <p>Guidelines for contributing to the project.</p>
+        <p><span style="color: red;">Guidelines for contributing to the project.</span></p>
 
         <h2>License</h2>
-        <p>License information.</p>
+        <p><span style="color: red;">License information.</span></p>
 
         <h2>Contact</h2>
-        <p>Ben Sawyer Lab: EMAIL GO HERE</p>
-        <p>The Readability Consortium: EMAIL GO HERE</p>
+        <p><span style="color: red;">Ben Sawyer Lab: EMAIL GO HERE</span></p>
+        <p><span style="color: red;">The Readability Consortium: EMAIL GO HERE</span></p>
         <h3>Authored By:</h3>
 
         <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 20px; justify-content: center;">
