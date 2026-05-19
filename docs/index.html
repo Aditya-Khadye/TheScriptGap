@@ -231,7 +231,7 @@
         
         <h2>Getting Started</h2>
         <p>Many of the visualizations are interactive and can be explored on this Github Page.</p>
-        <p>For visualizations that cannot be found on this page they can be accessed through XXXXXXXX</p>
+        <p>For visualizations that cannot be found on this page they can be accessed through <span style="color: red;">XXXXXXXX</span></p>
         <p>This GitHub Page is routinely built monthly and only hosts the most recent research findings.</p>
 
         <h2>Methodology</h2>
@@ -291,7 +291,7 @@
         </div>
 
         <p>
-            <strong>Component details:</strong>
+            <strong>Component details: <span style="color: red;">DO WE NEED THIS HERE ANYMORE??? BC OF METHODOLOGY ABOVE</span></strong>
         </p>
         <ul>
             <li><strong>Exposure</strong> — aggregated from HTTP Archive web-crawl request data, ranked by CRUX. Counts font requests per script across the top 10M websites, then log-scaled.</li>
@@ -388,20 +388,41 @@
         <!-- It looks like gephi lite can have node images https://docs.gephi.org/lite/user-manual/differences-with-gephi#node-images -->
         <!-- We definitely should replace the current plotly visualization entirely with gephi.
          It's just better. Also it has html support so we can include it here just as easily as plotly. -->
-         <p>INSERT NETWORKS RESEARCH EXAMPLE HERE. (I'm hoping to make a better one in gephi lite before this report goes public but if I can't just throw one of the previously made ones in here)</p>
+
+         <!-- I've started by adding a gephi example for the Arabian script. 
+              This network development process still needs to be organized in the pipeline for all scripts 
+              using gephi lite (gexf files) instead of plotly. -->
+        <!-- Also we still need to add images to the nodes. Images need to be hosted on github or some other CORS-enabled domain -->
+        <!-- Also we could include the URL to the actual font where you could look at the fonts in more detail from the type foundries website.  -->
+         <h3>Arabian Script Font Similarity Network</h3>
+         <p>A font network diagram can be used to visualize the relationships between different fonts within a script.
+            The network makes it easy to tell what fonts are visually distinctive and can be utilized as a tool for finding unique typographic styles to grow upon.
+        </p>
+
+        <p>In this network diagram, each node represents a font supporting Arabic, and the edges between nodes represent the visual similarity between those fonts based on their fingerprints. 
+            The thickness of the edges indicates the degree of similarity, with thicker edges representing higher similarity. 
+            By analyzing this network, we can identify clusters of visually similar fonts as well as outliers that may offer unique typographic styles.</p>
+
+        <p>
+            The nodes are colored based on their modularity class, which is determined by the Louvain community detection algorithm.
+            In this example, we can see 4 distinct clusters of fonts.
+            The red and green clusters are the largest and demonstrate the main typographic styles for Arabic fonts, while the blue and purple clusters are smaller and contain more unique fonts that may be visually distinct from the main styles.
+            <ul>
+                <li>Red cluster: traditional handwritten style with more calligraphic features and sharpness.</li>
+                <li>Green cluster: modern style with smoother curves.</li>
+                <li>Blue cluster: outliers in style containing unique characteristics.</li>
+            </ul>
+        </p>
          <iframe
             width="100%"
             height="600px"
             allowfullscreen="true"
-            src="https://lite.gephi.org/?file=https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/font_network_example.gexf"
-         />
-         <p>The network diagrams can be used to visualize the relationships between different fonts within a script.
-            The network makes it easy to tell what fonts are visually distinctive and can be utilized as a tool for finding unique typographic styles to grow upon.
-         </p>
+            src="https://lite.gephi.org/?file=https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/font_network_example.gexf"></iframe>
 
+        
         <h2>Final Findings Summary</h2>
         <iframe src="./viz/heatmap.html" title="Script Servedness Score Heatmap"></iframe>
-        <p>Final research results and conclusions.</p>
+        <p>Final research results and conclusions s.</p>
         <p>Talk about how final results were calculated and what they reveal / mean.</p>
 
         <h2>Future Work</h2>
