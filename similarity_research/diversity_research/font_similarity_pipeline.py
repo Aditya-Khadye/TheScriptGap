@@ -32,6 +32,8 @@ from script_diversity_vit_100 import REFERENCE_CHARS, get_flat_reference_chars
 
 from sklearn.preprocessing import QuantileTransformer
 
+import networkx as nx
+
 # ---------------------------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------------------------
@@ -39,6 +41,8 @@ from sklearn.preprocessing import QuantileTransformer
 GOOGLE_FONTS_DIR = Path("./fonts")
 OUTPUT_DIR = Path("./font_similarity_outputs/full_font_similarity_pairs")
 EMBEDDINGS_DIR = OUTPUT_DIR / "embeddings"
+IMAGE_DIR = OUTPUT_DIR / "glyph_images"
+NETWORK_DIR = OUTPUT_DIR / "network_files"
 
 CANVAS_SIZE = 224
 FONT_RENDER_SIZE = 160
@@ -56,6 +60,17 @@ TARGET_SCRIPTS = {
     "Bengali":     [(0x0980, 0x09FF)],
     "Tamil":       [(0x0B80, 0x0BFF)],
     "Telugu":      [(0x0C00, 0x0C7F)],
+}
+
+REPRESENTATION_CHARACTER = {
+    "Cyrillic": "Ж",
+    "Katakana": "カ",
+    "Devanagari": "क",
+    "Arabic": "ق",
+    "Han": "永",
+    "Bengali": "ক",
+    "Tamil": "கீ",
+    "Telugu": "అ",
 }
 
 logging.basicConfig(
@@ -109,8 +124,34 @@ class ViTFeatureExtractor:
         return np.vstack(all_embeddings)
 
 
+def save_edges_to_gexf(df: pd.DataFrame, script_name: str, output_path: str = "graph.gexf") -> None:
+    """
+    Convert an edge dataframe to a GEXF graph file.
+
+    Args:
+        df: DataFrame with columns: source, target, similarity, similarity_normalized
+        script_name: Name of the script for which to save the graph
+        output_path: Path to save the .gexf file
+    """
+    G = nx.from_pandas_edgelist(
+        df,
+        source="source",
+        target="target",
+        edge_attr=["similarity", "similarity_normalized"],
+        create_using=nx.Graph()
+    )
+
+    GITHUB_BASE = "https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images"
+
+    for node in G.nodes():
+        G.nodes[node]["image_url"] = f"{GITHUB_BASE}/{script_name}/{node}.png"
+
+    nx.write_gexf(G, output_path)
+    print(f"Graph saved to {output_path}: {G.number_of_nodes()} nodes, {G.number_of_edges()} edges")
+
 def render_glyph(
     font_path: str,
+    script_name: str,
     character: str,
     canvas_size: int = CANVAS_SIZE,
     font_size: int = FONT_RENDER_SIZE,
@@ -129,6 +170,15 @@ def render_glyph(
         x = (canvas_size - text_width) // 2 - bbox[0]
         y = (canvas_size - text_height) // 2 - bbox[1]
         draw.text((x, y), character, font=pil_font, fill=0)
+
+        # print(f"Rendered '{character}' from {font_path}")
+        # TODO: IF THE IMAGE IS A CERTAIN GLYPH WE WANT. SAVE THE IMAGE TO A FOLDER OF IMAGES FOR THE NETWORK VIZUALIZATION
+        if character in REPRESENTATION_CHARACTER.values(): # Save images of representation characters for network visualization
+            print(f"Saving rendered image for '{character}' from {font_path} for network visualization")
+            output_image_path = IMAGE_DIR / f"{script_name}" / f"{Path(font_path).stem.split('[', 1)[0]}.png"
+            img.save(output_image_path)
+            logger.info(f"Saved rendered glyph image → {output_image_path}")
+            
         return img
     except Exception as e:
         logger.debug(f"Could not render '{character}' from {font_path}: {e}")
@@ -215,7 +265,7 @@ def compute_font_average_embeddings(
             skipped_chars_support += 1
             continue
         
-        glyph_images = [render_glyph(font_path, char) for char in supported]
+        glyph_images = [render_glyph(font_path, script_name, char) for char in supported]
         glyph_images = [img for img in glyph_images if img is not None]
         
         if len(glyph_images) < min_glyphs:
@@ -330,6 +380,8 @@ def main() -> pd.DataFrame:
         sys.exit(1)
     OUTPUT_DIR.mkdir(exist_ok=True)
     EMBEDDINGS_DIR.mkdir(exist_ok=True)
+    NETWORK_DIR.mkdir(exist_ok=True)
+    IMAGE_DIR.mkdir(exist_ok=True)
 
     logger.info(f"Running font similarity pipeline for script: {args.script}")
     results = run_font_similarity_pipeline(GOOGLE_FONTS_DIR, args.script, args.max_fonts, args.device)
@@ -341,8 +393,14 @@ def main() -> pd.DataFrame:
 
     print(results.head())
 
+    # Remove weaker similarities below 0.5 threshold (tune as needed)
+    results = results[results["similarity_normalized"] >= 0.5]
+
     output_file = OUTPUT_DIR / f"font_similarity_pairs_{args.script}.csv"
     results.to_csv(output_file, index=False)
+
+    save_edges_to_gexf(results, args.script, output_path=NETWORK_DIR / f"font_similarity_pairs_{args.script}.gexf")
+
     logger.info(f"Saved pairwise similarity CSV → {output_file}")
     return results
 
