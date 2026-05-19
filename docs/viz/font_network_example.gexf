@@ -16,7 +16,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="160.8695652173913"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Alexandria.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Alexandria.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="160.8695652173913"/>
         <viz:position x="-3935.312" y="-1546.3654"/>
@@ -25,7 +25,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="2"/>
           <attvalue for="rawSize" value="110.32608695652173"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Alkalami-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Alkalami-Regular.png"/></attvalues>
         <viz:color r="226" g="91" b="189"/>
         <viz:size value="110.32608695652173"/>
         <viz:position x="-2725.1926" y="1372.6589"/>
@@ -34,7 +34,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="146.19565217391303"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Almarai-Bold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Almarai-Bold.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="146.19565217391303"/>
         <viz:position x="-4913.27" y="-2080.1743"/>
@@ -43,7 +43,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="126.63043478260869"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Almarai-ExtraBold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Almarai-ExtraBold.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="126.63043478260869"/>
         <viz:position x="-5286.491" y="-1479.9741"/>
@@ -52,7 +52,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="134.7826086956522"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Almarai-Light.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Almarai-Light.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="134.7826086956522"/>
         <viz:position x="-3665.8008" y="-5205.2266"/>
@@ -61,7 +61,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="144.56521739130434"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Almarai-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Almarai-Regular.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="144.56521739130434"/>
         <viz:position x="-4878.6323" y="-3170.137"/>
@@ -70,7 +70,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="2"/>
           <attvalue for="rawSize" value="182.06521739130434"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Alyamama.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Alyamama.png"/></attvalues>
         <viz:color r="226" g="91" b="189"/>
         <viz:size value="182.06521739130434"/>
         <viz:position x="-234.71097" y="-2211.813"/>
@@ -79,7 +79,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="144.56521739130434"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Amiri-Bold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Amiri-Bold.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="144.56521739130434"/>
         <viz:position x="636.64996" y="1672.7867"/>
@@ -88,7 +88,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="144.56521739130434"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Amiri-BoldItalic.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Amiri-BoldItalic.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="144.56521739130434"/>
         <viz:position x="594.4158" y="672.41113"/>
@@ -97,7 +97,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="147.82608695652175"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Amiri-Italic.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Amiri-Italic.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="147.82608695652175"/>
         <viz:position x="1649.7196" y="-1573.9159"/>
@@ -106,7 +106,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="147.82608695652175"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Amiri-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Amiri-Regular.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="147.82608695652175"/>
         <viz:position x="1869.7966" y="-888.18286"/>
@@ -115,7 +115,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="147.82608695652175"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/AmiriQuran-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/AmiriQuran-Regular.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="147.82608695652175"/>
         <viz:position x="2339.9087" y="-540.87"/>
@@ -124,7 +124,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="121.73913043478261"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/ArefRuqaa-Bold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/ArefRuqaa-Bold.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="121.73913043478261"/>
         <viz:position x="2231.169" y="2820.3735"/>
@@ -133,7 +133,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="118.47826086956522"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/ArefRuqaa-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/ArefRuqaa-Regular.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="118.47826086956522"/>
         <viz:position x="4647.5957" y="-196.43117"/>
@@ -142,7 +142,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="121.73913043478261"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/ArefRuqaaInk-Bold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/ArefRuqaaInk-Bold.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="121.73913043478261"/>
         <viz:position x="3502.3953" y="1675.4735"/>
@@ -151,7 +151,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="118.47826086956522"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/ArefRuqaaInk-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/ArefRuqaaInk-Regular.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="118.47826086956522"/>
         <viz:position x="4632.4116" y="461.7914"/>
@@ -160,7 +160,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="50"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/BadeenDisplay-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/BadeenDisplay-Regular.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="50"/>
         <viz:position x="-5109.5957" y="9539.556"/>
@@ -169,7 +169,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="154.3478260869565"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/BalooBhaijaan2.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/BalooBhaijaan2.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="154.3478260869565"/>
         <viz:position x="-1955.3315147887906" y="-3360.580641432078"/>
@@ -178,7 +178,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="134.7826086956522"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Beiruti.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Beiruti.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="134.7826086956522"/>
         <viz:position x="-4353.2534" y="-4321.242"/>
@@ -187,7 +187,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="51.630434782608695"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Blaka-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Blaka-Regular.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="51.630434782608695"/>
         <viz:position x="2949.604" y="-8458.493"/>
@@ -196,7 +196,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="50"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/BlakaHollow-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/BlakaHollow-Regular.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="50"/>
         <viz:position x="-3112.3694" y="8626.357"/>
@@ -205,7 +205,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="51.630434782608695"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/BlakaInk-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/BlakaInk-Regular.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="51.630434782608695"/>
         <viz:position x="6095.7104" y="-5677.5376"/>
@@ -214,7 +214,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="152.7173913043478"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/BonaNova-Bold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/BonaNova-Bold.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="152.7173913043478"/>
         <viz:position x="817.25226" y="367.0965"/>
@@ -223,7 +223,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="120.1086956521739"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/BonaNova-Italic.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/BonaNova-Italic.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="120.1086956521739"/>
         <viz:position x="2330.7114" y="-2332.124"/>
@@ -232,7 +232,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="169.02173913043478"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/BonaNova-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/BonaNova-Regular.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="169.02173913043478"/>
         <viz:position x="987.8688" y="-1841.8358"/>
@@ -241,7 +241,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="152.7173913043478"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/BonaNovaSC-Bold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/BonaNovaSC-Bold.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="152.7173913043478"/>
         <viz:position x="527.83905" y="1202.2759"/>
@@ -250,7 +250,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="120.1086956521739"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/BonaNovaSC-Italic.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/BonaNovaSC-Italic.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="120.1086956521739"/>
         <viz:position x="2862.641" y="-1953.5116"/>
@@ -259,7 +259,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="169.02173913043478"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/BonaNovaSC-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/BonaNovaSC-Regular.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="169.02173913043478"/>
         <viz:position x="925.30896" y="-1268.8707"/>
@@ -268,7 +268,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="125"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Cairo.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Cairo.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="125"/>
         <viz:position x="-5890.154" y="-3871.7092"/>
@@ -277,7 +277,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="125"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/CairoPlay.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/CairoPlay.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="125"/>
         <viz:position x="-5525.948" y="-4441.859"/>
@@ -286,7 +286,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="97.28260869565217"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Cardo-Bold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Cardo-Bold.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="97.28260869565217"/>
         <viz:position x="713.633" y="2677.806"/>
@@ -295,7 +295,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="95.65217391304347"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Cardo-Italic.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Cardo-Italic.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="95.65217391304347"/>
         <viz:position x="1511.0883" y="2275.2637"/>
@@ -304,7 +304,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="94.02173913043478"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Cardo-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Cardo-Regular.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="94.02173913043478"/>
         <viz:position x="134.89792" y="2305.2732"/>
@@ -313,7 +313,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="172.2826086956522"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/CascadiaCode.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/CascadiaCode.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="172.2826086956522"/>
         <viz:position x="-3020.877" y="-774.3013"/>
@@ -322,7 +322,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="172.2826086956522"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/CascadiaMono.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/CascadiaMono.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="172.2826086956522"/>
         <viz:position x="-3417.49" y="-1330.4874"/>
@@ -331,7 +331,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="125"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Changa.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Changa.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="125"/>
         <viz:position x="-5018.7393" y="-3991.0698"/>
@@ -340,7 +340,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="146.19565217391303"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/ElMessiri.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/ElMessiri.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="146.19565217391303"/>
         <viz:position x="-4389.8228" y="-2481.0615"/>
@@ -349,7 +349,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="154.3478260869565"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Fustat.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Fustat.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="154.3478260869565"/>
         <viz:position x="-3887.8477" y="-3103.3948"/>
@@ -358,7 +358,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="121.73913043478261"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Gulzar-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Gulzar-Regular.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="121.73913043478261"/>
         <viz:position x="3073.4836" y="1304.8414"/>
@@ -367,7 +367,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="51.630434782608695"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Handjet.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Handjet.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="51.630434782608695"/>
         <viz:position x="-4867.233" y="6801.4062"/>
@@ -376,7 +376,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="190.2173913043478"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Harmattan-Bold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Harmattan-Bold.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="190.2173913043478"/>
         <viz:position x="-1792.7072" y="-24.589886"/>
@@ -385,7 +385,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="200"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Harmattan-Medium.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Harmattan-Medium.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="200"/>
         <viz:position x="-1519.7369" y="-961.5318"/>
@@ -394,7 +394,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="195.1086956521739"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Harmattan-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Harmattan-Regular.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="195.1086956521739"/>
         <viz:position x="-1258.9973" y="-1274.4873"/>
@@ -403,7 +403,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="195.1086956521739"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Harmattan-SemiBold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Harmattan-SemiBold.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="195.1086956521739"/>
         <viz:position x="-1705.3412" y="-586.80597"/>
@@ -412,7 +412,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="164.1304347826087"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/IBMPlexSansArabic-Bold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/IBMPlexSansArabic-Bold.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="164.1304347826087"/>
         <viz:position x="-3587.5894" y="-316.40167"/>
@@ -421,7 +421,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="72.82608695652173"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/IBMPlexSansArabic-ExtraLight.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/IBMPlexSansArabic-ExtraLight.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="72.82608695652173"/>
         <viz:position x="-3817.4329" y="-8406.51"/>
@@ -430,7 +430,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="139.67391304347825"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/IBMPlexSansArabic-Light.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/IBMPlexSansArabic-Light.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="139.67391304347825"/>
         <viz:position x="-2548.2986" y="-4745.176"/>
@@ -439,7 +439,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="170.65217391304347"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/IBMPlexSansArabic-Medium.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/IBMPlexSansArabic-Medium.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="170.65217391304347"/>
         <viz:position x="-2623.0479" y="-1810.7052"/>
@@ -448,7 +448,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="162.5"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/IBMPlexSansArabic-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/IBMPlexSansArabic-Regular.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="162.5"/>
         <viz:position x="-2804.3816" y="-2961.849"/>
@@ -457,7 +457,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="169.02173913043478"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/IBMPlexSansArabic-SemiBold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/IBMPlexSansArabic-SemiBold.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="169.02173913043478"/>
         <viz:position x="-3497.204" y="-1016.2588"/>
@@ -466,7 +466,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="58.15217391304348"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/IBMPlexSansArabic-Thin.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/IBMPlexSansArabic-Thin.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="58.15217391304348"/>
         <viz:position x="-3160.0225" y="-15202.071"/>
@@ -475,7 +475,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="2"/>
           <attvalue for="rawSize" value="102.17391304347825"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Jomhuria-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Jomhuria-Regular.png"/></attvalues>
         <viz:color r="226" g="91" b="189"/>
         <viz:size value="102.17391304347825"/>
         <viz:position x="-1731.1946" y="2504.8757"/>
@@ -484,7 +484,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="154.3478260869565"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Katibeh-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Katibeh-Regular.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="154.3478260869565"/>
         <viz:position x="1308.5326" y="-53.58354"/>
@@ -493,7 +493,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="155.97826086956522"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Kufam-Italic.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Kufam-Italic.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="155.97826086956522"/>
         <viz:position x="-3203.281" y="-2115.174"/>
@@ -502,7 +502,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="155.97826086956522"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Kufam.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Kufam.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="155.97826086956522"/>
         <viz:position x="-2813.291" y="-2499.9656"/>
@@ -511,7 +511,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="2"/>
           <attvalue for="rawSize" value="54.891304347826086"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Lalezar-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Lalezar-Regular.png"/></attvalues>
         <viz:color r="226" g="91" b="189"/>
         <viz:size value="54.891304347826086"/>
         <viz:position x="-1853.3724" y="7553.19"/>
@@ -520,7 +520,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="115.21739130434783"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Lateef-Bold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Lateef-Bold.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="115.21739130434783"/>
         <viz:position x="4934.45" y="1183.4482"/>
@@ -529,7 +529,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="108.69565217391303"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Lateef-ExtraBold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Lateef-ExtraBold.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="108.69565217391303"/>
         <viz:position x="4247.5815" y="2792.555"/>
@@ -538,7 +538,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="103.80434782608695"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Lateef-ExtraLight.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Lateef-ExtraLight.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="103.80434782608695"/>
         <viz:position x="3628.707" y="-2899.6653"/>
@@ -547,7 +547,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="125"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Lateef-Light.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Lateef-Light.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="125"/>
         <viz:position x="3745.054" y="-1264.185"/>
@@ -556,7 +556,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="120.1086956521739"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Lateef-Medium.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Lateef-Medium.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="120.1086956521739"/>
         <viz:position x="3729.3296" y="973.9905"/>
@@ -565,7 +565,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="126.63043478260869"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Lateef-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Lateef-Regular.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="126.63043478260869"/>
         <viz:position x="3628.7068" y="-636.5153"/>
@@ -574,7 +574,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="120.1086956521739"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Lateef-SemiBold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Lateef-SemiBold.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="120.1086956521739"/>
         <viz:position x="4173.7305" y="1395.7676"/>
@@ -583,7 +583,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="123.3695652173913"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Lemonada.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Lemonada.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="123.3695652173913"/>
         <viz:position x="-3447.937" y="332.53754"/>
@@ -592,7 +592,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="121.73913043478261"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/LemonadaVFBeta.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/LemonadaVFBeta.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="121.73913043478261"/>
         <viz:position x="-3925.8967" y="78.08527"/>
@@ -601,7 +601,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="103.80434782608695"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Mada.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Mada.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="103.80434782608695"/>
         <viz:position x="-7084.233" y="-2140.4536"/>
@@ -610,7 +610,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="146.19565217391303"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Marhey.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Marhey.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="146.19565217391303"/>
         <viz:position x="-2382.8762" y="-398.76294"/>
@@ -619,7 +619,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="186.95652173913044"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/MarkaziText.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/MarkaziText.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="186.95652173913044"/>
         <viz:position x="-1171.913" y="-2362.026"/>
@@ -628,7 +628,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="185.32608695652172"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/MarkaziText-VF.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/MarkaziText-VF.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="185.32608695652172"/>
         <viz:position x="-650.80005" y="-3163.92"/>
@@ -637,7 +637,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="157.6086956521739"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Mirza-Bold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Mirza-Bold.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="157.6086956521739"/>
         <viz:position x="-214.93039" y="970.1001"/>
@@ -646,7 +646,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="169.02173913043478"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Mirza-Medium.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Mirza-Medium.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="169.02173913043478"/>
         <viz:position x="333.76952158959637" y="-181.93098569355726"/>
@@ -655,7 +655,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="157.6086956521739"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Mirza-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Mirza-Regular.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="157.6086956521739"/>
         <viz:position x="1179.5344" y="-659.91693"/>
@@ -664,7 +664,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="165.76086956521738"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Mirza-SemiBold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Mirza-SemiBold.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="165.76086956521738"/>
         <viz:position x="-88.45922590051272" y="300.64797680042363"/>
@@ -673,7 +673,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="149.45652173913044"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/NotoKufiArabic.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/NotoKufiArabic.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="149.45652173913044"/>
         <viz:position x="-4586.922" y="-3509.635"/>
@@ -682,7 +682,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="185.32608695652172"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/NotoNaskhArabic.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/NotoNaskhArabic.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="185.32608695652172"/>
         <viz:position x="13.130092" y="-728.7861"/>
@@ -691,7 +691,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="188.58695652173913"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/NotoNaskhArabicUI.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/NotoNaskhArabicUI.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="188.58695652173913"/>
         <viz:position x="259.3265" y="-1157.6124"/>
@@ -700,7 +700,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="131.52173913043478"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/NotoNastaliqUrdu.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/NotoNastaliqUrdu.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="131.52173913043478"/>
         <viz:position x="2875.668" y="2117.2104"/>
@@ -709,7 +709,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="175.54347826086956"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/NotoSansArabic.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/NotoSansArabic.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="175.54347826086956"/>
         <viz:position x="-1946.2892" y="-2727.705"/>
@@ -718,7 +718,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="178.80434782608694"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/NotoSansArabicUI.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/NotoSansArabicUI.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="178.80434782608694"/>
         <viz:position x="-2522.0854" y="-1559.6986"/>
@@ -727,7 +727,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="125"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/NotoSansIndicSiyaqNumbers-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/NotoSansIndicSiyaqNumbers-Regular.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="125"/>
         <viz:position x="3485.279" y="2437.7195"/>
@@ -736,7 +736,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="164.1304347826087"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/NotoSansMath-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/NotoSansMath-Regular.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="164.1304347826087"/>
         <viz:position x="-464.358" y="-2616.2598"/>
@@ -745,7 +745,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="67.93478260869566"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/NotoSansSyriac.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/NotoSansSyriac.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="67.93478260869566"/>
         <viz:position x="-11342.85" y="-1715.7075"/>
@@ -754,7 +754,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="66.30434782608695"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/NotoSansSyriacEastern.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/NotoSansSyriacEastern.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="66.30434782608695"/>
         <viz:position x="-11199.767" y="-3579.1"/>
@@ -763,7 +763,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="67.93478260869566"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/NotoSansSyriacWestern.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/NotoSansSyriacWestern.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="67.93478260869566"/>
         <viz:position x="-11371.75" y="-2665.1404"/>
@@ -772,7 +772,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="2"/>
           <attvalue for="rawSize" value="111.95652173913044"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/NotoSansThaana.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/NotoSansThaana.png"/></attvalues>
         <viz:color r="226" g="91" b="189"/>
         <viz:size value="111.95652173913044"/>
         <viz:position x="708.4703" y="-2658.01"/>
@@ -781,7 +781,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="50"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Oi-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Oi-Regular.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="50"/>
         <viz:position x="-6817.27" y="8659.342"/>
@@ -790,7 +790,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="198.36956521739128"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Parastoo.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Parastoo.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="198.36956521739128"/>
         <viz:position x="-188.97037" y="-1513.6653"/>
@@ -799,7 +799,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="144.56521739130434"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/PlaypenSansArabic.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/PlaypenSansArabic.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="144.56521739130434"/>
         <viz:position x="-2399.0842" y="96.16888"/>
@@ -808,7 +808,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="58.15217391304348"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Qahiri-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Qahiri-Regular.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="58.15217391304348"/>
         <viz:position x="-11222.299" y="5604.444"/>
@@ -817,7 +817,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="102.17391304347825"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Rakkas-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Rakkas-Regular.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="102.17391304347825"/>
         <viz:position x="2770.2961" y="3877.2866"/>
@@ -826,7 +826,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="172.2826086956522"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/ReadexPro.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/ReadexPro.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="172.2826086956522"/>
         <viz:position x="-2360.455" y="-1193.4194"/>
@@ -835,7 +835,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="128.26086956521738"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/ReemKufi.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/ReemKufi.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="128.26086956521738"/>
         <viz:position x="-5834.88" y="-2274.959"/>
@@ -844,7 +844,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="128.26086956521738"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/ReemKufiFun.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/ReemKufiFun.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="128.26086956521738"/>
         <viz:position x="-5790.288" y="-2773.4587"/>
@@ -853,7 +853,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="128.26086956521738"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/ReemKufiInk-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/ReemKufiInk-Regular.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="128.26086956521738"/>
         <viz:position x="-5862.941" y="-1761.7634"/>
@@ -862,7 +862,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="142.93478260869563"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Rubik-Italic.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Rubik-Italic.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="142.93478260869563"/>
         <viz:position x="-1232.25186390528" y="-4178.052874984914"/>
@@ -871,7 +871,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="144.56521739130434"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Rubik.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Rubik.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="144.56521739130434"/>
         <viz:position x="-1934.6877" y="-3960.1917"/>
@@ -880,7 +880,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="2"/>
           <attvalue for="rawSize" value="152.7173913043478"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Ruwudu-Bold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Ruwudu-Bold.png"/></attvalues>
         <viz:color r="226" g="91" b="189"/>
         <viz:size value="152.7173913043478"/>
         <viz:position x="-723.42896" y="1358.8008"/>
@@ -889,7 +889,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="2"/>
           <attvalue for="rawSize" value="193.47826086956522"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Ruwudu-Medium.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Ruwudu-Medium.png"/></attvalues>
         <viz:color r="226" g="91" b="189"/>
         <viz:size value="193.47826086956522"/>
         <viz:position x="-966.14655" y="-632.39886"/>
@@ -898,7 +898,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="2"/>
           <attvalue for="rawSize" value="193.47826086956522"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Ruwudu-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Ruwudu-Regular.png"/></attvalues>
         <viz:color r="226" g="91" b="189"/>
         <viz:size value="193.47826086956522"/>
         <viz:position x="-875.3774" y="-1639.655"/>
@@ -907,7 +907,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="2"/>
           <attvalue for="rawSize" value="172.2826086956522"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Ruwudu-SemiBold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Ruwudu-SemiBold.png"/></attvalues>
         <viz:color r="226" g="91" b="189"/>
         <viz:size value="172.2826086956522"/>
         <viz:position x="-1047.5092" y="336.17526"/>
@@ -916,7 +916,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="155.97826086956522"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/ScheherazadeNew-Bold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/ScheherazadeNew-Bold.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="155.97826086956522"/>
         <viz:position x="1127.7621" y="1413.7783"/>
@@ -925,7 +925,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="147.82608695652175"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/ScheherazadeNew-Medium.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/ScheherazadeNew-Medium.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="147.82608695652175"/>
         <viz:position x="1924.6937" y="142.00327"/>
@@ -934,7 +934,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="144.56521739130434"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/ScheherazadeNew-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/ScheherazadeNew-Regular.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="144.56521739130434"/>
         <viz:position x="2740.8599" y="591.45905"/>
@@ -943,7 +943,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="151.08695652173913"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/ScheherazadeNew-SemiBold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/ScheherazadeNew-SemiBold.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="151.08695652173913"/>
         <viz:position x="2040.0726" y="880.0593"/>
@@ -952,7 +952,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="87.5"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Tajawal-Black.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Tajawal-Black.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="87.5"/>
         <viz:position x="-7343.4004" y="-245.85155"/>
@@ -961,7 +961,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="120.1086956521739"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Tajawal-Bold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Tajawal-Bold.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="120.1086956521739"/>
         <viz:position x="-5260.088" y="-670.958"/>
@@ -970,7 +970,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="103.80434782608695"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Tajawal-ExtraBold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Tajawal-ExtraBold.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="103.80434782608695"/>
         <viz:position x="-6300.873" y="-592.85223"/>
@@ -979,7 +979,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="59.78260869565217"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Tajawal-ExtraLight.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Tajawal-ExtraLight.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="59.78260869565217"/>
         <viz:position x="-3038.3086" y="-12984.575"/>
@@ -988,7 +988,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="120.1086956521739"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Tajawal-Light.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Tajawal-Light.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="120.1086956521739"/>
         <viz:position x="-3741.0593" y="-5986.848"/>
@@ -997,7 +997,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="146.19565217391303"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Tajawal-Medium.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Tajawal-Medium.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="146.19565217391303"/>
         <viz:position x="-4860.672" y="-2661.4983"/>
@@ -1006,7 +1006,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="151.08695652173913"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Tajawal-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Tajawal-Regular.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="151.08695652173913"/>
         <viz:position x="-3872.5989" y="-3930.4963"/>
@@ -1015,7 +1015,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="134.7826086956522"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Thabit-Bold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Thabit-Bold.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="134.7826086956522"/>
         <viz:position x="2939.408" y="-291.50635"/>
@@ -1024,7 +1024,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="131.52173913043478"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Thabit-BoldOblique.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Thabit-BoldOblique.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="131.52173913043478"/>
         <viz:position x="1794.0378" y="1878.1166"/>
@@ -1033,7 +1033,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="134.7826086956522"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Thabit-Oblique.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Thabit-Oblique.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="134.7826086956522"/>
         <viz:position x="3516.0483" y="-61.460186"/>
@@ -1042,7 +1042,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="0"/>
           <attvalue for="rawSize" value="138.04347826086956"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Thabit.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Thabit.png"/></attvalues>
         <viz:color r="240" g="82" b="82"/>
         <viz:size value="138.04347826086956"/>
         <viz:position x="2672.146" y="293.7521"/>
@@ -1051,7 +1051,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="180.43478260869566"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Vazirmatn.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Vazirmatn.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="180.43478260869566"/>
         <viz:position x="-1425.1365" y="-2018.6415"/>
@@ -1060,7 +1060,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="82.6086956521739"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Vibes-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Vibes-Regular.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="82.6086956521739"/>
         <viz:position x="-963.9038" y="-7864.95"/>
@@ -1069,7 +1069,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="87.5"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Zain-Black.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Zain-Black.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="87.5"/>
         <viz:position x="-6490.6934" y="569.5192"/>
@@ -1078,7 +1078,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="128.26086956521738"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Zain-Bold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Zain-Bold.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="128.26086956521738"/>
         <viz:position x="-4414.1733" y="-603.7625"/>
@@ -1087,7 +1087,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="103.80434782608695"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Zain-ExtraBold.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Zain-ExtraBold.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="103.80434782608695"/>
         <viz:position x="-5455.949" y="197.52182"/>
@@ -1096,7 +1096,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="1"/>
           <attvalue for="rawSize" value="69.56521739130434"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Zain-ExtraLight.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Zain-ExtraLight.png"/></attvalues>
         <viz:color r="137" g="133" b="225"/>
         <viz:size value="69.56521739130434"/>
         <viz:position x="-2594.339" y="-10551.618"/>
@@ -1105,7 +1105,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="138.04347826086956"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Zain-Italic.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Zain-Italic.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="138.04347826086956"/>
         <viz:position x="-2925.3843" y="-3499.4895"/>
@@ -1114,7 +1114,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="139.67391304347825"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Zain-Light.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Zain-Light.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="139.67391304347825"/>
         <viz:position x="-3145.4578" y="-4434.548"/>
@@ -1123,7 +1123,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="138.04347826086956"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Zain-LightItalic.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Zain-LightItalic.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="138.04347826086956"/>
         <viz:position x="-1865.4037728720714" y="-4459.581766651022"/>
@@ -1132,7 +1132,7 @@
         <attvalues>
           <attvalue for="modularity_class" value="3"/>
           <attvalue for="rawSize" value="133.15217391304347"/>
-        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Zain-Regular.png"/></attvalues>
+        <attvalue for="0" value="https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/network_images/Arabic/Zain-Regular.png"/></attvalues>
         <viz:color r="98" g="161" b="49"/>
         <viz:size value="133.15217391304347"/>
         <viz:position x="-3800.364" y="-2391.5425"/>
