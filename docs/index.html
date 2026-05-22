@@ -327,8 +327,6 @@
             </ul>
         </p>
         <h3>Exposure</h3>
-        <p>Details about the project's exposure and visibility metrics.</p>
-        <p>Include details about the methodology and how the data was gathered</p>
         <p>
             Exposure is calculated by analyzing the HTTP Archive's web crawl request data to measure the real-world usage of different scripts on the web.
             The HTTP Archive collects a variety of data on each font request, including a list of unicodepoints that  can be mapped to their corresponding scripts. 
@@ -347,8 +345,6 @@
         </p>
 
         <h3>Support</h3>
-        <p>Support options, community resources, and documentation links.</p>
-        <p>Include details about the methodology and how the data was gathered</p>
 
         <p>
             Support is measured by evaluating the number of fonts available for each script.
@@ -372,6 +368,13 @@
             The distinct font count estimation is based off of the unique font names from the HTTP Archive after organizing and cleaning them and merging this information with the reliable font support data we have on Google Fonts.
         </p>
         <iframe src="./viz/bar_chart.html" title="Scripts by Requests vs Font Count"></iframe>
+
+        This chart shows the relationship between the number of font requests and the estimated number of distinct fonts for each script.
+        The chart shows how this relationship appears positively correlated across different scripts.
+        The number of requests for each script seems to align with the number of fonts available for each script, suggesting that scripts with higher demand tend to be supplied with more fonts.
+        <br /><br />
+        Where this is chart is useful is in identifying scripts that break this pattern such as Devangari which has a much larger relative font demand than it has supply.
+        This discrepancy between demand and supply for Devangari highlights a potential gap in the availability of fonts for this script, indicating a potential market opportunity for providers to address this shortfall.
 
         
         <h3>Complexity</h3>
@@ -430,9 +433,15 @@
             This allows us to observe more visually how fonts cluster together and verify that the similarity metric is accurate.
         </p>
         <p>
-            In order to see the font images on the nodes: click 'Appearance' -> 'Nodes' then in the 'Images' sections set the image label to image_url.
+            This visual network is also a powerful tool for exploring and understanding the relationships between different styles of fonts within a script.
+            <br /><br />
+            By examining the network, we can identify patterns and trends that may not be immediately apparent from the raw data, such as clusters of fonts that share similar characteristics or fonts that are outliers in terms of their visual style.
+            This can be a powerful tool for typefoundaries to analyze their font offerings for a script and identify areas where they may could benefit from expanding or diversifying their font portfolio.
         </p>
 
+        <p>
+            In order to see the font images on the nodes: click 'Appearance' -> 'Nodes' then in the 'Images' sections set the image label to image_url.
+        </p>
         
         <h2>Final Findings Summary</h2>
         <p>To review the script servedness score is calculated as:</p>
@@ -480,7 +489,7 @@
 
         <h2>Contact</h2>
         <p><span style="color: red;">Ben Sawyer Lab: EMAIL GO HERE</span></p>
-        <p><span style="color: red;">The Readability Consortium: <a href="mailto:team@thereadabilityconsortium.org">team@thereadabilityconsortium.org</a></span></p>
+        <p>The Readability Consortium: <a href="mailto:team@thereadabilityconsortium.org">team@thereadabilityconsortium.org</a></p>
         <h3>Authored By:</h3>
 
         <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 20px; justify-content: center;">
