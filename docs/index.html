@@ -14,26 +14,12 @@
             background-color: #f4f4f4;
         }
         .container {
-            max-width: 1200px;
+            max-width: 2400px;
             margin: 0 auto;
             background-color: white;
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        /* Break out: lets visualizations spread wider than the prose column */
-        .wide {
-            width: calc(100% + 240px);
-            margin-left: -120px;
-            margin-right: -120px;
-            max-width: none;
-        }
-        @media (max-width: 1280px) {
-            .wide {
-                width: 100%;
-                margin-left: 0;
-                margin-right: 0;
-            }
         }
         h1 {
             color: #333;
@@ -49,6 +35,9 @@
             color: #777;
         }
         p {
+            color: #666;
+        }
+        li {
             color: #666;
         }
         iframe {
@@ -242,11 +231,20 @@
             engineering complexity, and visual similarity into a single Script Servedness Score, it surfaces
             the highest-impact gaps and provides a data-driven roadmap for prioritizing script support.
         </p>
+
+        <p>Many of the visualizations are interactive and can be explored on this Github Page.</p>
+        <p>This GitHub Page is routinely built monthly and only hosts the most recent research findings.</p>
         
         <h2>Getting Started</h2>
-        <p>Many of the visualizations are interactive and can be explored on this Github Page.</p>
-        <p>For visualizations that cannot be found on this page they can be accessed <span style="color: red;">by generating the results locally using the instructions in the repository.</span></p>
-        <p>This GitHub Page is routinely built monthly and only hosts the most recent research findings.</p>
+        <p>For results or visualizations that cannot be found on this page they can be accessed by generating the results locally using the instructions in the repository.</p>
+        <p><strong>To quickly run the project using uv:</strong></p>
+        <ul>
+            <li>Clone the repository from GitHub: `<code>git clone https://github.com/Aditya-Khadye/TheScriptGap.git</code>`</li>
+            <li>Run the pipeline: `<code>uv run pipeline.py</code>`.</li>
+        </ul>
+
+        <p>The repository also has instructions for running the project without <code>uv</code> that get into more detail.</p>
+        <p>More detailed instructions can be found in the <a href="https://github.com/Aditya-Khadye/TheScriptGap#the-script-gap" target="_blank">GitHub repository</a>.</p>
 
         <h2>Methodology</h2>
         <p>
@@ -256,7 +254,7 @@
             rank that reflects the gap between a script's demand and its supply.
         </p>
 
-        <div class="pipeline wide">
+        <div class="pipeline">
             <div class="pipeline-row">
                 <div class="pipeline-card">
                     <div class="pipeline-label">Data Sources</div>
@@ -351,11 +349,11 @@
                 <li>The data is collected from the top 10 million websites but only on the origin/homepage domain.</li>
                 <li>Since the data comes from the top global websites, it may not fully represent the usage of scripts in all regions.</li>
             </ul>
-
-            <br />
-            The following treemap visualization breaks down the exposure of different scripts on the web, 
-            with each color representing a script and the box size corresponding to the number of requests made: 
-            <a href="https://bf2d8941-ca90-4ea0-a054-76de36ce5eff.plotly.app" target="_blank">View Interactive TreeMap</a>
+            <p>
+                The following treemap visualization breaks down the exposure of different scripts on the web, 
+                with each color representing a script and the box size corresponding to the number of requests made: 
+                <a href="https://bf2d8941-ca90-4ea0-a054-76de36ce5eff.plotly.app" target="_blank">View Interactive TreeMap</a>
+            </p>
         </p>
 
         <h3>Support</h3>
@@ -381,15 +379,16 @@
 
             The distinct font count estimation is based off of the unique font names from the HTTP Archive after organizing and cleaning them and merging this information with the reliable font support data we have on Google Fonts.
         </p>
-        <iframe class="wide" src="./viz/bar_chart.html" title="Scripts by Requests vs Font Count"></iframe>
 
-        This chart shows the relationship between the number of font requests and the estimated number of distinct fonts for each script.
-        The chart shows how this relationship appears positively correlated across different scripts.
-        The number of requests for each script seems to align with the number of fonts available for each script, suggesting that scripts with higher demand tend to be supplied with more fonts.
-        <br /><br />
-        Where this is chart is useful is in identifying scripts that break this pattern such as Devangari which has a much larger relative font demand than it has supply.
-        This discrepancy between demand and supply for Devangari highlights a potential gap in the availability of fonts for this script, indicating a potential market opportunity for providers to address this shortfall.
-
+        <iframe src="./viz/bar_chart.html" title="Scripts by Requests vs Font Count"></iframe>
+        <p>
+            This chart shows the relationship between the number of font requests and the estimated number of distinct fonts for each script.
+            The chart shows how this relationship appears positively correlated across different scripts.
+            The number of requests for each script seems to align with the number of fonts available for each script, suggesting that scripts with higher demand tend to be supplied with more fonts.
+            <br /><br />
+            Where this is chart is useful is in identifying scripts that break this pattern such as Devangari which has a much larger relative font demand than it has supply.
+            This discrepancy between demand and supply for Devangari highlights a potential gap in the availability of fonts for this script, indicating a potential market opportunity for providers to address this shortfall.
+        </p>
         
         <h3>Complexity</h3>
         <p><span style="color: red;">Technical complexity overview and architectural details.</span></p>
@@ -462,7 +461,7 @@
         <p><code>SSS = −log(exposure) + log(support) − complexity − similarity</code></p>
 
 
-        <iframe class="wide" src="./viz/heatmap.html" title="Script Servedness Score Heatmap"></iframe>
+        <iframe src="./viz/heatmap.html" title="Script Servedness Score Heatmap"></iframe>
         
         <!-- Result 1: Least Supported -->
         <p>We found the Devanagari script to be the least well served due the high development complexity and limited choices due to the similarity of desgins in it's fonts.
