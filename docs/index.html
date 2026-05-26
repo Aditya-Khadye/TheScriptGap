@@ -391,8 +391,44 @@
         </p>
         
         <h3>Complexity</h3>
-        <p><span style="color: red;">Technical complexity overview and architectural details.</span></p>
-        <p><span style="color: red;">Include details about the methodology and how the data was gathered.</span></p>
+        <p>
+            Complexity measures how much engineering effort a script demands from font designers
+            and rendering engines — a "technical debt" signal. Unlike the other components which
+            measure demand and supply, complexity measures how hard the script is to support in
+            the first place.
+        </p>
+
+        <p>
+            The score is a weighted composite of three sub-features pulled directly from each
+            font's OpenType tables via fontTools — no hand-labeling, fully reproducible:
+        </p>
+        <ul>
+            <li><strong>Expansion (E, 50%):</strong> glyphs per Unicode codepoint for the script.
+                Latin is roughly 1:1; Arabic needs 4–5× (initial / medial / final / isolated forms
+                plus ligatures); Devanagari adds conjuncts on top. Multi-script fonts (e.g. Noto
+                Sans JP, which carries 7,500+ glyphs but only ~90 are Katakana) are corrected by
+                counting only glyphs mapped to the script's codepoints — otherwise Katakana would
+                look ~80× more complex than it is.</li>
+            <li><strong>Vertical Footprint (V, 30%):</strong> vertical sizing and layout
+                requirements. Scripts that stack diacritics or place marks above/below the
+                baseline push this up; flat single-row scripts pull it down.</li>
+            <li><strong>Friction (F, 20%):</strong> OpenType feature load — contextual joining
+                (<code>init / medi / fina / isol / calt</code>), Indic shaping
+                (<code>blwf / half / pres / akhn …</code>), ligatures
+                (<code>liga / rlig / dlig</code>), mark positioning
+                (<code>mark / mkmk / abvm / blwm</code>), and right-to-left layout. More required
+                features = more infrastructure that has to exist before a font "just works".</li>
+        </ul>
+
+        <p>
+            Each sub-feature is min-max normalized to <code>[0, 1]</code> across the eight target
+            scripts, then combined as <code>C = 0.50·E + 0.30·V + 0.20·F</code>. A score near
+            <code>0</code> means the script behaves like Latin (cheap to engineer); a score near
+            <code>1</code> means heavy technical debt. The weights reflect impact: glyph count
+            is the single biggest driver of design cost, layout breakage is the most visible
+            failure mode for end users, and modern engines handle Indic and RTL reasonably well
+            so friction matters relatively less.
+        </p>
 
 
         <h3>Similarity</h3>
