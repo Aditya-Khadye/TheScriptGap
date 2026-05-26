@@ -238,8 +238,8 @@
         
         <h2>Overview</h2>
         <p>The Script Gap is a research framework that identifies writing systems widely used in the 
-            real world but under-supported in digital typography. By combining web exposure data, font availability, 
-            engineering complexity, and visual diversity into a single Script Servedness Score, it surfaces 
+            real world but under-supported in digital typography. By combining web exposure data, font availability,
+            engineering complexity, and visual similarity into a single Script Servedness Score, it surfaces
             the highest-impact gaps and provides a data-driven roadmap for prioritizing script support.
         </p>
         
@@ -280,8 +280,8 @@
                     <div class="signal-desc">0.50·E + 0.30·V + 0.20·F<br><span style="color:#888;">glyph count · vertical footprint · OpenType shaping</span></div>
                 </div>
                 <div class="signal-card" style="border-color:#EF9F27; background:#fdf7eb;">
-                    <div class="signal-name" style="color:#B8741A;">Diversity</div>
-                    <div class="signal-desc">mean pairwise cosine distance of ViT-B/16 font fingerprints</div>
+                    <div class="signal-name" style="color:#B8741A;">Similarity</div>
+                    <div class="signal-desc">how visually alike fonts within a script are (1 − mean pairwise cosine distance of ViT-B/16 font fingerprints)</div>
                 </div>
             </div>
 
@@ -290,7 +290,7 @@
             <div class="pipeline-row">
                 <div class="sss-formula">
                     <div class="sss-label">Script Servedness Score</div>
-                    <code class="sss-code">SSS = −log(exposure) + log(support) − complexity − (1 − diversity)</code>
+                    <code class="sss-code">SSS = −log(exposure) + log(support) − complexity − similarity</code>
                 </div>
             </div>
 
@@ -311,7 +311,7 @@
             <li><strong>Exposure</strong> — aggregated from HTTP Archive web-crawl request data, ranked by CRUX. Counts font requests per script across the top 10M websites, then log-scaled.</li>
             <li><strong>Support</strong> — distinct font families per script from Google Fonts (Chinese variants merged into Han), supplemented by cleaned HTTP Archive font-name metadata. Log-scaled.</li>
             <li><strong>Complexity</strong> — a fontTools-based composite combining (1) <em>Expansion</em> — required glyph count; (2) <em>Vertical footprint</em> — layout/sizing requirements; (3) <em>Friction</em> — OpenType feature load across contextual joining, Indic conjuncts, ligatures, mark positioning, and RTL. Weighted 50/30/20.</li>
-            <li><strong>Diversity</strong> — render 10 standardized reference glyphs per script in each font, embed via a frozen pretrained ViT-B/16, average per font for a "font fingerprint", then take the mean pairwise cosine distance across fingerprints within a script.</li>
+            <li><strong>Similarity</strong> — how visually alike fonts within a script are; higher similarity means less visual choice. Computed by rendering 10 standardized reference glyphs per script in each font, embedding via a frozen pretrained ViT-B/16, averaging per font for a "font fingerprint", and then taking <code>1 − mean pairwise cosine distance</code> across fingerprints within a script.</li>
         </ul>
 
         <p>
@@ -337,7 +337,7 @@
                 <li><strong>Engineering Complexity Assessment:</strong> Assessing the technical difficulty of developing fonts for a script.</li>
                 <li><strong>Similarity Analysis:</strong> Comparing fonts within each script to identify how visually similar a script's typography is.<br />
                     i.e. how much visual choice does a user have when selecting fonts within their script. <br />
-                    Even if a script has many fonts available, there may be limited visual diversity.</li>
+                    Even if a script has many fonts available, those fonts may all look very similar to each other.</li>
             </ul>
         </p>
         <h3>Exposure</h3>
@@ -403,7 +403,7 @@
             Each glyph is rendered as a png and then a vision model is used to extract an embedding that captures the visual style of the glyph.
             This is used in the creation of a finger print for each font by computing the average visual style of it's glyphs across a set of common unicode points for the script.
             Finally comparing the font fingerprints of fonts within the same script using cosine similarity gives us a measure of how visually similar the fonts within a script are to each other.
-            A higher similarity score indicates that the fonts are more visually similar to each other, while a lower score suggests greater visual diversity.
+            A higher similarity score indicates that the fonts are more visually similar to each other, while a lower score suggests more visual variety.
         </p>
 
         
@@ -459,7 +459,7 @@
         
         <h2>Final Findings Summary</h2>
         <p>To review the script servedness score is calculated as:</p>
-        <p><code>SSS = −log(exposure) + log(support) − complexity − (1 − diversity)</code></p>
+        <p><code>SSS = −log(exposure) + log(support) − complexity − similarity</code></p>
 
 
         <iframe class="wide" src="./viz/heatmap.html" title="Script Servedness Score Heatmap"></iframe>
