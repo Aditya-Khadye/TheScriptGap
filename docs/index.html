@@ -21,6 +21,20 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
+        /* Break out: lets visualizations spread wider than the prose column */
+        .wide {
+            width: calc(100% + 240px);
+            margin-left: -120px;
+            margin-right: -120px;
+            max-width: none;
+        }
+        @media (max-width: 1280px) {
+            .wide {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
         h1 {
             color: #333;
             border-bottom: 3px solid #007bff;
@@ -242,7 +256,7 @@
             rank that reflects the gap between a script's demand and its supply.
         </p>
 
-        <div class="pipeline">
+        <div class="pipeline wide">
             <div class="pipeline-row">
                 <div class="pipeline-card">
                     <div class="pipeline-label">Data Sources</div>
@@ -362,12 +376,12 @@
         <!-- TODO: THIS NEEDS TO BE ADDED TO THE PIPELINE -->
         <!-- TODO: HAVE THE VISUALIZATIONS NEEDED FOR THE REPORT AUTOMATICALLY SAVE IN ./docs/viz/ -->
         <p>
-            This visualization is generated from the number of requests found on the HTTP Archive 
+            This visualization is generated from the number of requests found on the HTTP Archive
             as well as an estimation of the number of fonts for each script.
 
             The distinct font count estimation is based off of the unique font names from the HTTP Archive after organizing and cleaning them and merging this information with the reliable font support data we have on Google Fonts.
         </p>
-        <iframe src="./viz/bar_chart.html" title="Scripts by Requests vs Font Count"></iframe>
+        <iframe class="wide" src="./viz/bar_chart.html" title="Scripts by Requests vs Font Count"></iframe>
 
         This chart shows the relationship between the number of font requests and the estimated number of distinct fonts for each script.
         The chart shows how this relationship appears positively correlated across different scripts.
@@ -448,7 +462,7 @@
         <p><code>SSS = −log(exposure) + log(support) − complexity − (1 − diversity)</code></p>
 
 
-        <iframe src="./viz/heatmap.html" title="Script Servedness Score Heatmap"></iframe>
+        <iframe class="wide" src="./viz/heatmap.html" title="Script Servedness Score Heatmap"></iframe>
         
         <!-- Result 1: Least Supported -->
         <p>We found the Devanagari script to be the least well served due the high development complexity and limited choices due to the similarity of desgins in it's fonts.
