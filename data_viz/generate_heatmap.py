@@ -155,9 +155,9 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
 
     metrics = [
         ("log_exposure_norm",    "Web Exposure",   "Higher = more readers",      "#3B8BD4"),
-        ("log_support_norm",     "Font Support",   "Higher = more fonts",        "#1D9E75"),
+        ("log_support_norm",     "Font Support",   "Higher = more fonts",        "#EF9F27"),
         ("complexity_norm",      "Complexity",     "Higher = harder to engineer","#E24B4A"),
-        ("similarity_index_norm", "Similarity",     "Higher = less visual choice","#EF9F27"),
+        ("similarity_index_norm", "Similarity",     "Higher = less visual choice","#1D9E75"),
         ("sss_norm",       "SSS",      "Higher = well served",  "#7F77DD"),
     ]
 
@@ -450,9 +450,9 @@ def generate_png_heatmap(master: pd.DataFrame, output_path: Path):
     scripts = master["script"].tolist()
     metrics_info = [
         ("log_exposure_norm",    "Web\nExposure",  "#3B8BD4"),
-        ("log_support_norm",     "Font\nSupport",  "#1D9E75"),
+        ("log_support_norm",     "Font\nSupport",  "#EF9F27"),
         ("complexity_norm",      "Complexity",     "#E24B4A"),
-        ("similarity_index_norm", "Similarity",     "#EF9F27"),
+        ("similarity_index_norm", "Similarity",     "#1D9E75"),
         ("sss_norm",       "Script\nServedness\nScore",     "#7F77DD"),
     ]
 
