@@ -154,11 +154,11 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
     n = len(scripts)
 
     metrics = [
+        ("sss_norm",       "SSS",      "Higher = well served",  "#7F77DD"),
         ("log_exposure_norm",    "Web Exposure",   "Higher = more readers",      "#3B8BD4"),
         ("log_support_norm",     "Font Support",   "Higher = more fonts",        "#EF9F27"),
         ("complexity_norm",      "Complexity",     "Higher = harder to engineer","#E24B4A"),
         ("similarity_index_norm", "Similarity",     "Higher = less visual choice","#1D9E75"),
-        ("sss_norm",       "SSS",      "Higher = well served",  "#7F77DD"),
     ]
 
     raw_cols = {
@@ -201,25 +201,26 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
   * {{ box-sizing: border-box; margin: 0; padding: 0; }}
   body {{
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #0f1117;
-    color: #e8e6df;
+    background: #ffffff;
+    color: #222;
     padding: 32px;
     min-height: 100vh;
+    overflow-x: hidden;
   }}
   h1 {{
     font-size: 22px;
     font-weight: 500;
     margin-bottom: 6px;
-    color: #f0ede6;
+    color: #111;
   }}
   .subtitle {{
     font-size: 13px;
-    color: #888;
+    color: #666;
     margin-bottom: 52px;
     padding-bottom: 20px;
   }}
   .heatmap-wrap {{
-    overflow-x: auto;
+    overflow-x: hidden;
     margin-top: 32px;
   }}
   table {{
@@ -230,7 +231,7 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
   th {{
     font-size: 12px;
     font-weight: 500;
-    color: #aaa;
+    color: #555;
     padding: 8px 12px;
     text-align: center;
     letter-spacing: 0.03em;
@@ -243,7 +244,7 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
   td.script-name {{
     font-size: 14px;
     font-weight: 500;
-    color: #e8e6df;
+    color: #222;
     padding: 6px 12px;
     white-space: nowrap;
   }}
@@ -270,19 +271,19 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
   .tooltip {{
     display: none;
     position: fixed;
-    background: #1e2030;
-    border: 1px solid #333;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
     border-radius: 8px;
     padding: 10px 14px;
     font-size: 12px;
-    color: #e8e6df;
+    color: #222;
     z-index: 1000;
     pointer-events: none;
     max-width: 200px;
   }}
   .tooltip.show {{ display: block; }}
   .tooltip-metric {{ font-weight: 600; margin-bottom: 4px; }}
-  .tooltip-raw {{ color: #aaa; }}
+  .tooltip-raw {{ color: #666; }}
   .legend {{
     display: flex;
     gap: 24px;
@@ -294,7 +295,7 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
     align-items: center;
     gap: 8px;
     font-size: 12px;
-    color: #aaa;
+    color: #555;
   }}
   .legend-dot {{
     width: 12px;
@@ -309,11 +310,11 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
     margin-left: 8px;
     vertical-align: middle;
   }}
-  tr:hover td.script-name {{ color: #fff; }}
+  tr:hover td.script-name {{ color: #000; }}
   .note {{
     margin-top: 24px;
     font-size: 12px;
-    color: #555;
+    color: #999;
   }}
 </style>
 </head>
@@ -353,11 +354,10 @@ function hexToRgb(hex) {{
 
 function cellColor(norm, hexColor) {{
   const rgb = hexToRgb(hexColor);
-  const alpha = 0.15 + norm * 0.75;
-  const lightness = 1 - norm * 0.6;
+  const alpha = 0.4 + norm * 0.6;
   return {{
     bg: `rgba(${{rgb.r}},${{rgb.g}},${{rgb.b}},${{alpha}})`,
-    text: norm > 0.55 ? `rgba(${{rgb.r*0.4}},${{rgb.g*0.4}},${{rgb.b*0.4}},1)` : `rgba(${{Math.min(255,rgb.r+80)}},${{Math.min(255,rgb.g+80)}},${{Math.min(255,rgb.b+80)}},0.9)`,
+    text: `rgba(31, 31, 31, 1)`,
   }};
 }}
 
@@ -378,7 +378,7 @@ data.forEach((row, ri) => {{
   // Script name cell with tier badge
   const tdName = document.createElement('td');
   tdName.className = 'script-name';
-  const sssNorm = row.cells[4].norm;
+  const sssNorm = row.cells[0].norm;
   const tier = sssNorm > 0.6 ? ['Well served','#1D9E75','#E1F5EE'] :
                sssNorm > 0.3 ? ['Moderate','#EF9F27','#FAEEDA'] :
                                ['Underserved','#E24B4A','#FCEBEB'];
@@ -449,11 +449,11 @@ def generate_png_heatmap(master: pd.DataFrame, output_path: Path):
 
     scripts = master["script"].tolist()
     metrics_info = [
+        ("sss_norm",       "Script\nServedness\nScore",     "#7F77DD"),
         ("log_exposure_norm",    "Web\nExposure",  "#3B8BD4"),
         ("log_support_norm",     "Font\nSupport",  "#EF9F27"),
         ("complexity_norm",      "Complexity",     "#E24B4A"),
         ("similarity_index_norm", "Similarity",     "#1D9E75"),
-        ("sss_norm",       "Script\nServedness\nScore",     "#7F77DD"),
     ]
 
     matrix = np.array([
@@ -462,8 +462,8 @@ def generate_png_heatmap(master: pd.DataFrame, output_path: Path):
     ])
 
     fig, ax = plt.subplots(figsize=(10, 6))
-    fig.patch.set_facecolor("#0f1117")
-    ax.set_facecolor("#0f1117")
+    fig.patch.set_facecolor("#ffffff")
+    ax.set_facecolor("#ffffff")
 
     n_scripts, n_metrics = matrix.shape
 
@@ -473,7 +473,7 @@ def generate_png_heatmap(master: pd.DataFrame, output_path: Path):
 
             # Parse hex color
             rgb = mcolors.to_rgb(color)
-            alpha = 0.15 + val * 0.75
+            alpha = 0.4 + val * 0.6
 
             rect = FancyBboxPatch(
                 (j + 0.05, n_scripts - i - 1 + 0.05),
@@ -484,7 +484,7 @@ def generate_png_heatmap(master: pd.DataFrame, output_path: Path):
             )
             ax.add_patch(rect)
 
-            text_color = "white" if val < 0.55 else mcolors.to_hex([c * 0.4 for c in rgb])
+            text_color = "#333333"
             ax.text(j + 0.5, n_scripts - i - 0.5,
                     f"{val*100:.0f}%",
                     ha="center", va="center",
@@ -495,7 +495,7 @@ def generate_png_heatmap(master: pd.DataFrame, output_path: Path):
     for i, script in enumerate(scripts):
         ax.text(-0.15, n_scripts - i - 0.5, script,
                 ha="right", va="center",
-                fontsize=11, color="#e8e6df", fontweight="500")
+                fontsize=11, color="#222", fontweight="500")
 
     # Metric labels
     for j, (col, label, color) in enumerate(metrics_info):
@@ -508,13 +508,13 @@ def generate_png_heatmap(master: pd.DataFrame, output_path: Path):
     ax.axis("off")
 
     fig.suptitle("Script Servedness Score (SSS)",
-                 fontsize=14, color="#f0ede6", y=0.98, fontweight="500")
+                 fontsize=14, color="#222", y=0.98, fontweight="500")
     ax.set_title("All values normalized 0–100% · Sorted by SSS",
-                 fontsize=9, color="#666", pad=30)
+                 fontsize=9, color="#888", pad=30)
 
     plt.tight_layout()
     plt.savefig(output_path, dpi=150, bbox_inches="tight",
-                facecolor="#0f1117", edgecolor="none")
+                facecolor="#ffffff", edgecolor="none")
     plt.close()
     logger.info(f"Saved PNG → {output_path}")
 
