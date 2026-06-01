@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Script Gap 2024 Research Report</title>
+  <title>The Script Gap Research Report</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
@@ -709,16 +709,20 @@
         <div class="big-stat">Website Usage.</div>
         <p class="big-stat-label">How much of the web is written in each script?</p>
       </div>
+      
+      <div style="display: flex; gap: 20px;">
+        <div class="stat-card" style="flex: 1;">
+          <div class="num">~57%</div>
+          <div class="desc">Of the top websites on the web have Latin script support</div>
+        </div>
+        <div class="stat-card" style="flex: 1;">
+          <div class="num">Some Number</div>
+          <div class="desc">Of the top websites have script support for any of the other pilot scripts</div>
+        </div>
+      </div>
 
-      <div class="stat-card" style="width: 50%;">
-        <div class="num">~57%</div>
-        <div class="desc">Of the top websites on the web have Latin script support</div>
-      </div>
-      <div class="stat-card" style="width: 50%;">
-        <div class="num">Some Number</div>
-        <div class="desc">Of the top websites have script support for any of the other pilot scripts</div>
-      </div>
     </div>
+
     <div class="spread-right">
       <h2>Measuring real-world script usage at web scale.</h2>
       <p>Exposure is calculated by analyzing the HTTP Archive's web crawl request data. Each font request includes Unicode codepoints that can be mapped to their corresponding scripts aggregated across the top 10 million websites to estimate demand.</p>
@@ -760,7 +764,7 @@
     <span class="pill pill-blue">Visualization</span>
     <h2>State of Fonts on the Web</h2>
     <p>The relationship between font requests (demand) and distinct font count (supply) across scripts. Where the two are misaligned, the gap becomes visible.</p>
-    <iframe src="./viz/bar_chart.html" title="Scripts by Requests vs Font Count" style="float: left;"></iframe>
+    <iframe src="./viz/bar_chart.html" title="Scripts by Requests vs Font Count"></iframe>
     <p style="margin-top:16px; font-size:0.82rem;">Note: The x-axis is logarithmic to accommodate the wide range of values across scripts.</p>
   </div>
 
@@ -772,10 +776,10 @@
         <div class="big-stat">Technical Debt.</div>
         <p class="big-stat-label">How hard is a script to support in the first place?</p>
       </div>
-      <div class="stat-card">
+      <!-- <div class="stat-card">
         <div class="num">COOL STATS</div>
         <div class="desc">I LOVE STATS</div>
-      </div>
+      </div> -->
     </div>
     <div class="spread-right">
       <h2>Engineering effort quantified</h2>
@@ -819,10 +823,10 @@
         <div class="big-stat">Visual<br>Choice.</div>
         <p class="big-stat-label">Even abundant fonts may offer no real variety.</p>
       </div>
-      <div class="stat-card">
+      <!-- <div class="stat-card">
         <div class="num">STATS</div>
         <div class="desc">stats stats stats</div>
-      </div>
+      </div> -->
     </div>
   </div>
 
@@ -830,7 +834,7 @@
   <div class="viz-wrap">
     <span class="pill pill-amber">Font Network</span>
     <h2>Arabian Script Font Similarity Network</h2>
-    <p>Each node represents an Arabic font; edges show visual similarity based on font fingerprints. Thicker edges = higher similarity. Node colors indicate modularity clusters detected by the Louvain algorithm.</p>
+    <p>Each node represents an Arabic font; edges show visual similarity based on font fingerprints. Thicker edges = higher similarity. <br />Node colors indicate modularity clusters detected by the Louvain algorithm.</p>
     <iframe
       allowfullscreen="true"
       style = "width: 100%; height: 600px;"
@@ -869,7 +873,15 @@
     </div>
   </div>
 
-  
+  <div class="full-section">
+    <span class="pill pill-red">Credit</span>
+      <h3>Resources</h3>
+      <ul>
+        <li><a href="https://www.monotype.com/resources/ebook/global-font-use-forecasting-survey-2024" target="_blank" style="color:var(--blue); font-weight:600;">Monotype Report</a></li>
+      </ul>
+  </div>
+
+
   <!-- ══ FUTURE WORK ══ -->
   <div class="future-grid">
     <div class="future-card">
