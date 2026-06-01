@@ -1,546 +1,904 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Documentation</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        body {
-            font-family: "Times New Roman", Times, serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 2400px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #333;
-            border-bottom: 3px solid #007bff;
-            padding-bottom: 10px;
-        }
-        h2 {
-            color: #555;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        h3 {
-            color: #777;
-        }
-        p {
-            color: #666;
-        }
-        li {
-            color: #666;
-        }
-        iframe {
-            width: 100%;
-            height: 800px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin: 20px 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Script Gap 2024 Research Report</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-        /* Methodology pipeline diagram */
-        .pipeline {
-            margin: 24px 0 32px;
-            padding: 24px;
-            background: #fafafa;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-        }
-        .pipeline-row {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .pipeline-row-four {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-        }
-        .pipeline-card {
-            padding: 14px 18px;
-            border: 1px solid #c0c0c0;
-            border-radius: 6px;
-            background: white;
-            text-align: center;
-            max-width: 720px;
-        }
-        .pipeline-label {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 4px;
-            font-size: 13px;
-            letter-spacing: 0.02em;
-        }
-        .pipeline-content {
-            font-size: 12px;
-            color: #666;
-        }
-        .signal-card {
-            padding: 12px 14px;
-            border: 2px solid #c0c0c0;
-            border-radius: 6px;
-            background: white;
-            text-align: center;
-        }
-        .signal-name {
-            font-weight: 600;
-            font-size: 14px;
-            margin-bottom: 4px;
-        }
-        .signal-desc {
-            font-size: 11px;
-            color: #555;
-            line-height: 1.4;
-        }
-        .pipeline-arrow-down {
-            text-align: center;
-            color: #888;
-            font-size: 22px;
-            margin: 10px 0 6px;
-            line-height: 1;
-        }
-        .arrow-label {
-            font-size: 11px;
-            color: #888;
-            margin-left: 8px;
-            vertical-align: middle;
-            font-style: italic;
-            letter-spacing: 0.02em;
-        }
-        .sss-formula {
-            padding: 16px 20px;
-            border: 2px solid #007bff;
-            border-radius: 6px;
-            background: #e7f1ff;
-            text-align: center;
-            min-width: 70%;
-        }
-        .sss-label {
-            font-weight: 700;
-            color: #0056b3;
-            margin-bottom: 6px;
-            font-size: 12px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-        .sss-code {
-            font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-            font-size: 13px;
-            color: #003d80;
-            background: none;
-            display: block;
-        }
-        @media (max-width: 700px) {
-            .pipeline-row-four { grid-template-columns: 1fr 1fr; }
-        }
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --blue:    #2563EB;
+      --blue-lt: #DBEAFE;
+      --green:   #16A34A;
+      --green-lt:#DCFCE7;
+      --amber:   #D97706;
+      --amber-lt:#FEF3C7;
+      --red:     #DC2626;
+      --red-lt:  #FEE2E2;
+      --ink:     #111827;
+      --muted:   #6B7280;
+      --white:   #FFFFFF;
+      --off:     #F9FAFB;
+      --radius:  16px;
+      --serif:   'DM Serif Display', Georgia, serif;
+      --sans:    'DM Sans', sans-serif;
+    }
 
-        
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
-        /* Base Card Styling */
-        .team-card {
-        background: #ffffff;
-        border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-        padding: 30px;
-        width: 224px;
-        text-align: center;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    body {
+      font-family: var(--sans);
+      background: var(--off);
+      color: var(--ink);
+      line-height: 1.65;
+    }
 
-        /* Hover Effect for the whole card */
-        .team-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-        }
+    /* ── PAGE SHELL ── */
+    .page {
+      max-width: 2400px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
 
-        /* Avatar Image */
-        .team-card .avatar-container {
-        margin-bottom: 20px;
-        }
+    /* ── COVER ── */
+    .cover {
+      background: var(--blue);
+      border-radius: var(--radius);
+      padding: 72px 56px;
+      margin: 32px 0 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .cover-left h1 {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+    .cover-left p {
+      color: rgba(255,255,255,0.82);
+      font-size: 1.05rem;
+      max-width: 380px;
+    }
+    .cover-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .cover-stat {
+      background: rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 24px 20px;
+    }
+    .cover-stat .num {
+      font-family: var(--serif);
+      font-size: 2.6rem;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .cover-stat .label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.35;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .cover-stat.accent { background: rgba(255,255,255,0.28); }
 
-        .team-card .avatar {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid #f0f2f5;
-        }
+    /* ── SECTION WRAPPER ── */
+    .section {
+      margin-top: 8px;
+    }
 
-        /* Name and Role */
-        .team-card .name {
-        font-size: 1.4rem;
-        color: #333333;
-        margin: 0 0 5px 0;
-        }
+    /* ── SPREAD: colored left + white right ── */
+    .spread {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+    .spread-left {
+      padding: 52px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .spread-right {
+      background: var(--white);
+      padding: 52px 44px;
+    }
 
-        .team-card .role {
-        font-size: 0.95rem;
-        color: #777777;
-        margin: 0 0 20px 0;
-        }
+    /* color variants */
+    .bg-blue   { background: var(--blue); }
+    .bg-green  { background: var(--green); }
+    .bg-amber  { background: var(--amber); }
+    .bg-red    { background: var(--red); }
+    .bg-ink    { background: var(--ink); }
 
-        /* Social Box and Icons */
-        .team-card .social-box {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        }
+    /* ── SECTION LABEL PILL ── */
+    .pill {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .pill-light { background: rgba(255,255,255,0.22); color: var(--white); }
+    .pill-blue  { background: var(--blue-lt); color: var(--blue); }
+    .pill-green { background: var(--green-lt); color: var(--green); }
+    .pill-amber { background: var(--amber-lt); color: var(--amber); }
+    .pill-red   { background: var(--red-lt); color: var(--red); }
 
-        .team-card .social-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: #f0f2f5;
-        color: #555555;
-        font-size: 1.1rem;
-        text-decoration: none;
-        transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-        }
+    /* ── BIG STAT ── */
+    .big-stat {
+      font-family: var(--serif);
+      font-size: clamp(4rem, 8vw, 7rem);
+      line-height: 1;
+      color: var(--white);
+      margin: 8px 0;
+    }
+    .big-stat-label {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.82);
+      max-width: 220px;
+      line-height: 1.4;
+    }
 
-        /* Hover effects for individual icons */
-        .team-card .social-icon:hover {
-        background-color: #007bff;
-        color: #ffffff;
-        transform: scale(1.1);
-        }
+    /* ── STAT CARD (inside colored side) ── */
+    .stat-card {
+      background: rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 20px 22px;
+    }
+    .stat-card .num {
+      font-family: var(--serif);
+      font-size: 2.8rem;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-card .desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.4;
+    }
 
-    </style>
+    /* ── PROSE SIDE ── */
+    .spread-right h2 {
+      font-family: var(--serif);
+      font-size: 2rem;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      color: var(--ink);
+    }
+    .spread-right p {
+      font-size: 0.95rem;
+      color: #374151;
+      margin-bottom: 14px;
+      line-height: 1.7;
+    }
+    .spread-right p:last-child { margin-bottom: 0; }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      border-left: 4px solid currentColor;
+      padding: 12px 18px;
+      margin: 20px 0;
+      font-size: 1.05rem;
+      font-style: italic;
+      line-height: 1.5;
+      border-radius: 0 8px 8px 0;
+    }
+    .pull-quote .attr {
+      display: block;
+      font-style: normal;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 8px;
+    }
+    .pq-blue  { color: var(--blue);  background: var(--blue-lt); }
+    .pq-green { color: var(--green); background: var(--green-lt); }
+    .pq-amber { color: var(--amber); background: var(--amber-lt); }
+    .pq-red   { color: var(--red);   background: var(--red-lt); }
+    .pq-ink   { color: var(--ink);   background: rgba(17,24,39,0.06); }
+
+    /* ── SINGLE-COLOR FULL SECTION (no split) ── */
+    .full-section {
+      border-radius: var(--radius);
+      padding: 52px 56px;
+      margin-bottom: 8px;
+    }
+    .full-section h2 {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      color: var(--white);
+      margin-bottom: 32px;
+    }
+
+    /* ── PIPELINE ── */
+    .pipeline-wrap {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 40px;
+      margin-bottom: 8px;
+    }
+    .pipeline-wrap h2 {
+      font-family: var(--serif);
+      font-size: 2rem;
+      margin-bottom: 32px;
+    }
+    .pipe-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .pipe-source {
+      background: var(--off);
+      border: 1.5px solid #E5E7EB;
+      border-radius: 10px;
+      padding: 14px 22px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-align: center;
+      min-width: 180px;
+    }
+    .pipe-arrow {
+      text-align: center;
+      font-size: 1.4rem;
+      color: #9CA3AF;
+      margin: 10px 0;
+    }
+    .pipe-arrow span {
+      display: block;
+      font-size: 0.72rem;
+      color: #9CA3AF;
+      font-style: italic;
+      letter-spacing: 0.04em;
+    }
+    .pipe-signals {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 0;
+    }
+    .signal {
+      border-radius: 10px;
+      padding: 18px 16px;
+      text-align: center;
+      border: 2px solid;
+    }
+    .signal-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    .signal-desc {
+      font-size: 0.78rem;
+      line-height: 1.45;
+      color: #555;
+    }
+    .sig-blue   { border-color: var(--blue);  background: var(--blue-lt);  }
+    .sig-green  { border-color: var(--green); background: var(--green-lt); }
+    .sig-red    { border-color: var(--red);   background: var(--red-lt);   }
+    .sig-amber  { border-color: var(--amber); background: var(--amber-lt); }
+    .sig-blue  .signal-title { color: var(--blue);  }
+    .sig-green .signal-title { color: var(--green); }
+    .sig-red   .signal-title { color: var(--red);   }
+    .sig-amber .signal-title { color: var(--amber); }
+
+    .sss-box {
+      background: #7F77DD;
+      border-color: #625ab4;
+      border-width: 2px;
+      border-style: solid;
+      border-radius: 12px;
+      padding: 22px 32px;
+      text-align: center;
+      min-width: 60%;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .sss-box .sss-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    .sss-box code {
+      font-family: 'SF Mono', Menlo, monospace;
+      font-size: 1rem;
+      color: var(--white);
+      display: block;
+    }
+
+    /* ── FOUR-CARD GRID ── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .info-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+    }
+    .info-card .icon {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+    }
+    .info-card h3 {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .info-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ── TWO-STAT ROW ── */
+    .two-stat {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .stat-block {
+      border-radius: var(--radius);
+      padding: 40px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .stat-block .num {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .stat-block .desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.82);
+      max-width: 220px;
+      line-height: 1.45;
+    }
+
+    /* ── FINDINGS SPREAD ── */
+    .findings-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .finding-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      border-top: 6px solid;
+    }
+    .finding-card h3 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+    .finding-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .border-blue  { border-color: var(--blue); }
+    .border-green { border-color: var(--green); }
+    .border-amber { border-color: var(--amber); }
+    .border-red   { border-color: var(--red); }
+
+    /* ── FUTURE / FOOTER SECTIONS ── */
+    .future-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .future-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+    }
+    .future-card h3 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+    .future-card p, .future-card li {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .future-card ul { padding-left: 18px; }
+    .future-card li { margin-bottom: 6px; }
+
+    /* ── TEAM ── */
+
+    /* Base Card Styling */
+    .team-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    width: 284px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Hover Effect for the whole card */
+    .team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Avatar Image */
+    .team-card .avatar-container {
+    margin-bottom: 20px;
+    }
+
+    .team-card .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #f0f2f5;
+    }
+
+    /* Name and Role */
+    .team-card .name {
+    font-size: 1.4rem;
+    color: #333333;
+    margin: 0 0 5px 0;
+    }
+
+    .team-card .role {
+    font-size: 0.95rem;
+    color: #777777;
+    margin: 0 0 20px 0;
+    }
+
+    /* Social Box and Icons */
+    .team-card .social-box {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    }
+
+    .team-card .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f0f2f5;
+    color: #555555;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    }
+
+    /* Hover effects for individual icons */
+    .team-card .social-icon:hover {
+    background-color: #007bff;
+    color: #ffffff;
+    transform: scale(1.1);
+    }
+
+    /* ── BOTTOM BAR ── */
+    .bottom-bar {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 36px 44px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .bottom-bar .brand {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: var(--ink);
+    }
+    .bottom-bar p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      max-width: 480px;
+    }
+    .bottom-bar a { color: var(--blue); text-decoration: none; }
+    .bottom-bar a:hover { text-decoration: underline; }
+
+    /* ── IFRAME ── */
+    .viz-wrap {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 40px;
+      margin-bottom: 8px;
+    }
+    .viz-wrap h2 {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+    .viz-wrap p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+      max-width: 640px;
+    }
+    .viz-wrap iframe {
+      width: 60%;
+      height: 720px;
+      border: 1.5px solid #E5E7EB;
+      border-radius: 10px;
+    }
+
+    /* ── COMPLEXITY TABLE-STYLE ── */
+    .complexity-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 24px 0 0;
+    }
+    .comp-card {
+      border-radius: 10px;
+      padding: 20px;
+      border: 1.5px solid;
+    }
+    .comp-card .weight {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      margin-bottom: 4px;
+    }
+    .comp-card h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .comp-card p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .cc-blue  { border-color: var(--blue);  background: var(--blue-lt);  }
+    .cc-green { border-color: var(--green); background: var(--green-lt); }
+    .cc-amber { border-color: var(--amber); background: var(--amber-lt); }
+    .cc-blue  .weight, .cc-blue  h4 { color: var(--blue);  }
+    .cc-green .weight, .cc-green h4 { color: var(--green); }
+    .cc-amber .weight, .cc-amber h4 { color: var(--amber); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 800px) {
+      .cover, .spread, .two-stat { grid-template-columns: 1fr; }
+      .cover { padding: 40px 28px; }
+      .pipe-signals, .card-grid, .findings-grid, .complexity-cards { grid-template-columns: 1fr 1fr; }
+      .future-grid { grid-template-columns: 1fr; }
+      .full-section, .team-section { padding: 36px 28px; }
+      .spread-left, .spread-right { padding: 36px 28px; }
+    }
+    @media (max-width: 520px) {
+      .pipe-signals, .card-grid, .findings-grid, .complexity-cards { grid-template-columns: 1fr; }
+      .cover-right { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Script Gap</h1>
-        
-        <h2>Overview</h2>
-        <p>The Script Gap is a research framework that identifies writing systems widely used in the 
-            real world but under-supported in digital typography. By combining web exposure data, font availability,
-            engineering complexity, and visual similarity into a single Script Servedness Score, it surfaces
-            the highest-impact gaps and provides a data-driven roadmap for prioritizing script support.
-        </p>
+<div class="page">
 
-        <p>Many of the visualizations are interactive and can be explored on this Github Page.</p>
-        <p>This GitHub Page is routinely built monthly and only hosts the most recent research findings.</p>
-        
-        <h2>Getting Started</h2>
-        <p>For results or visualizations that cannot be found on this page they can be accessed by generating the results locally using the instructions in the repository.</p>
-        <p><strong>To quickly run the project using uv:</strong></p>
-        <ul>
-            <li>Clone the repository from GitHub: `<code>git clone https://github.com/Aditya-Khadye/TheScriptGap.git</code>`</li>
-            <li>Run the pipeline: `<code>uv run pipeline.py</code>`.</li>
-        </ul>
+  <!-- ══ COVER ══ -->
+  <div class="cover">
+    <div class="cover-left">
+      <h1>The Script Gap</h1>
+      <p>A data-driven framework identifying writing systems widely used on the web but under-supported in digital typography and a roadmap to close the gap.</p>
+    </div>
+    <div class="cover-right">
+      <div class="cover-stat accent">
+        <div class="num">8</div>
+        <div class="label">Pilot scripts analyzed</div>
+      </div>
+      <div class="cover-stat">
+        <div class="num">10 Million</div>
+        <div class="label">Websites crawled via HTTP Archive</div>
+      </div>
+      <div class="cover-stat">
+        <div class="num">36.5 Million</div>
+        <div class="label">Font Requests Analyzed</div>
+      </div>
+      <div class="cover-stat accent">
+        <div class="num">~ 151,000</div>
+        <div class="label">Unique Font Variants Analyzed</div>
+      </div>
+    </div>
+  </div>
 
-        <p>The repository also has instructions for running the project without <code>uv</code> that get into more detail.</p>
-        <p>More detailed instructions can be found in the <a href="https://github.com/Aditya-Khadye/TheScriptGap#the-script-gap" target="_blank">GitHub repository</a>.</p>
+  <!-- ══ OVERVIEW SPREAD ══ -->
+  <div class="spread" style="margin-top:8px;">
+    <div class="spread-left bg-ink">
+      <div>
+        <span class="pill pill-light">Overview</span>
+        <div class="big-stat">What is<br><em>The Script<br>Gap?</em></div>
+      </div>
+    </div>
+    <div class="spread-right">
+      <h2>Closing the gap between real-world demand and digital font supply.</h2>
+      <p>The Script Gap is a research framework that identifies writing systems widely used in the real world but under-supported in digital typography.</p>
+      <p>By combining web exposure data, font availability, engineering complexity, and visual similarity into a single <strong>Script Servedness Score</strong>, it surfaces the highest-impact gaps and provides a data-driven roadmap for prioritizing script support.</p>
+      <div class="pull-quote pq-ink">
+        Scripts used by billions of readers online remain severely underdeveloped not because the need isn't there, 
+        but because infrastructure and market investment has been disportionately focused on Latin. 
+        This framework aims to shine a light on the underserved scripts that need more typographic development.
+        <span class="attr">- Research Rationale</span>
+      </div>
+    </div>
+  </div>
 
-        <h2>Methodology</h2>
-        <p>
-            The Script Servedness Score (SSS) is a weighted composite of four
-            independent signals — each computed from its own data source,
-            min-max normalized to <code>[0, 1]</code>, and combined into a single
-            rank that reflects the gap between a script's demand and its supply.
-        </p>
+  <!-- ══ METHODOLOGY PIPELINE ══ -->
+  <div class="pipeline-wrap">
+    <span class="pill pill-blue">Methodology</span>
+    <h2>From raw data to a single score.</h2>
+    <div class="pipe-row">
+      <div class="pipe-source">HTTP Archive &nbsp;·&nbsp; CRUX &nbsp;·&nbsp; Google Fonts &nbsp;·&nbsp; fontTools &nbsp;·&nbsp; ViT-B/16</div>
+    </div>
+    <div class="pipe-arrow">↓<span>Four independent signals, each min-max normalized to [0, 1]</span></div>
+    <div class="pipe-signals">
+      <div class="signal sig-blue">
+        <div class="signal-title">Exposure</div>
+        <div class="signal-desc">Font requests per script across the top 10M sites</div>
+      </div>
+      <div class="signal sig-amber">
+        <div class="signal-title">Support</div>
+        <div class="signal-desc">Distinct font families per script from Google Fonts</div>
+      </div>
+      <div class="signal sig-red">
+        <div class="signal-title">Complexity</div>
+        <div class="signal-desc">0.50·E + 0.30·V + 0.20·F <br />glyph count · vertical footprint · OpenType shaping</div>
+      </div>
+      <div class="signal sig-green">
+        <div class="signal-title">Similarity</div>
+        <div class="signal-desc">How visually alike fonts within a script are</div>
+      </div>
+    </div>
+    <div class="pipe-arrow">↓</div>
+    <div class="pipe-row">
+      <div class="sss-box">
+        <div class="sss-label">Script Servedness Score</div>
+        <code>SSS = −log(exposure) + log(support) − complexity − similarity</code>
+      </div>
+    </div>
+    <div class="pipe-arrow">↓<span>K-Means tier clustering (k = 2..5 chosen by silhouette score)</span></div>
+  </div>
 
-        <div class="pipeline">
-            <div class="pipeline-row">
-                <div class="pipeline-card">
-                    <div class="pipeline-label">Data Sources</div>
-                    <div class="pipeline-content">HTTP Archive · CRUX · Google Fonts · fontTools · ViT-B/16</div>
-                </div>
-            </div>
+  <!-- ══ EXPOSURE SPREAD ══ -->
+  <div class="spread">
+    <div class="spread-left bg-blue">
+      <div>
+        <span class="pill pill-light">Exposure</span>
+        <div class="big-stat">Website Usage.</div>
+        <p class="big-stat-label">How much of the web is written in each script?</p>
+      </div>
 
-            <div class="pipeline-arrow-down">↓</div>
+      <div class="stat-card" style="width: 50%;">
+        <div class="num">~57%</div>
+        <div class="desc">Of the top websites on the web have Latin script support</div>
+      </div>
+      <div class="stat-card" style="width: 50%;">
+        <div class="num">Some Number</div>
+        <div class="desc">Of the top websites have script support for any of the other pilot scripts</div>
+      </div>
+    </div>
+    <div class="spread-right">
+      <h2>Measuring real-world script usage at web scale.</h2>
+      <p>Exposure is calculated by analyzing the HTTP Archive's web crawl request data. Each font request includes Unicode codepoints that can be mapped to their corresponding scripts aggregated across the top 10 million websites to estimate demand.</p>
+      <div class="pull-quote pq-blue">
+        Since the data comes from the top global websites, it may not fully represent usage of scripts in all regions.
+        <span class="attr">- Data Caveat</span>
+      </div>
+      <p>The data is collected from each site's origin/homepage domain only. The following treemap breaks down script exposure proportionally by number of font requests.</p>
+      <p><a href="https://bf2d8941-ca90-4ea0-a054-76de36ce5eff.plotly.app" target="_blank" style="color:var(--blue); font-weight:600;">View Interactive Treemap ↗</a></p>
+    </div>
+  </div>
 
-            <div class="pipeline-row pipeline-row-four">
-                <div class="signal-card" style="border-color:#3B8BD4; background:#f1f7fc;">
-                    <div class="signal-name" style="color:#2A6BAB;">Exposure</div>
-                    <div class="signal-desc">font requests per script across the top 10M sites</div>
-                </div>
-                <div class="signal-card" style="border-color:#EF9F27; background:#fdf7eb;">
-                    <div class="signal-name" style="color:#B8741A;">Support</div>
-                    <div class="signal-desc">distinct font families per script (Google Fonts)</div>
-                </div>
-                <div class="signal-card" style="border-color:#E24B4A; background:#fdf2f2;">
-                    <div class="signal-name" style="color:#B0383A;">Complexity</div>
-                    <div class="signal-desc">0.50·E + 0.30·V + 0.20·F<br><span style="color:#888;">glyph count · vertical footprint · OpenType shaping</span></div>
-                </div>
-                <div class="signal-card" style="border-color:#1D9E75; background:#f0faf5;">
-                    <div class="signal-name" style="color:#157955;">Similarity</div>
-                    <div class="signal-desc">how visually alike fonts within a script are (1 − mean pairwise cosine distance of ViT-B/16 font fingerprints)</div>
-                </div>
-            </div>
+  <!-- ══ SUPPORT SPREAD ══ -->
+  <div class="spread">
+    <div class="spread-right">
+      <h2>Font availability</h2>
+      <p>Support is measured by counting distinct font families available per script. Ideally this would draw from all major foundries, but with no comprehensive cross-foundry database available, the primary reliable source is Google Fonts data.</p>
+      <p>The HTTP Archive's font-name metadata while messy was cleaned and merged with Google Fonts data to produce rough estimates of fonts actually in use on the web. It's imperfect, but gives a ground-truth view of real deployment.</p>
+      <div class="pull-quote pq-amber">
+        Devanagari has a much larger relative font demand than supply. This discrepancy highlights a potential market gap for providers to address.
+        <span class="attr">- Key Finding</span>
+      </div>
+    </div>
+    <div class="spread-left bg-amber">
+      <div>
+        <span class="pill pill-light">Font Support</span>
+        <div class="big-stat">Supply.</div>
+        <p class="big-stat-label">How many distinct fonts actually exist for each script?</p>
+      </div>
+      <div class="stat-card">
+        <div class="num">EXAMPLE STATISTIC: Latin has 10 x the number of fonts than all other scripts combined</div>
+        <div class="desc">Demand and supply are positively correlated but key scripts break this pattern</div>
+      </div>
+    </div>
+  </div>
 
-            <div class="pipeline-arrow-down">↓<span class="arrow-label">min-max normalize to [0, 1]</span></div>
+  <!-- ══ STATE OF WEB VIZ ══ -->
+  <div class="viz-wrap">
+    <span class="pill pill-blue">Visualization</span>
+    <h2>State of Fonts on the Web</h2>
+    <p>The relationship between font requests (demand) and distinct font count (supply) across scripts. Where the two are misaligned, the gap becomes visible.</p>
+    <iframe src="./viz/bar_chart.html" title="Scripts by Requests vs Font Count" style="float: left;"></iframe>
+    <p style="margin-top:16px; font-size:0.82rem;">Note: The x-axis is logarithmic to accommodate the wide range of values across scripts.</p>
+  </div>
 
-            <div class="pipeline-row">
-                <div class="sss-formula">
-                    <div class="sss-label">Script Servedness Score</div>
-                    <code class="sss-code">SSS = −log(exposure) + log(support) − complexity − similarity</code>
-                </div>
-            </div>
-
-            <div class="pipeline-arrow-down">↓</div>
-
-            <div class="pipeline-row">
-                <div class="pipeline-card">
-                    <div class="pipeline-label">K-Means Tier Clustering</div>
-                    <div class="pipeline-content">k = 2..5 chosen automatically by silhouette score · features standardized via <code>StandardScaler</code></div>
-                </div>
-            </div>
+  <!-- ══ COMPLEXITY SPREAD ══ -->
+  <div class="spread">
+    <div class="spread-left bg-red">
+      <div>
+        <span class="pill pill-light">Complexity</span>
+        <div class="big-stat">Technical Debt.</div>
+        <p class="big-stat-label">How hard is a script to support in the first place?</p>
+      </div>
+      <div class="stat-card">
+        <div class="num">COOL STATS</div>
+        <div class="desc">I LOVE STATS</div>
+      </div>
+    </div>
+    <div class="spread-right">
+      <h2>Engineering effort quantified</h2>
+      <p>Complexity is a fontTools based composite pulled directly from each font's OpenType tables. A score near 0 means the script behaves like Latin (cheap to engineer); a score near 1 means heavy technical debt.</p>
+      <div class="complexity-cards">
+        <div class="comp-card cc-blue">
+          <div class="weight">50%</div>
+          <h4>Expansion (E)</h4>
+          <p>Glyphs per Unicode codepoint. Latin ≈ 1:1; Arabic needs 4–5×; Devanagari adds conjuncts on top.</p>
         </div>
+        <div class="comp-card cc-green">
+          <div class="weight">30%</div>
+          <h4>Vertical Footprint (V)</h4>
+          <p>Vertical sizing requirements. Scripts with stacked diacritics push this up; flat single-row scripts pull it down.</p>
+        </div>
+        <div class="comp-card cc-amber">
+          <div class="weight">20%</div>
+          <h4>Friction (F)</h4>
+          <p>OpenType feature load contextual joining, Indic shaping, ligatures, mark positioning, and RTL layout.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <p>
-            <strong>Component details:</strong>
-        </p>
-        <ul>
-            <li><strong>Exposure</strong> — aggregated from HTTP Archive web-crawl request data, ranked by CRUX. Counts font requests per script across the top 10M websites, then log-scaled.</li>
-            <li><strong>Support</strong> — distinct font families per script from Google Fonts (Chinese variants merged into Han), supplemented by cleaned HTTP Archive font-name metadata. Log-scaled.</li>
-            <li><strong>Complexity</strong> — a fontTools-based composite combining (1) <em>Expansion</em> — required glyph count; (2) <em>Vertical footprint</em> — layout/sizing requirements; (3) <em>Friction</em> — OpenType feature load across contextual joining, Indic conjuncts, ligatures, mark positioning, and RTL. Weighted 50/30/20.</li>
-            <li><strong>Similarity</strong> — how visually alike fonts within a script are; higher similarity means less visual choice. Computed by rendering 10 standardized reference glyphs per script in each font, embedding via a frozen pretrained ViT-B/16, averaging per font for a "font fingerprint", and then taking <code>1 − mean pairwise cosine distance</code> across fingerprints within a script.</li>
-        </ul>
+  <!-- ══ SIMILARITY SPREAD ══ -->
+  <div class="spread">
 
-        <p>
-            A <strong>high SSS</strong> means the script is well served — readership demand is matched by ample, visually varied fonts that are technically feasible to produce. A <strong>low SSS</strong> means the opposite: demand outpaces supply, the engineering bar is high, and what fonts do exist tend to look alike.
-        </p>
+    <div class="spread-right">
+      <h2>Font fingerprints reveal hidden homogeneity.</h2>
+      <p>The similarity score analyzes visual likeness between fonts within each script. Each glyph is rendered as a PNG, then a vision model extracts an embedding capturing its visual style.</p>
+      <p>Averaging these embeddings across a set of common Unicode points produces a <strong>font fingerprint</strong>. Comparing fingerprints using cosine similarity gives a measure of how visually alike fonts within a script are.</p>
+      <div class="pull-quote pq-green">
+        A high similarity score means the script has many fonts that all look the same quantity without genuine choice.
+        <span class="attr" style="color:--green;">- Similarity Metric Rationale</span>
+      </div>
+      <p>A lower similarity score indicates more visual variety which is what users actually need.</p>
+    </div>
+    <div class="spread-left bg-green">
+      <div>
+        <span class="pill pill-light">Similarity</span>
+        <div class="big-stat">Visual<br>Choice.</div>
+        <p class="big-stat-label">Even abundant fonts may offer no real variety.</p>
+      </div>
+      <div class="stat-card">
+        <div class="num">STATS</div>
+        <div class="desc">stats stats stats</div>
+      </div>
+    </div>
+  </div>
 
-        <h2>Data Sources</h2>
-        <p>The Script Gap relies on several data sources to provide a comprehensive analysis of script support in digital typography:</p>
-        <ul>
-            <li><strong>HTTP Archive:</strong> Provides web crawl request data to measure real-world usage of different scripts.</li>
-            <li><strong>CRUX:</strong>Provides website rankings that help to estimate font viewership. The HTTP Archive scans the top 10 million websites using these rankings.</li>
-            <li><strong>Font Repositories:</strong> Data from platforms like Google Fonts to evaluate font availability and the similarity between fonts for each script.</li>
-        </ul>
-
-        <h2>Feature Research</h2>
-        <p>
-            Script Servedness can be broken down into a few key components:
-            <ul>
-                <li><strong>Exposure:</strong> Analyzing web data to measure the real-world usage of different scripts. <br />
-                    This component is a measurement of the demand of fonts for a script.</li>
-                <li><strong>Font Support/Count:</strong> Evaluating the availability and quality of fonts for each script. <br />
-                    This component is a measurement of the supply of fonts for a script.</li>
-                <li><strong>Engineering Complexity Assessment:</strong> Assessing the technical difficulty of developing fonts for a script.</li>
-                <li><strong>Similarity Analysis:</strong> Comparing fonts within each script to identify how visually similar a script's typography is.<br />
-                    i.e. how much visual choice does a user have when selecting fonts within their script. <br />
-                    Even if a script has many fonts available, those fonts may all look very similar to each other.</li>
-            </ul>
-        </p>
-        <h3>Exposure</h3>
-        <p>
-            Exposure is calculated by analyzing the HTTP Archive's web crawl request data to measure the real-world usage of different scripts on the web.
-            The HTTP Archive collects a variety of data on each font request, including a list of unicodepoints that  can be mapped to their corresponding scripts. 
-            By aggregating this data across the top 10 million websites, we can estimate the demand for fonts supporting each script.
-            <br /><br />
-            Some important things to note about this data:
-            <ul>
-                <li>The data is collected from the top 10 million websites but only on the origin/homepage domain.</li>
-                <li>Since the data comes from the top global websites, it may not fully represent the usage of scripts in all regions.</li>
-            </ul>
-            <p>
-                The following treemap visualization breaks down the exposure of different scripts on the web, 
-                with each color representing a script and the box size corresponding to the number of requests made: 
-                <a href="https://bf2d8941-ca90-4ea0-a054-76de36ce5eff.plotly.app" target="_blank">View Interactive TreeMap</a>
-            </p>
-        </p>
-
-        <h3>Support</h3>
-
-        <p>
-            Support is measured by evaluating the number of fonts available for each script.
-            Ideally we would only want to use reliable data sources for this, such as font foundries like Google Fonts, Adobe Fonts, and independent foundries that have a strong web presence.
-            However, since there is no comprehensive database of fonts and their supported scripts currently and we only had Google Fonts data we had to make do.
-            <br /><br />
-            For the main parts of the research we only use the reliable google data, but for other parts (for example the state of the web) we had to use a combination of google fonts data and estimations based on the HTTP Archive data.
-            The HTTP Archive's font name metadata is very messy and unreliable as the font names are not consistently labeled the same way, 
-            but after a decent bit of cleaning we can estimate the number of fonts for each script by looking at the number of unique font names that are associated with requests for each script.
-
-            This is not a perfect method but it gives us a rough estimate of the number of fonts that exist for each script that are actually being used on the web.
-        </p>
-
-        <h3>State of Fonts on the Web</h3>
-        <!-- TODO: THIS NEEDS TO BE ADDED TO THE PIPELINE -->
-        <!-- TODO: HAVE THE VISUALIZATIONS NEEDED FOR THE REPORT AUTOMATICALLY SAVE IN ./docs/viz/ -->
-        <p>
-            This visualization is generated from the number of requests found on the HTTP Archive
-            as well as an estimation of the number of fonts for each script.
-
-            The distinct font count estimation is based off of the unique font names from the HTTP Archive after organizing and cleaning them and merging this information with the reliable font support data we have on Google Fonts.
-        </p>
-
-        <iframe src="./viz/bar_chart.html" title="Scripts by Requests vs Font Count"></iframe>
-        <p>
-            This chart shows the relationship between the number of font requests and the estimated number of distinct fonts for each script.
-            The chart shows how this relationship appears positively correlated across different scripts.
-            The number of requests for each script seems to align with the number of fonts available for each script, suggesting that scripts with higher demand tend to be supplied with more fonts.
-            <br /><br />
-            Where this is chart is useful is in identifying scripts that break this pattern such as Devangari which has a much larger relative font demand than it has supply.
-            This discrepancy between demand and supply for Devangari highlights a potential gap in the availability of fonts for this script, indicating a potential market opportunity for providers to address this shortfall.
-        </p>
-        
-        <h3>Complexity</h3>
-        <p>
-            Complexity measures how much engineering effort a script demands from font designers
-            and rendering engines — a "technical debt" signal. Unlike the other components which
-            measure demand and supply, complexity measures how hard the script is to support in
-            the first place.
-        </p>
-
-        <p>
-            The score is a weighted composite of three sub-features pulled directly from each
-            font's OpenType tables via fontTools — no hand-labeling, fully reproducible:
-        </p>
-        <ul>
-            <li><strong>Expansion (E, 50%):</strong> glyphs per Unicode codepoint for the script.
-                Latin is roughly 1:1; Arabic needs 4–5× (initial / medial / final / isolated forms
-                plus ligatures); Devanagari adds conjuncts on top. Multi-script fonts (e.g. Noto
-                Sans JP, which carries 7,500+ glyphs but only ~90 are Katakana) are corrected by
-                counting only glyphs mapped to the script's codepoints — otherwise Katakana would
-                look ~80× more complex than it is.</li>
-            <li><strong>Vertical Footprint (V, 30%):</strong> vertical sizing and layout
-                requirements. Scripts that stack diacritics or place marks above/below the
-                baseline push this up; flat single-row scripts pull it down.</li>
-            <li><strong>Friction (F, 20%):</strong> OpenType feature load — contextual joining
-                (<code>init / medi / fina / isol / calt</code>), Indic shaping
-                (<code>blwf / half / pres / akhn …</code>), ligatures
-                (<code>liga / rlig / dlig</code>), mark positioning
-                (<code>mark / mkmk / abvm / blwm</code>), and right-to-left layout. More required
-                features = more infrastructure that has to exist before a font "just works".</li>
-        </ul>
-
-        <p>
-            Each sub-feature is min-max normalized to <code>[0, 1]</code> across the eight target
-            scripts, then combined as <code>C = 0.50·E + 0.30·V + 0.20·F</code>. A score near
-            <code>0</code> means the script behaves like Latin (cheap to engineer); a score near
-            <code>1</code> means heavy technical debt. The weights reflect impact: glyph count
-            is the single biggest driver of design cost, layout breakage is the most visible
-            failure mode for end users, and modern engines handle Indic and RTL reasonably well
-            so friction matters relatively less.
-        </p>
+  <!-- ══ ARABIC NETWORK VIZ ══ -->
+  <div class="viz-wrap">
+    <span class="pill pill-amber">Font Network</span>
+    <h2>Arabian Script Font Similarity Network</h2>
+    <p>Each node represents an Arabic font; edges show visual similarity based on font fingerprints. Thicker edges = higher similarity. Node colors indicate modularity clusters detected by the Louvain algorithm.</p>
+    <iframe
+      allowfullscreen="true"
+      style = "width: 100%; height: 600px;"
+      src="https://lite.gephi.org/?file=https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/font_network_example.gexf">
+    </iframe>
+    <p style="margin-top:16px; font-size:0.82rem;">To display font images on nodes: click <strong>Appearance → Nodes → Images</strong> and set the image label to <code>image_url</code>.</p>
+  </div>
+  
 
 
-        <h3>Similarity</h3>
-        
-        <p>
-            The similarity score is calculated by analyzing the visual similarity between fonts within each script.
-            Each glyph is rendered as a png and then a vision model is used to extract an embedding that captures the visual style of the glyph.
-            This is used in the creation of a finger print for each font by computing the average visual style of it's glyphs across a set of common unicode points for the script.
-            Finally comparing the font fingerprints of fonts within the same script using cosine similarity gives us a measure of how visually similar the fonts within a script are to each other.
-            A higher similarity score indicates that the fonts are more visually similar to each other, while a lower score suggests more visual variety.
-        </p>
+  <!-- ══ HEATMAP ══ -->
+  <div class="viz-wrap">
+    <span class="pill pill-green">Summary</span>
+    <h2>Script Servedness Score Heatmap</h2>
+    <p>A full cross-script comparison of all four signals combined into the final SSS ranking.</p>
+    <iframe src="./viz/heatmap.html" title="Script Servedness Score Heatmap" style="width: 100%; height: 670px;"></iframe>
+  </div>
 
-        
-        <!-- It looks like gephi lite can have node images https://docs.gephi.org/lite/user-manual/differences-with-gephi#node-images -->
-        <!-- We definitely should replace the current plotly visualization entirely with gephi.
-         It's just better. Also it has html support so we can include it here just as easily as plotly. -->
+  <!-- ══ FINDINGS ══ -->
+  <div class="full-section bg-ink">
+    <span class="pill pill-light">Final Findings</span>
+    <h2>What the Script Servedness Score reveals.</h2>
+    <div class="findings-grid">
+      <div class="finding-card border-red">
+        <h3>Least Served: Devanagari</h3>
+        <p>High development complexity combined with high visual similarity among existing fonts means that even though supply appears adequate, users have very few genuinely distinct typographic options.</p>
+      </div>
+      <div class="finding-card border-green">
+        <h3>Best Served: Katakana</h3>
+        <p>Wide font availability paired with genuine visual diversity earns Katakana the highest Script Servedness Score a model for what well-supported scripts look like.</p>
+      </div>
+      <div class="finding-card border-amber">
+        <h3>Demand ≈ Supply Mostly</h3>
+        <p>Web exposure and font support are positively correlated across most scripts. The valuable insight lies in the scripts that break this pattern and expose real market gaps.</p>
+      </div>
+    </div>
+  </div>
 
-         <!-- I've started by adding a gephi example for the Arabian script. 
-              This network development process still needs to be organized in the pipeline for all scripts 
-              using gephi lite (gexf files) instead of plotly. -->
-        <!-- Also we still need to add images to the nodes. Images need to be hosted on github or some other CORS-enabled domain -->
-        <!-- Also we could include the URL to the actual font where you could look at the fonts in more detail from the type foundries website.  -->
-         <h3>Arabian Script Font Similarity Network</h3>
-         <p>A font network diagram can be used to visualize the relationships between different fonts within a script.
-            The network makes it easy to tell what fonts are visually distinctive and can be utilized as a tool for finding unique typographic styles to grow upon.
-        </p>
+  
+  <!-- ══ FUTURE WORK ══ -->
+  <div class="future-grid">
+    <div class="future-card">
+      <span class="pill pill-blue">Future Work</span>
+      <h3>Expanding the research</h3>
+      <ul>
+        <li>Expand the font database to include more foundries and independent type designers.</li>
+        <li>Conduct user studies to validate the SSS against real-world experiences.</li>
+        <li>Further automate and organize the pipeline for continuous deployment.</li>
+        <li>Grow scope to include more scripts and languages.</li>
+        <li>Combine web request data with demographic data for better readership estimates.</li>
+      </ul>
+    </div>
+    <div class="future-card">
+      <span class="pill pill-green">Get Involved</span>
+      <h3>Contributing to The Script Gap</h3>
+      <p>This research grows with the community. Type foundries, independent designers, and researchers are all welcome to contribute.</p>
+      <br />
+      <p><strong>Type foundries:</strong> <span style="color:var(--red);">Contact details coming soon.</span></p>
+      <br />
+      <p><strong>Researchers:</strong> <a href="mailto:team@thereadabilityconsortium.org" style="color:var(--blue); font-weight:600;">The Readability Consortium ↗</a></p>
+      <br />
+      <p><strong>GitHub:</strong> <a href="https://github.com/Aditya-Khadye/TheScriptGap" target="_blank" style="color:var(--blue); font-weight:600;">TheScriptGap repository ↗</a></p>
+    </div>
+  </div>
 
-        <p>In this network diagram, each node represents a font supporting Arabic, and the edges between nodes represent the visual similarity between those fonts based on their fingerprints. 
-            The thickness of the edges indicates the degree of similarity, with thicker edges representing higher similarity. 
-            By analyzing this network, we can identify clusters of visually similar fonts as well as outliers that may offer unique typographic styles.</p>
-
-        <p>
-            The nodes are colored based on their modularity class, which is determined by the Louvain community detection algorithm.
-            In this example, we can see 4 distinct clusters of fonts.
-            The red and green clusters are the largest and demonstrate the main typographic styles for Arabic fonts, while the blue and purple clusters are smaller and contain more unique fonts that may be visually distinct from the main styles.
-            <ul>
-                <li>Red cluster: traditional handwritten style with more calligraphic features and sharpness.</li>
-                <li>Green cluster: modern style with smoother curves.</li>
-                <li>Blue cluster: outliers in style containing unique characteristics.</li>
-            </ul>
-        </p>
-         <iframe
-            width="100%"
-            height="600px"
-            allowfullscreen="true"
-            src="https://lite.gephi.org/?file=https://raw.githubusercontent.com/Aditya-Khadye/TheScriptGap/refs/heads/main/docs/viz/font_network_example.gexf">
-        </iframe>
-        
-        <p>This network visualization also supports images of fonts to be displayed on the nodes.
-            This is a great way to quickly visualize the visual style of each font and compare it to other fonts in the network.
-            This allows us to observe more visually how fonts cluster together and verify that the similarity metric is accurate.
-        </p>
-        <p>
-            This visual network is also a powerful tool for exploring and understanding the relationships between different styles of fonts within a script.
-            <br /><br />
-            By examining the network, we can identify patterns and trends that may not be immediately apparent from the raw data, such as clusters of fonts that share similar characteristics or fonts that are outliers in terms of their visual style.
-            This can be a powerful tool for typefoundaries to analyze their font offerings for a script and identify areas where they may could benefit from expanding or diversifying their font portfolio.
-        </p>
-
-        <p>
-            In order to see the font images on the nodes: click 'Appearance' -> 'Nodes' then in the 'Images' sections set the image label to image_url.
-        </p>
-        
-        <h2>Final Findings Summary</h2>
-        <p>To review the script servedness score is calculated as:</p>
-        <p><code>SSS = −log(exposure) + log(support) − complexity − similarity</code></p>
-
-
-        <iframe src="./viz/heatmap.html" title="Script Servedness Score Heatmap" style="width: 100%; height: 670px;"></iframe>
-        
-        <!-- Result 1: Least Supported -->
-        <p>We found the Devanagari script to be the least well served due the high development complexity and limited choices due to the similarity of desgins in it's fonts.
-           The font supply for Devanagari outpaces demand but the high similarity between the styles of fonts mean that even though there appears to be a lot of choice there aren't actually many visually distinct options for users to choose from.
-        </p>
-
-        <!-- Information on Nuances of Font Support Scores -->
-        <p>Web Exposure representing demand and Font Support representing supply of fonts for each script is correlated in most cases.</p>
-        <p>The font supply here is limited to the reliable Google Data and 
-            the results of our final font support metrics varies between 
-            the state of the web's Distinct Font Count and the Font Support 
-            based on available data from Google Fonts.
-        </p>
-
-        <!-- Result 2: Best Supported -->
-        <p>On the other hand Katakana is the best served script due to its wide availability and diverse font options.</p>
-        
-        <h2>Future Work</h2>
-        <p>
-            Future research directions include:
-            <ul>
-                <li>Expanding the font database to include more foundries and independent type designers to get a more comprehensive view of font availability for each script and script similarity.</li>
-                <li>Conducting user studies to validate the Script Servedness Score against real-world user experiences as well as the accuracy of the similarity metrics.</li>
-                <li>Further organization of the pipeline and deployment of automated workflows.</li>
-                <li>Growing the scope of the research to include more scripts and languages.</li>
-                <li>Combining Web Request Data with demographic data in order to get a better estimation of font readership.</li>
-            </ul>
-        </p>
-
-        <h2>Contributing</h2>
-        <p><span style="color: red;">Guidelines for contributing to the project.</span></p>
-        <p>For type foundaries interested in contributing to this research please reach out to us at <span style="color: red;">EMAIL GOES HERE</span>.</p>
-
-        <p>For researchers interested in contributing to this research please reach out to us at <a href="mailto:team@thereadabilityconsortium.org">The Readability Consortium</a>.</p>
-
-        <h2>License</h2>
-        <p><span style="color: red;">License information.</span></p>
-
-        <h2>Contact</h2>
-        <p><span style="color: red;">Ben Sawyer Lab: EMAIL GO HERE</span></p>
-        <p>The Readability Consortium: <a href="mailto:team@thereadabilityconsortium.org">team@thereadabilityconsortium.org</a></p>
-        <h3>Authored By:</h3>
-
+  <!-- ══ TEAM ══ -->
+  <div style="padding-bottom: 30px;">
+    <h3>Authored By:</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 20px; justify-content: center;">
             <!-- LOU -->
             <div class="team-card">
@@ -614,6 +972,14 @@
                 </div>
             </div>
         </div>
-    </div>
+  </div>
+
+  <!-- ══ BOTTOM BAR ══ -->
+  <div class="bottom-bar">
+    <div class="brand">The Script Gap</div>
+    <p>Built monthly. Data sourced from HTTP Archive, CRUX, Google Fonts, fontTools, and ViT-B/16. Research by <a href="mailto:team@thereadabilityconsortium.org">The Readability Consortium</a>. License information forthcoming.</p>
+  </div>
+
+</div>
 </body>
 </html>
