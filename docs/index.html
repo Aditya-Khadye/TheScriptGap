@@ -655,7 +655,7 @@
     <div class="spread-right">
       <h2>Closing the gap between real-world demand and digital font supply.</h2>
       <p>The Script Gap is a research framework that identifies writing systems widely used in the real world but under-supported in digital typography.</p>
-      <p>By combining web exposure data, font availability, engineering complexity, and visual similarity into a single <strong>Script Servedness Score</strong>, it surfaces the highest-impact gaps and provides a data-driven roadmap for prioritizing script support.</p>
+      <p>By combining web exposure data, font availability, engineering cost, and visual similarity into a single <strong>Script Servedness Score</strong>, it surfaces the highest-impact gaps and provides a data-driven roadmap for prioritizing script support.</p>
       <div class="pull-quote pq-ink">
         Scripts used by billions of readers online remain severely underdeveloped not because the need isn't there, 
         but because infrastructure and market investment has been disportionately focused on Latin. 
@@ -682,7 +682,7 @@
         <div class="signal-desc">Distinct font families per script from Google Fonts</div>
       </div>
       <div class="signal sig-red">
-        <div class="signal-title">Complexity</div>
+        <div class="signal-title">Engineering Cost</div>
         <div class="signal-desc">0.50·E + 0.30·V + 0.20·F <br />glyphs per codepoint· vertical footprint · OpenType shaping</div>
       </div>
       <div class="signal sig-green">
@@ -694,7 +694,7 @@
     <div class="pipe-row">
       <div class="sss-box">
         <div class="sss-label">Script Servedness Score</div>
-        <code>SSS = −log(exposure) + log(support) − complexity − similarity</code>
+        <code>SSS = −log(exposure) + log(support) − engineering_cost − similarity</code>
       </div>
     </div>
     <div class="pipe-arrow">↓<span>K-Means tier clustering (k = 2..5 chosen by silhouette score)</span></div>
@@ -774,7 +774,7 @@
   <div class="spread">
     <div class="spread-left bg-red">
       <div>
-        <span class="pill pill-light">Complexity</span>
+        <span class="pill pill-light">Engineering Cost</span>
         <div class="big-stat">Technical Debt.</div>
         <p class="big-stat-label">How hard is a script to support in the first place?</p>
       </div>
@@ -785,7 +785,7 @@
     </div>
     <div class="spread-right">
       <h2>Engineering effort quantified</h2>
-      <p>Complexity is a fontTools based composite pulled directly from each font's OpenType tables. A score near 0 means the script behaves like Latin (cheap to engineer); a score near 1 means heavy technical debt.</p>
+      <p>Engineering cost is a fontTools based composite pulled directly from each font's OpenType tables. A score near 0 means the script behaves like Latin (cheap to engineer); a score near 1 means heavy technical debt.</p>
       <div class="complexity-cards">
         <div class="comp-card cc-blue">
           <div class="weight">50%</div>
