@@ -1,0 +1,3 @@
+script,total_fonts,fonts_analyzed,reference_chars,glyphs_rendered,mean_cosine_distance,std_cosine_distance,embedding_spread,effective_dimensions,n_embeddings,diversity_index
+Tamil,35,3,93,279,0.012728591449558735,0.007310471497476101,0.0027710378635674715,1,3,0.0
+Telugu,38,3,90,270,0.18714915215969086,0.10633884370326996,0.010581545531749725,1,3,1.0

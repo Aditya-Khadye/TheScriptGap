@@ -16,7 +16,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 
-AVAILABLE_STAGES = ["support", "exposure", "viz"]
+AVAILABLE_STAGES = ["support", "exposure", "viz", "similarity"]
 
 
 def run_support_stage(force: bool = False) -> None:
@@ -39,6 +39,12 @@ def run_viz_stage(force: bool = False) -> None:
 
     print("\n=== Data Viz stage ===")
     run_viz_pipeline(force=force)
+
+def run_similarity_stage(force: bool = False) -> None:
+    from new_similarity import run_similarity_pipeline
+
+    print("\n=== Similarity stage ===")
+    run_similarity_pipeline(force=force)
 
 
 def parse_args() -> argparse.Namespace:
@@ -77,6 +83,8 @@ def main() -> None:
     if "exposure" in requested:
         run_exposure_stage(force=args.force)
     # TODO: Add similarity and complexity, and CNN clustering stages
+    if "similarity" in requested:
+        run_similarity_stage(force=args.force)
     if "viz" in requested:
         run_viz_stage(force=args.force)
 

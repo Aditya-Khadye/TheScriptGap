@@ -31,6 +31,13 @@ VIZ_DATA_DIR = DATA_ROOT / "viz"
 # BigQuery raw outputs
 BIGQUERY_DATA_DIR = DATA_ROOT / "bigquery"
 
+# Similarity Outputs
+SIMILARITY_DATA_DIR = DATA_ROOT / "similarity"
+
+# Google Fonts Directory Location
+GOOGLE_FONTS_DIR = REPO_ROOT / "similarity_research" / "diversity_research" / "fonts"
+
+
 # Legacy module roots (for reference; not actively used in refactored code)
 SUPPORT_ROOT = REPO_ROOT / "support_research"
 EXPOSURE_ROOT = REPO_ROOT / "exposure_research"
