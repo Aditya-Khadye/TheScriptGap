@@ -660,7 +660,6 @@
         Scripts used by billions of readers online remain severely underdeveloped not because the need isn't there, 
         but because infrastructure and market investment has been disportionately focused on Latin. 
         This framework aims to shine a light on the underserved scripts that need more typographic development.
-        <span class="attr">- Research Rationale</span>
       </div>
     </div>
   </div>
@@ -712,13 +711,18 @@
       
       <div style="display: flex; gap: 20px;">
         <div class="stat-card" style="flex: 1;">
-          <div class="num">~57%</div>
+          <div class="num">56%</div>
           <div class="desc">Of the top websites on the web have Latin script support</div>
         </div>
         <div class="stat-card" style="flex: 1;">
-          <div class="num">Some Number</div>
-          <div class="desc">Of the top websites have script support for any of the other pilot scripts</div>
+          <div class="num">10%</div>
+          <div class="desc">PILOT SCRIPTS</div>
         </div>
+        <div class="stat-card" style="flex: 1;">
+          <div class="num">34%</div>
+          <div class="desc">NOT IN THE PILOT PROGRAM</div>
+        </div>
+        
       </div>
 
     </div>
@@ -728,7 +732,6 @@
       <p>Exposure is calculated by analyzing the HTTP Archive's web crawl request data. Each font request includes Unicode codepoints that can be mapped to their corresponding scripts aggregated across the top 10 million websites to estimate demand.</p>
       <div class="pull-quote pq-blue">
         Since the data comes from the top global websites, it may not fully represent usage of scripts in all regions.
-        <span class="attr">- Data Caveat</span>
       </div>
       <p>The data is collected from each site's origin/homepage domain only. The following treemap breaks down script exposure proportionally by number of font requests.</p>
       <p><a href="https://bf2d8941-ca90-4ea0-a054-76de36ce5eff.plotly.app" target="_blank" style="color:var(--blue); font-weight:600;">View Interactive Treemap ↗</a></p>
@@ -743,7 +746,6 @@
       <p>The HTTP Archive's font-name metadata while messy was cleaned and merged with Google Fonts data to produce rough estimates of fonts actually in use on the web. It's imperfect, but gives a ground-truth view of real deployment.</p>
       <div class="pull-quote pq-amber">
         Devanagari has a much larger relative font demand than supply. This discrepancy highlights a potential market gap for providers to address.
-        <span class="attr">- Key Finding</span>
       </div>
     </div>
     <div class="spread-left bg-amber">
@@ -753,8 +755,8 @@
         <p class="big-stat-label">How many distinct fonts actually exist for each script?</p>
       </div>
       <div class="stat-card">
-        <div class="num">EXAMPLE STATISTIC: Latin has 10 x the number of fonts than all other scripts combined</div>
-        <div class="desc">Demand and supply are positively correlated but key scripts break this pattern</div>
+        <div class="num">Latin has 3.4x the number of fonts</div>
+        <div class="desc">than all other pilot scripts combined</div>
       </div>
     </div>
   </div>
@@ -813,7 +815,6 @@
       <p>Averaging these embeddings across a set of common Unicode points produces a <strong>font fingerprint</strong>. Comparing fingerprints using cosine similarity gives a measure of how visually alike fonts within a script are.</p>
       <div class="pull-quote pq-green">
         A high similarity score means the script has many fonts that all look the same quantity without genuine choice.
-        <span class="attr" style="color:--green;">- Similarity Metric Rationale</span>
       </div>
       <p>A lower similarity score indicates more visual variety which is what users actually need.</p>
     </div>
@@ -873,12 +874,13 @@
     </div>
   </div>
 
-  <div class="full-section">
+  <div class="full-section bg-white">
     <span class="pill pill-red">Credit</span>
-      <h3>Resources</h3>
+      <h3 style="color: var(--ink)">Resources</h3>
       <ul>
         <li><a href="https://www.monotype.com/resources/ebook/global-font-use-forecasting-survey-2024" target="_blank" style="color:var(--blue); font-weight:600;">Monotype Report</a></li>
       </ul>
+      <h3 style="color: var(--ink); margin-top: 24px;">Acknowledgements</h3>
   </div>
 
 

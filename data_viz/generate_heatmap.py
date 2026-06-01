@@ -33,6 +33,7 @@ OUTPUT_DIR = VIZ_DATA_DIR
 # not refactored in this iteration.
 
 SUPPORT_NAME_MAP = {
+    "latin": "Latin",
     "cyrillic": "Cyrillic", "japanese": "Katakana",
     "devanagari": "Devanagari", "arabic": "Arabic",
     "telugu": "Telugu", "tamil": "Tamil", "bengali": "Bengali",
@@ -40,7 +41,7 @@ SUPPORT_NAME_MAP = {
     "chinese-hongkong": "Han",
 }
 
-TARGET_SCRIPTS = ["Devanagari", "Arabic", "Bengali", "Tamil",
+TARGET_SCRIPTS = ["Latin", "Devanagari", "Arabic", "Bengali", "Tamil",
                   "Telugu", "Han", "Katakana", "Cyrillic"]
 
 
