@@ -34,6 +34,9 @@ BIGQUERY_DATA_DIR = DATA_ROOT / "bigquery"
 # Similarity Outputs
 SIMILARITY_DATA_DIR = DATA_ROOT / "similarity"
 
+# Complexity Outputs
+COMPLEXITY_DATA_DIR = DATA_ROOT / "complexity"
+
 # Google Fonts Directory Location
 GOOGLE_FONTS_DIR = REPO_ROOT / "similarity_research" / "diversity_research" / "fonts"
 

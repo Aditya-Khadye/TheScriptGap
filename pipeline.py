@@ -16,7 +16,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 
-AVAILABLE_STAGES = ["support", "exposure", "viz", "similarity"]
+AVAILABLE_STAGES = ["support", "exposure", "viz", "similarity", "complexity"]
 
 
 def run_support_stage(force: bool = False) -> None:
@@ -45,6 +45,12 @@ def run_similarity_stage(force: bool = False) -> None:
 
     print("\n=== Similarity stage ===")
     run_similarity_pipeline(force=force)
+
+def run_complexity_stage(force: bool = False) -> None:
+    from complexity import run_complexity_pipeline
+
+    print("\n=== Complexity stage ===")
+    run_complexity_pipeline(force=force)
 
 
 def parse_args() -> argparse.Namespace:
@@ -85,6 +91,8 @@ def main() -> None:
     # TODO: Add similarity and complexity, and CNN clustering stages
     if "similarity" in requested:
         run_similarity_stage(force=args.force)
+    if "complexity" in requested:
+        run_complexity_stage(force=args.force)
     if "viz" in requested:
         run_viz_stage(force=args.force)
 
