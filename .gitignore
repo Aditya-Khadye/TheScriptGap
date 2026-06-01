@@ -10,3 +10,8 @@ support_research/scripts/
 
 **/font_similarity_outputs/full_font_similarity_pairs/*.csv
 exposure_research/plotly-cloud.toml
+
+fonts/
+latin_vit_outputs/
+vit_outputs/
+*.npy
