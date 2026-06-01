@@ -1,0 +1,2 @@
+script,font_count,latin_dominant_only,E_latin_median,E_mean,E_std,E_q25,E_q75,E_p10,E_p90,V_latin_median,V_mean,V_std,V_q25,V_q75,V_p10,V_p90,F_latin_median,F_mean,total_glyphs_median,prev_contextual_joining_pct,prev_indic_shaping_pct,prev_ligature_heavy_pct,prev_mark_positioning_pct,prev_rtl_layout_pct
+Latin,2606,True,1.4449,1.9207,1.644,1.1463,1.7397,1.0,3.3887,1.25,1.2907,0.2224,1.2,1.3574,1.0707,1.5277,2.0,1.6116,633.5,21.6,1.2,59.5,66.8,12.1

@@ -1,0 +1,77 @@
+{
+  "script": "Latin",
+  "font_count": 2606,
+  "latin_dominant_only": true,
+  "expansion_ratio": {
+    "median": 1.4449,
+    "mean": 1.9207,
+    "std": 1.644,
+    "q25": 1.1463,
+    "q75": 1.7397,
+    "p10": 1.0,
+    "p90": 3.3887,
+    "n": 2608
+  },
+  "vertical_footprint": {
+    "median": 1.25,
+    "mean": 1.2907,
+    "std": 0.2224,
+    "q25": 1.2,
+    "q75": 1.3574,
+    "p10": 1.0707,
+    "p90": 1.5277,
+    "n": 2608
+  },
+  "friction_score": {
+    "median": 2.0,
+    "mean": 1.6116,
+    "std": 1.0858,
+    "q25": 1.0,
+    "q75": 2.0,
+    "p10": 0.0,
+    "p90": 3.0,
+    "n": 2608
+  },
+  "total_glyphs_median": 633.5,
+  "friction_category_prevalence_pct": {
+    "contextual_joining": 21.6,
+    "indic_shaping": 1.2,
+    "ligature_heavy": 59.5,
+    "mark_positioning": 66.8,
+    "rtl_layout": 12.1
+  },
+  "baseline_reference_vector": {
+    "E_latin": 1.4449,
+    "V_latin": 1.25,
+    "F_latin": 2.0
+  },
+  "sample_size": null,
+  "random_seed": null,
+  "skip_reasons": {
+    "contaminated:Hebrew": 132,
+    "contaminated_total": 1179,
+    "contaminated:Gujarati": 22,
+    "contaminated:Hiragana": 31,
+    "contaminated:Han": 153,
+    "contaminated:Devanagari": 199,
+    "contaminated:Arabic": 120,
+    "contaminated:Thai": 257,
+    "contaminated:Syriac": 4,
+    "no_latin": 84,
+    "contaminated:Khmer": 36,
+    "contaminated:Telugu": 35,
+    "contaminated:Hangul": 52,
+    "contaminated:Oriya": 4,
+    "contaminated:Lao": 5,
+    "contaminated:Gurmukhi": 21,
+    "contaminated:Bengali": 19,
+    "contaminated:NKo": 2,
+    "contaminated:Kannada": 15,
+    "contaminated:Malayalam": 16,
+    "contaminated:Sinhala": 22,
+    "contaminated:Tamil": 25,
+    "contaminated:Myanmar": 5,
+    "contaminated:Tibetan": 3,
+    "contaminated:Thaana": 1
+  }
+}
