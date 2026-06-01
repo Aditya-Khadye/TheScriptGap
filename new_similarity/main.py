@@ -369,11 +369,18 @@ def run_font_similarity_pipeline(
     script_name: str,
     max_fonts_per_script: int = MAX_FONTS_PER_SCRIPT,
     device: Optional[str] = None,
-) -> pd.DataFrame:
-    """Compute pairwise font similarity for a script."""
+) -> Tuple[pd.DataFrame, List[str], np.ndarray, int]:
+    """
+    Compute pairwise font similarity for a script.
+    
+    Returns:
+        Tuple of (similarity_df, font_names, embeddings, total_fonts_found)
+    """
     font_paths = discover_fonts_for_script(fonts_dir, script_name)
     if not font_paths:
         raise RuntimeError(f"No fonts found for script {script_name}")
+    
+    total_fonts_found = len(font_paths)
     
     extractor = ViTFeatureExtractor(device=device)
     font_names, embeddings = compute_font_average_embeddings(
@@ -387,7 +394,7 @@ def run_font_similarity_pipeline(
         raise RuntimeError(f"Not enough fonts produced embeddings for {script_name}")
     
     result_df = compute_pairwise_similarity(font_names, embeddings)
-    return result_df
+    return result_df, font_names, embeddings, total_fonts_found
 
 
 def run_similarity_pipeline(force: bool = False) -> None:
@@ -408,8 +415,8 @@ def run_similarity_pipeline(force: bool = False) -> None:
     for script_name in TARGET_SCRIPTS.keys():
         logger.info(f"\n=== Processing script: {script_name} ===")
         try:
-            # Run similarity pipeline for this script
-            result_df = run_font_similarity_pipeline(
+            # Run similarity pipeline once per script - returns all needed data
+            result_df, font_names, embeddings, total_fonts_found = run_font_similarity_pipeline(
                 GOOGLE_FONTS_DIR,
                 script_name=script_name,
                 device=device
@@ -425,20 +432,14 @@ def run_similarity_pipeline(force: bool = False) -> None:
             result_df.to_csv(output_file, index=False)
             logger.info(f"✓ Saved {script_name} pairs → {output_file}")
 
-            # Collect metrics for diversity summary
-            embeddings = compute_font_average_embeddings(
-                discover_fonts_for_script(GOOGLE_FONTS_DIR, script_name),
-                script_name,
-                ViTFeatureExtractor(device=device),
-            )[1]
-
+            # Use same embeddings to compute diversity metrics
             ref_chars = get_flat_reference_chars(script_name)
             metrics = compute_diversity_metrics(embeddings)
 
             # Build summary row
             summary_row = {
                 "script": script_name,
-                "total_fonts": len(discover_fonts_for_script(GOOGLE_FONTS_DIR, script_name)),
+                "total_fonts": total_fonts_found,
                 "fonts_analyzed": metrics["n_embeddings"],
                 "reference_chars": len(ref_chars),
                 "glyphs_rendered": metrics["n_embeddings"] * len(ref_chars),  # Approximate
