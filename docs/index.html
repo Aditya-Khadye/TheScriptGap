@@ -874,14 +874,31 @@
     </div>
   </div>
 
-  <div class="full-section bg-white">
-    <span class="pill pill-red">Credit</span>
-      <h3 style="color: var(--ink)">Resources</h3>
-      <ul>
-        <li><a href="https://www.monotype.com/resources/ebook/global-font-use-forecasting-survey-2024" target="_blank" style="color:var(--blue); font-weight:600;">Monotype Report</a></li>
-      </ul>
-      <h3 style="color: var(--ink); margin-top: 24px;">Acknowledgements</h3>
-  </div>
+<div class="full-section bg-white">
+  <span class="pill pill-red">Credit</span>
+
+  <h3 style="color: var(--ink)">Resources</h3>
+  <ul>
+    <li><a href="https://www.monotype.com/resources/ebook/global-font-use-forecasting-survey-2024" target="_blank" style="color:var(--blue); font-weight:600;">Monotype — Global Font Use Forecasting Survey (2024)</a></li>
+    <li><a href="https://arxiv.org/abs/2107.09615" target="_blank" style="color:var(--blue); font-weight:600;">Beier et al. (2022) — Readability Research: An Interdisciplinary Approach</a></li>
+    <li><a href="https://dl.acm.org/doi/10.1145/3502222" target="_blank" style="color:var(--blue); font-weight:600;">Wallace et al. (2022) — Towards Individuated Reading Experiences (TOCHI)</a></li>
+    <li><a href="https://dl.acm.org/doi/10.1145/3517745.3561418" target="_blank" style="color:var(--blue); font-weight:600;">Ruth et al. (2022) — A World Wide View of Browsing the World Wide Web (ACM IMC)</a></li>
+    <li><a href="https://raga.work/posts/indic-script-challenges/" target="_blank" style="color:var(--blue); font-weight:600;">Bhatia &amp; Kumar (2020) — Challenges in Digital Typography for Indic Scripts</a></li>
+    <li><a href="https://googlefonts.github.io/gf-guide/metrics.html" target="_blank" style="color:var(--blue); font-weight:600;">Google Fonts — Font Metrics Guide</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/typography/develop/processing-part2" target="_blank" style="color:var(--blue); font-weight:600;">Microsoft — OpenType Glyph Processing</a></li>
+  </ul>
+
+  <h3 style="color: var(--ink); margin-top: 24px;">Data &amp; Tools</h3>
+  <ul>
+    <li><a href="https://httparchive.org/" target="_blank" style="color:var(--blue); font-weight:600;">HTTP Archive</a> — web crawl and font-request metadata</li>
+    <li><a href="https://developer.chrome.com/docs/crux" target="_blank" style="color:var(--blue); font-weight:600;">Chrome UX Report (CrUX)</a> — website popularity via BigQuery</li>
+    <li><a href="https://fonts.google.com/" target="_blank" style="color:var(--blue); font-weight:600;">Google Fonts</a> — open font corpus and family metadata</li>
+    <li><a href="https://github.com/fonttools/fonttools" target="_blank" style="color:var(--blue); font-weight:600;">fontTools</a> — OpenType table extraction</li>
+    <li><a href="https://pytorch.org/vision/stable/models/vision_transformer.html" target="_blank" style="color:var(--blue); font-weight:600;">ViT-B/16 (torchvision)</a> — glyph embedding model</li>
+  </ul>
+
+  
+</div>
 
 
   <!-- ══ FUTURE WORK ══ -->
@@ -961,9 +978,17 @@
   <!-- ══ BOTTOM BAR ══ -->
   <div class="bottom-bar">
     <div class="brand">The Script Gap</div>
-    <p>Built monthly. Data sourced from HTTP Archive, CRUX, Google Fonts, fontTools, and ViT-B/16. Research by <a href="mailto:team@thereadabilityconsortium.org">The Readability Consortium</a>. License information forthcoming.</p>
+    <p>Built monthly. Data sourced from HTTP Archive, CRUX, Google Fonts, fontTools, and ViT-B/16. Research by <a href="https://thereadabilityconsortium.org/" target="_blank" rel="noopener noreferrer">The Readability Consortium</a>. License information forthcoming.</p>
   </div>
-
+    <h3 style="color: var(--ink); margin-top: 24px;">Acknowledgements</h3>
+  <p style="font-size:0.9rem; color:var(--muted); line-height:1.7; max-width:760px;">
+    This research was conducted at the University of Central Florida in collaboration with
+    <a href="https://thereadabilityconsortium.org/" target="_blank" style="color:var(--blue); font-weight:600;">The Readability Consortium</a>,
+    with industry partners Google, Monotype, and Adobe. We thank our advisor
+    <strong>Dr. Ben D. Sawyer</strong> for his guidance throughout the project, and
+    <strong>Prof. Edwin Nassiff</strong> for capstone coordination. Developed as part of CAP 6942
+    by Aditya Khadye, Lou Vaughn, Beamlak Ayele, and Yihan Wang.
+  </p>
 </div>
 </body>
 </html>
