@@ -397,8 +397,9 @@
       margin-bottom: 8px;
     }
     .finding-card {
-      background: var(--white);
+      background: var(--off);
       border-radius: var(--radius);
+      border: 1.5px solid #E5E7EB;
       padding: 32px 28px;
       border-top: 6px solid;
     }
@@ -607,6 +608,10 @@
       gap: 32px;
       align-items: flex-start;
     }
+    .viz-content-flex > div {
+      flex: 1;
+      min-width: 0;
+    }
     @media (max-width: 1024px) {
       .viz-content-flex {
         flex-direction: column;
@@ -716,6 +721,57 @@
     <div class="pipe-arrow">↓<span>Scripts are also grouped into tiers separately, via K-Means (k chosen by silhouette score)</span></div>
   </div>
 
+<!-- Pilot Scripts -->
+<div class="pipeline-wrap" style="margin-bottom:8px;">
+  <span class="pill pill-blue">Pilot Scripts</span>
+  <h2 style="margin-bottom: 5px;">Eight scripts in scope.</h2>
+  <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 20px;">Selected based on the top 8 scripts by their primary countries' population.</p>
+
+  <div style="display:grid; grid-template-columns: repeat(4,1fr); gap:12px;">
+
+    <div style="background:var(--off); border:1.5px solid #E5E7EB; border-radius:12px; padding:20px;">
+      <div style="font-weight:700; color:var(--ink); margin-bottom:4px;">Latin</div>
+      <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">English, Spanish, French, Portuguese, German, and most European languages.</div>
+    </div>
+
+    <div style="background:var(--off); border:1.5px solid #E5E7EB; border-radius:12px; padding:20px;">
+      <div style="font-weight:700; color:var(--ink); margin-bottom:4px;">Arabic</div>
+      <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Arabic, Urdu, Farsi, and other languages of the Middle East and South Asia.</div>
+    </div>
+
+    <div style="background:var(--off); border:1.5px solid #E5E7EB; border-radius:12px; padding:20px;">
+      <div style="font-weight:700; color:var(--ink); margin-bottom:4px;">Devanagari</div>
+      <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Hindi, Sanskrit, Marathi, Nepali, and several other South Asian languages.</div>
+    </div>
+
+    <div style="background:var(--off); border:1.5px solid #E5E7EB; border-radius:12px; padding:20px;">
+      <div style="font-weight:700; color:var(--ink); margin-bottom:4px;">Cyrillic</div>
+      <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Russian, Ukrainian, Bulgarian, Serbian, and other Slavic languages.</div>
+    </div>
+
+    <div style="background:var(--off); border:1.5px solid #E5E7EB; border-radius:12px; padding:20px;">
+      <div style="font-weight:700; color:var(--ink); margin-bottom:4px;">Han</div>
+      <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Chinese (Simplified & Traditional), Japanese Kanji, and Korean Hanja.</div>
+    </div>
+
+    <div style="background:var(--off); border:1.5px solid #E5E7EB; border-radius:12px; padding:20px;">
+      <div style="font-weight:700; color:var(--ink); margin-bottom:4px;">Katakana</div>
+      <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Japanese primarily used for foreign loanwords and technical terminology.</div>
+    </div>
+
+    <div style="background:var(--off); border:1.5px solid #E5E7EB; border-radius:12px; padding:20px;">
+      <div style="font-weight:700; color:var(--ink); margin-bottom:4px;">Tamil</div>
+      <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Tamil spoken by over 80 million people across India, Sri Lanka, Singapore, and the Tamil diaspora.</div>
+    </div>
+
+    <div style="background:var(--off); border:1.5px solid #E5E7EB; border-radius:12px; padding:20px;">
+      <div style="font-weight:700; color:var(--ink); margin-bottom:4px;">Telugu</div>
+      <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">One of the most widely spoken Dravidian languages, primarily used in the Indian states of Andhra Pradesh and Telangana.</div>
+    </div>
+
+  </div>
+</div>
+
   <!-- ══ EXPOSURE SPREAD ══ -->
   <div class="spread">
     <div class="spread-left bg-blue">
@@ -772,8 +828,7 @@
         <p class="big-stat-label">How many distinct fonts actually exist for each script?</p>
       </div>
       <div class="stat-card">
-        <div class="num">Latin has</div>
-        <div class="num">3.4x</div>
+        <div class="num">Latin has 3.4x</div>
         <div class="desc">the number of fonts than all other pilot scripts combined (in google fonts)</div>
       </div>
     </div>
@@ -786,18 +841,18 @@
     <p>The relationship between font requests (demand proxy) and distinct font count (supply) across scripts. Where the two are misaligned, the gap becomes visible.</p>
     
     <div class="viz-content-flex">
-      <div style="flex-shrink: 0;">
-      <iframe src="./viz/bar_chart.html" title="Scripts by Requests vs Font Count" style="width: 525px; height: 525px;"></iframe>
-      <p style="margin-top:16px; font-size:0.82rem;">Note: The x-axis is logarithmic to accommodate the wide range of values across scripts.</p>
+      <div>
+        <iframe src="./viz/bar_chart.html" title="Scripts by Requests vs Font Count"  style="width: 525px; height: 525px;"></iframe>
+        <p style="margin-top:16px; font-size:0.82rem; color:var(--muted);">Note: The x-axis is logarithmic to accommodate the wide range of values across scripts.</p>
       </div>
-      <div style="flex: 1; padding-top: 20px;">
-        <h3>Relevance</h3>
-        <p>The number of font requests for each script on the top 10 million websites is utilized as a proxy for the demand of the script.</p>
+      <div>
+        <h3>Why this matters</h3>
         <p>While font requests don't exactly reflect the complex nature of demand, it provides a useful approximation for analyzing script usage.</p>
         <p>The more font requests a script has, the higher its demand for fonts is likely to be. This trend is visible in the bar chart.</p>
-        <img src="viz/vit_visualization.gif" alt="Katakana Glyph Animation" width="200" height="200" style="float: right; margin-right: 100px; margin-left:15px; border-radius: 8px; border: 1.5px solid #E5E7EB;">
-        <p>Exceptions to this rule like Devanagari highlight disparities between demand and supply.</p>
-        <p>But this alone doesn't tell the whole story. <strong>Even if a script has way less supply compared to demand, it still may be relatively well served if the available fonts cover a wide range of visual styles.</strong></p>
+        <img src="viz/vit_visualization.gif" alt="Katakana Glyph Animation" width="200" height="200" style="float: left; margin-right: 47px; margin-left:15px; border-radius: 8px; border: 1.5px solid #E5E7EB;">
+        <p>Exceptions to this rule like Devanagari highlight disparities between demand and supply. Indicating that </p>
+        <p>But this alone doesn't tell the whole story. 
+          <strong>A script can still be well served by fewer fonts if those fonts offer a wide range of styles.</strong></p>
 
 
 
