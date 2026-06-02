@@ -786,9 +786,10 @@
     <p>The relationship between font requests (demand proxy) and distinct font count (supply) across scripts. Where the two are misaligned, the gap becomes visible.</p>
     
     <div class="viz-content-flex">
-
-      <iframe src="./viz/bar_chart.html" title="Scripts by Requests vs Font Count" style="width: 525px; height: 525px; flex-shrink: 0;"></iframe>
-      
+      <div style="flex-shrink: 0;">
+      <iframe src="./viz/bar_chart.html" title="Scripts by Requests vs Font Count" style="width: 525px; height: 525px;"></iframe>
+      <p style="margin-top:16px; font-size:0.82rem;">Note: The x-axis is logarithmic to accommodate the wide range of values across scripts.</p>
+      </div>
       <div style="flex: 1; padding-top: 20px;">
         <h3>Relevance</h3>
         <p>The number of font requests for each script on the top 10 million websites is utilized as a proxy for the demand of the script.</p>
@@ -803,7 +804,6 @@
       </div>
     </div>
     
-    <p style="margin-top:16px; font-size:0.82rem;">Note: The x-axis is logarithmic to accommodate the wide range of values across scripts.</p>
   </div>
 
   <!-- ══ SIMILARITY SPREAD ══ -->
