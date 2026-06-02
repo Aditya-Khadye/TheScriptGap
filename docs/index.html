@@ -601,6 +601,21 @@
     .cc-green .weight, .cc-green h4 { color: var(--green); }
     .cc-amber .weight, .cc-amber h4 { color: var(--amber); }
 
+    /* ── VIZ FLEX LAYOUT ── */
+    .viz-content-flex {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+    }
+    @media (max-width: 1024px) {
+      .viz-content-flex {
+        flex-direction: column;
+      }
+      .viz-content-flex iframe {
+        width: 100% !important;
+      }
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 800px) {
       .cover, .spread, .two-stat { grid-template-columns: 1fr; }
@@ -710,18 +725,19 @@
         <p class="big-stat-label">How much of the web is written in each script?</p>
       </div>
       
+      <h2 style="color: var(--white);">Of the top 10 million websites</h2>
       <div style="display: flex; gap: 20px;">
         <div class="stat-card" style="flex: 1;">
           <div class="num">56%</div>
-          <div class="desc">Of the top websites on the web have Latin script support</div>
+          <div class="desc">Support Latin scripts</div>
         </div>
         <div class="stat-card" style="flex: 1;">
           <div class="num">10%</div>
-          <div class="desc">PILOT SCRIPTS</div>
+          <div class="desc">Support one or more of the non-Latin pilot scripts</div>
         </div>
         <div class="stat-card" style="flex: 1;">
           <div class="num">34%</div>
-          <div class="desc">NOT IN THE PILOT PROGRAM</div>
+          <div class="desc">Do not support any of the pilot scripts</div>
         </div>
         
       </div>
@@ -767,11 +783,55 @@
   <div class="viz-wrap">
     <span class="pill pill-blue">Visualization</span>
     <h2>State of Fonts on the Web</h2>
-    <p>The relationship between font requests (demand) and distinct font count (supply) across scripts. Where the two are misaligned, the gap becomes visible.</p>
-    <iframe src="./viz/bar_chart.html" title="Scripts by Requests vs Font Count" style="width: 525px; height: 525px;"></iframe>
+    <p>The relationship between font requests (demand proxy) and distinct font count (supply) across scripts. Where the two are misaligned, the gap becomes visible.</p>
+    
+    <div class="viz-content-flex">
+
+      <iframe src="./viz/bar_chart.html" title="Scripts by Requests vs Font Count" style="width: 525px; height: 525px; flex-shrink: 0;"></iframe>
+      
+      <div style="flex: 1; padding-top: 20px;">
+        <h3>Relevance</h3>
+        <p>The number of font requests for each script on the top 10 million websites is utilized as a proxy for the demand of the script.</p>
+        <p>While font requests don't exactly reflect the complex nature of demand, it provides a useful approximation for analyzing script usage.</p>
+        <p>The more font requests a script has, the higher its demand for fonts is likely to be. This trend is visible in the bar chart.</p>
+        <img src="viz/vit_visualization.gif" alt="Katakana Glyph Animation" width="200" height="200" style="float: right; margin-right: 100px; margin-left:15px; border-radius: 8px; border: 1.5px solid #E5E7EB;">
+        <p>Exceptions to this rule like Devanagari highlight disparities between demand and supply.</p>
+        <p>But this alone doesn't tell the whole story. <strong>Even if a script has way less supply compared to demand, it still may be relatively well served if the available fonts cover a wide range of visual styles.</strong></p>
+
+
+
+      </div>
+    </div>
+    
     <p style="margin-top:16px; font-size:0.82rem;">Note: The x-axis is logarithmic to accommodate the wide range of values across scripts.</p>
   </div>
 
+  <!-- ══ SIMILARITY SPREAD ══ -->
+  <div class="spread">
+
+    <div class="spread-right">
+      <h2>Font fingerprints reveal hidden homogeneity.</h2>
+      <p>The similarity score analyzes visual likeness between fonts within each script. Each glyph is rendered as a PNG, then a vision model extracts an embedding capturing its visual style.</p>
+      <p>Averaging these embeddings across a set of common Unicode points produces a <strong>font fingerprint</strong>. Comparing fingerprints using cosine similarity gives a measure of how visually alike fonts within a script are.</p>
+      <div class="pull-quote pq-green">
+        A high similarity score means the script has many fonts that all look the same quantity without genuine choice.
+      </div>
+      <p>A lower similarity score indicates more visual variety which is what users actually need.</p>
+    </div>
+    <div class="spread-left bg-green">
+      <div>
+        <span class="pill pill-light">Similarity</span>
+        <div class="big-stat">Visual<br>Choice.</div>
+        <p class="big-stat-label">Even abundant fonts may offer no real variety.</p>
+      </div>
+      <!-- <div class="stat-card">
+        <div class="num">STATS</div>
+        <div class="desc">stats stats stats</div>
+      </div> -->
+    </div>
+  </div>
+
+  
   <!-- ══ COMPLEXITY SPREAD ══ -->
   <div class="spread">
     <div class="spread-left bg-red">
@@ -808,30 +868,6 @@
     </div>
   </div>
 
-  <!-- ══ SIMILARITY SPREAD ══ -->
-  <div class="spread">
-
-    <div class="spread-right">
-      <h2>Font fingerprints reveal hidden homogeneity.</h2>
-      <p>The similarity score analyzes visual likeness between fonts within each script. Each glyph is rendered as a PNG, then a vision model extracts an embedding capturing its visual style.</p>
-      <p>Averaging these embeddings across a set of common Unicode points produces a <strong>font fingerprint</strong>. Comparing fingerprints using cosine similarity gives a measure of how visually alike fonts within a script are.</p>
-      <div class="pull-quote pq-green">
-        A high similarity score means the script has many fonts that all look the same quantity without genuine choice.
-      </div>
-      <p>A lower similarity score indicates more visual variety which is what users actually need.</p>
-    </div>
-    <div class="spread-left bg-green">
-      <div>
-        <span class="pill pill-light">Similarity</span>
-        <div class="big-stat">Visual<br>Choice.</div>
-        <p class="big-stat-label">Even abundant fonts may offer no real variety.</p>
-      </div>
-      <!-- <div class="stat-card">
-        <div class="num">STATS</div>
-        <div class="desc">stats stats stats</div>
-      </div> -->
-    </div>
-  </div>
 
   <!-- ══ ARABIC NETWORK VIZ ══ -->
   <div class="viz-wrap">
