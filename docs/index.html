@@ -674,7 +674,7 @@
       <p>By combining web exposure data, font availability, engineering cost, and visual similarity into a single <strong>Script Servedness Score</strong>, it surfaces the highest-impact gaps and provides a data-driven roadmap for prioritizing script support.</p>
       <div class="pull-quote pq-ink">
         Scripts used by billions of readers online remain severely underdeveloped not because the need isn't there, 
-        but because infrastructure and market investment has been disportionately focused on Latin. 
+        but because infrastructure and market investment has been disproportionately focused on Latin. 
         This framework aims to shine a light on the underserved scripts that need more typographic development.
       </div>
     </div>
@@ -687,7 +687,7 @@
     <div class="pipe-row">
       <div class="pipe-source">HTTP Archive &nbsp;·&nbsp; CRUX &nbsp;·&nbsp; Google Fonts &nbsp;·&nbsp; fontTools &nbsp;·&nbsp; ViT-B/16</div>
     </div>
-    <div class="pipe-arrow">↓<span>Four independent signals, each min-max normalized to [0, 1]</span></div>
+    <div class="pipe-arrow">↓<span>Four signals: exposure &amp; support log-scaled, then all four normalized to [0, 1]</span></div>
     <div class="pipe-signals">
       <div class="signal sig-blue">
         <div class="signal-title">Exposure</div>
@@ -713,7 +713,7 @@
         <code>SSS = −log(exposure) + log(support) − engineering_cost − similarity</code>
       </div>
     </div>
-    <div class="pipe-arrow">↓<span>K-Means tier clustering (k = 2..5 chosen by silhouette score)</span></div>
+    <div class="pipe-arrow">↓<span>Scripts are also grouped into tiers separately, via K-Means (k chosen by silhouette score)</span></div>
   </div>
 
   <!-- ══ EXPOSURE SPREAD ══ -->
@@ -814,7 +814,7 @@
       <p>The similarity score analyzes visual likeness between fonts within each script. Each glyph is rendered as a PNG, then a vision model extracts an embedding capturing its visual style.</p>
       <p>Averaging these embeddings across a set of common Unicode points produces a <strong>font fingerprint</strong>. Comparing fingerprints using cosine similarity gives a measure of how visually alike fonts within a script are.</p>
       <div class="pull-quote pq-green">
-        A high similarity score means the script has many fonts that all look the same quantity without genuine choice.
+        A high similarity score means a script's fonts all look the same, offering quantity without genuine choice.
       </div>
       <p>A lower similarity score indicates more visual variety which is what users actually need.</p>
     </div>
@@ -867,7 +867,7 @@
       </div>
     </div>
   </div>
-
+  
 
   <!-- ══ ARABIC NETWORK VIZ ══ -->
   <div class="viz-wrap">
@@ -882,7 +882,34 @@
     <p style="margin-top:16px; font-size:0.82rem;">To display font images on nodes: click <strong>Appearance → Nodes → Images</strong> and set the image label to <code>image_url</code>.</p>
   </div>
   
-
+<!-- ══ K-MEANS TIERS ══ -->
+  <div class="full-section bg-white">
+    <span class="pill pill-blue">Structure</span>
+    <h2 style="color: var(--ink);">Before scoring: do the scripts group at all?</h2>
+    <p style="font-size:0.95rem; color:#374151; line-height:1.7; max-width:760px;">
+      Before combining the four signals into a single score, we checked whether the eight scripts
+      fall into natural groups. K-Means clustering on the four signals (standardized by z-score)
+      was run for k = 2 through 5 and evaluated by silhouette score. Two tiers emerged as the
+      natural grouping, at a moderate silhouette of 0.41.
+    </p>
+    <div class="findings-grid" style="margin-top:24px;">
+      <div class="finding-card border-red">
+        <h3>Underserved</h3>
+        <p>Devanagari, Arabic, Bengali, Tamil, Telugu. Higher engineering cost and lower visual diversity across available fonts.</p>
+      </div>
+      <div class="finding-card border-green">
+        <h3>Well served</h3>
+        <p>Cyrillic, Katakana, Han. Lower engineering cost and genuine visual variety among existing fonts.</p>
+      </div>
+      <div class="finding-card border-amber">
+        <h3>What separates them</h3>
+        <p>The tiers split cleanly on engineering cost and visual diversity, not on raw demand or supply. The Script Servedness Score, next, turns this two-tier split into a continuous ranking.</p>
+      </div>
+    </div>
+    <p style="font-size:0.85rem; color:var(--muted); line-height:1.7; max-width:760px; margin-top:20px;">
+      This clustering uses the same four signals as the score, so it is corroboration rather than independent validation: a second, unsupervised method pointing at the same underserved scripts.
+    </p>
+  </div>
 
   <!-- ══ HEATMAP ══ -->
   <div class="viz-wrap">
@@ -955,18 +982,18 @@
         <li>Combine web request data with demographic data for better readership estimates.</li>
       </ul>
     </div>
-    <div class="future-card">
+   <div class="future-card">
       <span class="pill pill-green">Get Involved</span>
       <h3>Contributing to The Script Gap</h3>
       <p>This research grows with the community. Type foundries, independent designers, and researchers are all welcome to contribute.</p>
-      <br />
-      <p><strong>Researchers:</strong> <a href="mailto:team@thereadabilityconsortium.org" style="color:var(--blue); font-weight:600;">The Readability Consortium ↗</a></p>
-      <br />
-      <p><strong>GitHub:</strong> <a href="https://github.com/Aditya-Khadye/TheScriptGap" target="_blank" style="color:var(--blue); font-weight:600;">TheScriptGap repository ↗</a></p>
-      <br />
-      <p><strong>Type foundries:</strong> <a href="mailto:team@thereadabilityconsortium.org?subject=The%20Script%20Gap%20%E2%80%94%20Foundry%20Collaboration" style="color:var(--blue); font-weight:600;">Get in touch ↗</a></p>
-      <p style="font-size:0.82rem; color:var(--muted); margin-top:4px;">Our supply data is limited to Google Fonts. Foundries can help close the gap by contributing catalog metadata or validating our priority rankings against real demand.</p>
-      <br />
+      <div style="display:flex; flex-direction:column; gap:16px; margin-top:20px;">
+        <p><strong>Researchers:</strong> <a href="mailto:team@thereadabilityconsortium.org" style="color:var(--blue); font-weight:600;">The Readability Consortium ↗</a></p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/Aditya-Khadye/TheScriptGap" target="_blank" style="color:var(--blue); font-weight:600;">TheScriptGap repository ↗</a></p>
+        <div>
+          <p><strong>Type foundries:</strong> <a href="mailto:team@thereadabilityconsortium.org?subject=The%20Script%20Gap%20%E2%80%94%20Foundry%20Collaboration" style="color:var(--blue); font-weight:600;">Get in touch ↗</a></p> <br>
+          <p style="font-size:0.82rem; color:var(--muted); margin-top:4px;">We're looking for <strong>catalog metadata</strong> and partners to <strong>validate our priority rankings</strong> against real demand. <br> Our supply currently comes from Google Fonts only, so broader foundry data would meaningfully improve coverage.</p>
+        </div>
+      </div>
     </div>
   </div>
 
