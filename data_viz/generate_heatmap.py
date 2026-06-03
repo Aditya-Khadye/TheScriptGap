@@ -21,24 +21,31 @@ import pandas as pd
 from pathlib import Path
 import logging
 
-from paths import VIZ_DATA_DIR, REPO_ROOT
+from paths import VIZ_DATA_DIR, REPO_ROOT, DATA_ROOT
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
 
 OUTPUT_DIR = VIZ_DATA_DIR
 
-# NOTE: This visualization module is currently scoped to support and exposure
-# outputs. The similarity/diversity and clustering stages are intentionally
-# not refactored in this iteration.
+SUPPORT_CSV = DATA_ROOT / "support/script_font_counts.csv"
+EXPOSURE_CSV = DATA_ROOT / "exposure/exposure_filtered_results.csv"
+COMPLEXITY_CSV = DATA_ROOT / "complexity/complexity_index_summary.csv"
+
+# NOTE: MIGHT NEED TO SPECIFY SPECIFIC MODEL PATHS LATER ON IF THERE ARE MULTIPLE RESULTS
+SIMILARITY_CSV = DATA_ROOT / "similarity/similarity_results.csv"
+
 
 SUPPORT_NAME_MAP = {
     "latin": "Latin",
-    "cyrillic": "Cyrillic", "japanese": "Katakana",
-    "devanagari": "Devanagari", "arabic": "Arabic",
-    "telugu": "Telugu", "tamil": "Tamil", "bengali": "Bengali",
-    "chinese-traditional": "Han", "chinese-simplified": "Han",
-    "chinese-hongkong": "Han",
+    "cyrillic": "Cyrillic", 
+    "japanese": "Katakana",
+    "devanagari": "Devanagari",
+    "arabic": "Arabic",
+    "telugu": "Telugu", 
+    "tamil": "Tamil", 
+    "bengali": "Bengali",
+    "chinese-traditional": "Han", "chinese-simplified": "Han", "chinese-hongkong": "Han",
 }
 
 TARGET_SCRIPTS = ["Latin", "Devanagari", "Arabic", "Bengali", "Tamil",
@@ -64,44 +71,36 @@ def load_all_data(repo: Path = REPO_ROOT) -> pd.DataFrame:
         raise FileNotFoundError(f"Cannot find {filename} — tried {p} and {p2}")
 
     # Exposure
-    exp_path = find_csv("exposure_research/output/exposure_filtered_results.csv",
-                        "exposure_filtered_results.csv")
-    exp = pd.read_csv(exp_path, names=["script", "exposure"], header=0)
+    exp = pd.read_csv(EXPOSURE_CSV, names=["script", "exposure"], header=0)
     exp = exp[exp["script"].isin(TARGET_SCRIPTS)].copy()
-    logger.info(f"  Exposure: {exp_path.name}")
+    logger.info(f"  Exposure: {EXPOSURE_CSV.name}")
+    logger.info(f"  Before mapping: {exp['script'].tolist()}")
 
     # Support
-    sup_path = find_csv("support_research/output/google_support_toplist.csv",
-                        "google_support_toplist.csv")
-    sup_raw = pd.read_csv(sup_path, names=["script_raw", "count"], header=0)
+
+    sup_raw = pd.read_csv(SUPPORT_CSV, names=["script_raw", "count"], header=0)
     records = [{"script": SUPPORT_NAME_MAP[r.script_raw], "support": r.count}
                for r in sup_raw.itertuples() if r.script_raw in SUPPORT_NAME_MAP]
     sup = pd.DataFrame(records).groupby("script", as_index=False)["support"].sum()
-    logger.info(f"  Support: {sup_path.name}")
+    logger.info(f"  Support: {SUPPORT_CSV.name}")
+    logger.info(f"  Before mapping: {sup['script'].tolist()}")
+
+    # sup = pd.read_csv(SUPPORT_CSV, names=["script", "count"], header=0).rename(columns={"count": "support"})
+    
+    # logger.info(f"  Support: {SUPPORT_CSV.name}")
+    # logger.info(f"  Before mapping: {sup['script'].tolist()}")
 
     # Complexity (from similarity pipeline)
-    sim_path = find_csv("similarity_research/similarity_index_summary.csv",
-                        "similarity_index_summary.csv")
-    sim = pd.read_csv(sim_path)
-    sim["complexity"] = 1.0 - sim["similarity_S"]
-    sim = sim[["script", "complexity"]]
-    logger.info(f"  Complexity: {sim_path.name}")
+    com = pd.read_csv(COMPLEXITY_CSV)[["script", "complexity_C"]].rename(columns={"complexity_C": "complexity"})
+    logger.info(f"  Complexity: {COMPLEXITY_CSV.name}")
+
+    logger.info(f"  Before mapping: {com['script'].tolist()}")
 
     # Diversity (100-glyph preferred)
-    div_paths = [
-        repo / "similarity_research/diversity_research/vit_outputs_100/diversity_index_summary.csv",
-        repo / "similarity_research/diversity_research/vit100_outputs/diversity_index_summary.csv",
-        repo / "similarity_research/diversity_research/vit_outputs/diversity_index_summary.csv",
-        script_dir / "diversity_index_summary.csv",
-    ]
-    div = None
-    for p in div_paths:
-        if p.exists():
-            div = pd.read_csv(p)[["script", "diversity_index"]]
-            logger.info(f"  Diversity: {p.name}")
-            break
-    if div is None:
-        raise FileNotFoundError("Cannot find diversity_index_summary.csv")
+    div = pd.read_csv(SIMILARITY_CSV)[["script", "diversity_index"]]
+    logger.info(f"  Similarity: {SIMILARITY_CSV.name}")
+
+    logger.info(f"  Before mapping: {div['script'].tolist()}")
 
     # Flip diversity to similarity
     # NOTE: This is a bit of a hack to rename diversity to similarity for the final table
@@ -109,7 +108,8 @@ def load_all_data(repo: Path = REPO_ROOT) -> pd.DataFrame:
     div["similarity_index"] = 1.0 - div["diversity_index"]
 
     # Merge (use similarity_index instead)
-    master = exp.merge(sup, on="script").merge(sim, on="script").merge(div[["script", "similarity_index"]], on="script")
+    master = exp.merge(sup, on="script").merge(com, on="script").merge(div[["script", "similarity_index"]], on="script")
+    logger.info(f"Merged data: {master}")
     master = master[master["script"].isin(TARGET_SCRIPTS)].reset_index(drop=True)
 
     # Log-scale exposure and support for visualization
