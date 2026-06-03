@@ -52,6 +52,8 @@ Devanagari ranks most underserved: highest engineering complexity, lowest font d
 The diversity rankings hold across methodologies. A ViT-B/16 vs. ResNet-50 ablation produced a Spearman rank correlation of ρ = 0.881 (p = 0.004), and classical pixel-wise features preserved the same tier assignments — indicating the underservedness signal is robust to model choice rather than an artifact of any single approach.
 ## Website Live
 https://aditya-khadye.github.io/TheScriptGap/
+## Capstone Video
+https://www.youtube.com/watch?v=wNpgtw6_ukI
 ## Partners
 
 Commissioned by The Readability Consortium, addressed to Monotype, Google Fonts, and Adobe.
