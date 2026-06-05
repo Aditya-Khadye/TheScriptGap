@@ -24,10 +24,11 @@ import sys
 
 import pandas as pd
 from plotly.express.colors import qualitative
-from utils import filter_null_scripts, safe_literal_eval, standardize_font_names
 
+# Access paths to resources outside of this folder
 try:
     from paths import EXPOSURE_DATA_DIR, BIGQUERY_DATA_DIR
+    from utils import filter_null_scripts, safe_literal_eval, standardize_font_names
 
 except ModuleNotFoundError:
     # When running the module from different working directories, ensure
@@ -35,6 +36,7 @@ except ModuleNotFoundError:
     project_root = Path(__file__).resolve().parents[1]
     sys.path.insert(0, str(project_root))
     from paths import EXPOSURE_DATA_DIR, BIGQUERY_DATA_DIR
+    from utils import filter_null_scripts, safe_literal_eval, standardize_font_names
 
 
 OUTPUT_DIR = EXPOSURE_DATA_DIR
