@@ -46,6 +46,7 @@ _env_google = os.environ.get("GOOGLE_FONTS_DIR")
 if _env_google:
   GOOGLE_FONTS_DIR = Path(_env_google).expanduser()
 else:
+  #TODO: Move this somewhere more appropriate once similarity code is done being refactored.
   GOOGLE_FONTS_DIR = REPO_ROOT / "similarity_research" / "diversity_research" / "fonts"
 
 

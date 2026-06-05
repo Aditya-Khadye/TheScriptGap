@@ -76,17 +76,27 @@ export GOOGLE_FONTS_DIR="$HOME/google/fonts"
 
 Or place the clone under the repository default path (`similarity_research/diversity_research/fonts`).
 
-3. Run the pipeline from the project root:
-
+3. Run the pipeline using the pipeline script:
 ```bash
-cd "$(dirname "$PWD")" # ensure you're in TheScriptGap project root
-python -m complexity.main
+python pipeline.py --stages exposure --force
+
 ```
 
-Alternative (run as script with PYTHONPATH):
+4. Run scripts individually:
+
+From the project root:
 
 ```bash
-PYTHONPATH=. python complexity/main.py
+# in TheScriptGap project root
+python -m complexity.main
+python complexity/main.py
+```
+
+Alternatively run from any of the local folders:
+
+```bash
+# From any of the local script folders / works with IDE's run button
+python main.py
 ```
 
 If the pipeline reports `Google Fonts directory not found`, double-check `GOOGLE_FONTS_DIR` points to your clone.

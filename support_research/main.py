@@ -22,9 +22,20 @@ Scope:
 """
 
 from pathlib import Path
+import sys
 from paths import SUPPORT_DATA_DIR
 import pandas as pd
 from utils import safe_literal_eval
+
+try:
+    from paths import SUPPORT_DATA_DIR
+
+except ModuleNotFoundError:
+    # When running the module from different working directories, ensure
+    # the project root (one level up from this package) is on sys.path.
+    project_root = Path(__file__).resolve().parents[1]
+    sys.path.insert(0, str(project_root))
+    from paths import SUPPORT_DATA_DIR
 
 OUTPUT_DIR = SUPPORT_DATA_DIR
 COMBINED_SUPPORT_PATH = OUTPUT_DIR / "combined_google_bigquery.csv"
