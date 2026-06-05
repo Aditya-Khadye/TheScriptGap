@@ -1,4 +1,4 @@
 source,target,similarity,similarity_normalized
-Suravaram-Regular,TiroTelugu-Italic,0.9596136808395386,1.0
-Suravaram-Regular,Chathura-Bold,0.7678847312927246,0.4999999999952954
-TiroTelugu-Italic,Chathura-Bold,0.7110541462898254,0.0
+Gurajada-Regular,Timmana-Regular,0.9453213214874268,0.4999999999952954
+Gurajada-Regular,AkayaTelivigala-Regular,0.9587893486022949,1.0
+Timmana-Regular,AkayaTelivigala-Regular,0.9222992062568665,0.0

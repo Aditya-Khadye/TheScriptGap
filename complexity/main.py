@@ -45,7 +45,14 @@ from fontTools.ttLib import TTFont
 # ---------------------------------------------------------------------------
 
 # Path to cloned Google Fonts repo — update this to your local path
-from paths import GOOGLE_FONTS_DIR, COMPLEXITY_DATA_DIR
+try:
+    from paths import GOOGLE_FONTS_DIR, COMPLEXITY_DATA_DIR
+except ModuleNotFoundError:
+    # When running the module from different working directories, ensure
+    # the project root (one level up from this package) is on sys.path.
+    project_root = Path(__file__).resolve().parents[1]
+    sys.path.insert(0, str(project_root))
+    from paths import GOOGLE_FONTS_DIR, COMPLEXITY_DATA_DIR
 
 # The 8 scripts from your CrUX analysis (non-Latin, < 5M exposure)
 # Map from script name -> Unicode block ranges (start, end)

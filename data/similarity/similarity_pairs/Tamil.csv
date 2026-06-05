@@ -1,4 +1,4 @@
 source,target,similarity,similarity_normalized
-NotoSansTamil,KarlaTamilUpright-Bold,0.9830105900764465,0.4999999999952954
-NotoSansTamil,MuktaMalar-SemiBold,0.9812440872192383,0.0
-KarlaTamilUpright-Bold,MuktaMalar-SemiBold,0.9975595474243164,1.0
+HindMadurai-Medium,Kavivanar-Regular,0.9541666507720947,0.4999999999952954
+HindMadurai-Medium,HindMadurai-Light,0.9722461700439453,1.0
+Kavivanar-Regular,HindMadurai-Light,0.9396151304244995,0.0
