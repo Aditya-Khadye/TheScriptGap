@@ -12,6 +12,7 @@ Directory structure:
       └── viz/        # final visualization outputs
 """
 
+import os
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent
@@ -38,7 +39,14 @@ SIMILARITY_DATA_DIR = DATA_ROOT / "similarity"
 COMPLEXITY_DATA_DIR = DATA_ROOT / "complexity"
 
 # Google Fonts Directory Location
-GOOGLE_FONTS_DIR = REPO_ROOT / "similarity_research" / "diversity_research" / "fonts"
+# Can be overridden with the environment variable `GOOGLE_FONTS_DIR`.
+# Example:
+#   export GOOGLE_FONTS_DIR="$HOME/google/fonts"
+_env_google = os.environ.get("GOOGLE_FONTS_DIR")
+if _env_google:
+  GOOGLE_FONTS_DIR = Path(_env_google).expanduser()
+else:
+  GOOGLE_FONTS_DIR = REPO_ROOT / "similarity_research" / "diversity_research" / "fonts"
 
 
 # Legacy module roots (for reference; not actively used in refactored code)
