@@ -127,15 +127,15 @@ def load_all_data(repo: Path = REPO_ROOT) -> pd.DataFrame:
     # Servedness score: high exposure, high support, low complexity, high similarity = well served
     master["sss"] = (
         # higher means more readers i.e. more demand for fonts so this should actually be negative
-        - master["log_exposure_norm"]
+        # - master["log_exposure_norm"]
         # higher means the script has more fonts this should attempt to cancel out the font support metric
         # supply vs demand
-        + master["log_support_norm"]
+        # + master["log_support_norm"]
         # higher means more difficult to produce
         # - master["complexity_norm"]
         # higher means less visual choice
         
-        - master["similarity_index_norm"]
+        # - master["similarity_index_norm"]
 
         # Since supply and demand balance out in most cases the similarity index becomes dominant 
         # and needs to be controlled. Previously the complexity index held this role.
@@ -143,7 +143,7 @@ def load_all_data(repo: Path = REPO_ROOT) -> pd.DataFrame:
 
         # This one removes scale from the equation. Solely determines servedness based on the gap. 
         # Leads to scripts like Telugu appearing well served 
-        # (master["log_support_norm"] * (1 - master["similarity_index_norm"])) / (master["log_exposure_norm"] + 0.1)
+        (master["log_support_norm"] * (1 - master["similarity_index_norm"])) / (master["log_exposure_norm"] + 0.1)
     )
     gs_min, gs_max = master["sss"].min(), master["sss"].max()
     
