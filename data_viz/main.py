@@ -16,8 +16,19 @@ Scope:
 """
 
 from pathlib import Path
-from paths import VIZ_DATA_DIR
-from data_viz.generate_heatmap import main as generate_heatmap_main
+import sys
+
+# Path to cloned Google Fonts repo — update this to your local path
+try:
+    from paths import VIZ_DATA_DIR
+    from data_viz.generate_heatmap import main as generate_heatmap_main
+except ModuleNotFoundError:
+    # When running the module from different working directories, ensure
+    # the project root (one level up from this package) is on sys.path.
+    project_root = Path(__file__).resolve().parents[1]
+    sys.path.insert(0, str(project_root))
+    from paths import VIZ_DATA_DIR
+    from data_viz.generate_heatmap import main as generate_heatmap_main
 
 OUTPUT_DIR = VIZ_DATA_DIR
 OUTPUT_HTML = OUTPUT_DIR / "heatmap.html"

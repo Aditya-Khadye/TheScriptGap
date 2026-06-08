@@ -20,12 +20,24 @@ Scope:
 """
 
 from pathlib import Path
-from paths import EXPOSURE_DATA_DIR, BIGQUERY_DATA_DIR
+import sys
 
 import pandas as pd
 from plotly.express.colors import qualitative
-from utils import filter_null_scripts, safe_literal_eval, standardize_font_names
-import exposure_research.dashboard as dashboard
+
+# Access paths to resources outside of this folder
+try:
+    from paths import EXPOSURE_DATA_DIR, BIGQUERY_DATA_DIR
+    from utils import filter_null_scripts, safe_literal_eval, standardize_font_names
+
+except ModuleNotFoundError:
+    # When running the module from different working directories, ensure
+    # the project root (one level up from this package) is on sys.path.
+    project_root = Path(__file__).resolve().parents[1]
+    sys.path.insert(0, str(project_root))
+    from paths import EXPOSURE_DATA_DIR, BIGQUERY_DATA_DIR
+    from utils import filter_null_scripts, safe_literal_eval, standardize_font_names
+
 
 OUTPUT_DIR = EXPOSURE_DATA_DIR
 BIGQUERY_PATH = BIGQUERY_DATA_DIR / "big_query_data.csv"

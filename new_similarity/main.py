@@ -33,10 +33,19 @@ from torchvision import models, transforms
 from PIL import Image, ImageDraw, ImageFont
 from fontTools.ttLib import TTFont
 
-from .reference_chars import REFERENCE_CHARS
 from sklearn.preprocessing import QuantileTransformer
 
-from paths import SIMILARITY_DATA_DIR, GOOGLE_FONTS_DIR
+try:
+    from paths import SIMILARITY_DATA_DIR, GOOGLE_FONTS_DIR
+    from .reference_chars import REFERENCE_CHARS
+
+except ModuleNotFoundError:
+    # When running the module from different working directories, ensure
+    # the project root (one level up from this package) is on sys.path.
+    project_root = Path(__file__).resolve().parents[1]
+    sys.path.insert(0, str(project_root))
+    from paths import SIMILARITY_DATA_DIR, GOOGLE_FONTS_DIR
+    from reference_chars import REFERENCE_CHARS
 
 SIMILARITY_PAIRS_DIR =  SIMILARITY_DATA_DIR / "similarity_pairs"
 SIMILARITY_RESULTS_FILE =  SIMILARITY_DATA_DIR / "similarity_results.csv"

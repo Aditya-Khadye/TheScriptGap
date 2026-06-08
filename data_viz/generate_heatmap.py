@@ -91,10 +91,10 @@ def load_all_data(repo: Path = REPO_ROOT) -> pd.DataFrame:
     # logger.info(f"  Before mapping: {sup['script'].tolist()}")
 
     # Complexity (from similarity pipeline)
-    com = pd.read_csv(COMPLEXITY_CSV)[["script", "complexity_C"]].rename(columns={"complexity_C": "complexity"})
-    logger.info(f"  Complexity: {COMPLEXITY_CSV.name}")
+    # com = pd.read_csv(COMPLEXITY_CSV)[["script", "complexity_C"]].rename(columns={"complexity_C": "complexity"})
+    # logger.info(f"  Complexity: {COMPLEXITY_CSV.name}")
 
-    logger.info(f"  Before mapping: {com['script'].tolist()}")
+    # logger.info(f"  Before mapping: {com['script'].tolist()}")
 
     # Diversity (100-glyph preferred)
     div = pd.read_csv(SIMILARITY_CSV)[["script", "diversity_index"]]
@@ -108,7 +108,7 @@ def load_all_data(repo: Path = REPO_ROOT) -> pd.DataFrame:
     div["similarity_index"] = 1.0 - div["diversity_index"]
 
     # Merge (use similarity_index instead)
-    master = exp.merge(sup, on="script").merge(com, on="script").merge(div[["script", "similarity_index"]], on="script")
+    master = exp.merge(sup, on="script").merge(div[["script", "similarity_index"]], on="script")#.merge(com, on="script")
     logger.info(f"Merged data: {master}")
     master = master[master["script"].isin(TARGET_SCRIPTS)].reset_index(drop=True)
 
@@ -117,7 +117,10 @@ def load_all_data(repo: Path = REPO_ROOT) -> pd.DataFrame:
     master["log_support"] = np.log10(master["support"])
 
     # Normalize all to 0-1 for heatmap
-    for col in ["log_exposure", "log_support", "complexity", "similarity_index"]:
+    for col in ["log_exposure", 
+                "log_support", 
+                # "complexity", 
+                "similarity_index"]:
         cmin, cmax = master[col].min(), master[col].max()
         master[f"{col}_norm"] = (master[col] - cmin) / (cmax - cmin) if cmax > cmin else 0.5
 
@@ -129,9 +132,18 @@ def load_all_data(repo: Path = REPO_ROOT) -> pd.DataFrame:
         # supply vs demand
         + master["log_support_norm"]
         # higher means more difficult to produce
-        - master["complexity_norm"]
+        # - master["complexity_norm"]
         # higher means less visual choice
+        
         - master["similarity_index_norm"]
+
+        # Since supply and demand balance out in most cases the similarity index becomes dominant 
+        # and needs to be controlled. Previously the complexity index held this role.
+        # - master["similarity_index_norm"] * 0.5
+
+        # This one removes scale from the equation. Solely determines servedness based on the gap. 
+        # Leads to scripts like Telugu appearing well served 
+        # (master["log_support_norm"] * (1 - master["similarity_index_norm"])) / (master["log_exposure_norm"] + 0.1)
     )
     gs_min, gs_max = master["sss"].min(), master["sss"].max()
     
@@ -155,17 +167,18 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
     n = len(scripts)
 
     metrics = [
-        ("sss_norm",       "SSS",      "Higher = well served",  "#7F77DD"),
-        ("log_exposure_norm",    "Web Exposure",   "Higher = more readers",      "#3B8BD4"),
-        ("log_support_norm",     "Font Support",   "Higher = more fonts",        "#EF9F27"),
-        ("complexity_norm",      "Complexity",     "Higher = harder to engineer","#E24B4A"),
-        ("similarity_index_norm", "Similarity",     "Higher = less visual choice","#1D9E75"),
+        # 1. value column, 2. label, 3. tooltip description, 4. color 5. data labels
+        ("sss_norm",       "SSS",      "Higher = well served",  "#7F77DD", "Raw SSS Value"),
+        ("log_exposure_norm",    "Web Exposure",   "Higher = more readers",      "#3B8BD4", "Num Requests"),
+        ("log_support_norm",     "Font Support",   "Higher = more fonts",        "#EF9F27", "Num Fonts"),
+        # ("complexity_norm",      "Complexity",     "Higher = harder to engineer","#E24B4A"),
+        ("similarity_index_norm", "Similarity",     "Higher = less visual choice","#1D9E75", "Similarity Index"),
     ]
 
     raw_cols = {
         "log_exposure_norm":    ("exposure",       lambda v: f"{int(v):,}"),
         "log_support_norm":     ("support",        lambda v: f"{int(v)}"),
-        "complexity_norm":      ("complexity",     lambda v: f"{v:.3f}"),
+        # "complexity_norm":      ("complexity",     lambda v: f"{v:.3f}"),
         "similarity_index_norm": ("similarity_index",lambda v: f"{v:.3f}"),
         "sss_norm":       ("sss",      lambda v: f"{v:.3f}"),
     }
@@ -174,7 +187,7 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
     rows = []
     for _, row in master.iterrows():
         row_data = {"script": row["script"], "cells": []}
-        for norm_col, label, desc, color in metrics:
+        for norm_col, label, desc, color, raw_label in metrics:
             val = row[norm_col]
             raw_col, fmt = raw_cols[norm_col]
             raw_val = fmt(row[raw_col])
@@ -189,7 +202,7 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
     import json
     data_json = json.dumps(rows)
     metrics_json = json.dumps([
-        {"label": m[1], "desc": m[2], "color": m[3]} for m in metrics
+        {"label": m[1], "desc": m[2], "color": m[3], "raw_label": m[4]} for m in metrics
     ])
 
     html = f"""<!DOCTYPE html>
@@ -402,7 +415,7 @@ data.forEach((row, ri) => {{
       const tt = document.getElementById('tooltip');
       tt.innerHTML = `<div class="tooltip-metric" style="color:${{metrics[ci].color}}">${{cell.label}}</div>
         <div>Normalized: <strong>${{(cell.norm*100).toFixed(1)}}%</strong></div>
-        <div class="tooltip-raw">Raw value: ${{cell.raw}}</div>
+        <div class="tooltip-raw">${{metrics[ci].raw_label}}: ${{cell.raw}}</div>
         <div class="tooltip-raw" style="margin-top:4px;font-style:italic">${{metrics[ci].desc}}</div>`;
       tt.classList.add('show');
       tt.style.left = (e.clientX + 14) + 'px';
@@ -453,7 +466,7 @@ def generate_png_heatmap(master: pd.DataFrame, output_path: Path):
         ("sss_norm",       "Script\nServedness\nScore",     "#7F77DD"),
         ("log_exposure_norm",    "Web\nExposure",  "#3B8BD4"),
         ("log_support_norm",     "Font\nSupport",  "#EF9F27"),
-        ("complexity_norm",      "Complexity",     "#E24B4A"),
+        # ("complexity_norm",      "Complexity",     "#E24B4A"),
         ("similarity_index_norm", "Similarity",     "#1D9E75"),
     ]
 
@@ -532,7 +545,7 @@ def main():
     master = load_all_data()
 
     print("\n📊 Data loaded:\n")
-    print(master[["script", "exposure", "support", "complexity",
+    print(master[["script", "exposure", "support", #"complexity",
                    "similarity_index", "sss_norm"]].to_string(index=False))
 
     # HTML heatmap

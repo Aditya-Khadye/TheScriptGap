@@ -57,3 +57,46 @@ https://www.youtube.com/watch?v=wNpgtw6_ukI
 ## Partners
 
 Commissioned by The Readability Consortium, addressed to Monotype, Google Fonts, and Adobe.
+
+## Running the Complexity Pipeline
+
+The complexity pipeline reads font binaries from a local clone of the Google Fonts repository and computes per-script metrics.
+
+1. Clone Google Fonts (recommended location):
+
+```bash
+git clone --depth 1 https://github.com/google/fonts "$HOME/google/fonts"
+```
+
+2. Point the pipeline to your clone. Either set the environment variable:
+
+```bash
+export GOOGLE_FONTS_DIR="$HOME/google/fonts"
+```
+
+Or place the clone under the repository default path (`similarity_research/diversity_research/fonts`).
+
+3. Run the pipeline using the pipeline script:
+```bash
+python pipeline.py --stages exposure --force
+
+```
+
+4. Run scripts individually:
+
+From the project root:
+
+```bash
+# in TheScriptGap project root
+python -m complexity.main
+python complexity/main.py
+```
+
+Alternatively run from any of the local folders:
+
+```bash
+# From any of the local script folders / works with IDE's run button
+python main.py
+```
+
+If the pipeline reports `Google Fonts directory not found`, double-check `GOOGLE_FONTS_DIR` points to your clone.
