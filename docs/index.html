@@ -715,7 +715,8 @@
     <div class="pipe-row">
       <div class="sss-box">
         <div class="sss-label">Script Servedness Score</div>
-        <code>SSS = −log(exposure) + log(support) − engineering_cost − similarity</code>
+        <!-- We dont really need to put that it is log scaled and normalized since we have that mentioned above. Might need to make the text bigger though. -->
+        <code>SSS = (support * (1 - similarity)) / (exposure + 0.1)</code>
       </div>
     </div>
     <div class="pipe-arrow">↓<span>Scripts are also grouped into tiers separately, via K-Means (k chosen by silhouette score)</span></div>
@@ -975,17 +976,19 @@
   </div>
 
   <!-- ══ FINDINGS ══ -->
-  <div class="full-section bg-ink">
-    <span class="pill pill-light">Final Findings</span>
-    <h2>What the Script Servedness Score reveals.</h2>
+  <div class="full-section bg-white">
+    <span class="pill pill-blue">Final Findings</span>
+    <h2 style="color: var(--ink)">What the Script Servedness Score reveals.</h2>
     <div class="findings-grid">
       <div class="finding-card border-red">
-        <h3>Least Served: Devanagari</h3>
-        <p>High development complexity combined with high visual similarity among existing fonts means that even though supply appears adequate, users have very few genuinely distinct typographic options.</p>
+        <h3>Least Served: Tamil</h3>
+        <p>High visual similarity among only a few fonts means that even though supply appears relatively better than its exposure, users have very few genuinely distinct typographic options.</p>
       </div>
       <div class="finding-card border-green">
-        <h3>Best Served: Katakana</h3>
-        <p>Wide font availability paired with genuine visual diversity earns Katakana the highest Script Servedness Score a model for what well-supported scripts look like.</p>
+        <h3>Best Served: Latin</h3>
+        <p>Latin is the best supported script due to its widespread use and extensive font availability. 
+          Interestingly, it also has one of the lowest similarity scores. This is likely due to the fact that we only have Google Fonts represented in the similarity score.
+        </p>
       </div>
       <div class="finding-card border-amber">
         <h3>Demand ≈ Supply Mostly</h3>

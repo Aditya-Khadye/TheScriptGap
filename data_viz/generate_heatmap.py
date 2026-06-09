@@ -492,7 +492,7 @@ def generate_png_heatmap(master: pd.DataFrame, output_path: Path):
             rect = FancyBboxPatch(
                 (j + 0.05, n_scripts - i - 1 + 0.05),
                 0.9, 0.9,
-                boxstyle="round,pad=0.05",
+                boxstyle="square,pad=0.05",
                 facecolor=(*rgb, alpha),
                 edgecolor="none",
             )
