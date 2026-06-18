@@ -1,0 +1,99 @@
+name: Monthly pipeline
+
+on:
+  schedule:
+    # HTTP Archive monthly crawls land early in the month; run on the 5th.
+    - cron: "0 6 5 * *"
+  workflow_dispatch:
+    inputs:
+      run_heavy_stages:
+        description: Run diversity + complexity (slow; clones Google Fonts)
+        type: boolean
+        default: false
+      force_rerun:
+        description: Force rerun stages even if outputs exist
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: monthly-pipeline
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    env:
+      GOOGLE_FONTS_API: ${{ secrets.GOOGLE_FONTS_API }}
+      GOOGLE_CLOUD_PROJECT: ${{ secrets.GOOGLE_CLOUD_PROJECT }}
+      GOOGLE_APPLICATION_CREDENTIALS: /tmp/gcp-key.json
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install fonttools google-cloud-bigquery
+
+      - name: Configure GCP credentials
+        env:
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+        run: |
+          if [ -n "$GCP_SA_KEY" ]; then
+            echo "$GCP_SA_KEY" > /tmp/gcp-key.json
+          fi
+
+      - name: Run light pipeline stages
+        run: |
+          FORCE_FLAG=""
+          if [ "${{ github.event.inputs.force_rerun || 'true' }}" = "true" ]; then
+            FORCE_FLAG="--force"
+          fi
+          if [ ! -f /tmp/gcp-key.json ]; then
+            export SKIP_BIGQUERY=1
+            echo "No GCP credentials — skipping BigQuery pull (using committed CSVs)"
+          fi
+          python pipeline.py --stages support exposure viz $FORCE_FLAG
+
+      - name: Clone Google Fonts for heavy stages
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.run_heavy_stages == 'true'
+        run: |
+          git clone --depth 1 https://github.com/google/fonts /tmp/google-fonts
+          echo "GOOGLE_FONTS_DIR=/tmp/google-fonts" >> "$GITHUB_ENV"
+
+      - name: Run heavy pipeline stages
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.run_heavy_stages == 'true'
+        run: |
+          FORCE_FLAG=""
+          if [ "${{ github.event.inputs.force_rerun || 'true' }}" = "true" ]; then
+            FORCE_FLAG="--force"
+          fi
+          python pipeline.py --stages diversity complexity $FORCE_FLAG
+          python pipeline.py --stages viz $FORCE_FLAG
+
+      - name: Publish site assets
+        run: bash scripts/publish_site_assets.sh
+
+      - name: Commit updated data and site assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ docs/viz/
+          if git diff --staged --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "chore: monthly data refresh ($(date +%Y-%m))"
+            git push
+          fi

@@ -633,6 +633,9 @@ def print_report(result_df: pd.DataFrame):
 # MAIN — Run the full pipeline
 # ===========================================================================
 
+COMPLEXITY_SUMMARY_PATH = COMPLEXITY_DATA_DIR / "complexity_index_summary.csv"
+
+
 def run_complexity_pipeline(force: bool = False) -> Path:
     """
     Full pipeline execution:
@@ -642,8 +645,8 @@ def run_complexity_pipeline(force: bool = False) -> Path:
       4. Export results
     """
 
-    if COMPLEXITY_DATA_DIR.exists() and not force:
-        print(f"Complexity output already exists: {COMPLEXITY_DATA_DIR} (use --force to rerun)")
+    if COMPLEXITY_SUMMARY_PATH.exists() and not force:
+        print(f"Complexity output already exists: {COMPLEXITY_SUMMARY_PATH} (use --force to rerun)")
         return COMPLEXITY_DATA_DIR
 
     # --- Validate input ---

@@ -1,15 +1,17 @@
 """Exposure research pipeline entrypoint.
 
 This module prepares the exposure dataset used by the Dash dashboard in
-`exposure_research/dashboard.py`.
+`exposure_research/dashboard.py` and writes summary CSVs for visualization.
 
 Inputs:
-    - support_research/output/big_query_data.csv
+    - data/bigquery/big_query_data.csv (from BigQuery preflight or manual export)
 
 Outputs:
-    - exposure_research/output/exposure_treemap_data.csv (derived visualization data)
+    - data/exposure/exposure_treemap_data.csv (treemap visualization data)
+    - data/exposure/exposure_filtered_results.csv (per-script totals for heatmap)
 
 Responsibilities:
+    - optionally pull HTTP Archive data via BigQuery
     - load and normalize BigQuery script support data
     - aggregate font count by script
     - export cleaned exposure data for visualization
@@ -29,6 +31,8 @@ from plotly.express.colors import qualitative
 try:
     from paths import EXPOSURE_DATA_DIR, BIGQUERY_DATA_DIR
     from utils import filter_null_scripts, safe_literal_eval, standardize_font_names
+    from exposure_research.script_names import TREEMAP_SCRIPTS, TREEMAP_DISPLAY_SCRIPT, to_canonical_script
+    from exposure_research.bigquery_pull import pull_exposure_data
 
 except ModuleNotFoundError:
     # When running the module from different working directories, ensure
@@ -37,22 +41,16 @@ except ModuleNotFoundError:
     sys.path.insert(0, str(project_root))
     from paths import EXPOSURE_DATA_DIR, BIGQUERY_DATA_DIR
     from utils import filter_null_scripts, safe_literal_eval, standardize_font_names
+    from exposure_research.script_names import TREEMAP_SCRIPTS, TREEMAP_DISPLAY_SCRIPT, to_canonical_script
+    from exposure_research.bigquery_pull import pull_exposure_data
 
 
 OUTPUT_DIR = EXPOSURE_DATA_DIR
 BIGQUERY_PATH = BIGQUERY_DATA_DIR / "big_query_data.csv"
 EXPOSURE_DATA_PATH = OUTPUT_DIR / "exposure_treemap_data.csv"
+EXPOSURE_FILTERED_PATH = OUTPUT_DIR / "exposure_filtered_results.csv"
 
-scripts_list = [
-    "devanagari",
-    "arabic",
-    "bengali",
-    "cyrillic",
-    "katakana",
-    "telugu",
-    "tamil",
-    "latin"
-]
+scripts_list = list(TREEMAP_SCRIPTS)
 
 # Assign colors to scripts using a palette
 color_palette = qualitative.Pastel
@@ -67,13 +65,32 @@ def ensure_output_dir() -> Path:
 def load_big_query_data() -> pd.DataFrame:
     if not BIGQUERY_PATH.exists():
         raise FileNotFoundError(
-            f"Expected support output at {BIGQUERY_PATH}."
-            " Run the support stage before loading exposure data."
+            f"Expected BigQuery output at {BIGQUERY_PATH}."
+            " Run exposure_research/bigquery_pull.py or set SKIP_BIGQUERY=1 with existing data."
         )
 
     big_query_df = pd.read_csv(BIGQUERY_PATH)
-    big_query_df = big_query_df.rename(columns={"scripts": "supported_scripts"})
+    if "scripts" in big_query_df.columns and "supported_scripts" not in big_query_df.columns:
+        big_query_df = big_query_df.rename(columns={"scripts": "supported_scripts"})
     return big_query_df
+
+
+def build_exposure_filtered(font_script_df: pd.DataFrame) -> pd.DataFrame:
+    """Build canonical per-script exposure totals for the heatmap stage."""
+    totals = (
+        font_script_df.groupby("script", as_index=False)["font_count"]
+        .sum()
+        .rename(columns={"font_count": "count"})
+    )
+    totals["canonical"] = totals["script"].map(to_canonical_script)
+    totals = totals[totals["canonical"].notna()]
+    summary = (
+        totals.groupby("canonical", as_index=False)["count"]
+        .sum()
+        .rename(columns={"canonical": "script"})
+        .sort_values("count", ascending=False)
+    )
+    return summary
 
 
 def prepare_exposure_data(save_path: Path | None = None) -> pd.DataFrame:
@@ -84,6 +101,7 @@ def prepare_exposure_data(save_path: Path | None = None) -> pd.DataFrame:
 
     exploded_result = big_query_df.explode("supported_scripts")
     exploded_result = exploded_result.rename(columns={"supported_scripts": "script"})
+    exploded_result["script"] = exploded_result["script"].replace(TREEMAP_DISPLAY_SCRIPT)
 
     font_script_df = (
         exploded_result[["font_name", "script", "font_count"]]
@@ -97,7 +115,8 @@ def prepare_exposure_data(save_path: Path | None = None) -> pd.DataFrame:
     font_script_df = font_script_df[font_script_df["script"].isin(scripts_list)]
 
     # Combine counts for "other" fonts
-    font_script_df = (font_script_df.groupby(["script", "font_name"], as_index=False)["font_count"].sum()
+    font_script_df = (
+        font_script_df.groupby(["script", "font_name"], as_index=False)["font_count"].sum()
         .sort_values("font_count", ascending=False)
         .reset_index(drop=True)
     )
@@ -111,18 +130,29 @@ def prepare_exposure_data(save_path: Path | None = None) -> pd.DataFrame:
     if save_path is not None:
         ensure_output_dir()
         font_script_df.to_csv(save_path, index=False)
+        filtered = build_exposure_filtered(font_script_df)
+        filtered.to_csv(EXPOSURE_FILTERED_PATH, index=False)
 
     return font_script_df
 
 
 def run_exposure_pipeline(force: bool = False) -> Path:
     ensure_output_dir()
-    if EXPOSURE_DATA_PATH.exists() and not force:
+    if EXPOSURE_DATA_PATH.exists() and EXPOSURE_FILTERED_PATH.exists() and not force:
         print(f"Exposure output already exists: {EXPOSURE_DATA_PATH} (use --force to rerun)")
         return EXPOSURE_DATA_PATH
 
+    try:
+        pull_exposure_data(force=force)
+    except Exception as exc:
+        if BIGQUERY_PATH.exists():
+            print(f"BigQuery pull skipped or failed ({exc}); using existing {BIGQUERY_PATH}")
+        else:
+            raise
+
     font_script_df = prepare_exposure_data(save_path=EXPOSURE_DATA_PATH)
     print(f"Wrote exposure data to: {EXPOSURE_DATA_PATH}")
+    print(f"Wrote exposure summary to: {EXPOSURE_FILTERED_PATH}")
     return EXPOSURE_DATA_PATH
 
 

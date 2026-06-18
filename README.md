@@ -100,3 +100,56 @@ python main.py
 ```
 
 If the pipeline reports `Google Fonts directory not found`, double-check `GOOGLE_FONTS_DIR` points to your clone.
+
+## Monthly deployment
+
+The project includes a scheduled GitHub Actions workflow and local scripts for recurring data refresh.
+
+### Local monthly run
+
+```bash
+# Light refresh: Google Fonts support + exposure + heatmap (needs GCP for fresh exposure)
+./scripts/run_monthly.sh --force
+
+# Full refresh: adds ViT diversity + fontTools complexity (needs GOOGLE_FONTS_DIR)
+export GOOGLE_FONTS_DIR="$HOME/google/fonts"
+./scripts/run_monthly.sh --full --force
+```
+
+### BigQuery preflight (exposure)
+
+Pull HTTP Archive font-request counts before the exposure stage:
+
+```bash
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/gcp/thescriptgap.json"
+export GOOGLE_CLOUD_PROJECT="your-gcp-project"
+export GOOGLE_FONTS_API="your-api-key"
+
+python -m exposure_research.bigquery_pull --force
+```
+
+Or run the full pipeline — the exposure stage calls this automatically:
+
+```bash
+python pipeline.py --stages exposure --force
+```
+
+Set `SKIP_BIGQUERY=1` to reuse existing `data/bigquery/big_query_data.csv`.
+
+### GitHub Actions
+
+Workflow: `.github/workflows/monthly-pipeline.yml`
+
+Runs on the 5th of each month (after HTTP Archive crawls) and via **Actions → Monthly pipeline → Run workflow**.
+
+**Repository secrets:**
+
+| Secret | Purpose |
+|--------|---------|
+| `GOOGLE_FONTS_API` | Google Fonts Developer API key |
+| `GOOGLE_CLOUD_PROJECT` | GCP project billed for BigQuery |
+| `GCP_SA_KEY` | Service account JSON with BigQuery User role |
+
+Scheduled runs execute **support → exposure → viz**. Use **Run workflow** with **Run heavy stages** for diversity + complexity (clones Google Fonts; CPU-only, slow).
+
+Updated CSVs and `docs/viz/heatmap.html` are committed automatically when data changes.

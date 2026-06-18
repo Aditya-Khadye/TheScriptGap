@@ -134,7 +134,6 @@ def main() -> None:
 
     print(f"Running stages: {', '.join(stages)}")
 
-    # TODO: wire the BigQuery / CrUX pull into the exposure stage.
     for stage in stages:
         STAGE_RUNNERS[stage](force=args.force)
 

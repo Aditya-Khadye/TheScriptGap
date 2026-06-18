@@ -1,8 +1,9 @@
 """Exposure research package.
 
-This package exposes the exposure pipeline entrypoint and dashboard orchestration.
+Exposes the exposure pipeline entrypoint and BigQuery preflight pull.
 """
 
 from .main import run_exposure_pipeline
+from .bigquery_pull import pull_exposure_data
 
-__all__ = ["run_exposure_pipeline"]
+__all__ = ["run_exposure_pipeline", "pull_exposure_data"]

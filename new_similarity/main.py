@@ -57,20 +57,22 @@ SIMILARITY_RESULTS_FILE =  SIMILARITY_DATA_DIR / "similarity_results.csv"
 CANVAS_SIZE = 224
 FONT_RENDER_SIZE = 160
 MIN_CODEPOINT_COVERAGE = 10
-MAX_FONTS_PER_SCRIPT = 3
+_max_fonts_env = os.environ.get("MAX_FONTS_PER_SCRIPT")
+MAX_FONTS_PER_SCRIPT: Optional[int] = (
+    int(_max_fonts_env) if _max_fonts_env else None
+)
 
 TARGET_SCRIPTS = {
-    # "Cyrillic":    [(0x0400, 0x04FF), (0x0500, 0x052F)],
-    # "Katakana":    [(0x30A0, 0x30FF), (0x31F0, 0x31FF)],
-    # "Devanagari":  [(0x0900, 0x097F), (0xA8E0, 0xA8FF)],
-    # "Arabic":      [(0x0600, 0x06FF), (0x0750, 0x077F),
-    #                 (0xFB50, 0xFDFF), (0xFE70, 0xFEFF)],
-    # "Han":         [(0x4E00, 0x9FFF), (0x3400, 0x4DBF),
-    #                 (0x20000, 0x2A6DF), (0xF900, 0xFAFF)],
-    # "Bengali":     [(0x0980, 0x09FF)],
+    "Cyrillic":    [(0x0400, 0x04FF), (0x0500, 0x052F)],
+    "Katakana":    [(0x30A0, 0x30FF), (0x31F0, 0x31FF)],
+    "Devanagari":  [(0x0900, 0x097F), (0xA8E0, 0xA8FF)],
+    "Arabic":      [(0x0600, 0x06FF), (0x0750, 0x077F),
+                    (0xFB50, 0xFDFF), (0xFE70, 0xFEFF)],
+    "Han":         [(0x4E00, 0x9FFF), (0x3400, 0x4DBF),
+                    (0x20000, 0x2A6DF), (0xF900, 0xFAFF)],
+    "Bengali":     [(0x0980, 0x09FF)],
     "Tamil":       [(0x0B80, 0x0BFF)],
     "Telugu":      [(0x0C00, 0x0C7F)],
-    # "Latin":       [(0x0000, 0x007F)],
 }
 
 logging.basicConfig(
@@ -221,13 +223,13 @@ def compute_font_average_embeddings(
     font_paths: List[str],
     script_name: str,
     extractor: ViTFeatureExtractor,
-    max_fonts: int = MAX_FONTS_PER_SCRIPT,
+    max_fonts: Optional[int] = MAX_FONTS_PER_SCRIPT,
     min_glyphs: int = 3,
 ) -> Tuple[List[str], np.ndarray]:
     ref_chars = get_flat_reference_chars(script_name)
     if not ref_chars:
         raise ValueError(f"No reference characters defined for {script_name}")
-    if len(font_paths) > max_fonts:
+    if max_fonts is not None and len(font_paths) > max_fonts:
         np.random.seed(42)
         font_paths = list(np.random.choice(font_paths, max_fonts, replace=False))
         logger.info(f"Sampled {max_fonts} fonts for {script_name}")
@@ -408,7 +410,14 @@ def run_font_similarity_pipeline(
 
 def run_similarity_pipeline(force: bool = False) -> None:
     """Run complete pipeline for all scripts and generate output files."""
-    
+
+    if SIMILARITY_RESULTS_FILE.exists() and not force:
+        logger.info(
+            "Diversity output already exists: %s (use --force to rerun)",
+            SIMILARITY_RESULTS_FILE,
+        )
+        return
+
     if not GOOGLE_FONTS_DIR.exists():
         logger.error(f"Google Fonts directory not found at {GOOGLE_FONTS_DIR}")
         sys.exit(1)
