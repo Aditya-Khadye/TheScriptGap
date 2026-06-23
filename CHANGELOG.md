@@ -21,13 +21,21 @@ measure reliably, and reproduces its headline result from committed data.
   Canonical output: `data/final/script_servedness.csv`.
 
 ### Added
-- `exposure_research/demand_audit.py` — quantifies the coverage-attribution
-  confound (97–100% of non-Latin demand comes from multi-script bundler fonts;
+- `analysis/scoring.py` — the SSS formula as a single, importable source of truth.
+- `analysis/robustness.py` + `data/final/robustness.md` — robustness & sensitivity,
+  computed from committed data: ViT-B/16 vs ResNet-50 diversity **ρ = 0.95**, tiers
+  **8/8 identical** under ResNet, classical CV diverges (ρ ≈ 0), and the underserved
+  cluster is stable across signal weightings.
+- `tests/` — pytest suite (8 tests) pinning the committed result to the formula and
+  asserting the robustness claims; wired into `pyproject.toml`.
+- `exposure_research/demand_audit.py` — quantifies the coverage-attribution confound
+  (97–100% of non-Latin demand comes from multi-script bundler fonts;
   Inter/Poppins/FontAwesome drive it) from source data.
 - `exposure_research/DEMAND_PROVENANCE.md` — provenance, the `subset=` fix, and the
   roadmap to promote demand back into the score.
-- `data/final/script_servedness.csv` — canonical servedness table with tiers.
-- `VERSION`, `CHANGELOG.md`.
+- `data/final/script_servedness.csv` (+ `data/final/README.md`) — canonical
+  servedness table with tiers and output provenance.
+- `VERSION`, `CHANGELOG.md`; project version bumped to 1.0.0.
 
 ### Changed
 - `data_viz/generate_heatmap.py` — new SSS; Web Exposure relabelled as a context

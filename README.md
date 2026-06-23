@@ -70,10 +70,19 @@ durable result. Canonical output:
 
 ## Robustness
 
-The diversity rankings hold across deep-model choice: a **ViT-B/16 vs. ResNet-50**
-ablation gives a high Spearman rank correlation, so the signal isn't an artifact of
-one architecture. (Classical pixel-wise features are **not** a robust substitute —
-their ranking diverges — so we do not cite them as diversity-robustness evidence.)
+All figures below are computed from committed data by `analysis/robustness.py`
+and asserted in `tests/test_servedness.py` (full report: `data/final/robustness.md`).
+
+- **Diversity vs. model choice:** ViT-B/16 vs. ResNet-50 Spearman **ρ = 0.95** over
+  the 8 non-Latin scripts — the diversity ranking survives the deep-model swap.
+  Classical pixel-wise CV diverges (ρ ≈ 0), so it is **not** used as robustness
+  evidence.
+- **Tiers vs. diversity model:** feeding the SSS ResNet-50 diversity instead of ViT
+  leaves the servedness tiers **8/8 identical**.
+- **Servedness vs. signal weighting:** the underserved cluster {Tamil, Bengali,
+  Devanagari, Telugu} is the combined bottom-4, and support-only and diversity-only
+  each independently recover 3 of those 4 — so the cluster is not an artifact of how
+  the two signals are combined.
 
 ## Limitations
 
@@ -94,10 +103,17 @@ uv run python pipeline.py            # support → exposure → viz → the SSS,
 ```
 
 `python pipeline.py` reproduces the servedness score from the indices committed in
-this repo. Audit the demand axis with
-`uv run python exposure_research/demand_audit.py`. The heavy index stages
-(`diversity` = ViT/GPU, `complexity` = fontTools over a Google Fonts clone) and a
-fresh `exposure`/`support` pull draw on external data; their outputs are committed.
+this repo. The heavy index stages (`diversity` = ViT/GPU, `complexity` = fontTools
+over a Google Fonts clone) and a fresh `exposure`/`support` pull draw on external
+data; their outputs are committed.
+
+Validate and analyze:
+
+```bash
+uv run --with pytest --with pandas --with numpy pytest -q   # regression + robustness tests
+uv run python analysis/robustness.py                        # robustness / sensitivity report
+uv run python exposure_research/demand_audit.py             # demand-axis confound audit
+```
 
 ## Repository structure
 
