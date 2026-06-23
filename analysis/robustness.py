@@ -29,6 +29,7 @@ Usage:
 from __future__ import annotations
 
 import sys
+
 from pathlib import Path
 
 import pandas as pd
@@ -120,6 +121,13 @@ def load_exposure() -> pd.Series:
 # --- report -----------------------------------------------------------------
 
 def main() -> None:
+    sys.stdout.reconfigure(encoding="utf-8")
+    
+    div = load_diversity_sources()
+    support = load_support()
+    exposure = load_exposure()
+    lines: list[str] = ["# Robustness & sensitivity — Script Servedness Score\n"]
+
     div = load_diversity_sources()
     support = load_support()
     exposure = load_exposure()
@@ -130,12 +138,12 @@ def main() -> None:
     models = list(div.columns)
     common = div.dropna()
     lines.append("Pairwise Spearman ρ over the 8 non-Latin scripts:\n")
-    header = "| | " + " | ".join(m.split(" (")[0] for m in models) + " |"
+    header = "| | " + " | ".join(models) + " |"
     lines.append(header)
     lines.append("|" + "---|" * (len(models) + 1))
     rhos = {}
     for m1 in models:
-        row = [m1.split(" (")[0]]
+        row = [m1]
         for m2 in models:
             r = spearman(common[m1].tolist(), common[m2].tolist())
             rhos[(m1, m2)] = r
@@ -193,8 +201,16 @@ def main() -> None:
 
     report = "\n".join(lines)
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(report)
-    print(report)
+    try:
+        print(report)
+        OUT.write_text(report)
+    except UnicodeEncodeError:
+        print(report.encode("ascii", errors="replace").decode("ascii"))
+        OUT.write_text(report, encoding="utf-8")
+
+        print("UnicodeEncodeError: writing robustness report to file; " \
+        "replacing non-ASCII characters with '?' for console output. Markdown file is properly written in UTF-8.")
+
     print(f"\nSaved -> {OUT}")
 
 
