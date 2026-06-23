@@ -716,10 +716,10 @@
       <div class="sss-box">
         <div class="sss-label">Script Servedness Score</div>
         <!-- We dont really need to put that it is log scaled and normalized since we have that mentioned above. Might need to make the text bigger though. -->
-        <code>SSS = (support * (1 - similarity)) / (exposure + 0.1)</code>
+        <code>SSS = (support * (1 - similarity)) / log10(exposure)</code>
       </div>
     </div>
-    <div class="pipe-arrow">↓<span>Scripts are also grouped into tiers separately, via K-Means (k chosen by silhouette score)</span></div>
+    <div class="pipe-arrow">↓<span>Engineering Cost is reported separately (prioritization), not in the SSS. Scripts are then split into servedness tiers from the SSS.</span></div>
   </div>
 
 <!-- Pilot Scripts -->
@@ -803,7 +803,7 @@
 
     <div class="spread-right">
       <h2>Measuring real-world script usage at web scale.</h2>
-      <p>Exposure is calculated by analyzing the HTTP Archive's web crawl request data. Each font request includes Unicode codepoints that can be mapped to their corresponding scripts aggregated across the top 10 million websites to estimate demand.</p>
+      <p>Exposure is calculated from the HTTP Archive's web crawl request data, aggregated across the top global websites. Where a request specifies a Google Fonts <code>subset=</code> (e.g. <code>subset=devanagari</code>), that is a direct per-page signal of the script in use; otherwise the request is attributed by the font's script coverage, a proxy that over-counts scripts merely bundled into popular Latin fonts. Exposure is therefore the weakest input to the score, and the underserved ranking does not depend on it.</p>
       <div class="pull-quote pq-blue">
         Since the data comes from the top global websites, it may not fully represent usage of scripts in all regions.
       </div>

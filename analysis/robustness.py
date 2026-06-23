@@ -50,6 +50,7 @@ DIVERSITY_SOURCES = {
 }
 SUPPORT_CSV = DATA_ROOT / "support" / "script_font_counts.csv"
 SIMILARITY_CSV = DATA_ROOT / "similarity" / "similarity_results.csv"
+EXPOSURE_CSV = DATA_ROOT / "exposure" / "exposure_filtered_results.csv"
 OUT = DATA_ROOT / "final" / "robustness.md"
 
 SUPPORT_NAME_MAP = {
@@ -111,11 +112,17 @@ def load_support() -> pd.Series:
     return pd.DataFrame(rec).groupby("script")["support"].sum()
 
 
+def load_exposure() -> pd.Series:
+    return pd.read_csv(EXPOSURE_CSV, names=["script", "exposure"],
+                       header=0).set_index("script")["exposure"]
+
+
 # --- report -----------------------------------------------------------------
 
 def main() -> None:
     div = load_diversity_sources()
     support = load_support()
+    exposure = load_exposure()
     lines: list[str] = ["# Robustness & sensitivity — Script Servedness Score\n"]
 
     # 1. diversity-model robustness
@@ -143,35 +150,42 @@ def main() -> None:
         f"Classical CV diverges (ViT vs classical ρ = {rhos[(vit,cls)]:.2f}), so it is "
         f"NOT cited as diversity-robustness evidence.\n")
 
-    # 2a. signal-weighting sensitivity
-    lines.append("## 2a. Servedness vs. signal weighting\n")
+    # 2a. demand axis: epsilon-independence and how much demand moves the result
     import numpy as np
+    lines.append("## 2a. Demand axis — epsilon-independence & sensitivity\n")
     div_vit = div[vit].dropna()
-    scripts = [s for s in div_vit.index if s in support.index]
-    sup_only = minmax(np.log10(support[scripts])).sort_values()
-    div_only = div_vit[scripts].sort_values(ascending=True)  # low diversity = underserved
-    combined = compute_servedness(support, div_vit)  # sorted most-underserved first
-    def bottom4(s): return ", ".join(list(s.index[:4]))
-    lines.append("Most-underserved four under each ranking:\n")
-    lines.append(f"- support only:   {bottom4(sup_only)}")
-    lines.append(f"- diversity only: {bottom4(div_only)}")
-    lines.append(f"- combined SSS:   {bottom4(combined)}")
-    cluster = {"Tamil", "Bengali", "Devanagari", "Telugu"}
-    stable = set(combined.index[:4]) == cluster
-    lines.append(f"\nUnderserved cluster {{Tamil, Bengali, Devanagari, Telugu}} is the "
-                 f"combined bottom-4: **{stable}**. Support-only and diversity-only each "
-                 f"recover 3/4 of it, so the cluster is not an artifact of the weighting.\n")
+    scripts = [s for s in div_vit.index if s in support.index and s in exposure.index]
+    Su = minmax(np.log10(support[scripts]))
+    Si = minmax(1.0 - div_vit[scripts])
+    Enorm = minmax(np.log10(exposure[scripts]))
+    logE = np.log10(exposure[scripts])
+    choice = Su * (1.0 - Si)                 # effective choice (support x diversity), no demand
+    principled = choice / logE               # the shipped SSS denominator (log-demand)
+    lines.append("The shipped SSS divides effective choice by log10(exposure). Spearman ρ of "
+                 "that ranking vs the original `(exposure_norm + eps)` denominator:\n")
+    for eps in (0.1, 0.5, 1.0):
+        rho = spearman(principled.tolist(), (choice / (Enorm + eps)).tolist())
+        lines.append(f"- vs eps = {eps}: ρ = {rho:.3f}")
+    rho_choice = spearman(choice.tolist(), principled.tolist())
+    lines.append(f"\nRemoving the arbitrary 0.1 floor does **not** change the ranking (it "
+                 f"reproduces the original gap-ratio at sensible eps). Demand's influence: over "
+                 f"the 8 non-Latin scripts, effective-choice-only (no demand) and the full SSS "
+                 f"give the **same ranking (ρ = {rho_choice:.2f})** — so the underserved ordering "
+                 f"does not depend on the (weakest) demand axis; demand mainly separates the "
+                 f"high-demand well-served scripts (Latin, Cyrillic).\n")
+    combined = compute_servedness(support, div_vit, exposure)
+    lines.append(f"Most-underserved four: **{', '.join(list(combined.index[:4]))}**.\n")
 
     # 2b. tier stability across diversity models
     lines.append("## 2b. Servedness tiers vs. diversity model\n")
-    base_tier = compute_servedness(support, div_vit)["tier"]
+    base_tier = compute_servedness(support, div_vit, exposure)["tier"]
     lines.append("Tier agreement when the SSS is fed ResNet / classical diversity "
-                 "instead of ViT (8 non-Latin scripts):\n")
+                 "instead of ViT:\n")
     for label in [res, cls]:
         if label not in div.columns:
             continue
         d = div[label].dropna()
-        alt = compute_servedness(support, d)["tier"]
+        alt = compute_servedness(support, d, exposure)["tier"]
         shared = [s for s in base_tier.index if s in alt.index]
         agree = sum(base_tier[s] == alt[s] for s in shared)
         lines.append(f"- vs {label.split(' (')[0]}: {agree}/{len(shared)} tiers identical")

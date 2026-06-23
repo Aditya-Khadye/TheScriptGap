@@ -13,16 +13,18 @@ The canonical Script Servedness Score result (v1.0).
 | `servedness_score` | SSS, min–max normalized to [0, 1] (higher = better served) |
 | `support_gf_families` | distinct open-source font families (Google Fonts) |
 | `diversity_index` | visual variety of those fonts (ViT-B/16), 0–1 |
-| `exposure_context_proxy` | web font-request volume — **context only, not in the score** |
+| `exposure_demand` | web font-request volume (HTTP Archive) — the demand term |
 
 **Formula** (single source of truth: `analysis/scoring.py`):
 
 ```
-SSS = log_support_norm − similarity_norm        (similarity = 1 − diversity_index)
+effective_choice = support_norm × (1 − similarity_norm)     # similarity = 1 − diversity
+SSS = effective_choice / log10(exposure)                    # choice per (log) demand
 ```
 
-Demand and complexity are deliberately excluded (see
-`exposure_research/DEMAND_PROVENANCE.md` and the project README).
+Real font choice (support × diversity) relative to web demand. Complexity
+("engineering cost") is reported separately as a prioritization signal, not in the
+SSS. Demand is the weakest input — see `exposure_research/DEMAND_PROVENANCE.md`.
 
 **Regenerate:** `uv run python pipeline.py` (the viz stage writes this file).
 **Verify:** `uv run --with pytest --with pandas --with numpy pytest -q` asserts this
@@ -30,6 +32,7 @@ file equals the formula recomputed from the raw inputs.
 
 ## `robustness.md`
 
-Robustness & sensitivity report (ViT-vs-ResNet/classical rank correlations, tier
-stability across diversity models, signal-weighting sensitivity). Regenerate with
+Robustness & sensitivity report — diversity-model rank correlations (ViT/ResNet/
+classical), the log-demand denominator vs the original epsilon, demand sensitivity,
+and tier stability across diversity models. Regenerate with
 `uv run python analysis/robustness.py`.

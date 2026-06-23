@@ -125,26 +125,28 @@ def load_all_data(repo: Path = REPO_ROOT) -> pd.DataFrame:
         master[f"{col}_norm"] = (master[col] - cmin) / (cmax - cmin) if cmax > cmin else 0.5
 
     # ------------------------------------------------------------------
-    # Script Servedness Score (SSS) — v1.0
+    # Script Servedness Score (SSS) — v1.0 (the original gap-ratio, hardened)
     # ------------------------------------------------------------------
-    # Scored on the two TRUSTWORTHY, reproducible signals:
-    #   log_support_norm  — open-source font availability (Google Fonts families)
-    #   similarity_norm   — lack of visual choice (1 - diversity, ViT index)
+    #   effective_choice = support_norm * (1 - similarity_norm)   # quantity * variety
+    #   SSS = effective_choice / log10(exposure)                  # choice per (log) demand
     #
-    #       SSS = log_support_norm - similarity_norm
+    # Real font choice — how many genuinely different fonts a script has —
+    # relative to how much it is actually used. A high-demand script with little
+    # real choice scores lowest (= most underserved), which is what a
+    # prioritization score should surface.
     #
-    # (Equivalently support + diversity: two co-equal signals, no tuned weight.)
+    # This is the project's original gap-ratio with one fix: it divides by
+    # log-scaled exposure (the methodology always specified "exposure
+    # log-scaled") instead of the earlier (exposure_norm + 0.1) — same ranking,
+    # without the arbitrary 0.1 floor that the [0,1]-normalized denominator
+    # required.
     #
-    # Web exposure (demand) is deliberately NOT in the score. Even with the
-    # HTTP Archive `subset=` pull (exposure_research/bigquery_pull.py), the
-    # committed per-script numbers can't yet be trusted to drive a headline
-    # (coverage fallback inflates Cyrillic; CJK Han/Katakana split is unreliable
-    # — see exposure_research/DEMAND_PROVENANCE.md). It is shown as a labelled
-    # CONTEXT column. Complexity is also out (it is creation difficulty, a CAUSE
-    # of under-service, handled in the prioritization stage). The earlier
-    # gap-ratio score `(support*(1-sim))/(exposure+0.1)` was rejected: it is
-    # epsilon-dependent and rewards low-demand scripts for the wrong reason.
-    master["sss"] = master["log_support_norm"] - master["similarity_index_norm"]
+    # Demand (exposure) is the WEAKEST input: the committed numbers carry a
+    # coverage confound; the HTTP Archive `subset=` pull is the upgrade path
+    # (exposure_research/DEMAND_PROVENANCE.md). Complexity ("engineering cost")
+    # is reported separately as a prioritization signal, NOT in the SSS.
+    effective_choice = master["log_support_norm"] * (1.0 - master["similarity_index_norm"])
+    master["sss"] = effective_choice / master["log_exposure"]
     gs_min, gs_max = master["sss"].min(), master["sss"].max()
     
     master["sss_norm"] = (master["sss"] - gs_min) / (gs_max - gs_min)
@@ -168,10 +170,10 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
 
     metrics = [
         # 1. value column, 2. label, 3. tooltip description, 4. color 5. data labels
-        ("sss_norm",       "SSS",      "Higher = well served (support + diversity)",  "#7F77DD", "Raw SSS"),
+        ("sss_norm",       "SSS",      "Higher = well served (choice ÷ demand)",  "#7F77DD", "Raw SSS"),
         ("log_support_norm",     "Font Support",   "Open-source font families (Google Fonts)", "#EF9F27", "GF families"),
         ("similarity_index_norm", "Similarity",     "Higher = less visual choice","#1D9E75", "Similarity Index"),
-        ("log_exposure_norm",    "Web Exposure",   "Context proxy — NOT in the score",      "#3B8BD4", "Font requests"),
+        ("log_exposure_norm",    "Web Exposure",   "Reader demand (HTTP Archive font requests)",      "#3B8BD4", "Font requests"),
     ]
 
     raw_cols = {
@@ -350,7 +352,7 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
 </div>
 
 <div class="legend" id="legend"></div>
-<p class="note">Hover over any cell for the raw value. SSS = Script Servedness Score: open-source font support balanced against visual choice (diversity). Web Exposure is a context proxy and is NOT in the score; complexity is tracked separately. See exposure_research/DEMAND_PROVENANCE.md.</p>
+<p class="note">Hover over any cell for the raw value. SSS = Script Servedness Score: real font choice (support × diversity) per unit of reader demand. Engineering cost (complexity) is reported separately, not in the score. Exposure is the weakest input — see exposure_research/DEMAND_PROVENANCE.md.</p>
 
 <div class="tooltip" id="tooltip"></div>
 
@@ -465,7 +467,7 @@ def generate_png_heatmap(master: pd.DataFrame, output_path: Path):
         ("sss_norm",       "Script\nServedness\nScore",     "#7F77DD"),
         ("log_support_norm",     "Font\nSupport",  "#EF9F27"),
         ("similarity_index_norm", "Similarity",     "#1D9E75"),
-        ("log_exposure_norm",    "Web Exposure\n(context)",  "#3B8BD4"),
+        ("log_exposure_norm",    "Web\nExposure",  "#3B8BD4"),
     ]
 
     matrix = np.array([
@@ -576,7 +578,7 @@ def main():
                               "diversity_index", "exposure"]]
                   .rename(columns={"sss_norm": "servedness_score",
                                    "support": "support_gf_families",
-                                   "exposure": "exposure_context_proxy"})
+                                   "exposure": "exposure_demand"})
                   .sort_values("servedness_score")
                   .reset_index(drop=True))
     servedness.to_csv(final_dir / "script_servedness.csv", index=False)

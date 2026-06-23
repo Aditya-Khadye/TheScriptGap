@@ -7,12 +7,12 @@ visual diversity into a single **Script Servedness Score (SSS)**, and reports we
 exposure and engineering complexity alongside as context, to give a data-driven
 view of where non-Latin type investment is most needed.
 
-> **What's new in v1.0:** the servedness score is built on the two signals we can
-> measure reproducibly and defend — **font support** and **font diversity**. Web
-> exposure (demand) is published as **context only** (the HTTP Archive `subset=`
-> pull is the right fix, but the committed numbers aren't yet trusted to drive a
-> headline — see below), and engineering complexity is a separate **prioritization**
-> signal, not a dimension of servedness.
+> **What's new in v1.0:** the servedness score is the project's original
+> **gap-ratio**, hardened — *real font choice (support × diversity) per unit of web
+> demand* — with the arbitrary `+0.1` removed, made reproducible end-to-end, and
+> backed by a test suite. Demand is the **weakest** input (see *Limitations*), and
+> engineering complexity is reported separately as a **prioritization** signal, not
+> a dimension of servedness.
 
 ## Methodology
 
@@ -22,50 +22,55 @@ four indices:
 
 | Index | What it measures | Role in v1.0 |
 |---|---|---|
-| **Support** | Distinct open-source font families per script (Google Fonts). | **Drives the SSS** |
-| **Diversity** | Visual variety of available fonts, via Vision Transformer (ViT-B/16) glyph-image embeddings (ResNet-50 and classical-CV ablations). | **Drives the SSS** |
-| **Exposure** | Per-script web font-request volume (HTTP Archive via BigQuery, using the Google Fonts CSS `subset=` parameter). | **Context only** (see *Limitations*) |
+| **Support** | Distinct open-source font families per script (Google Fonts). | **In the SSS** |
+| **Diversity** | Visual variety of available fonts, via Vision Transformer (ViT-B/16) glyph-image embeddings (ResNet-50 and classical-CV ablations). | **In the SSS** |
+| **Exposure** | Per-script web font-request volume (HTTP Archive via BigQuery, Google Fonts CSS `subset=`). | **In the SSS** — weakest input (see *Limitations*) |
 | **Complexity** | Per-script engineering difficulty from font binaries (glyph-expansion ratio, vertical footprint, OpenType-feature friction), via fontTools. | Separate **prioritization** lens |
 
-**The score.** Support and diversity are normalized to [0, 1] and combined:
+**The score.** Support, diversity, and demand feed a single ratio:
 
 ```
-SSS = support_norm − similarity_norm        (similarity = 1 − diversity)
+effective_choice = support_norm × (1 − similarity_norm)     # quantity × variety
+SSS = effective_choice / log₁₀(exposure)                    # choice per (log) demand
 ```
 
-i.e. a script is well served when it has **both** plenty of fonts **and** real
-visual choice. The score is then min–max normalized and split into tiers. (This
-replaces the earlier gap-ratio `(support·(1−sim))/(exposure+0.1)`, which was
-epsilon-dependent and rewarded low-demand scripts for the wrong reason.)
+A script is well served when it has lots of *genuinely different* fonts relative to
+how much it's read; a **high-demand script with little real choice scores lowest =
+most underserved**, which is what a prioritization score should surface. This is the
+project's original gap-ratio `(support·(1−similarity))/(exposure+0.1)` with one fix:
+it divides by **log-scaled** exposure (always the stated intent) instead of an
+`(exposure_norm + 0.1)` denominator that needed an arbitrary `0.1` floor. The ranking
+is unchanged (Spearman 0.95–0.98 vs the original at sensible ε).
 
-**Why demand is not in the score.** Exposure is a demand signal in principle, and
-`exposure_research/bigquery_pull.py` attributes HTTP Archive requests to scripts
-via the CSS `subset=` parameter — the right approach. But the committed per-script
-numbers aren't yet regenerated from that pull, and the CJK Han/Katakana split is
-unreliable, so v1.0 ships exposure as a clearly-labelled **context proxy** and
-scores servedness on the two trustworthy axes. Detail + roadmap:
+**Demand is the weakest input.** The committed exposure numbers carry a coverage
+confound — a font request is mapped to every script the font covers, so Latin/UI
+fonts (Inter, Roboto) inflate the scripts they merely bundle; `bigquery_pull.py`
+is upgrading this to the per-page CSS `subset=` signal. Crucially, **the underserved
+ordering does not depend on demand** — over the 8 non-Latin scripts the score with
+and without the demand term ranks them identically (ρ = 1.00); demand mainly
+separates the high-demand well-served scripts. Detail + roadmap:
 [`exposure_research/DEMAND_PROVENANCE.md`](exposure_research/DEMAND_PROVENANCE.md).
 
 **Why complexity is separate.** Complexity measures *creation difficulty* — a
-**cause** of under-service, not a measure of how well readers are currently served
-(Han is hard to build yet well served). It feeds the prioritization question, not
-the SSS.
+**cause** of under-service, not a measure of how well readers are currently served.
+It feeds the prioritization question, not the SSS.
 
 ## Key findings
 
 | Tier | Scripts |
 |---|---|
-| **Underserved** | **Tamil, Bengali, Devanagari, Telugu** |
-| **Moderately served** | Arabic, Han |
-| **Well served** | Cyrillic, Katakana, Latin |
+| **Underserved** | **Bengali, Tamil, Devanagari, Telugu, Arabic, Han** |
+| **Moderately served** | Katakana, Cyrillic |
+| **Well served** | Latin |
 
-The headline is robust: the **Indic scripts cluster at the bottom** — few
-open-source font families *and* low visual diversity — consistent with the
-type-design literature (e.g. SIL / Hossain et al. on "disproportionately few Indic
-fonts"). Arabic and Han sit in the middle (Han has few open-source families but
-high diversity). The exact #1 (Tamil vs Bengali) is sensitive to the diversity
-normalization and shouldn't be over-read; the **underserved cluster** is the
-durable result. Canonical output:
+Only **Latin** is clearly well served; **Cyrillic and Katakana** trail it; the six
+other non-Latin reading scripts are underserved — too few genuinely-different fonts
+for their readership. The **Indic scripts {Bengali, Tamil, Devanagari, Telugu}** are
+the most underserved cluster, consistent with the type-design literature (e.g. SIL /
+Hossain et al. on "disproportionately few Indic fonts"). Han lands in the underserved
+group because it has very few open-source families (26) despite high diversity. The
+exact #1 (Bengali vs Tamil) is sensitive to the diversity normalization and shouldn't
+be over-read. Canonical output:
 [`data/final/script_servedness.csv`](data/final/script_servedness.csv).
 
 ## Robustness
@@ -75,21 +80,22 @@ and asserted in `tests/test_servedness.py` (full report: `data/final/robustness.
 
 - **Diversity vs. model choice:** ViT-B/16 vs. ResNet-50 Spearman **ρ = 0.95** over
   the 8 non-Latin scripts — the diversity ranking survives the deep-model swap.
-  Classical pixel-wise CV diverges (ρ ≈ 0), so it is **not** used as robustness
-  evidence.
+  Classical pixel-wise CV diverges (ρ ≈ 0), so it is **not** used as robustness evidence.
+- **The `+0.1` fix is ranking-neutral:** dividing by log₁₀(exposure) reproduces the
+  original gap-ratio (Spearman 0.95–0.98 vs `(exposure_norm + ε)` at ε = 0.5–1.0).
+- **The underserved ordering doesn't depend on demand:** with and without the demand
+  term, the 8 non-Latin scripts rank identically (ρ = 1.00) — the weakest axis doesn't
+  drive the headline.
 - **Tiers vs. diversity model:** feeding the SSS ResNet-50 diversity instead of ViT
-  leaves the servedness tiers **8/8 identical**.
-- **Servedness vs. signal weighting:** the underserved cluster {Tamil, Bengali,
-  Devanagari, Telugu} is the combined bottom-4, and support-only and diversity-only
-  each independently recover 3 of those 4 — so the cluster is not an artifact of how
-  the two signals are combined.
+  leaves the tiers **7/8 identical**.
 
 ## Limitations
 
 - **Supply = Google Fonts only** — an open-source-stylistic-choice proxy, not total
   font supply; under-counts commercial (Monotype/Adobe), system, and SIL fonts.
-- **Demand is a proxy, not in the score** (see `DEMAND_PROVENANCE.md`); HTTP Archive /
-  CrUX is Chrome-biased and under-counts CJK / low-Chrome regions.
+- **Demand is the weakest input** — a coverage-confounded proxy in the score (see
+  `DEMAND_PROVENANCE.md`); HTTP Archive / CrUX is Chrome-biased and under-counts CJK /
+  low-Chrome regions. The underserved ordering doesn't depend on it (ρ = 1.00 with/without).
 - **n = 8 scripts** — a coarse tiering, not fine statistics; does not generalize to
   scripts outside the set (Hangul, Thai, Hebrew, … are not studied).
 - **Min–max normalization is relative** to this 8-script set; index endpoints
