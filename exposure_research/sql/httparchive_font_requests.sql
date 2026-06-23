@@ -10,13 +10,18 @@ WITH raw AS (
     CASE
       WHEN url LIKE '%fonts.googleapis.com/css%' THEN
         LOWER(
-          REPLACE(
-            REPLACE(REGEXP_EXTRACT(url, r'family=([^:&]+)'), '+', ' '),
-            '%20', ' '
+          TRIM(
+            REPLACE(
+              REPLACE(
+                REGEXP_EXTRACT(url, r'family=([^|&:]+)'),  -- stops at first |, &, or :
+                '+', ' '
+              ),
+              '%20', ' '
+            )
           )
         )
       WHEN url LIKE '%fonts.gstatic.com/s/%' THEN
-        LOWER(REPLACE(REGEXP_EXTRACT(url, r'fonts\.gstatic\.com/s/([^/]+)/'), '-', ' '))
+        LOWER(TRIM(REPLACE(REGEXP_EXTRACT(url, r'fonts\.gstatic\.com/s/([^/]+)/'), '-', ' ')))
       ELSE NULL
     END AS font_name_raw,
     CASE
@@ -40,5 +45,6 @@ SELECT
 FROM raw
 WHERE font_name_raw IS NOT NULL
   AND font_name_raw != ''
+  AND REGEXP_CONTAINS(font_name_raw, r'^[a-z0-9 -]+$')  -- filter malformed entries
 GROUP BY font_name_raw, subset
 ORDER BY font_count DESC
