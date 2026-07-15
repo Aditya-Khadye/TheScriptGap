@@ -128,11 +128,6 @@ def main() -> None:
     exposure = load_exposure()
     lines: list[str] = ["# Robustness & sensitivity — Script Servedness Score\n"]
 
-    div = load_diversity_sources()
-    support = load_support()
-    exposure = load_exposure()
-    lines: list[str] = ["# Robustness & sensitivity — Script Servedness Score\n"]
-
     # 1. diversity-model robustness
     lines.append("## 1. Diversity signal vs. model choice (Spearman rank corr.)\n")
     models = list(div.columns)

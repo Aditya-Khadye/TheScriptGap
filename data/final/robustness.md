@@ -17,8 +17,8 @@ Pairwise Spearman ρ over the 8 non-Latin scripts:
 
 The shipped SSS divides effective choice by log10(exposure). Spearman ρ of that ranking vs the original `(exposure_norm + eps)` denominator:
 
-- vs eps = 0.1: ρ = 0.735
-- vs eps = 0.5: ρ = 0.952
+- vs eps = 0.1: ρ = 0.904
+- vs eps = 0.5: ρ = 0.976
 - vs eps = 1.0: ρ = 0.976
 
 Removing the arbitrary 0.1 floor does **not** change the ranking (it reproduces the original gap-ratio at sensible eps). Demand's influence: over the 8 non-Latin scripts, effective-choice-only (no demand) and the full SSS give the **same ranking (ρ = 1.00)** — so the underserved ordering does not depend on the (weakest) demand axis; demand mainly separates the high-demand well-served scripts (Latin, Cyrillic).

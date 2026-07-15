@@ -69,3 +69,21 @@ path is what fixes this; the fallback should be avoided for load-bearing numbers
    sensitivity check against the support+diversity-only score.
 
 Until 1–3 are done, keep the Exposure Index labelled as a **context proxy**.
+
+---
+
+## Addendum (July 2026): the regenerated pull is still coverage-attributed
+
+PR #45 regenerated `big_query_data.csv` (column now `supported_scripts`) and
+`exposure_filtered_results.csv` from a fresh HTTP Archive pull. The new per-script
+totals are **nearly flat** — all 9 scripts fall within ~1.25× of each other (e.g.
+Bengali at ~87% of Latin), and top fonts are attributed to *all* pilot scripts
+(Roboto → 9 scripts). This is the coverage fallback operating at full strength, not
+per-page `subset=` attribution — real web reading volume is not near-uniform across
+these scripts. `demand_audit.py` reads the new format and quantifies this.
+
+Consequence for the score: with near-flat exposure, the `log10(exposure)`
+denominator is nearly constant, so the SSS ordering reduces to effective choice —
+consistent with the documented result that the underserved ordering does not depend
+on demand (ρ = 1.00). The §4 roadmap (validate the `subset=` share before trusting
+demand levels) still stands.

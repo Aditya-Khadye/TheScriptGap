@@ -84,7 +84,9 @@ def load_source() -> pd.DataFrame:
     if not SOURCE.exists():
         raise FileNotFoundError(f"Missing demand source: {SOURCE}")
     df = pd.read_csv(SOURCE)
-    df["coverage"] = df["scripts"].apply(parse_scripts)
+    # The pull has used both column names for the coverage field over time.
+    coverage_col = "supported_scripts" if "supported_scripts" in df.columns else "scripts"
+    df["coverage"] = df[coverage_col].apply(parse_scripts)
     df["reading_coverage"] = df["coverage"].apply(
         lambda L: [s for s in L if s not in NON_READING_TAGS]
     )
