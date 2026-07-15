@@ -28,17 +28,15 @@ TREEMAP_SCRIPTS = [
     "arabic",
     "bengali",
     "cyrillic",
-    "japanese",
+    "katakana",
     "telugu",
     "tamil",
     "latin",
-    "chinese-simplified",
-    "chinese-traditional",
+    "han",
 ]
 
 # Treemap display labels (subset name in data → label in viz)
 TREEMAP_DISPLAY_SCRIPT = {
-    "japanese": "katakana",
     "chinese-simplified": "han",
     "chinese-traditional": "han",
 }

@@ -126,8 +126,13 @@ def _build_big_query_dataframe(
     raw_df: pd.DataFrame,
     font_subsets: dict[str, list[str]],
 ) -> pd.DataFrame:
-    """Expand HTTP Archive counts into font_name + supported_scripts rows."""
-    records: list[dict] = []
+    """Aggregate HTTP Archive counts into one row per font.
+
+    Produces rows with `font_name`, `supported_scripts` (list of canonical
+    script display names, e.g. ["Latin","Cyrillic"]) and `font_count`
+    (sum of counts for that font across subsets).
+    """
+    agg: dict[str, dict] = {}
 
     for _, row in raw_df.iterrows():
         font_key = normalize_font_key(str(row["font_name_raw"]))
@@ -135,26 +140,50 @@ def _build_big_query_dataframe(
         subset = row.get("subset")
         subset_key = normalize_subset_name(str(subset)) if pd.notna(subset) else None
 
-        if subset_key and subset_key in PILOT_SUBSETS:
-            scripts = [subset_key]
-        else:
-            scripts = [
-                s for s in font_subsets.get(font_key, [])
-                if s in PILOT_SUBSETS
-            ]
-            if not scripts and subset_key:
-                scripts = [subset_key]
+        # Collect canonical script names for this raw row
+        scripts: set[str] = set()
+        if subset_key:
+            for part in subset_key.split(","):
+                normalized = normalize_subset_name(part.strip())
+                canonical = to_canonical_script(normalized)
+                if canonical:
+                    scripts.add(canonical)
+
+        # Fall back to Google Fonts mapping when subset info is absent
+        if not scripts:
+            for s in font_subsets.get(font_key, []):
+                canonical = to_canonical_script(normalize_subset_name(s))
+                if canonical:
+                    scripts.add(canonical)
 
         if not scripts:
             continue
 
+        if font_key not in agg:
+            agg[font_key] = {"count": 0, "scripts": set()}
+        agg[font_key]["count"] += count
+        agg[font_key]["scripts"].update(scripts)
+
+    if not agg:
+        raise RuntimeError(
+            "No font rows matched pilot script subsets. "
+            "Check HTTP Archive results and Google Fonts API mapping."
+        )
+
+    records: list[dict] = []
+    for font_name, meta in agg.items():
+        scripts_list = sorted(meta["scripts"])
         records.append(
             {
-                "font_name": font_key,
-                "supported_scripts": scripts,
-                "font_count": count,
+                "font_name": font_name,
+                "supported_scripts": scripts_list,
+                "font_count": meta["count"],
             }
         )
+
+    df = pd.DataFrame(records)
+    df = df.sort_values("font_count", ascending=False).reset_index(drop=True)
+    return df
 
     if not records:
         raise RuntimeError(
@@ -223,15 +252,22 @@ def pull_exposure_data(
     raw_df = _run_font_request_query(crawl_date, client)
     bq_df = _build_big_query_dataframe(raw_df, font_subsets)
 
-    # Serialize list column for CSV
+    # Serialize list column for CSV using the legacy bracketed format: [A,B,C]
     bq_df["supported_scripts"] = bq_df["supported_scripts"].apply(
-        lambda scripts: json.dumps(scripts)
+        lambda scripts: "[" + ",".join(scripts) + "]"
     )
     bq_df.to_csv(BIGQUERY_PATH, index=False)
     logger.info("Wrote %s", BIGQUERY_PATH)
 
-    # Re-parse for exposure summary (lists as Python lists)
-    bq_df["supported_scripts"] = bq_df["supported_scripts"].apply(ast.literal_eval)
+    # Re-parse for exposure summary (lists stored as bracketed strings)
+    def _parse_scripts_field(s: str) -> list[str]:
+        s = str(s).strip()
+        inner = s.strip("[]").strip()
+        if not inner:
+            return []
+        return [part.strip() for part in inner.split(",") if part.strip()]
+
+    bq_df["supported_scripts"] = bq_df["supported_scripts"].apply(_parse_scripts_field)
     filtered = _build_exposure_filtered(bq_df)
     filtered.to_csv(EXPOSURE_FILTERED_PATH, index=False)
     logger.info("Wrote %s", EXPOSURE_FILTERED_PATH)

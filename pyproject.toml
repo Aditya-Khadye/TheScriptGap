@@ -6,9 +6,11 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "dash[cloud]>=4.1.0",
+    "db-dtypes>=1.7.0",
     "dotenv>=0.9.9",
     "fonttools>=4.62.0",
     "google-cloud-bigquery>=3.40.0",
+    "google-cloud-bigquery-storage>=2.39.0",
     "ipykernel>=7.2.0",
     "matplotlib>=3.10.9",
     "numpy>=2.4.4",
