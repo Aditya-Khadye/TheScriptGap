@@ -87,3 +87,9 @@ denominator is nearly constant, so the SSS ordering reduces to effective choice 
 consistent with the documented result that the underserved ordering does not depend
 on demand (ρ = 1.00). The §4 roadmap (validate the `subset=` share before trusting
 demand levels) still stands.
+
+**Reproducibility note (per review on PR #44):** the demand pull is parameterized
+by crawl — the committed numbers come from the **2026-03-01 HTTP Archive monthly
+crawl** (`HTTPARCHIVE_CRAWL_DATE`, desktop client). Given the same crawl date and
+client, the pull is reproducible; the caveats above are about *attribution*
+(coverage vs `subset=`), not about run-to-run drift.

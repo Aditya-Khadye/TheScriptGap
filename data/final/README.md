@@ -36,3 +36,18 @@ Robustness & sensitivity report — diversity-model rank correlations (ViT/ResNe
 classical), the log-demand denominator vs the original epsilon, demand sensitivity,
 and tier stability across diversity models. Regenerate with
 `uv run python analysis/robustness.py`.
+
+## Source data snapshots
+
+For citation and reproducibility, the committed index inputs derive from these
+pinned sources (record new values here whenever an index is regenerated):
+
+| Input | Source | Pinned snapshot |
+|---|---|---|
+| Exposure (demand) | HTTP Archive `crawl.requests` via BigQuery | **2026-03-01 monthly crawl**, desktop client |
+| Support (font families) | Google Fonts Developer API | API pull, June 2026 (date not recorded — record on next refresh) |
+| Diversity + Complexity | `github.com/google/fonts` clone | commit `TBD` — maintainers: run `git -C "$GOOGLE_FONTS_DIR" rev-parse HEAD` and record here |
+
+The diversity/complexity indices are computed from font binaries in the Google
+Fonts clone, so the clone's commit SHA is the definitive version pin for the
+paper. The demand pull is reproducible given the crawl date + client above.
