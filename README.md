@@ -1,105 +1,143 @@
-# The Script Gap
+# The Script Gap — v1.0
 
-The Script Gap is a research framework that identifies writing systems widely used in the real world but under-supported in digital typography. By combining web exposure data, font availability, engineering complexity, and visual diversity into a single Script Servedness Score, it surfaces the highest-impact gaps and provides a data-driven roadmap for prioritizing script support.
+The Script Gap is a research framework that identifies writing systems
+**under-served by open-source digital typography** — widely usable in the real
+world but offered few, visually similar fonts. It combines font availability and
+visual diversity into a single **Script Servedness Score (SSS)**, and reports web
+exposure and engineering complexity alongside as context, to give a data-driven
+view of where non-Latin type investment is most needed.
+
+> **What's new in v1.0:** the servedness score is the project's original
+> **gap-ratio**, hardened — *real font choice (support × diversity) per unit of web
+> demand* — with the arbitrary `+0.1` removed, made reproducible end-to-end, and
+> backed by a test suite. Demand is the **weakest** input (see *Limitations*), and
+> engineering complexity is reported separately as a **prioritization** signal, not
+> a dimension of servedness.
 
 ## Methodology
 
-We quantify underservedness through four complementary indices:
+We study **8 major non-Latin scripts** (Devanagari, Arabic, Bengali, Tamil,
+Telugu, Han, Katakana, Cyrillic), with **Latin as a well-served reference**, on
+four indices:
 
-- **Exposure Index** — real web reading demand per script, derived from Google's Chrome User Experience Report (CrUX) via BigQuery.
-- **Support Index** — distinct font family count per script, pulled from Google Fonts.
-- **Complexity Index** — engineering difficulty per script, computed from font binaries using fontTools (glyph expansion ratio, vertical footprint, infrastructure friction).
-- **Diversity Index** — visual variety of available fonts, measured by Vision Transformer (ViT-B/16) embeddings with ResNet-50 and classical pixel-wise ablations.
+| Index | What it measures | Role in v1.0 |
+|---|---|---|
+| **Support** | Distinct open-source font families per script (Google Fonts). | **In the SSS** |
+| **Diversity** | Visual variety of available fonts, via Vision Transformer (ViT-B/16) glyph-image embeddings (ResNet-50 and classical-CV ablations). | **In the SSS** |
+| **Exposure** | Per-script web font-request volume (HTTP Archive via BigQuery, Google Fonts CSS `subset=`). | **In the SSS** — weakest input (see *Limitations*) |
+| **Complexity** | Per-script engineering difficulty from font binaries (glyph-expansion ratio, vertical footprint, OpenType-feature friction), via fontTools. | Separate **prioritization** lens |
 
-These four indices are standardized and fed into K-Means clustering to produce the final underservedness tiers.
-
-## Repository Structure
+**The score.** Support, diversity, and demand feed a single ratio:
 
 ```
-TheScriptGap/
-├── exposure_research/          # CrUX BigQuery pipeline (Exposure Index)
-│   └── output/                 # Exposure CSVs
-├── support_research/           # Google Fonts analysis (Support Index)
-│   └── output/                 # Font count and script relation CSVs
-├── similarity_research/        # Complexity + Diversity pipelines
-│   ├── script_similarity_pipeline.py    # fontTools Complexity Index
-│   ├── similarity_index_*.csv
-│   └── diversity_research/     # ViT, CNN, and classical CV pipelines
-│       ├── script_diversity_vit_pipeline.py
-│       ├── script_diversity_cnn_pipeline.py
-│       ├── script_diversity_classical_cv.py
-│       ├── vit_outputs_100/    # 100-glyph ViT results
-│       ├── vit_outputs/        # 10-glyph ViT results
-│       └── classical_cv_outputs/
-├── final_model/                # K-Means clustering and tier assignment
-│   └── kmeans_clustering.py
-├── data_viz/                   # Heatmaps and visualizations
-│   └── generate_heatmap.py
-└── README.md
+effective_choice = support_norm × (1 − similarity_norm)     # quantity × variety
+SSS = effective_choice / log₁₀(exposure)                    # choice per (log) demand
 ```
 
-## Key Findings
+A script is well served when it has lots of *genuinely different* fonts relative to
+how much it's read; a **high-demand script with little real choice scores lowest =
+most underserved**, which is what a prioritization score should surface. This is the
+project's original gap-ratio `(support·(1−similarity))/(exposure+0.1)` with one fix:
+it divides by **log-scaled** exposure (always the stated intent) instead of an
+`(exposure_norm + 0.1)` denominator that needed an arbitrary `0.1` floor. The ranking
+is unchanged (Spearman 0.95–0.98 vs the original at sensible ε).
 
-K-Means clustering across all four indices produces two tiers:
+**Demand is the weakest input.** The committed exposure numbers carry a coverage
+confound — a font request is mapped to every script the font covers, so Latin/UI
+fonts (Inter, Roboto) inflate the scripts they merely bundle; `bigquery_pull.py`
+is upgrading this to the per-page CSS `subset=` signal. Crucially, **the underserved
+ordering does not depend on demand** — over the 8 non-Latin scripts the score with
+and without the demand term ranks them identically (ρ = 1.00); demand mainly
+separates the high-demand well-served scripts. Detail + roadmap:
+[`exposure_research/DEMAND_PROVENANCE.md`](exposure_research/DEMAND_PROVENANCE.md).
 
-- **Underserved** — Devanagari, Arabic, Bengali, Tamil, Telugu
-- **Well served** — Cyrillic, Katakana, Han
+**Why complexity is separate.** Complexity measures *creation difficulty* — a
+**cause** of under-service, not a measure of how well readers are currently served.
+It feeds the prioritization question, not the SSS.
 
-Devanagari ranks most underserved: highest engineering complexity, lowest font diversity among high-demand scripts, and roughly 3,100 web page appearances per available font family. The four Indic scripts cluster together in embedding space, suggesting font development investments in one likely transfer to the others.
+## Key findings
+
+| Tier | Scripts |
+|---|---|
+| **Underserved** | **Bengali, Tamil, Devanagari, Telugu, Arabic, Han** |
+| **Moderately served** | Katakana, Cyrillic |
+| **Well served** | Latin |
+
+Only **Latin** is clearly well served; **Cyrillic and Katakana** trail it; the six
+other non-Latin reading scripts are underserved — too few genuinely-different fonts
+for their readership. The **Indic scripts {Bengali, Tamil, Devanagari, Telugu}** are
+the most underserved cluster, consistent with the type-design literature (e.g. SIL /
+Hossain et al. on "disproportionately few Indic fonts"). Han lands in the underserved
+group because it has very few open-source families (26) despite high diversity. The
+exact #1 (Bengali vs Tamil) is sensitive to the diversity normalization and shouldn't
+be over-read. Canonical output:
+[`data/final/script_servedness.csv`](data/final/script_servedness.csv).
 
 ## Robustness
 
-The diversity rankings hold across methodologies. A ViT-B/16 vs. ResNet-50 ablation produced a Spearman rank correlation of ρ = 0.881 (p = 0.004), and classical pixel-wise features preserved the same tier assignments — indicating the underservedness signal is robust to model choice rather than an artifact of any single approach.
-## Website Live
-https://aditya-khadye.github.io/TheScriptGap/
-## Capstone Video
-https://www.youtube.com/watch?v=wNpgtw6_ukI
-## Partners
+All figures below are computed from committed data by `analysis/robustness.py`
+and asserted in `tests/test_servedness.py` (full report: `data/final/robustness.md`).
 
-Commissioned by The Readability Consortium, addressed to Monotype, Google Fonts, and Adobe.
+- **Diversity vs. model choice:** ViT-B/16 vs. ResNet-50 Spearman **ρ = 0.95** over
+  the 8 non-Latin scripts — the diversity ranking survives the deep-model swap.
+  Classical pixel-wise CV diverges (ρ ≈ 0), so it is **not** used as robustness evidence.
+- **The `+0.1` fix is ranking-neutral:** dividing by log₁₀(exposure) reproduces the
+  original gap-ratio (Spearman 0.95–0.98 vs `(exposure_norm + ε)` at ε = 0.5–1.0).
+- **The underserved ordering doesn't depend on demand:** with and without the demand
+  term, the 8 non-Latin scripts rank identically (ρ = 1.00) — the weakest axis doesn't
+  drive the headline.
+- **Tiers vs. diversity model:** feeding the SSS ResNet-50 diversity instead of ViT
+  leaves the tiers **7/8 identical**.
 
-## Running the Complexity Pipeline
+## Limitations
 
-The complexity pipeline reads font binaries from a local clone of the Google Fonts repository and computes per-script metrics.
+- **Supply = Google Fonts only** — an open-source-stylistic-choice proxy, not total
+  font supply; under-counts commercial (Monotype/Adobe), system, and SIL fonts.
+- **Demand is the weakest input** — a coverage-confounded proxy in the score (see
+  `DEMAND_PROVENANCE.md`); HTTP Archive / CrUX is Chrome-biased and under-counts CJK /
+  low-Chrome regions. The underserved ordering doesn't depend on it (ρ = 1.00 with/without).
+- **n = 8 scripts** — a coarse tiering, not fine statistics; does not generalize to
+  scripts outside the set (Hangul, Thai, Hebrew, … are not studied).
+- **Min–max normalization is relative** to this 8-script set; index endpoints
+  (e.g. Tamil = 0 diversity) are not absolute statements.
+- **Complexity weights** (0.50 / 0.30 / 0.20) are a documented prior, not validated.
 
-1. Clone Google Fonts (recommended location):
-
-```bash
-git clone --depth 1 https://github.com/google/fonts "$HOME/google/fonts"
-```
-
-2. Point the pipeline to your clone. Either set the environment variable:
-
-```bash
-export GOOGLE_FONTS_DIR="$HOME/google/fonts"
-```
-
-Or place the clone under the repository default path (`similarity_research/diversity_research/fonts`).
-
-3. Run the pipeline using the pipeline script:
-```bash
-python pipeline.py --stages exposure --force
-
-```
-
-4. Run scripts individually:
-
-From the project root:
+## Reproducing the result
 
 ```bash
-# in TheScriptGap project root
-python -m complexity.main
-python complexity/main.py
+uv run python pipeline.py            # support → exposure → viz → the SSS, heatmap, tiers
 ```
 
-Alternatively run from any of the local folders:
+`python pipeline.py` reproduces the servedness score from the indices committed in
+this repo. The heavy index stages (`diversity` = ViT/GPU, `complexity` = fontTools
+over a Google Fonts clone) and a fresh `exposure`/`support` pull draw on external
+data; their outputs are committed.
+
+Validate and analyze:
 
 ```bash
-# From any of the local script folders / works with IDE's run button
-python main.py
+uv run --with pytest --with pandas --with numpy pytest -q   # regression + robustness tests
+uv run python analysis/robustness.py                        # robustness / sensitivity report
+uv run python exposure_research/demand_audit.py             # demand-axis confound audit
 ```
 
-If the pipeline reports `Google Fonts directory not found`, double-check `GOOGLE_FONTS_DIR` points to your clone.
+## Repository structure
+
+```
+TheScriptGap/
+├── pipeline.py                    # orchestrator (support → exposure → diversity → complexity → viz)
+├── support_research/              # Support Index (Google Fonts families)
+├── exposure_research/             # Demand: bigquery_pull.py (HTTP Archive subset= pull),
+│                                  #   demand_audit.py, DEMAND_PROVENANCE.md
+├── similarity_research/           # Diversity (ViT/CNN/classical) pipelines
+├── complexity/                    # Complexity Index (fontTools) — prioritization lens
+├── data/
+│   ├── support/ exposure/ similarity/ complexity/   # committed index inputs
+│   ├── viz/                       # heatmap.html / .png / heatmap_data.csv
+│   └── final/script_servedness.csv                  # canonical result
+├── data_viz/generate_heatmap.py   # SSS scoring + heatmap + servedness table
+└── final_model/                   # legacy K-Means clustering (superseded by the SSS)
+```
 
 ## Monthly deployment
 
@@ -153,3 +191,10 @@ Runs on the 5th of each month (after HTTP Archive crawls) and via **Actions → 
 Scheduled runs execute **support → exposure → viz**. Use **Run workflow** with **Run heavy stages** for diversity + complexity (clones Google Fonts; CPU-only, slow).
 
 Updated CSVs and `docs/viz/heatmap.html` are committed automatically when data changes.
+
+## Website
+https://aditya-khadye.github.io/TheScriptGap/
+## Capstone Video
+https://www.youtube.com/watch?v=wNpgtw6_ukI
+## Partners
+Commissioned by The Readability Consortium, addressed to Monotype, Google Fonts, and Adobe.

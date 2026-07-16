@@ -124,27 +124,29 @@ def load_all_data(repo: Path = REPO_ROOT) -> pd.DataFrame:
         cmin, cmax = master[col].min(), master[col].max()
         master[f"{col}_norm"] = (master[col] - cmin) / (cmax - cmin) if cmax > cmin else 0.5
 
-    # Servedness score: high exposure, high support, low complexity, high similarity = well served
-    master["sss"] = (
-        # higher means more readers i.e. more demand for fonts so this should actually be negative
-        # - master["log_exposure_norm"]
-        # higher means the script has more fonts this should attempt to cancel out the font support metric
-        # supply vs demand
-        # + master["log_support_norm"]
-        # higher means more difficult to produce
-        # - master["complexity_norm"]
-        # higher means less visual choice
-        
-        # - master["similarity_index_norm"]
-
-        # Since supply and demand balance out in most cases the similarity index becomes dominant 
-        # and needs to be controlled. Previously the complexity index held this role.
-        # - master["similarity_index_norm"] * 0.5
-
-        # This one removes scale from the equation. Solely determines servedness based on the gap. 
-        # Leads to scripts like Telugu appearing well served 
-        (master["log_support_norm"] * (1 - master["similarity_index_norm"])) / (master["log_exposure_norm"] + 0.1)
-    )
+    # ------------------------------------------------------------------
+    # Script Servedness Score (SSS) — v1.0 (the original gap-ratio, hardened)
+    # ------------------------------------------------------------------
+    #   effective_choice = support_norm * (1 - similarity_norm)   # quantity * variety
+    #   SSS = effective_choice / log10(exposure)                  # choice per (log) demand
+    #
+    # Real font choice — how many genuinely different fonts a script has —
+    # relative to how much it is actually used. A high-demand script with little
+    # real choice scores lowest (= most underserved), which is what a
+    # prioritization score should surface.
+    #
+    # This is the project's original gap-ratio with one fix: it divides by
+    # log-scaled exposure (the methodology always specified "exposure
+    # log-scaled") instead of the earlier (exposure_norm + 0.1) — same ranking,
+    # without the arbitrary 0.1 floor that the [0,1]-normalized denominator
+    # required.
+    #
+    # Demand (exposure) is the WEAKEST input: the committed numbers carry a
+    # coverage confound; the HTTP Archive `subset=` pull is the upgrade path
+    # (exposure_research/DEMAND_PROVENANCE.md). Complexity ("engineering cost")
+    # is reported separately as a prioritization signal, NOT in the SSS.
+    effective_choice = master["log_support_norm"] * (1.0 - master["similarity_index_norm"])
+    master["sss"] = effective_choice / master["log_exposure"]
     gs_min, gs_max = master["sss"].min(), master["sss"].max()
     
     master["sss_norm"] = (master["sss"] - gs_min) / (gs_max - gs_min)
@@ -168,11 +170,10 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
 
     metrics = [
         # 1. value column, 2. label, 3. tooltip description, 4. color 5. data labels
-        ("sss_norm",       "SSS",      "Higher = well served",  "#7F77DD", "Raw SSS Value"),
-        ("log_exposure_norm",    "Web Exposure",   "Higher = more readers",      "#3B8BD4", "Num Requests"),
-        ("log_support_norm",     "Font Support",   "Higher = more fonts",        "#EF9F27", "Num Fonts"),
-        # ("complexity_norm",      "Complexity",     "Higher = harder to engineer","#E24B4A"),
+        ("sss_norm",       "SSS",      "Higher = well served (choice ÷ demand)",  "#7F77DD", "Raw SSS"),
+        ("log_support_norm",     "Font Support",   "Open-source font families (Google Fonts)", "#EF9F27", "GF families"),
         ("similarity_index_norm", "Similarity",     "Higher = less visual choice","#1D9E75", "Similarity Index"),
+        ("log_exposure_norm",    "Web Exposure",   "Reader demand (HTTP Archive font requests)",      "#3B8BD4", "Font requests"),
     ]
 
     raw_cols = {
@@ -351,7 +352,7 @@ def generate_html_heatmap(master: pd.DataFrame) -> str:
 </div>
 
 <div class="legend" id="legend"></div>
-<p class="note">Hover over any cell for the raw value. SSS = Script Servedness Score: combines all four indices.</p>
+<p class="note">Hover over any cell for the raw value. SSS = Script Servedness Score: real font choice (support × diversity) per unit of reader demand. Engineering cost (complexity) is reported separately, not in the score. Exposure is the weakest input — see exposure_research/DEMAND_PROVENANCE.md.</p>
 
 <div class="tooltip" id="tooltip"></div>
 
@@ -464,10 +465,9 @@ def generate_png_heatmap(master: pd.DataFrame, output_path: Path):
     scripts = master["script"].tolist()
     metrics_info = [
         ("sss_norm",       "Script\nServedness\nScore",     "#7F77DD"),
-        ("log_exposure_norm",    "Web\nExposure",  "#3B8BD4"),
         ("log_support_norm",     "Font\nSupport",  "#EF9F27"),
-        # ("complexity_norm",      "Complexity",     "#E24B4A"),
         ("similarity_index_norm", "Similarity",     "#1D9E75"),
+        ("log_exposure_norm",    "Web\nExposure",  "#3B8BD4"),
     ]
 
     matrix = np.array([
@@ -544,9 +544,16 @@ def main():
 
     master = load_all_data()
 
+    # Tier assignment from the SSS (same thresholds as the heatmap badges).
+    master["tier"] = master["sss_norm"].apply(
+        lambda v: "Well served" if v > 0.6
+        else "Moderately served" if v > 0.3
+        else "Underserved"
+    )
+
     print("\n📊 Data loaded:\n")
-    print(master[["script", "exposure", "support", #"complexity",
-                   "similarity_index", "sss_norm"]].to_string(index=False))
+    print(master[["script", "tier", "support", "similarity_index",
+                  "sss_norm", "exposure"]].to_string(index=False))
 
     # HTML heatmap
     html = generate_html_heatmap(master)
@@ -561,6 +568,21 @@ def main():
     # Also save the normalized data as CSV for reference
     master.to_csv(OUTPUT_DIR / "heatmap_data.csv", index=False)
     logger.info(f"Saved data → {OUTPUT_DIR / 'heatmap_data.csv'}")
+
+    # Canonical servedness table (the final, reproducible result of the model).
+    final_dir = DATA_ROOT / "final"
+    final_dir.mkdir(parents=True, exist_ok=True)
+    servedness = master.copy()
+    servedness["diversity_index"] = 1.0 - servedness["similarity_index"]
+    servedness = (servedness[["script", "tier", "sss_norm", "support",
+                              "diversity_index", "exposure"]]
+                  .rename(columns={"sss_norm": "servedness_score",
+                                   "support": "support_gf_families",
+                                   "exposure": "exposure_demand"})
+                  .sort_values("servedness_score")
+                  .reset_index(drop=True))
+    servedness.to_csv(final_dir / "script_servedness.csv", index=False)
+    logger.info(f"Saved servedness → {final_dir / 'script_servedness.csv'}")
 
 
 if __name__ == "__main__":

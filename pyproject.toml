@@ -1,7 +1,7 @@
 [project]
 name = "thescriptgap"
-version = "0.1.0"
-description = "Add your description here"
+version = "1.0.0"
+description = "Identifying writing systems under-served by open-source digital typography (Script Servedness Score)."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
@@ -22,3 +22,10 @@ dependencies = [
     "torch>=2.12.0",
     "torchvision>=0.27.0",
 ]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
