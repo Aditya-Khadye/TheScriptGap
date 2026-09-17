@@ -63,7 +63,11 @@ jobs:
           fi
           if [ ! -f /tmp/gcp-key.json ]; then
             export SKIP_BIGQUERY=1
-            echo "No GCP credentials — skipping BigQuery pull (using committed CSVs)"
+            echo "::warning::GCP credentials not configured (GCP_SA_KEY) — skipping the BigQuery exposure pull; reusing committed CSVs."
+          fi
+          if [ -z "$GOOGLE_FONTS_API" ]; then
+            export SKIP_GOOGLE_FONTS=1
+            echo "::warning::GOOGLE_FONTS_API secret not configured — skipping the Google Fonts support refresh; reusing the committed snapshot."
           fi
           python pipeline.py --stages support exposure viz $FORCE_FLAG
 
