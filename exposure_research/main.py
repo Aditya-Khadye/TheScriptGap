@@ -88,7 +88,7 @@ def build_exposure_filtered(font_script_df: pd.DataFrame) -> pd.DataFrame:
         totals.groupby("canonical", as_index=False)["count"]
         .sum()
         .rename(columns={"canonical": "script"})
-        .sort_values("count", ascending=False)
+        .sort_values(["count", "script"], ascending=[False, True])
     )
     return summary
 
@@ -106,7 +106,11 @@ def prepare_exposure_data(save_path: Path | None = None) -> pd.DataFrame:
     font_script_df = (
         exploded_result[["font_name", "script", "font_count"]]
         .groupby(["script", "font_name"], as_index=False)["font_count"].sum()
-        .sort_values("font_count", ascending=False)
+        # Tie-break on script/font_name: many fonts share a font_count (Roboto is
+        # attributed the same total to every script it covers), and sorting on the
+        # count alone leaves their order unstable between runs, which churns the
+        # committed CSV on every scheduled refresh.
+        .sort_values(["font_count", "script", "font_name"], ascending=[False, True, True])
         .reset_index(drop=True)
     )
 
@@ -117,7 +121,7 @@ def prepare_exposure_data(save_path: Path | None = None) -> pd.DataFrame:
     # Combine counts for "other" fonts
     font_script_df = (
         font_script_df.groupby(["script", "font_name"], as_index=False)["font_count"].sum()
-        .sort_values("font_count", ascending=False)
+        .sort_values(["font_count", "script", "font_name"], ascending=[False, True, True])
         .reset_index(drop=True)
     )
 

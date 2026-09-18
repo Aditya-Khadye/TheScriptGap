@@ -22,6 +22,7 @@ Scope:
 """
 
 from pathlib import Path
+import os
 import sys
 import pandas as pd
 
@@ -90,11 +91,36 @@ def run_support_pipeline(force: bool = False) -> Path:
 
     # Generate combined dataset if needed
     print("Ensuring combined support data exists...")
-    generate_combined_support_data(force=force)
-    
+    _, refreshed = generate_combined_support_data(force=force)
+
+    # Without a successful refresh, keep the committed summary rather than
+    # rebuilding it from the snapshot. Older snapshots were filtered to the
+    # non-Latin pilot scripts, so rebuilding from one silently drops Latin — the
+    # reference script the support term is normalized against — which re-tiers
+    # every downstream result.
+    if not refreshed and SCRIPT_FONT_COUNTS_PATH.exists():
+        print(
+            f"No fresh Google Fonts data — keeping the committed "
+            f"{SCRIPT_FONT_COUNTS_PATH.name} unchanged (not rebuilding from the snapshot)."
+        )
+        return SCRIPT_FONT_COUNTS_PATH
+
     print(f"Loading support data from: {COMBINED_SUPPORT_PATH}")
     df = load_support_data()
     script_font_counts_df = build_script_font_counts(df)
+
+    # Never silently lose a script the existing summary already had.
+    if SCRIPT_FONT_COUNTS_PATH.exists():
+        previous = pd.read_csv(SCRIPT_FONT_COUNTS_PATH)
+        dropped = set(previous["script"]) - set(script_font_counts_df["script"])
+        if dropped:
+            print(
+                f"  WARNING: refusing to overwrite {SCRIPT_FONT_COUNTS_PATH.name} — the "
+                f"rebuilt counts would drop {sorted(dropped)}. Keeping the existing file.\n"
+                f"  Check the subset filter in support_research/google_public.py."
+            )
+            return SCRIPT_FONT_COUNTS_PATH
+
     script_font_counts_df.to_csv(SCRIPT_FONT_COUNTS_PATH, index=False)
 
     print(f"Wrote support summary to: {SCRIPT_FONT_COUNTS_PATH}")
@@ -133,20 +159,27 @@ def fuzzy_match_fonts(df, column, threshold=95):
     return df
 
 
-def generate_combined_support_data(force: bool = False) -> pd.DataFrame:
+def generate_combined_support_data(force: bool = False) -> tuple[pd.DataFrame, bool]:
     """
     Generate combined Google Fonts + BigQuery support data.
-    
-    By default uses Google Fonts data.
-    If BigQuery data is available, combines it for richer dataset.
-    
+
+    Returns `(dataframe, refreshed)` where `refreshed` is True only when fresh
+    data was actually pulled from the Google Fonts API. Callers must not rebuild
+    derived summaries from a stale snapshot — see `run_support_pipeline`.
+
     Combines (if available):
       1. Google Fonts script support (from google_public.py) — always
       2. BigQuery HTTP Archive data (condensed) — optional
     """
     if COMBINED_SUPPORT_PATH.exists() and not force:
-        return pd.read_csv(COMBINED_SUPPORT_PATH)
-    
+        return pd.read_csv(COMBINED_SUPPORT_PATH), False
+
+    # Explicit opt-out, mirroring SKIP_BIGQUERY in the exposure stage: reuse the
+    # committed snapshot instead of hitting the Google Fonts API.
+    if os.getenv("SKIP_GOOGLE_FONTS") == "1" and COMBINED_SUPPORT_PATH.exists():
+        print(f"SKIP_GOOGLE_FONTS=1 — reusing committed {COMBINED_SUPPORT_PATH.name}")
+        return pd.read_csv(COMBINED_SUPPORT_PATH), False
+
     print("Generating combined support dataset...")
     
     # Get Google Fonts data (required)
@@ -160,7 +193,19 @@ def generate_combined_support_data(force: bool = False) -> pd.DataFrame:
         google_fonts_df['font_name'] = google_fonts_df['font_name'].str.lower().str.replace(' ', '-')
         print(f"Loaded {len(google_fonts_df)} Google Fonts")
     except Exception as e:
-        raise ValueError(f"Failed to fetch Google Fonts data (required): {e}")
+        # A failed refresh must not take down the whole run: fall back to the
+        # committed snapshot so the downstream stages still regenerate from known
+        # data. Only hard-fail when there is no snapshot to fall back to.
+        if COMBINED_SUPPORT_PATH.exists():
+            print(
+                f"  WARNING: Google Fonts refresh failed ({e}).\n"
+                f"  Falling back to the committed {COMBINED_SUPPORT_PATH.name} — "
+                f"support counts are unchanged from the last successful pull."
+            )
+            return pd.read_csv(COMBINED_SUPPORT_PATH), False
+        raise ValueError(
+            f"Failed to fetch Google Fonts data and no cached snapshot exists: {e}"
+        )
     
     # Try to load BigQuery data (optional)
     big_query_df = None
@@ -184,8 +229,8 @@ def generate_combined_support_data(force: bool = False) -> pd.DataFrame:
     ensure_output_dir()
     combined_df.to_csv(COMBINED_SUPPORT_PATH, index=False)
     print(f"Saved combined support data to: {COMBINED_SUPPORT_PATH}")
-    
-    return combined_df
+
+    return combined_df, True
 
 
 def main() -> None:

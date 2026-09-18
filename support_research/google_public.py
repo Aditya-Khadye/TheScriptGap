@@ -88,6 +88,11 @@ def google_font_script_matches(filter_scripts=None):
     """Return fonts and the filtered scripts they support."""
     if filter_scripts is None:
         filter_scripts = [
+            # "latin" is the reference script for the Script Servedness Score and
+            # MUST stay in this list: the score's support term is normalized
+            # against it. Omitting it makes a refresh silently drop Latin from
+            # script_font_counts.csv and re-normalize every downstream tier.
+            "latin",
             "chinese-simplified",
             "chinese-traditional",
             "devanagari",
@@ -101,8 +106,25 @@ def google_font_script_matches(filter_scripts=None):
 
     filter_scripts = set(filter_scripts)
 
-    response = requests.get(url)
+    # Read the key at call time (not import time) and fail with something
+    # actionable — an unset key previously surfaced as `KeyError: 'items'`.
+    api_key = os.getenv("GOOGLE_FONTS_API")
+    if not api_key:
+        raise RuntimeError(
+            "GOOGLE_FONTS_API is not set — cannot fetch the Google Fonts catalog. "
+            "Set the key, or set SKIP_GOOGLE_FONTS=1 to reuse the committed snapshot."
+        )
+
+    response = requests.get(
+        f"https://www.googleapis.com/webfonts/v1/webfonts?key={api_key}", timeout=30
+    )
     data = response.json()
+
+    if "items" not in data:
+        detail = data.get("error", {}).get("message", data)
+        raise RuntimeError(
+            f"Google Fonts API returned no 'items' (HTTP {response.status_code}): {detail}"
+        )
 
     matching_fonts = {}
     for font in data["items"]:
