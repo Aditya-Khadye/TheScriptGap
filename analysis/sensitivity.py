@@ -48,23 +48,11 @@ TARGET_SCRIPTS = ["Latin", "Devanagari", "Arabic", "Bengali", "Tamil",
 def load_all_data(repo: Path = REPO_ROOT) -> pd.DataFrame:
     """Load and merge all four indices."""
 
-    script_dir = Path(__file__).parent.resolve()
-
-    def find_csv(repo_rel: str, filename: str) -> Path:
-        p = repo / repo_rel
-        if p.exists():
-            return p
-        p2 = script_dir / filename
-        if p2.exists():
-            return p2
-        raise FileNotFoundError(f"Cannot find {filename} — tried {p} and {p2}")
-
     # Exposure
     exp = pd.read_csv(EXPOSURE_CSV, names=["script", "exposure"], header=0)
     exp = exp[exp["script"].isin(TARGET_SCRIPTS)].copy()
 
     # Support
-
     sup_raw = pd.read_csv(SUPPORT_CSV, names=["script_raw", "count"], header=0)
     records = [{"script": SUPPORT_NAME_MAP[r.script_raw], "support": r.count}
                for r in sup_raw.itertuples() if r.script_raw in SUPPORT_NAME_MAP]
@@ -120,7 +108,7 @@ def calculate_sensitivity(master: pd.DataFrame, shock_percent: float = 0.10) -> 
         )
 
     def rank_scores(scores: pd.Series) -> pd.Series:
-        ordered = scores.sort_values(kind="stable")
+        ordered = scores.sort_values(ascending=False, kind="stable")
         return pd.Series(np.arange(1, len(ordered) + 1), index=ordered.index)
 
     baseline_sss = score(baseline_inputs)
@@ -192,13 +180,37 @@ def main() -> None:
     print("SSS percent change is undefined when baseline raw SSS is zero.")
     print()
     print("SENSITIVITY ANALYSIS REPORT:")
+    print("How do shocks and changes in the parameters affect the final SSS Score?")
+    print("\nMedian Absolute SSS % change by parameter:")
+    print(
+        results.assign(abs_change=results["sss_pct_change"].abs())
+        .groupby("parameter")["abs_change"].median()
+        .sort_values(ascending=False)
+        .map("{:.2f}%".format))
 
-    print("\nMedian absolute SSS change by parameter:")
-    print(results.assign(abs_change=results["sss_change"].abs())
-        .groupby("parameter")["abs_change"].median().sort_values(ascending=False))
-    print("\nMedian absolute SSS change by script:")
-    print(results.assign(abs_change=results["sss_change"].abs())
-        .groupby("script")["abs_change"].median().sort_values(ascending=False))
+    print("How stable is each script to shocks/changes in parameters?")
+    print("\nMedian Absolute SSS % change by script:")
+    print(
+    results.assign(abs_change=results["sss_pct_change"].abs())
+           .groupby("script")["abs_change"].median()
+           .sort_values(ascending=False)
+           .map("{:.2f}%".format)
+)
+    
+    print("\nHow Stable are the current SSS rankings?")
+
+    num_changed = len(results[results["baseline_rank"] != results["shocked_rank"]])
+    num_tests = len(results)
+    print(f"\nWith a {args.pct_shock*100}% shock to the individually tested parameters.")
+    print(f"{num_changed}/{num_tests} tests resulted in a change in overall Script Rankings.")
+    print()
+    if(num_changed > 0):
+        print(
+            results[results["baseline_rank"] != results["shocked_rank"]]
+        )
+
+
+
     print("\nCurrently Utilizing a different calculation method to avoid baseline SSS = 0")
     print("Applied one-at-a-time +/- relative shocks to support, mean cosine distance, and exposure.")
 
