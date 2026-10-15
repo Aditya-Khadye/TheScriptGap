@@ -1,0 +1,10 @@
+,value
+rho_diversity_file_vs_family_rep,0.9761904761904763
+rho_diversity_file_vs_between_family,0.9761904761904763
+rho_diversity_file_vs_design_rep,0.9285714285714287
+rho_sss_committed_vs_family_nonlatin,0.9700772721497397
+tiers_identical,9.0
+max_abs_sss_reproduction_error,2.4091965644679192e-08
+latin_div_on_100glyph_scale,0.8520042793387836
+latin_div_on_10glyph_scale,0.5797278449319567
+median_ratio_10glyph_over_100glyph_dist,1.4364538832922773

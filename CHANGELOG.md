@@ -1,5 +1,24 @@
 # Changelog
 
+## Unreleased
+
+### Added
+- `analysis/family_diagnostic.py`: family-bundling diagnostic for the diversity
+  term. Recomputes mean cosine distance at file level, between-family only, and
+  one representative per Google Fonts family, with a family-level cluster
+  bootstrap (CIs and rank intervals). Diversity ranking holds (Spearman 0.98 vs
+  file level; tiers 9/9 unchanged), but the order within the four Indic scripts
+  is not identified.
+- `analysis/population_check.py` + `analysis/gf_index.py`: aligns the diversity
+  population with the support term by using Google Fonts subset tags instead of
+  the >=10-codepoint threshold. Ranking holds (Spearman 0.93; tiers 9/9); 79% of
+  families in the Han sample are not Chinese-tagged.
+- `data/diagnostics/` outputs and README; `tests/test_family_diagnostic.py`.
+
+### Known issues
+- Latin diversity is embedded from 10 capitals at 160 px vs roughly 90 to 100
+  glyphs at 140 px for the other scripts, so it is not on the same scale.
+
 ## 1.0.0
 
 First tagged release. Ships the project's original Script Servedness Score —
