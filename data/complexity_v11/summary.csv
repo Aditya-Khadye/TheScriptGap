@@ -1,0 +1,16 @@
+,value
+rows_ok,2478.0
+status_ok,2478.0
+status_below_min_cps,2.0
+rho_C_v1_vs_v11,0.9
+rho_E_v1_vs_closure,0.8136762043449725
+rho_E_closure_vs_F,0.5628590807898423
+rho_E_v1_vs_F_v1_committed,0.8432740427115678
+rho_V_vs_V_ink,0.6108840083916779
+weight_grid_size,231.0
+weight_grid_rho_min,0.6588078458684123
+weight_grid_rho_median,0.9666666666666667
+closure_E_within_file_spread_median,1.0679942230036867
+closure_E_share_files_within_10pct,0.548828125
+v1_E_within_file_spread_median,1.0052530028416553
+v1_E_share_files_within_10pct,0.990234375

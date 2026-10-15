@@ -14,6 +14,16 @@
   the >=10-codepoint threshold. Ranking holds (Spearman 0.93; tiers 9/9); 79% of
   families in the Han sample are not Chinese-tagged.
 - `data/diagnostics/` outputs and README; `tests/test_family_diagnostic.py`.
+- `complexity/closure.py` + `complexity/aggregate_closure.py`: Infrastructure
+  Complexity Index v1.1. Expansion is now a measured GSUB closure per script
+  (default-on shaping features, the script's OpenType tags or DFLT) instead of
+  the v1.0 heuristic, which added 0.15 x base glyphs per matched GSUB
+  FeatureRecord across the whole font and so gave every script in a file the
+  same value. Friction is script-specific. One representative per subset-tagged
+  family. Arabic Presentation Forms and CJK Compatibility Ideographs are
+  excluded from the denominator. Telugu moves from 4th to most complex;
+  composite Spearman vs v1.0 is 0.90. Outputs in `data/complexity_v11/`, tests
+  in `tests/test_complexity_closure.py`. v1.0 outputs are unchanged.
 
 ### Known issues
 - Latin diversity is embedded from 10 capitals at 160 px vs roughly 90 to 100
