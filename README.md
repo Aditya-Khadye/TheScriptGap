@@ -14,6 +14,9 @@ view of where non-Latin type investment is most needed.
 > engineering complexity is reported separately as a **prioritization** signal, not
 > a dimension of servedness.
 
+## Website
+https://aditya-khadye.github.io/TheScriptGap/
+
 ## Methodology
 
 We study **8 major non-Latin scripts** (Devanagari, Arabic, Bengali, Tamil,
@@ -192,8 +195,7 @@ Scheduled runs execute **support → exposure → viz**. Use **Run workflow** wi
 
 Updated CSVs and `docs/viz/heatmap.html` are committed automatically when data changes.
 
-## Website
-https://aditya-khadye.github.io/TheScriptGap/
+
 ## Capstone Video
 https://www.youtube.com/watch?v=wNpgtw6_ukI
 ## Partners
