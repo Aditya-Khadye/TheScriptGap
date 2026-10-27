@@ -156,8 +156,9 @@ def parse_arguments():
         "pct_shock", 
         type=float,
         default=0.1,
+        nargs="?",
         help="Percentage of change (shock) applied during the sensitivity analysis. " \
-        "Use a floating value between 0-1 to represent the percent change"
+        "Use a floating value between 0-1 to represent the percent change (default: 0.1)"
     )
     return parser.parse_args()
 
