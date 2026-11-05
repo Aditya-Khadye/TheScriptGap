@@ -14,6 +14,7 @@ import pytest
 from paths import DATA_ROOT
 from analysis.scoring import compute_servedness, assign_tier
 from analysis.robustness import spearman, load_diversity_sources, load_support, load_exposure
+from analysis.sensitivity import load_all_data
 
 CANONICAL = DATA_ROOT / "final" / "script_servedness.csv"
 SIMILARITY = DATA_ROOT / "similarity" / "similarity_results.csv"
@@ -111,3 +112,17 @@ def test_demand_bundling_confound_is_severe():
     for script in ["Tamil", "Telugu", "Bengali", "Devanagari"]:
         share = audit.loc[script, "pct_from_multiscript_bundlers"]
         assert share > 0.9, f"{script} bundler share {share:.2f} should be > 0.9"
+
+
+# --- 5. sensitivity baseline lines up with final scores --------------------
+
+def test_sensitivity_baseline_matches_canonical():
+    """Sensitivity analysis baseline SSS must match data/final/script_servedness.csv."""
+    master = load_all_data()
+    canonical = pd.read_csv(CANONICAL).set_index("script")
+    baseline = master.set_index("script")[["sss"]].rename(columns={"sss": "servedness_score"})
+    merged = baseline.join(canonical, rsuffix="_canon")
+    pd.testing.assert_series_equal(
+        merged["servedness_score"], merged["servedness_score_canon"],
+        check_names=False, atol=1e-9,
+    )
