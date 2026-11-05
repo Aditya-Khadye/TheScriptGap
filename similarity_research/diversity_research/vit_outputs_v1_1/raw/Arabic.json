@@ -1,0 +1,12 @@
+{
+  "script": "Arabic",
+  "total_fonts": 126,
+  "fonts_analyzed": 99,
+  "reference_chars": 90,
+  "glyphs_rendered": 7941,
+  "mean_cosine_distance": 0.11429516971111298,
+  "std_cosine_distance": 0.08288641273975372,
+  "embedding_spread": 0.01144766341894865,
+  "effective_dimensions": 12,
+  "n_embeddings": 99
+}

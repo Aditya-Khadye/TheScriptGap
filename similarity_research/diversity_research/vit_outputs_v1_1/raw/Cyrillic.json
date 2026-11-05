@@ -1,0 +1,12 @@
+{
+  "script": "Cyrillic",
+  "total_fonts": 777,
+  "fonts_analyzed": 100,
+  "reference_chars": 99,
+  "glyphs_rendered": 9243,
+  "mean_cosine_distance": 0.14181934297084808,
+  "std_cosine_distance": 0.11558619141578674,
+  "embedding_spread": 0.012832090258598328,
+  "effective_dimensions": 13,
+  "n_embeddings": 100
+}

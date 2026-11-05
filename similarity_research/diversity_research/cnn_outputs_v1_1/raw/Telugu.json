@@ -1,0 +1,12 @@
+{
+  "script": "Telugu",
+  "total_fonts": 38,
+  "fonts_analyzed": 37,
+  "reference_chars": 90,
+  "glyphs_rendered": 3279,
+  "mean_cosine_distance": 0.044973842799663544,
+  "std_cosine_distance": 0.032711949199438095,
+  "embedding_spread": 0.003724577371031046,
+  "effective_dimensions": 7,
+  "n_embeddings": 37
+}

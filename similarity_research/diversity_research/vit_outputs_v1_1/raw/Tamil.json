@@ -1,0 +1,12 @@
+{
+  "script": "Tamil",
+  "total_fonts": 35,
+  "fonts_analyzed": 34,
+  "reference_chars": 93,
+  "glyphs_rendered": 2974,
+  "mean_cosine_distance": 0.05516074597835541,
+  "std_cosine_distance": 0.07534433156251907,
+  "embedding_spread": 0.0077228969894349575,
+  "effective_dimensions": 6,
+  "n_embeddings": 34
+}
