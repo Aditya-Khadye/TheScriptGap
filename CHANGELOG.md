@@ -26,6 +26,11 @@
 - `analysis/family_diagnostic.py`, `analysis/population_check.py` and
   `analysis/robustness.py` read the v1.1 runs; Latin is included in the
   family and subset-tag checks.
+- `analysis/formula_sweep.py` tracks the v1.1 claims (Indic four bottom four;
+  Cyrillic, Latin and Katakana top three). With demand left out both hold for
+  support shares from 30% to 75%, and the Indic four alone from 0% to 75%.
+  Demand first reorders anything at gamma 9, a Latin/Katakana swap inside the
+  well-served tier.
 
 ### Added
 - `analysis/shaping_check.py`: re-embeds the committed v1.0 fonts with and
