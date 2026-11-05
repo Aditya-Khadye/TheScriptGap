@@ -1,17 +1,21 @@
-import numpy as np
-import pandas as pd
 import logging
 import sys
 from pathlib import Path
 
 import argparse
-
+import numpy as np
+import pandas as pd
 
 try:
     from paths import REPO_ROOT, DATA_ROOT
 except ModuleNotFoundError:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
     from paths import REPO_ROOT, DATA_ROOT
+
+try:
+    from .scoring import compute_servedness
+except ImportError:
+    from analysis.scoring import compute_servedness
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
@@ -58,27 +62,25 @@ def load_all_data(repo: Path = REPO_ROOT) -> pd.DataFrame:
                for r in sup_raw.itertuples() if r.script_raw in SUPPORT_NAME_MAP]
     sup = pd.DataFrame(records).groupby("script", as_index=False)["support"].sum()
 
-    # Mean cosine distance from the similarity analysis
-    similarity = pd.read_csv(SIMILARITY_CSV)[["script", "mean_cosine_distance"]]
+    # Diversity index from the similarity analysis (matches final scores)
+    diversity = pd.read_csv(SIMILARITY_CSV)[["script", "diversity_index"]]
     logger.info(f"Similarity: \n{SIMILARITY_CSV.name}")
 
-    # Merge (use similarity_index instead)
-    master = exp.merge(sup, on="script").merge(similarity, on="script")
+    # Merge
+    master = exp.merge(sup, on="script").merge(diversity, on="script")
 
     # Log-scale exposure and support for visualization
     master["log_exposure"] = np.log10(master["exposure"])
     master["log_support"] = np.log10(master["support"])
 
-    # ------------------------------------------------------------------
-    # Script Servedness Score (SSS) — raw-input sensitivity formula
-    # ------------------------------------------------------------------
-    #   effective_choice = log10(support) * mean_cosine_distance      # quantity * variety
-    #   SSS = effective_choice / log10(exposure)                  # choice per (log) demand
-
-    effective_choice = master["log_support"] * master["mean_cosine_distance"]
-    master["sss"] = effective_choice / master["log_exposure"]
-
-    # Sort by raw score (best served first)
+    # Compute canonical servedness score (matches analysis/scoring.py)
+    sss = compute_servedness(
+        support=master.set_index("script")["support"],
+        diversity=master.set_index("script")["diversity_index"],
+        exposure=master.set_index("script")["exposure"],
+    )
+    master = master.merge(sss[["servedness_score"]].rename(columns={"servedness_score": "sss"}),
+                          left_on="script", right_index=True, how="left")
     master = master.sort_values("sss", ascending=False).reset_index(drop=True)
 
     logger.info(f"Loaded {len(master)} scripts")
@@ -89,23 +91,28 @@ def load_all_data(repo: Path = REPO_ROOT) -> pd.DataFrame:
 
 
 def calculate_sensitivity(master: pd.DataFrame, shock_percent: float = 0.10) -> pd.DataFrame:
-    """Apply one-at-a-time shocks to raw inputs and report raw SSS changes."""
+    """Apply one-at-a-time shocks to raw inputs and report SSS changes.
+
+    Uses scoring.compute_servedness so the baseline and shocked scores match
+    the values reported elsewhere in the project.
+    """
     if not 0 < shock_percent < 1:
         raise ValueError("shock_percent must be between 0 and 1")
 
     indexed = master.set_index("script")
     baseline_inputs = {
         "support": indexed["support"].astype(float),
-        "mean_cosine_distance": indexed["mean_cosine_distance"].astype(float),
+        "diversity": indexed["diversity_index"].astype(float),
         "exposure": indexed["exposure"].astype(float),
     }
 
     def score(inputs: dict[str, pd.Series]) -> pd.Series:
-        return (
-            np.log10(inputs["support"])
-            * inputs["mean_cosine_distance"]
-            / np.log10(inputs["exposure"])
+        result = compute_servedness(
+            support=inputs["support"],
+            diversity=inputs["diversity"],
+            exposure=inputs["exposure"],
         )
+        return result["servedness_score"]
 
     def rank_scores(scores: pd.Series) -> pd.Series:
         ordered = scores.sort_values(ascending=False, kind="stable")
@@ -164,11 +171,6 @@ def parse_arguments():
 
 
 def main() -> None:
-    # TODO: uses slightly different calculation than normal in order to get results
-    # We use a normalized score in our other calculations but this won't work here
-    # Because some normalized results cannot be relatively changed (0's)
-    # We might wanna swap everything over to this method though 
-
     args = parse_arguments()
 
     master = load_all_data()
@@ -212,8 +214,7 @@ def main() -> None:
 
 
 
-    print("\nCurrently Utilizing a different calculation method to avoid baseline SSS = 0")
-    print("Applied one-at-a-time +/- relative shocks to support, mean cosine distance, and exposure.")
+    print("Applied one-at-a-time +/- relative shocks to support, diversity, and exposure.")
 
 
 
