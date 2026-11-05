@@ -15,3 +15,5 @@ fonts/
 latin_vit_outputs/
 vit_outputs/
 *.npy
+
+.DS_Store
