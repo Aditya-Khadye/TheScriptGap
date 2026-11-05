@@ -2,6 +2,41 @@
 
 ## Unreleased
 
+### Changed
+- Diversity v1.1. `script_diversity_vit_100.py` and `script_diversity_cnn_100.py`
+  now pin Pillow's layout engine to libraqm (HarfBuzz shaping) and refuse to run
+  without it. v1.0 never set an engine, so its committed outputs were rendered
+  unshaped: Indic conjuncts came out as unjoined parts and some Arabic glyphs
+  came out blank. Latin is added to the same protocol (100 fonts, 99 reference
+  glyphs, 140 px) instead of the separate 10-capital run. New flags:
+  `--fonts-dir`, `--output-dir`, `--scripts`; `metadata.json` records the layout
+  engine, Pillow and libraqm versions and the google/fonts commit.
+- All nine scripts re-run in one pass on google/fonts `07d64d5a` (2026-04-09),
+  which holds every font file in the v1.0 samples. Outputs in
+  `similarity_research/diversity_research/vit_outputs_v1_1/` and
+  `cnn_outputs_v1_1/`; `data/similarity/similarity_results.csv`,
+  `data/final/script_servedness.csv`, the heatmap and the site copy are
+  regenerated from them. v1.0 values are kept in
+  `data/similarity/similarity_results_v1_0.csv`.
+- Result: Latin's diversity falls from 0.85 to 0.37 once it is measured like the
+  other scripts. Tiers: Tamil, Bengali, Devanagari and Telugu Underserved; Arabic
+  (0.333) and Han (0.335) Moderately served, just above the 0.3 cut-off;
+  Cyrillic, Latin and Katakana Well served. Non-Latin diversity order is
+  unchanged by shaping (Spearman 1.00 vs v1.0).
+- `analysis/family_diagnostic.py`, `analysis/population_check.py` and
+  `analysis/robustness.py` read the v1.1 runs; Latin is included in the
+  family and subset-tag checks.
+
+### Added
+- `analysis/shaping_check.py`: re-embeds the committed v1.0 fonts with and
+  without shaping and recomputes diversity, SSS and tiers
+  (`data/analysis/shaping_check*.csv`).
+- `analysis/v11_checks.py`: v1.0 vs v1.1, exposure removed, +/-10% and +/-20%
+  input shocks, ViT vs ResNet-50, and Latin scored on Latin-primary fonts only
+  (`data/analysis/v11_*.csv`, `tests/test_v11_checks.py`). The four Indic
+  scripts stay the bottom four under every shock; Arabic and Han are the
+  scripts that cross the 0.3 boundary.
+
 ### Added
 - `analysis/family_diagnostic.py`: family-bundling diagnostic for the diversity
   term. Recomputes mean cosine distance at file level, between-family only, and
@@ -25,9 +60,10 @@
   composite Spearman vs v1.0 is 0.90. Outputs in `data/complexity_v11/`, tests
   in `tests/test_complexity_closure.py`. v1.0 outputs are unchanged.
 
-### Known issues
-- Latin diversity is embedded from 10 capitals at 160 px vs roughly 90 to 100
-  glyphs at 140 px for the other scripts, so it is not on the same scale.
+### Fixed
+- Latin diversity was embedded from 10 capitals at 160 px vs roughly 90 to 100
+  glyphs at 140 px for the other scripts, so it was not on the same scale
+  (fixed by diversity v1.1).
 
 ## 1.0.0
 
