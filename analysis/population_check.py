@@ -37,6 +37,7 @@ SUBSETS = {
     "Devanagari": {"devanagari"}, "Arabic": {"arabic"}, "Cyrillic": {"cyrillic"},
     "Han": {"chinese-simplified", "chinese-traditional", "chinese-hongkong"},
     "Katakana": {"japanese"},
+    "Latin": {"latin"},
 }
 B, SEED = 5000, 11
 
@@ -47,7 +48,7 @@ def main(repo: Path, index_csv: Path, out: Path | None = None,
     gf = pd.read_csv(index_csv).fillna("")
     by_stem = gf.drop_duplicates("stem").set_index("stem")
     fam_meta = gf.drop_duplicates("family_dir").set_index("family_dir")
-    pair_dir = repo / "similarity_research/diversity_research/vit_outputs_100/font_similarity_pairs"
+    pair_dir = repo / "similarity_research/diversity_research/vit_outputs_v1_1/font_similarity_pairs"
 
     rows, members, rng = [], [], np.random.default_rng(SEED)
     boot = {}
@@ -123,7 +124,6 @@ def main(repo: Path, index_csv: Path, out: Path | None = None,
 
     raw = res.family_rep_aligned
     div = (raw - raw.min()) / (raw.max() - raw.min())
-    div.loc["Latin"] = (committed.loc["Latin", "mean_cosine_distance"] - raw.min()) / (raw.max() - raw.min())
     sss = compute_servedness(canon["support_gf_families"], div, canon["exposure_demand"])
     nl = [s for s in sss.index if s != "Latin"]
     cmp_ = pd.DataFrame({"sss_committed": canon["servedness_score"], "tier_committed": canon["tier"],

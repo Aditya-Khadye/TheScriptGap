@@ -61,12 +61,18 @@ def test_ranking_survives_population_alignment(aligned):
     assert set(res["family_rep_aligned"].nsmallest(4).index) == INDIC
 
 
-def test_indic_order_is_not_identified(aligned):
-    """Every Indic script's bootstrap rank interval includes rank 1, so the
-    paper may claim the four-script cluster but not an order within it."""
-    res, _, _ = aligned
+def test_indic_order_is_not_identified(family, aligned):
+    """The paper may claim the four-script cluster but not an order within it.
+    Family-level bootstrap: every Indic rank interval includes rank 1.
+    Subset-aligned bootstrap: every pair of Indic rank intervals overlaps."""
+    res, _, _ = family
     for s in INDIC:
-        assert res.loc[s, "aligned_rank_ci"].startswith("1-"), s
+        assert res.loc[s, "rank_ci_lo"] == 1, s
+    al, _, _ = aligned
+    ci = {s: tuple(int(x) for x in al.loc[s, "aligned_rank_ci"].split("-")) for s in INDIC}
+    for a in INDIC:
+        for b in INDIC:
+            assert ci[a][0] <= ci[b][1], (a, b)
 
 
 def test_han_sample_is_mostly_off_population(aligned):

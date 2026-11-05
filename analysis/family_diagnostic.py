@@ -182,7 +182,7 @@ def main(repo: Path, out: Path | None = None, verbose: bool = True) -> tuple[pd.
 
     Writes CSVs to `out` when given; pass out=None to compute only (tests).
     """
-    pair_dir = repo / "similarity_research/diversity_research/vit_outputs_100/font_similarity_pairs"
+    pair_dir = repo / "similarity_research/diversity_research/vit_outputs_v1_1/font_similarity_pairs"
     rows, fams, states = [], [], {}
     for p in sorted(pair_dir.glob("font_similarity_pairs_*.csv")):
         name = p.stem.replace("font_similarity_pairs_", "")
@@ -214,12 +214,8 @@ def main(repo: Path, out: Path | None = None, verbose: bool = True) -> tuple[pd.
     sys.path.insert(0, str(repo))
     from analysis.scoring import compute_servedness  # noqa: E402
 
-    def sss_with(div_nonlatin_raw: pd.Series) -> pd.DataFrame:
-        lo, hi = div_nonlatin_raw.min(), div_nonlatin_raw.max()
-        div = (div_nonlatin_raw - lo) / (hi - lo)
-        latin_raw = committed.loc["Latin", "mean_cosine_distance"]
-        div.loc["Latin"] = (latin_raw - lo) / (hi - lo)
-        return compute_servedness(canon["support_gf_families"], div, canon["exposure_demand"])
+    def sss_with(div_raw: pd.Series) -> pd.DataFrame:
+        return compute_servedness(canon["support_gf_families"], minmax(div_raw), canon["exposure_demand"])
 
     sss_file = sss_with(res["file_level"])
     sss_fam = sss_with(res["family_rep"])
@@ -245,16 +241,6 @@ def main(repo: Path, out: Path | None = None, verbose: bool = True) -> tuple[pd.
     # between weights/styles of ONE design, within the same script and encoder?
     res["within_family_pairs"] = (res.within_family_pair_share * res.files * (res.files - 1) / 2).round().astype(int)
     res["design_to_weight_ratio"] = res.family_rep / res.within_family
-
-    # Latin comparability: Latin was embedded from 10 capitals; non-Latin from
-    # ~90-100 glyphs. Place Latin on the 10-glyph non-Latin scale instead.
-    ten = pd.read_csv(repo / "similarity_research/diversity_research/vit_outputs/diversity_index_summary.csv").set_index("script")
-    latin_raw = committed.loc["Latin", "mean_cosine_distance"]
-    lo10, hi10 = ten.mean_cosine_distance.min(), ten.mean_cosine_distance.max()
-    summary["latin_div_on_100glyph_scale"] = float(committed.loc["Latin", "diversity_index"])
-    summary["latin_div_on_10glyph_scale"] = float((latin_raw - lo10) / (hi10 - lo10))
-    summary["median_ratio_10glyph_over_100glyph_dist"] = float(
-        (ten.mean_cosine_distance / res.file_level.reindex(ten.index)).median())
 
     # Population mismatch: families in the diversity sample vs families counted
     # by the support term (Google Fonts API subset tags).

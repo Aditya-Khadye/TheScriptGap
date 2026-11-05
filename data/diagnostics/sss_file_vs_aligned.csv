@@ -1,10 +1,10 @@
 script,sss_committed,tier_committed,sss_aligned,tier_aligned
 Bengali,0.0,Underserved,0.0,Underserved
-Tamil,0.0,Underserved,0.012689244271050974,Underserved
-Telugu,0.0737596158052383,Underserved,0.03645435683720639,Underserved
-Devanagari,0.0654451347637005,Underserved,0.03949972672313805,Underserved
-Han,0.1484322349320294,Underserved,0.1526501466778219,Underserved
-Arabic,0.138679097904978,Underserved,0.16486873768813143,Underserved
-Katakana,0.4135178431160308,Moderately served,0.5106495124384317,Moderately served
-Cyrillic,0.4834039220116648,Moderately served,0.5245553549992692,Moderately served
-Latin,1.0,Well served,1.0,Well served
+Tamil,0.0,Underserved,0.030686197775748734,Underserved
+Telugu,0.15894870401790379,Underserved,0.0814009694533722,Underserved
+Devanagari,0.13736317085960006,Underserved,0.09136873612212604,Underserved
+Han,0.33514909003636323,Moderately served,0.30295665569487734,Moderately served
+Arabic,0.33260583744307853,Moderately served,0.35429583346046517,Moderately served
+Cyrillic,1.0,Well served,0.9516086677284283,Well served
+Latin,0.9861282998777209,Well served,0.9826140097569018,Well served
+Katakana,0.9357598149960934,Well served,1.0,Well served
