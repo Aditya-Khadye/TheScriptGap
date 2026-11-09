@@ -4,14 +4,16 @@
 
 Pairwise Spearman ρ over the 8 non-Latin scripts:
 
-| | ViT-B/16 (100-glyph) | ResNet-50 (100-glyph) | Classical CV | ViT-B/16 (10-glyph) |
-|---|---|---|---|---|
-| ViT-B/16 (100-glyph) | 1.00 | 0.95 | 0.00 | 0.93 |
-| ResNet-50 (100-glyph) | 0.95 | 1.00 | 0.12 | 0.98 |
-| Classical CV | 0.00 | 0.12 | 1.00 | 0.02 |
-| ViT-B/16 (10-glyph) | 0.93 | 0.98 | 0.02 | 1.00 |
+| | ViT-B/16 (100-glyph) | ResNet-50 (100-glyph) | ViT-B/16 (100-glyph, v1.0 unshaped) | ResNet-50 (100-glyph, v1.0 unshaped) | Classical CV | ViT-B/16 (10-glyph) |
+|---|---|---|---|---|---|---|
+| ViT-B/16 (100-glyph) | 1.00 | 1.00 | 1.00 | 0.95 | 0.00 | 0.93 |
+| ResNet-50 (100-glyph) | 1.00 | 1.00 | 1.00 | 0.95 | 0.00 | 0.93 |
+| ViT-B/16 (100-glyph, v1.0 unshaped) | 1.00 | 1.00 | 1.00 | 0.95 | 0.00 | 0.93 |
+| ResNet-50 (100-glyph, v1.0 unshaped) | 0.95 | 0.95 | 0.95 | 1.00 | 0.12 | 0.98 |
+| Classical CV | 0.00 | 0.00 | 0.00 | 0.12 | 1.00 | 0.02 |
+| ViT-B/16 (10-glyph) | 0.93 | 0.93 | 0.93 | 0.98 | 0.02 | 1.00 |
 
-**Headline:** ViT-B/16 vs ResNet-50 ρ = **0.952** (strong — the diversity ranking survives the deep-model swap). Classical CV diverges (ViT vs classical ρ = 0.00), so it is NOT cited as diversity-robustness evidence.
+**Headline:** ViT-B/16 vs ResNet-50 ρ = **1.000** (strong — the diversity ranking survives the deep-model swap). Classical CV diverges (ViT vs classical ρ = 0.00), so it is NOT cited as diversity-robustness evidence.
 
 ## 2a. Demand axis — epsilon-independence & sensitivity
 
@@ -29,5 +31,5 @@ Most-underserved four: **Bengali, Tamil, Devanagari, Telugu**.
 
 Tier agreement when the SSS is fed ResNet / classical diversity instead of ViT:
 
-- vs ResNet-50: 7/8 tiers identical
+- vs ResNet-50: 6/8 tiers identical
 - vs Classical CV: 4/8 tiers identical

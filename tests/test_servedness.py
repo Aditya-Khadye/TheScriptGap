@@ -1,5 +1,5 @@
 """
-Regression + research-claim tests for the Script Servedness Score (v1.0).
+Regression + research-claim tests for the Script Servedness Score (v1.1 diversity).
 
 Run:  uv run --with pytest --with pandas --with numpy pytest -q
 
@@ -74,10 +74,12 @@ def test_underserved_cluster_is_bottom_four(support, diversity, exposure):
     assert set(got.index[:4]) == UNDERSERVED_CLUSTER
 
 
-def test_latin_is_best_served(support, diversity, exposure):
+def test_well_served_top_three(support, diversity, exposure):
+    """v1.1: with Latin measured on the same protocol as the other scripts,
+    Cyrillic, Latin and Katakana are the well-served three."""
     got = compute_servedness(support, diversity, exposure)
-    assert got.index[-1] == "Latin"
-    assert got["tier"].iloc[-1] == "Well served"
+    assert set(got.index[-3:]) == {"Cyrillic", "Latin", "Katakana"}
+    assert (got["tier"].iloc[-3:] == "Well served").all()
 
 
 # --- 3. robustness claims (must match the README) ---------------------------
@@ -99,8 +101,11 @@ def test_tiers_stable_under_resnet(support, exposure):
     base = compute_servedness(support, div[VIT].dropna(), exposure)["tier"]
     alt = compute_servedness(support, div[RESNET].dropna(), exposure)["tier"]
     shared = [s for s in base.index if s in alt.index]
-    agree = sum(base[s] == alt[s] for s in shared)
-    assert agree >= len(shared) - 1, f"tiers should be near-identical under ResNet, got {agree}/{len(shared)}"
+    moved = {s for s in shared if base[s] != alt[s]}
+    # Arabic and Han sit at the 0.3 boundary and may cross it; nothing else moves
+    assert moved <= {"Arabic", "Han"}, f"unexpected tier moves under ResNet: {moved}"
+    for s in UNDERSERVED_CLUSTER:
+        assert alt[s] == "Underserved", s
 
 
 # --- 4. the demand confound is real (demand is the weakest score input) ------

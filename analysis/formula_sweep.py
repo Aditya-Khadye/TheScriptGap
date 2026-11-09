@@ -2,17 +2,17 @@
 ===============================================================================
 Formula-weight sensitivity for the Script Servedness Score (SSS)
 ===============================================================================
-Project:  TheScriptGap  |  v1.0  |  Monthly plan, October 2026 item:
+Project:  TheScriptGap  |  v1.1 diversity  |  Monthly plan, October 2026 item:
           "Sweep the weighting of the similarity discount and the relative
            contribution of exposure and support. Plot rank stability."
 
-Question: are the v1.0 conclusions a property of the data, or of how the three
+Question: are the conclusions a property of the data, or of how the three
 inputs (support, diversity, demand) happen to be weighted in the formula?
 
 Two parts, both computed from committed data only:
 
   Part A. Can the shipped formula's demand term move the ranking at all?
-          v1.0 divides effective choice by log10(exposure). We raise that
+          The SSS divides effective choice by log10(exposure). We raise that
           denominator to a power gamma and find the smallest gamma that changes
           the ordering. If gamma has to be absurdly large, demand is inert in
           the shipped score.
@@ -25,19 +25,19 @@ Two parts, both computed from committed data only:
 
           is evaluated over the whole weight simplex (ws + wd + we = 1,
           default step 0.05 -> 231 points). Higher score = better served,
-          matching v1.0's direction. This is v1.0's multiplicative form
+          matching the SSS's direction. This is the SSS's multiplicative form
           (support x diversity / demand) in log space, with the exponents set
           by the sweep instead of fixed. Raw mean cosine distance is used for
           diversity so no script is pinned at zero by min-max endpoints.
 
-          At every point we record each script's rank and whether three
-          headline claims survive:
+          At every point we record each script's rank and whether the two
+          headline claims of the v1.1 results survive:
             1. Indic four {Tamil, Bengali, Devanagari, Telugu} are the bottom 4
-            2. Latin is the best-served script
-            3. The six v1.0 "Underserved" scripts are exactly the bottom 6
+            2. Cyrillic, Latin and Katakana are the top 3 (so Arabic and Han
+               are 5th and 6th)
 
 Outputs (data/analysis/):
-    formula_sweep_grid.csv       every weight point: ranks, Spearman vs v1.0, claims
+    formula_sweep_grid.csv       every weight point: ranks, Spearman vs the SSS, claims
     formula_sweep_by_demand.csv  claim survival rate at each demand weight
     formula_sweep.md             written report
     formula_sweep.png            figure (unless --no-plot)
@@ -72,10 +72,10 @@ CANONICAL_CSV = DATA_ROOT / "final" / "script_servedness.csv"
 OUT_DIR = DATA_ROOT / "analysis"
 
 INDIC_FOUR = {"Tamil", "Bengali", "Devanagari", "Telugu"}
+WELL_SERVED_THREE = {"Cyrillic", "Latin", "Katakana"}
 CLAIMS = {
     "indic_bottom4": "Indic four are the 4 most underserved",
-    "latin_best": "Latin is the best-served script",
-    "underserved6": "v1.0's six Underserved scripts are the bottom 6",
+    "well_served3": "Cyrillic, Latin and Katakana are the 3 best served",
 }
 
 
@@ -84,11 +84,11 @@ CLAIMS = {
 # =============================================================================
 
 def load_inputs() -> tuple[pd.DataFrame, pd.Series]:
-    """Return (v1.0 baseline table, raw mean cosine distance per script).
+    """Return (baseline SSS table, raw mean cosine distance per script).
 
     The baseline is recomputed with analysis.scoring.compute_servedness from the
     same inputs the tests use, then checked against the committed canonical CSV
-    so the sweep is anchored to exactly what v1.0 publishes.
+    so the sweep is anchored to exactly what the project publishes.
     """
     sim = pd.read_csv(SIMILARITY_CSV).set_index("script")
     base = compute_servedness(load_support(), sim["diversity_index"], load_exposure())
@@ -97,7 +97,7 @@ def load_inputs() -> tuple[pd.DataFrame, pd.Series]:
     drift = (base["servedness_score"] - canon.loc[base.index, "servedness_score"]).abs().max()
     if drift > 1e-9 or not (base["tier"] == canon.loc[base.index, "tier"]).all():
         raise RuntimeError(
-            f"Recomputed v1.0 SSS does not match {CANONICAL_CSV.name} (max drift {drift:.2e}). "
+            f"Recomputed SSS does not match {CANONICAL_CSV.name} (max drift {drift:.2e}). "
             "Regenerate the canonical output before running the sweep."
         )
     return base, sim.loc[base.index, "mean_cosine_distance"]
@@ -125,11 +125,13 @@ def demand_exponent_check(base: pd.DataFrame, max_gamma: int = 500) -> dict:
     reorders the scripts relative to gamma = 1 (the shipped formula)."""
     log_e = np.log10(base["exposure"].astype(float))
     ref = list((base["effective_choice"] / log_e).sort_values(kind="stable").index)
-    first_change = None
+    first_change, pair = None, None
     for g in range(2, max_gamma + 1):
         order = list((base["effective_choice"] / log_e ** g).sort_values(kind="stable").index)
         if order != ref:
             first_change = g
+            moved = [s for s, r in zip(order, ref) if s != r]
+            pair = " and ".join(moved)
             break
     return {
         "log_demand_min": float(log_e.min()),
@@ -138,6 +140,7 @@ def demand_exponent_check(base: pd.DataFrame, max_gamma: int = 500) -> dict:
         "raw_demand_ratio": float(base["exposure"].max() / base["exposure"].min()),
         "raw_support_ratio": float(base["support"].max() / base["support"].min()),
         "first_reordering_gamma": first_change,
+        "first_reordered_pair": pair,
     }
 
 
@@ -166,8 +169,7 @@ def evaluate(score: pd.Series, base: pd.DataFrame, underserved: set[str]) -> dic
     return {
         "rho_vs_v1": spearman(score.tolist(), base.loc[score.index, "servedness_score"].tolist()),
         "indic_bottom4": set(order[:4]) == INDIC_FOUR,
-        "latin_best": order[-1] == "Latin",
-        "underserved6": set(order[:len(underserved)]) == underserved,
+        "well_served3": set(order[-3:]) == WELL_SERVED_THREE,
         "most_underserved": order[0],
         "order": " < ".join(order),
         **{f"rank_{s}": int(ranks[s]) for s in base.index},
@@ -216,6 +218,10 @@ def holding_interval(edge: pd.DataFrame, mask: pd.Series) -> tuple[float, float]
 # Report
 # =============================================================================
 
+def _fmt_pct(x: float | None) -> str:
+    return "no demand weight on the grid" if x is None else f"{x:.0%}"
+
+
 def _fmt_interval(iv: tuple[float, float] | None) -> str:
     return "never" if iv is None else f"{iv[0]:.0%} to {iv[1]:.0%}"
 
@@ -235,31 +241,34 @@ def write_report(base, A, grid, by_demand, edge, step) -> str:
 
     L = ["# Formula-weight sensitivity: Script Servedness Score\n",
          f"Generated by `analysis/formula_sweep.py` (step {step}, {len(grid)} weight points) "
-         "from committed v1.0 data. The baseline was verified against "
+         "from committed data (v1.1 diversity). The baseline was verified against "
          "`data/final/script_servedness.csv` before sweeping.\n"]
 
     # ---- headline
     L.append("## Headline\n")
     same_order = center["order"].iloc[0] == " < ".join(base.index)
     L.append(
-        f"- **Support vs diversity trade-off: robust.** With demand left out, every v1.0 claim "
-        f"holds for any support share from **{_fmt_interval(band)}** (rest on diversity). "
-        + (f"An even 50/50 split gives the identical v1.0 ordering (Spearman "
-           f"{center['rho_vs_v1'].iloc[0]:.3f}; below 1 only because v1.0 ties Tamil and "
+        f"- **Support vs diversity trade-off: robust.** With demand left out, both claims "
+        f"hold for any support share from **{_fmt_interval(band)}** (rest on diversity), and "
+        f"the Indic four stay the bottom four from "
+        f"**{_fmt_interval(holding_interval(edge, edge['indic_bottom4']))}**. "
+        + (f"An even 50/50 split gives the identical SSS ordering (Spearman "
+           f"{center['rho_vs_v1'].iloc[0]:.3f}; below 1 only because the SSS ties Tamil and "
            f"Bengali at zero)." if same_order else
-           f"An even 50/50 split gives Spearman {center['rho_vs_v1'].iloc[0]:.3f} vs v1.0."))
+           f"An even 50/50 split gives Spearman {center['rho_vs_v1'].iloc[0]:.3f} vs the SSS "
+           f"(order: {center['order'].iloc[0]})."))
     L.append(
         f"- **Demand in the shipped formula is inert.** log10(exposure) varies only "
         f"{A['log_demand_spread_pct']:.1f}% across the nine scripts, so raising the denominator "
-        f"to a power changes nothing until gamma = **{A['first_reordering_gamma']}**. "
-        "v1.0 is, in practice, a supply-side score (support x diversity).")
+        f"to a power changes nothing until gamma = **{A['first_reordering_gamma']}**, and the first "
+        f"change ({A['first_reordered_pair']}) is a swap inside one tier. "
+        "The shipped SSS is, in practice, a supply-side score (support x diversity).")
     L.append(
         f"- **Giving demand real weight breaks the conclusions.** Once inputs are standardized, "
-        f"all three claims survive a majority of support/diversity splits only up to a demand "
-        f"weight of about **{demand_ceiling:.0%}**. The six-script Underserved set never survives "
-        f"past {dead_at['underserved6']:.0%}, the Indic-four claim dies at "
-        f"{dead_at['indic_bottom4']:.0%}, and Latin stops being best served at "
-        f"{dead_at['latin_best']:.0%}.\n")
+        f"both claims survive a majority of support/diversity splits only up to a demand "
+        f"weight of about **{demand_ceiling:.0%}**. The Indic-four claim dies at "
+        f"{_fmt_pct(dead_at['indic_bottom4'])} and the well-served three at "
+        f"{_fmt_pct(dead_at['well_served3'])}.\n")
 
     # ---- part A
     L.append("## Part A: demand exponent in the shipped formula\n")
@@ -292,21 +301,23 @@ def write_report(base, A, grid, by_demand, edge, step) -> str:
         iv = holding_interval(edge, edge[f"rank_{s}"] <= 4)
         L.append(f"- {s}: {_fmt_interval(iv)} (rank range {edge[f'rank_{s}'].min()} to "
                  f"{edge[f'rank_{s}'].max()})")
-    L.append("\nThe two edges fail for different reasons. Diversity-only lets Katakana (highest "
-             "visual variety, 67 families) overtake Latin. Support-heavy (80%+) drops Han, which "
-             "has only 26 open-source families, into the bottom four ahead of Devanagari (62).\n")
+    L.append("\nThe two edges fail for different reasons. Diversity-heavy weights (below the band) "
+             "let Han, with high visual variety, climb into the top three past Latin, whose 100-font "
+             "sample is less varied than its family count suggests. Support-heavy weights (above the "
+             "band) drop Han, which has only 26 open-source families, into the bottom four ahead "
+             "of Devanagari (62).\n")
 
     # ---- part B, demand
     L.append("## Part B2: claim survival as demand weight rises\n")
     L.append("Share of support/diversity splits (at that demand weight) where each claim holds.\n")
-    L.append("| Demand weight | Indic bottom 4 | Latin best | Underserved 6 | Median Spearman vs v1.0 |")
-    L.append("|---|---|---|---|---|")
+    L.append("| Demand weight | Indic bottom 4 | Well-served 3 | Median Spearman vs SSS |")
+    L.append("|---|---|---|---|")
     for _, r in by_demand.iterrows():
         pct = round(r["w_demand"] * 100)
         if pct % 10 and pct not in (5, 15, 25):
             continue  # show 10% steps, plus 5/15/25 where the claims start to break
-        L.append(f"| {r['w_demand']:.0%} | {r['indic_bottom4']:.0%} | {r['latin_best']:.0%} | "
-                 f"{r['underserved6']:.0%} | {r['median_rho_vs_v1']:.2f} |")
+        L.append(f"| {r['w_demand']:.0%} | {r['indic_bottom4']:.0%} | {r['well_served3']:.0%} | "
+                 f"{r['median_rho_vs_v1']:.2f} |")
     L.append("")
 
     # ---- interpretation
@@ -320,9 +331,10 @@ def write_report(base, A, grid, by_demand, edge, step) -> str:
     L.append("3. Demand cannot be given meaningful weight until the `subset=` upgrade lands. At "
              "current quality, any weighting that lets it matter mostly re-sorts scripts by a "
              "bundler-font artifact.")
-    L.append("4. Han's tier is the least stable result in the set. It depends on whether you "
+    L.append("4. Han's position is the least stable result in the set. It depends on whether you "
              "reward its high visual variety or penalize its low family count, and it has the "
-             "lowest measured demand.\n")
+             "lowest measured demand. With Arabic it sits at the 0.3 tier boundary in the SSS "
+             "(see `analysis/v11_checks.py`).\n")
 
     L.append("## Method notes\n")
     L.append("- Inputs: Google Fonts family counts, ViT-B/16 mean cosine distance (raw, not "
@@ -330,7 +342,7 @@ def write_report(base, A, grid, by_demand, edge, step) -> str:
     L.append("- Because ranks are invariant to rescaling all weights together, the simplex covers "
              "every non-negative weighting up to scale.")
     L.append("- This tests the formula, not measurement error. For input noise see "
-             "`analysis/sensitivity.py` (one-at-a-time shocks) on the Sensitivity-Analysis branch.")
+             "`analysis/v11_checks.py` and `analysis/sensitivity.py` (one-at-a-time shocks).")
     return "\n".join(L) + "\n"
 
 
@@ -364,7 +376,7 @@ def plot(edge: pd.DataFrame, by_demand: pd.DataFrame, band, path: Path) -> None:
     scripts = [c.removeprefix("rank_") for c in edge.columns if c.startswith("rank_")]
     if band:
         a1.axvspan(band[0] * 100, band[1] * 100, color=PALETTE["band"], zorder=0, lw=0)
-        a1.text((band[0] + band[1]) * 50, 0.42, "all v1.0 claims hold",
+        a1.text((band[0] + band[1]) * 50, 0.42, "both claims hold",
                 ha="center", va="center", fontsize=8.5, color=PALETTE["ink2"])
     for s in sorted(scripts, key=lambda s: (s in INDIC_FOUR or s == "Latin")):
         y = edge[f"rank_{s}"].to_numpy()
@@ -397,11 +409,10 @@ def plot(edge: pd.DataFrame, by_demand: pd.DataFrame, band, path: Path) -> None:
     # the empty upper-right; the report's Part B2 table is the full table view.
     xd = by_demand["w_demand"].to_numpy() * 100
     a2.axvline(0, color=PALETTE["ink2"], lw=1, ls="-", zorder=2)
-    a2.text(1.5, 97, "shipped v1.0 (demand weight ~0)", fontsize=8.5,
+    a2.text(1.5, 97, "shipped SSS (demand weight ~0)", fontsize=8.5,
             color=PALETTE["ink2"], va="center")
     lines = [("indic_bottom4", "Indic four in bottom 4", PALETTE["blue"]),
-             ("latin_best", "Latin best served", PALETTE["orange"]),
-             ("underserved6", "Underserved six intact", PALETTE["aqua"])]
+             ("well_served3", "Cyrillic, Latin, Katakana top 3", PALETTE["orange"])]
     for key, label, color in lines:
         y = by_demand[key].to_numpy() * 100
         a2.plot(xd, y, color=color, lw=2, label=label, zorder=3, solid_capstyle="round")
@@ -429,7 +440,7 @@ def plot(edge: pd.DataFrame, by_demand: pd.DataFrame, band, path: Path) -> None:
     for ax in (a1, a2):
         ax.set_facecolor(PALETTE["surface"])
 
-    fig.text(0.01, -0.04, "Source: TheScriptGap v1.0 committed data. Inputs log10 + z-scored; "
+    fig.text(0.01, -0.04, "Source: TheScriptGap committed data (v1.1 diversity). Inputs log10 + z-scored; "
              "ViT-B/16 diversity; Google Fonts support; HTTP Archive demand.",
              fontsize=7.5, color=PALETTE["ink2"])
     fig.savefig(path, bbox_inches="tight", facecolor=PALETTE["surface"])
