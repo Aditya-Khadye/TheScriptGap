@@ -1,0 +1,1 @@
+The analysis folder contains scripts used in the verification of the final results and tests for comparison & quality.
