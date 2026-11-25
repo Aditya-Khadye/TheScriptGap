@@ -1,0 +1,12 @@
+{
+  "script": "Katakana",
+  "total_fonts": 200,
+  "fonts_analyzed": 99,
+  "reference_chars": 90,
+  "glyphs_rendered": 8819,
+  "mean_cosine_distance": 0.2015724629163742,
+  "std_cosine_distance": 0.11484822630882263,
+  "embedding_spread": 0.015224155969917774,
+  "effective_dimensions": 10,
+  "n_embeddings": 99
+}

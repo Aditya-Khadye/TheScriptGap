@@ -1,5 +1,5 @@
 """
-Regression + research-claim tests for the Script Servedness Score (v1.0).
+Regression + research-claim tests for the Script Servedness Score (v1.1 diversity).
 
 Run:  uv run --with pytest --with pandas --with numpy pytest -q
 
@@ -14,6 +14,7 @@ import pytest
 from paths import DATA_ROOT
 from analysis.scoring import compute_servedness, assign_tier
 from analysis.robustness import spearman, load_diversity_sources, load_support, load_exposure
+from analysis.sensitivity import load_all_data
 
 CANONICAL = DATA_ROOT / "final" / "script_servedness.csv"
 SIMILARITY = DATA_ROOT / "similarity" / "similarity_results.csv"
@@ -74,10 +75,12 @@ def test_underserved_cluster_is_bottom_four(support, diversity, exposure):
     assert set(got.index[:4]) == UNDERSERVED_CLUSTER
 
 
-def test_latin_is_best_served(support, diversity, exposure):
+def test_well_served_top_three(support, diversity, exposure):
+    """v1.1: with Latin measured on the same protocol as the other scripts,
+    Cyrillic, Latin and Katakana are the well-served three."""
     got = compute_servedness(support, diversity, exposure)
-    assert got.index[-1] == "Latin"
-    assert got["tier"].iloc[-1] == "Well served"
+    assert set(got.index[-3:]) == {"Cyrillic", "Latin", "Katakana"}
+    assert (got["tier"].iloc[-3:] == "Well served").all()
 
 
 # --- 3. robustness claims (must match the README) ---------------------------
@@ -99,8 +102,11 @@ def test_tiers_stable_under_resnet(support, exposure):
     base = compute_servedness(support, div[VIT].dropna(), exposure)["tier"]
     alt = compute_servedness(support, div[RESNET].dropna(), exposure)["tier"]
     shared = [s for s in base.index if s in alt.index]
-    agree = sum(base[s] == alt[s] for s in shared)
-    assert agree >= len(shared) - 1, f"tiers should be near-identical under ResNet, got {agree}/{len(shared)}"
+    moved = {s for s in shared if base[s] != alt[s]}
+    # Arabic and Han sit at the 0.3 boundary and may cross it; nothing else moves
+    assert moved <= {"Arabic", "Han"}, f"unexpected tier moves under ResNet: {moved}"
+    for s in UNDERSERVED_CLUSTER:
+        assert alt[s] == "Underserved", s
 
 
 # --- 4. the demand confound is real (demand is the weakest score input) ------
@@ -111,3 +117,17 @@ def test_demand_bundling_confound_is_severe():
     for script in ["Tamil", "Telugu", "Bengali", "Devanagari"]:
         share = audit.loc[script, "pct_from_multiscript_bundlers"]
         assert share > 0.9, f"{script} bundler share {share:.2f} should be > 0.9"
+
+
+# --- 5. sensitivity baseline lines up with final scores --------------------
+
+def test_sensitivity_baseline_matches_canonical():
+    """Sensitivity analysis baseline SSS must match data/final/script_servedness.csv."""
+    master = load_all_data()
+    canonical = pd.read_csv(CANONICAL).set_index("script")
+    baseline = master.set_index("script")[["sss"]].rename(columns={"sss": "servedness_score"})
+    merged = baseline.join(canonical, rsuffix="_canon")
+    pd.testing.assert_series_equal(
+        merged["servedness_score"], merged["servedness_score_canon"],
+        check_names=False, atol=1e-9,
+    )

@@ -1,0 +1,181 @@
+exposure,shock,size,input,script,max_rank_move,tier_changes,n_tier_changes,indic_bottom_four
+with_exposure,+10%,0.1,support,Bengali,1,,0,True
+with_exposure,-10%,0.1,support,Bengali,0,,0,True
+with_exposure,+10%,0.1,support,Tamil,0,,0,True
+with_exposure,-10%,0.1,support,Tamil,0,,0,True
+with_exposure,+10%,0.1,support,Devanagari,0,,0,True
+with_exposure,-10%,0.1,support,Devanagari,0,,0,True
+with_exposure,+10%,0.1,support,Telugu,0,,0,True
+with_exposure,-10%,0.1,support,Telugu,0,,0,True
+with_exposure,+10%,0.1,support,Arabic,1,,0,True
+with_exposure,-10%,0.1,support,Arabic,0,,0,True
+with_exposure,+10%,0.1,support,Han,0,,0,True
+with_exposure,-10%,0.1,support,Han,1,Han Moderately served -> Underserved,1,True
+with_exposure,+10%,0.1,support,Katakana,0,,0,True
+with_exposure,-10%,0.1,support,Katakana,0,,0,True
+with_exposure,+10%,0.1,support,Latin,1,,0,True
+with_exposure,-10%,0.1,support,Latin,0,,0,True
+with_exposure,+10%,0.1,support,Cyrillic,0,,0,True
+with_exposure,-10%,0.1,support,Cyrillic,1,,0,True
+with_exposure,+10%,0.1,mean_cosine_distance,Bengali,0,,0,True
+with_exposure,-10%,0.1,mean_cosine_distance,Bengali,0,,0,True
+with_exposure,+10%,0.1,mean_cosine_distance,Tamil,1,,0,True
+with_exposure,-10%,0.1,mean_cosine_distance,Tamil,1,,0,True
+with_exposure,+10%,0.1,mean_cosine_distance,Devanagari,1,,0,True
+with_exposure,-10%,0.1,mean_cosine_distance,Devanagari,0,,0,True
+with_exposure,+10%,0.1,mean_cosine_distance,Telugu,0,,0,True
+with_exposure,-10%,0.1,mean_cosine_distance,Telugu,1,,0,True
+with_exposure,+10%,0.1,mean_cosine_distance,Arabic,1,,0,True
+with_exposure,-10%,0.1,mean_cosine_distance,Arabic,0,Arabic Moderately served -> Underserved,1,True
+with_exposure,+10%,0.1,mean_cosine_distance,Han,0,,0,True
+with_exposure,-10%,0.1,mean_cosine_distance,Han,1,Han Moderately served -> Underserved,1,True
+with_exposure,+10%,0.1,mean_cosine_distance,Katakana,2,,0,True
+with_exposure,-10%,0.1,mean_cosine_distance,Katakana,0,,0,True
+with_exposure,+10%,0.1,mean_cosine_distance,Latin,1,Arabic Moderately served -> Underserved; Han Moderately served -> Underserved,2,True
+with_exposure,-10%,0.1,mean_cosine_distance,Latin,1,,0,True
+with_exposure,+10%,0.1,mean_cosine_distance,Cyrillic,0,Arabic Moderately served -> Underserved; Han Moderately served -> Underserved,2,True
+with_exposure,-10%,0.1,mean_cosine_distance,Cyrillic,2,,0,True
+with_exposure,+10%,0.1,exposure,Bengali,0,,0,True
+with_exposure,-10%,0.1,exposure,Bengali,0,,0,True
+with_exposure,+10%,0.1,exposure,Tamil,0,,0,True
+with_exposure,-10%,0.1,exposure,Tamil,0,,0,True
+with_exposure,+10%,0.1,exposure,Devanagari,0,,0,True
+with_exposure,-10%,0.1,exposure,Devanagari,0,,0,True
+with_exposure,+10%,0.1,exposure,Telugu,0,,0,True
+with_exposure,-10%,0.1,exposure,Telugu,0,,0,True
+with_exposure,+10%,0.1,exposure,Arabic,0,,0,True
+with_exposure,-10%,0.1,exposure,Arabic,0,,0,True
+with_exposure,+10%,0.1,exposure,Han,0,,0,True
+with_exposure,-10%,0.1,exposure,Han,0,,0,True
+with_exposure,+10%,0.1,exposure,Katakana,0,,0,True
+with_exposure,-10%,0.1,exposure,Katakana,0,,0,True
+with_exposure,+10%,0.1,exposure,Latin,0,,0,True
+with_exposure,-10%,0.1,exposure,Latin,0,,0,True
+with_exposure,+10%,0.1,exposure,Cyrillic,0,,0,True
+with_exposure,-10%,0.1,exposure,Cyrillic,0,,0,True
+with_exposure,+20%,0.2,support,Bengali,1,Han Moderately served -> Underserved,1,True
+with_exposure,-20%,0.2,support,Bengali,1,,0,True
+with_exposure,+20%,0.2,support,Tamil,0,,0,True
+with_exposure,-20%,0.2,support,Tamil,0,,0,True
+with_exposure,+20%,0.2,support,Devanagari,0,,0,True
+with_exposure,-20%,0.2,support,Devanagari,0,,0,True
+with_exposure,+20%,0.2,support,Telugu,0,,0,True
+with_exposure,-20%,0.2,support,Telugu,1,,0,True
+with_exposure,+20%,0.2,support,Arabic,1,,0,True
+with_exposure,-20%,0.2,support,Arabic,0,Arabic Moderately served -> Underserved,1,True
+with_exposure,+20%,0.2,support,Han,0,,0,True
+with_exposure,-20%,0.2,support,Han,1,Han Moderately served -> Underserved,1,True
+with_exposure,+20%,0.2,support,Katakana,2,,0,True
+with_exposure,-20%,0.2,support,Katakana,0,,0,True
+with_exposure,+20%,0.2,support,Latin,1,,0,True
+with_exposure,-20%,0.2,support,Latin,0,,0,True
+with_exposure,+20%,0.2,support,Cyrillic,0,,0,True
+with_exposure,-20%,0.2,support,Cyrillic,2,,0,True
+with_exposure,+20%,0.2,mean_cosine_distance,Bengali,0,,0,True
+with_exposure,-20%,0.2,mean_cosine_distance,Bengali,0,,0,True
+with_exposure,+20%,0.2,mean_cosine_distance,Tamil,1,,0,True
+with_exposure,-20%,0.2,mean_cosine_distance,Tamil,1,,0,True
+with_exposure,+20%,0.2,mean_cosine_distance,Devanagari,1,,0,True
+with_exposure,-20%,0.2,mean_cosine_distance,Devanagari,0,,0,True
+with_exposure,+20%,0.2,mean_cosine_distance,Telugu,0,,0,True
+with_exposure,-20%,0.2,mean_cosine_distance,Telugu,1,,0,True
+with_exposure,+20%,0.2,mean_cosine_distance,Arabic,1,,0,True
+with_exposure,-20%,0.2,mean_cosine_distance,Arabic,0,Arabic Moderately served -> Underserved,1,True
+with_exposure,+20%,0.2,mean_cosine_distance,Han,0,,0,True
+with_exposure,-20%,0.2,mean_cosine_distance,Han,1,Han Moderately served -> Underserved,1,True
+with_exposure,+20%,0.2,mean_cosine_distance,Katakana,2,Arabic Moderately served -> Underserved; Han Moderately served -> Underserved,2,True
+with_exposure,-20%,0.2,mean_cosine_distance,Katakana,0,,0,True
+with_exposure,+20%,0.2,mean_cosine_distance,Latin,1,Arabic Moderately served -> Underserved; Han Moderately served -> Underserved,2,True
+with_exposure,-20%,0.2,mean_cosine_distance,Latin,1,Latin Well served -> Moderately served,1,True
+with_exposure,+20%,0.2,mean_cosine_distance,Cyrillic,0,Arabic Moderately served -> Underserved; Han Moderately served -> Underserved,2,True
+with_exposure,-20%,0.2,mean_cosine_distance,Cyrillic,2,,0,True
+with_exposure,+20%,0.2,exposure,Bengali,0,,0,True
+with_exposure,-20%,0.2,exposure,Bengali,0,,0,True
+with_exposure,+20%,0.2,exposure,Tamil,0,,0,True
+with_exposure,-20%,0.2,exposure,Tamil,0,,0,True
+with_exposure,+20%,0.2,exposure,Devanagari,0,,0,True
+with_exposure,-20%,0.2,exposure,Devanagari,0,,0,True
+with_exposure,+20%,0.2,exposure,Telugu,0,,0,True
+with_exposure,-20%,0.2,exposure,Telugu,0,,0,True
+with_exposure,+20%,0.2,exposure,Arabic,0,,0,True
+with_exposure,-20%,0.2,exposure,Arabic,1,,0,True
+with_exposure,+20%,0.2,exposure,Han,1,,0,True
+with_exposure,-20%,0.2,exposure,Han,0,,0,True
+with_exposure,+20%,0.2,exposure,Katakana,0,,0,True
+with_exposure,-20%,0.2,exposure,Katakana,0,,0,True
+with_exposure,+20%,0.2,exposure,Latin,0,,0,True
+with_exposure,-20%,0.2,exposure,Latin,0,,0,True
+with_exposure,+20%,0.2,exposure,Cyrillic,0,,0,True
+with_exposure,-20%,0.2,exposure,Cyrillic,0,,0,True
+no_exposure,+10%,0.1,support,Bengali,1,,0,True
+no_exposure,-10%,0.1,support,Bengali,0,,0,True
+no_exposure,+10%,0.1,support,Tamil,0,,0,True
+no_exposure,-10%,0.1,support,Tamil,0,,0,True
+no_exposure,+10%,0.1,support,Devanagari,0,,0,True
+no_exposure,-10%,0.1,support,Devanagari,0,,0,True
+no_exposure,+10%,0.1,support,Telugu,0,,0,True
+no_exposure,-10%,0.1,support,Telugu,0,,0,True
+no_exposure,+10%,0.1,support,Arabic,1,,0,True
+no_exposure,-10%,0.1,support,Arabic,0,,0,True
+no_exposure,+10%,0.1,support,Han,0,,0,True
+no_exposure,-10%,0.1,support,Han,1,Han Moderately served -> Underserved,1,True
+no_exposure,+10%,0.1,support,Katakana,0,,0,True
+no_exposure,-10%,0.1,support,Katakana,0,,0,True
+no_exposure,+10%,0.1,support,Latin,1,,0,True
+no_exposure,-10%,0.1,support,Latin,0,,0,True
+no_exposure,+10%,0.1,support,Cyrillic,0,,0,True
+no_exposure,-10%,0.1,support,Cyrillic,1,,0,True
+no_exposure,+10%,0.1,mean_cosine_distance,Bengali,0,,0,True
+no_exposure,-10%,0.1,mean_cosine_distance,Bengali,0,,0,True
+no_exposure,+10%,0.1,mean_cosine_distance,Tamil,1,,0,True
+no_exposure,-10%,0.1,mean_cosine_distance,Tamil,1,,0,True
+no_exposure,+10%,0.1,mean_cosine_distance,Devanagari,1,,0,True
+no_exposure,-10%,0.1,mean_cosine_distance,Devanagari,0,,0,True
+no_exposure,+10%,0.1,mean_cosine_distance,Telugu,0,,0,True
+no_exposure,-10%,0.1,mean_cosine_distance,Telugu,1,,0,True
+no_exposure,+10%,0.1,mean_cosine_distance,Arabic,1,,0,True
+no_exposure,-10%,0.1,mean_cosine_distance,Arabic,0,Arabic Moderately served -> Underserved,1,True
+no_exposure,+10%,0.1,mean_cosine_distance,Han,0,,0,True
+no_exposure,-10%,0.1,mean_cosine_distance,Han,1,Han Moderately served -> Underserved,1,True
+no_exposure,+10%,0.1,mean_cosine_distance,Katakana,2,,0,True
+no_exposure,-10%,0.1,mean_cosine_distance,Katakana,0,,0,True
+no_exposure,+10%,0.1,mean_cosine_distance,Latin,1,Arabic Moderately served -> Underserved; Han Moderately served -> Underserved,2,True
+no_exposure,-10%,0.1,mean_cosine_distance,Latin,1,,0,True
+no_exposure,+10%,0.1,mean_cosine_distance,Cyrillic,0,Arabic Moderately served -> Underserved; Han Moderately served -> Underserved,2,True
+no_exposure,-10%,0.1,mean_cosine_distance,Cyrillic,2,,0,True
+no_exposure,+20%,0.2,support,Bengali,1,Han Moderately served -> Underserved,1,True
+no_exposure,-20%,0.2,support,Bengali,1,,0,True
+no_exposure,+20%,0.2,support,Tamil,0,,0,True
+no_exposure,-20%,0.2,support,Tamil,0,,0,True
+no_exposure,+20%,0.2,support,Devanagari,0,,0,True
+no_exposure,-20%,0.2,support,Devanagari,0,,0,True
+no_exposure,+20%,0.2,support,Telugu,0,,0,True
+no_exposure,-20%,0.2,support,Telugu,1,,0,True
+no_exposure,+20%,0.2,support,Arabic,1,,0,True
+no_exposure,-20%,0.2,support,Arabic,0,Arabic Moderately served -> Underserved,1,True
+no_exposure,+20%,0.2,support,Han,0,,0,True
+no_exposure,-20%,0.2,support,Han,1,Han Moderately served -> Underserved,1,True
+no_exposure,+20%,0.2,support,Katakana,2,,0,True
+no_exposure,-20%,0.2,support,Katakana,0,,0,True
+no_exposure,+20%,0.2,support,Latin,1,,0,True
+no_exposure,-20%,0.2,support,Latin,0,,0,True
+no_exposure,+20%,0.2,support,Cyrillic,0,,0,True
+no_exposure,-20%,0.2,support,Cyrillic,1,,0,True
+no_exposure,+20%,0.2,mean_cosine_distance,Bengali,0,,0,True
+no_exposure,-20%,0.2,mean_cosine_distance,Bengali,0,,0,True
+no_exposure,+20%,0.2,mean_cosine_distance,Tamil,1,,0,True
+no_exposure,-20%,0.2,mean_cosine_distance,Tamil,1,,0,True
+no_exposure,+20%,0.2,mean_cosine_distance,Devanagari,1,,0,True
+no_exposure,-20%,0.2,mean_cosine_distance,Devanagari,0,,0,True
+no_exposure,+20%,0.2,mean_cosine_distance,Telugu,0,,0,True
+no_exposure,-20%,0.2,mean_cosine_distance,Telugu,1,,0,True
+no_exposure,+20%,0.2,mean_cosine_distance,Arabic,1,,0,True
+no_exposure,-20%,0.2,mean_cosine_distance,Arabic,0,Arabic Moderately served -> Underserved,1,True
+no_exposure,+20%,0.2,mean_cosine_distance,Han,0,,0,True
+no_exposure,-20%,0.2,mean_cosine_distance,Han,1,Han Moderately served -> Underserved,1,True
+no_exposure,+20%,0.2,mean_cosine_distance,Katakana,2,Arabic Moderately served -> Underserved; Han Moderately served -> Underserved,2,True
+no_exposure,-20%,0.2,mean_cosine_distance,Katakana,0,,0,True
+no_exposure,+20%,0.2,mean_cosine_distance,Latin,1,Arabic Moderately served -> Underserved; Han Moderately served -> Underserved,2,True
+no_exposure,-20%,0.2,mean_cosine_distance,Latin,1,Latin Well served -> Moderately served,1,True
+no_exposure,+20%,0.2,mean_cosine_distance,Cyrillic,0,Arabic Moderately served -> Underserved; Han Moderately served -> Underserved,2,True
+no_exposure,-20%,0.2,mean_cosine_distance,Cyrillic,2,,0,True

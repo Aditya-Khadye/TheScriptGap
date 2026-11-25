@@ -1,0 +1,10 @@
+script,sss_committed,sss_recomputed_file,tier_committed,sss_family,tier_family
+Bengali,0.0,0.0,Underserved,0.0,Underserved
+Tamil,0.0,0.0,Underserved,0.01357934689380974,Underserved
+Devanagari,0.13736317085960006,0.13736316371379975,Underserved,0.048106869341508096,Underserved
+Telugu,0.15894870401790379,0.15894867851952554,Underserved,0.058423131425971074,Underserved
+Han,0.33514909003636323,0.33514905228957453,Moderately served,0.3147797316809476,Moderately served
+Arabic,0.33260583744307853,0.33260578207022296,Moderately served,0.35856629517182065,Moderately served
+Latin,0.9861282998777209,0.986128421032683,Well served,0.8918568552011293,Well served
+Katakana,0.9357598149960934,0.9357597986567537,Well served,0.9881242944106672,Well served
+Cyrillic,1.0,1.0,Well served,1.0,Well served

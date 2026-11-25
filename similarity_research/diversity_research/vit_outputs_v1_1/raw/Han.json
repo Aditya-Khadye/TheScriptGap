@@ -1,0 +1,12 @@
+{
+  "script": "Han",
+  "total_fonts": 177,
+  "fonts_analyzed": 97,
+  "reference_chars": 88,
+  "glyphs_rendered": 7990,
+  "mean_cosine_distance": 0.1645893007516861,
+  "std_cosine_distance": 0.09079588949680328,
+  "embedding_spread": 0.013736455701291561,
+  "effective_dimensions": 9,
+  "n_embeddings": 97
+}

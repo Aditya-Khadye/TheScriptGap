@@ -1,0 +1,12 @@
+{
+  "script": "Bengali",
+  "total_fonts": 25,
+  "fonts_analyzed": 24,
+  "reference_chars": 91,
+  "glyphs_rendered": 2013,
+  "mean_cosine_distance": 0.0722847431898117,
+  "std_cosine_distance": 0.04009968042373657,
+  "embedding_spread": 0.008892081677913666,
+  "effective_dimensions": 6,
+  "n_embeddings": 24
+}

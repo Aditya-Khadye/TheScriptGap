@@ -1,0 +1,74 @@
+{
+  "generated_at": "2026-11-04T11:21:04.062344+00:00",
+  "git_commit": "5d88185",
+  "model": {
+    "name": "ViT-B/16",
+    "weights": "IMAGENET1K_V1",
+    "feature_dim": 768
+  },
+  "rendering": {
+    "canvas_size": 224,
+    "font_render_size": 140,
+    "max_fonts_per_script": 100,
+    "layout_engine": "raqm",
+    "pillow_version": "13.0.0",
+    "raqm_version": "0.11.0",
+    "google_fonts_commit": "07d64d5a667dd7dffeff065fc31ca82c5263dbac"
+  },
+  "embeddings": [
+    {
+      "file": "embeddings/Tamil_embeddings.npy",
+      "names_file": "embeddings/Tamil_font_names.csv",
+      "script": "Tamil",
+      "rows": 34
+    },
+    {
+      "file": "embeddings/Bengali_embeddings.npy",
+      "names_file": "embeddings/Bengali_font_names.csv",
+      "script": "Bengali",
+      "rows": 24
+    },
+    {
+      "file": "embeddings/Devanagari_embeddings.npy",
+      "names_file": "embeddings/Devanagari_font_names.csv",
+      "script": "Devanagari",
+      "rows": 100
+    },
+    {
+      "file": "embeddings/Telugu_embeddings.npy",
+      "names_file": "embeddings/Telugu_font_names.csv",
+      "script": "Telugu",
+      "rows": 37
+    },
+    {
+      "file": "embeddings/Latin_embeddings.npy",
+      "names_file": "embeddings/Latin_font_names.csv",
+      "script": "Latin",
+      "rows": 100
+    },
+    {
+      "file": "embeddings/Arabic_embeddings.npy",
+      "names_file": "embeddings/Arabic_font_names.csv",
+      "script": "Arabic",
+      "rows": 99
+    },
+    {
+      "file": "embeddings/Cyrillic_embeddings.npy",
+      "names_file": "embeddings/Cyrillic_font_names.csv",
+      "script": "Cyrillic",
+      "rows": 100
+    },
+    {
+      "file": "embeddings/Han_embeddings.npy",
+      "names_file": "embeddings/Han_font_names.csv",
+      "script": "Han",
+      "rows": 97
+    },
+    {
+      "file": "embeddings/Katakana_embeddings.npy",
+      "names_file": "embeddings/Katakana_font_names.csv",
+      "script": "Katakana",
+      "rows": 99
+    }
+  ]
+}

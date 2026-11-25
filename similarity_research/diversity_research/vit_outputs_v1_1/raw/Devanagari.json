@@ -1,0 +1,12 @@
+{
+  "script": "Devanagari",
+  "total_fonts": 216,
+  "fonts_analyzed": 100,
+  "reference_chars": 101,
+  "glyphs_rendered": 9947,
+  "mean_cosine_distance": 0.07770983129739761,
+  "std_cosine_distance": 0.058946643024683,
+  "embedding_spread": 0.009494046680629253,
+  "effective_dimensions": 12,
+  "n_embeddings": 100
+}

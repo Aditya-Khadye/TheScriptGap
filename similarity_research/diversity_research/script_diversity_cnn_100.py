@@ -29,8 +29,20 @@ Architecture: CNN-B/16 (Vision Transformer, Base, 16×16 patches)
 Data Source: Google Fonts (github.com/google/fonts)
 Usage:
     1. Ensure ./fonts/ exists (git clone --depth 1 https://github.com/google/fonts)
-    2. Run: python script_diversity_cnn_100.py
-    3. Output: cnn_outputs_100/diversity_index_results.csv
+    2. Run: python script_diversity_cnn_100.py [--fonts-dir DIR] [--output-dir DIR]
+                                             [--scripts Latin,Tamil,...]
+    3. Output: <output-dir>/diversity_index_results.csv
+    Runs can be split by --scripts into the same --output-dir; each script's
+    result is kept in <output-dir>/raw/ and the index is recomputed over all
+    scripts present there.
+
+v1.1 changes:
+    - Text layout is pinned to libraqm (HarfBuzz shaping). v1.0 left it to
+      Pillow, which shapes only when libraqm is installed; the committed v1.0
+      outputs were rendered unshaped (analysis/shaping_check.py).
+    - Latin uses the same protocol as the other scripts (99 reference glyphs
+      at 140 px, 100-font sample) instead of its own 10-capital run.
+    - metadata.json records the layout engine and the google/fonts commit.
 ===============================================================================
 """
 
@@ -39,6 +51,7 @@ import sys
 import logging
 import datetime
 import json
+import argparse
 import subprocess
 from pathlib import Path
 from collections import defaultdict
@@ -49,7 +62,8 @@ import pandas as pd
 import torch
 import torch.nn as nn
 from torchvision import models, transforms
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, features
+import PIL
 from fontTools.ttLib import TTFont
 
 
@@ -91,6 +105,12 @@ CANVAS_SIZE = 224
 FONT_RENDER_SIZE = 140  # slightly smaller to fit complex glyphs
 MIN_CODEPOINT_COVERAGE = 10
 MAX_FONTS_PER_SCRIPT = 100
+
+# Text layout. Pillow uses libraqm (HarfBuzz shaping) when it is installed and an
+# unshaped layout otherwise, so the same code gives different glyphs on different
+# machines unless the engine is pinned. Shaping is required for conjuncts, Arabic
+# joining forms and fonts that only draw base letters through GSUB.
+LAYOUT_ENGINE = ImageFont.Layout.RAQM
 
 # ---------------------------------------------------------------------------
 # 100 Reference Characters Per Script
@@ -647,6 +667,40 @@ REFERENCE_CHARS = {
         ],
     },
 
+    "Latin": {
+        # Mirrors the Cyrillic set: full upper and lower case, accented and
+        # extended letters in case pairs, and one script-specific sign.
+        "uppercase": list("ABCDEFGHIJKLMNOPQRSTUVWXYZ"),
+        "lowercase": list("abcdefghijklmnopqrstuvwxyz"),
+        "extended": [
+            "\u00C0", "\u00E0",  # À à
+            "\u00C1", "\u00E1",  # Á á
+            "\u00C2", "\u00E2",  # Â â
+            "\u00C4", "\u00E4",  # Ä ä
+            "\u00C5", "\u00E5",  # Å å
+            "\u00C6", "\u00E6",  # Æ æ
+            "\u00C7", "\u00E7",  # Ç ç
+            "\u00C8", "\u00E8",  # È è
+            "\u00C9", "\u00E9",  # É é
+            "\u00CA", "\u00EA",  # Ê ê
+            "\u00CB", "\u00EB",  # Ë ë
+            "\u00CD", "\u00ED",  # Í í
+            "\u00D1", "\u00F1",  # Ñ ñ
+            "\u00D3", "\u00F3",  # Ó ó
+            "\u00D4", "\u00F4",  # Ô ô
+            "\u00D6", "\u00F6",  # Ö ö
+            "\u00D8", "\u00F8",  # Ø ø
+            "\u00DA", "\u00FA",  # Ú ú
+            "\u00DC", "\u00FC",  # Ü ü
+            "\u010C", "\u010D",  # Č č
+            "\u0141", "\u0142",  # Ł ł
+            "\u0160", "\u0161",  # Š š
+            "\u017D", "\u017E",  # Ž ž
+        ],
+        "numerals_punct": [
+            "&",
+        ],
+    },
     "Cyrillic": {
         "uppercase": [
             "\u0410",  # А
@@ -962,6 +1016,8 @@ REFERENCE_CHARS = {
 
 # Unicode ranges for script detection
 TARGET_SCRIPTS = {
+    "Latin":       [(0x0041, 0x005A), (0x0061, 0x007A), (0x00C0, 0x00FF),
+                    (0x0100, 0x017F), (0x0180, 0x024F), (0x1E00, 0x1EFF)],
     "Cyrillic":    [(0x0400, 0x04FF), (0x0500, 0x052F)],
     "Katakana":    [(0x30A0, 0x30FF), (0x31F0, 0x31FF)],
     "Devanagari":  [(0x0900, 0x097F), (0xA8E0, 0xA8FF)],
@@ -1057,7 +1113,7 @@ def render_glyph(font_path: str, character: str,
                  font_size: int = FONT_RENDER_SIZE) -> Optional[Image.Image]:
     """Render a character centered on a grayscale canvas."""
     try:
-        pil_font = ImageFont.truetype(font_path, size=font_size)
+        pil_font = ImageFont.truetype(font_path, size=font_size, layout_engine=LAYOUT_ENGINE)
         img = Image.new("L", (canvas_size, canvas_size), color=255)
         draw = ImageDraw.Draw(img)
 
@@ -1072,7 +1128,7 @@ def render_glyph(font_path: str, character: str,
         if text_w > canvas_size - 10 or text_h > canvas_size - 10:
             scale = min((canvas_size - 10) / text_w, (canvas_size - 10) / text_h)
             new_size = max(10, int(font_size * scale))
-            pil_font = ImageFont.truetype(font_path, size=new_size)
+            pil_font = ImageFont.truetype(font_path, size=new_size, layout_engine=LAYOUT_ENGINE)
             img = Image.new("L", (canvas_size, canvas_size), color=255)
             draw = ImageDraw.Draw(img)
             bbox = draw.textbbox((0, 0), character, font=pil_font)
@@ -1176,8 +1232,10 @@ def compute_diversity_metrics(embeddings: np.ndarray) -> Dict:
 # Main Pipeline
 # ===========================================================================
 
-def run_pipeline(fonts_dir: Path) -> pd.DataFrame:
+def run_pipeline(fonts_dir: Path, scripts: Optional[List[str]] = None) -> pd.DataFrame:
     script_fonts = discover_fonts_per_script(fonts_dir)
+    if scripts:
+        script_fonts = {s: f for s, f in script_fonts.items() if s in scripts}
     extractor = ResNetFeatureExtractor(device="cuda" if torch.cuda.is_available() else "cpu")
     print("Using GPU for feature extraction") if torch.cuda.is_available() else print("Using CPU for feature extraction")
 
@@ -1245,14 +1303,17 @@ def run_pipeline(fonts_dir: Path) -> pd.DataFrame:
             "row_index": range(len(font_names)),
         }).to_csv(EMBEDDINGS_DIR / f"{script_name}_font_names.csv", index=False)
 
-        results.append({
+        row = {
             "script": script_name,
             "total_fonts": len(font_paths),
             "fonts_analyzed": len(font_avg_embeddings),
             "reference_chars": len(ref_chars),
             "glyphs_rendered": total_glyphs,
             **metrics,
-        })
+        }
+        results.append(row)
+        (OUTPUT_DIR / "raw").mkdir(parents=True, exist_ok=True)
+        (OUTPUT_DIR / "raw" / f"{script_name}.json").write_text(json.dumps(row, default=float, indent=2) + "\n")
 
         logger.info(f"  Diversity: cosine_dist={metrics['mean_cosine_distance']:.4f}, "
                      f"eff_dims={metrics['effective_dimensions']}")
@@ -1295,17 +1356,42 @@ def print_report(df: pd.DataFrame):
     print("\n" + "=" * 80)
 
 
+def google_fonts_commit(fonts_dir: Path) -> Optional[str]:
+    try:
+        return subprocess.check_output(["git", "-C", str(fonts_dir), "rev-parse", "HEAD"],
+                                       stderr=subprocess.DEVNULL, text=True).strip()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return None
+
+
 def main():
-    if not GOOGLE_FONTS_DIR.exists():
-        logger.error(f"Google Fonts not found at {GOOGLE_FONTS_DIR}")
+    global OUTPUT_DIR, FONT_SIMILARITY_DIR, EMBEDDINGS_DIR
+    ap = argparse.ArgumentParser(description="ResNet-50 script diversity, 100-glyph edition")
+    ap.add_argument("--fonts-dir", type=Path, default=GOOGLE_FONTS_DIR)
+    ap.add_argument("--output-dir", type=Path, default=OUTPUT_DIR)
+    ap.add_argument("--scripts", default="", help="comma-separated subset; default all")
+    args = ap.parse_args()
+
+    if not features.check("raqm"):
+        logger.error("This Pillow has no libraqm, so text cannot be shaped. "
+                     "Install libraqm (or a Pillow wheel that bundles it) and rerun.")
+        sys.exit(1)
+    if not args.fonts_dir.exists():
+        logger.error(f"Google Fonts not found at {args.fonts_dir}")
         logger.error("Clone it: git clone --depth 1 https://github.com/google/fonts")
         sys.exit(1)
 
-    OUTPUT_DIR.mkdir(exist_ok=True)
-    EMBEDDINGS_DIR.mkdir(exist_ok=True)
+    OUTPUT_DIR = args.output_dir
+    FONT_SIMILARITY_DIR = OUTPUT_DIR / "font_similarity_pairs"
+    EMBEDDINGS_DIR = OUTPUT_DIR / "embeddings"
+    for d in (OUTPUT_DIR, FONT_SIMILARITY_DIR, EMBEDDINGS_DIR):
+        d.mkdir(parents=True, exist_ok=True)
 
     logger.info("Starting CNN Diversity Pipeline (100-glyph edition)...")
-    raw = run_pipeline(GOOGLE_FONTS_DIR)
+    scripts = [s for s in args.scripts.split(",") if s] or None
+    run_pipeline(args.fonts_dir, scripts)
+    raw_files = sorted((OUTPUT_DIR / "raw").glob("*.json"))
+    raw = pd.DataFrame([json.loads(f.read_text()) for f in raw_files])
 
     if raw.empty:
         logger.error("No results!")
@@ -1333,6 +1419,10 @@ def main():
             "canvas_size": CANVAS_SIZE,
             "font_render_size": FONT_RENDER_SIZE,
             "max_fonts_per_script": MAX_FONTS_PER_SCRIPT,
+            "layout_engine": "raqm",
+            "pillow_version": PIL.__version__,
+            "raqm_version": features.version("raqm"),
+            "google_fonts_commit": google_fonts_commit(args.fonts_dir),
         },
         embeddings=[
             {

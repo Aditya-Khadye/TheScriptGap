@@ -2,7 +2,7 @@
 ===============================================================================
 Robustness & sensitivity analysis for the Script Servedness Score (SSS)
 ===============================================================================
-Project:  TheScriptGap  |  v1.0
+Project:  TheScriptGap  |  v1.1 (100-glyph runs are the v1.1 shaped runs; v1.0 kept for comparison)
 
 Answers two research-grade questions, entirely from committed data:
 
@@ -44,8 +44,10 @@ except ModuleNotFoundError:
 
 SIM = REPO_ROOT / "similarity_research" / "diversity_research"
 DIVERSITY_SOURCES = {
-    "ViT-B/16 (100-glyph)": SIM / "vit_outputs_100" / "diversity_index_summary.csv",
-    "ResNet-50 (100-glyph)": SIM / "cnn_outputs_100" / "diversity_index_summary.csv",
+    "ViT-B/16 (100-glyph)": SIM / "vit_outputs_v1_1" / "diversity_index_summary.csv",
+    "ResNet-50 (100-glyph)": SIM / "cnn_outputs_v1_1" / "diversity_index_summary.csv",
+    "ViT-B/16 (100-glyph, v1.0 unshaped)": SIM / "vit_outputs_100" / "diversity_index_summary.csv",
+    "ResNet-50 (100-glyph, v1.0 unshaped)": SIM / "cnn_outputs_100" / "diversity_index_summary.csv",
     "Classical CV": SIM / "classical_cv_outputs" / "diversity_classical_summary.csv",
     "ViT-B/16 (10-glyph)": SIM / "vit_outputs" / "diversity_index_summary.csv",
 }
